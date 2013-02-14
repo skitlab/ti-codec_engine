@@ -1,0 +1,3 @@
+<repository name="examples" producerId="undefined" providerId="codec_engine_3_22_01_06">
+  <pkg name="ti.sdo.fc.ires.examples.codecs.auddec1" originalProviderId="framework_components_3_22_01_07"/>
+</repository>

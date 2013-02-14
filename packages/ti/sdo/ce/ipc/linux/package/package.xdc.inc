@@ -1,0 +1,14 @@
+package.xdc
+package.xs
+Ipc.xdc
+Ipc.xdt
+package/ti.sdo.ce.ipc.linux.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_sdo_ce_ipc_linux.java
+package/ti_sdo_ce_ipc_linux.class
+package/package_ti.sdo.ce.ipc.linux.c
+package/package.defs.h
+package/ti.sdo.ce.ipc.linux.ccs

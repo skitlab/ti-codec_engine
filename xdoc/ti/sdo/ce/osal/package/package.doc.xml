@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.sdo.ce.osal' nodoc='0' root='../../../../' summary='OS+Abstraction+Layer'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.sdo.ce.osal%3C%2Fspan%3E%3C%2Fgo%3E+%5B2%2C+0%2C+2%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='IOsal' kind='interface' nodoc='0' metaonly='1' summary='OSAL+interface'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Fce%2Fosal%2Fpackage.html%22+title%3D%22ti.sdo.ce.osal%22%3Eti.sdo.ce.osal%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Einterface%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EIOsal%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Einterface%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EIOsal%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+        </group>
+    </unit>
+    <unit name='Global' kind='module' nodoc='0' metaonly='1' summary='Global+OS+Abstract+Layer+Configuration'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Fce%2Fosal%2Fpackage.html%22+title%3D%22ti.sdo.ce.osal%22%3Eti.sdo.ce.osal%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EGlobal%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EGlobal%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+Global+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.sdo.ce.osal.Global%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+            <decl kind='enum' name='RuntimeEnv' anchor='.Runtime.Env' altext='ti.sdo.ce.osal.Global.RuntimeEnv' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='All+runtime+OSs+that+are+abstracted+by+this+package'>
+                <decl kind='enumval' name='NONE' anchor='.N.O.N.E'/>
+                <decl kind='enumval' name='DSPBIOS' anchor='.D.S.P.B.I.O.S'/>
+                <decl kind='enumval' name='LINUX' anchor='.L.I.N.U.X'/>
+                <decl kind='enumval' name='DSPLINK_BIOS' anchor='.D.S.P.L.I.N.K_.B.I.O.S'/>
+                <decl kind='enumval' name='DSPLINK_LINUX' anchor='.D.S.P.L.I.N.K_.L.I.N.U.X'/>
+                <decl kind='enumval' name='WINCE' anchor='.W.I.N.C.E'/>
+                <decl kind='enumval' name='DSPLINK_WINCE' anchor='.D.S.P.L.I.N.K_.W.I.N.C.E'/>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eenum%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ERuntimeEnv%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' comment='no+OS%3B+threads+are+not+truly+supported' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ENONE%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' comment='DSP%2FBIOS' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EDSPBIOS%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' comment='Linux' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELINUX%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' comment='DSPLINK+%2B+BIOS+%28DSP%29' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EDSPLINK_BIOS%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' comment='DSPLINK+%2B+Linux+%28ARM%29' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EDSPLINK_LINUX%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' comment='Windows+CE' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EWINCE%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' comment='DSPLINK+%2B+Windows+CE+%28ARM%29' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EDSPLINK_WINCE%3C%2Fspan%3E%3C%2Fgo%3E'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Ci%3Evalues+of+type+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3ERuntimeEnv%3C%2Fspan%3E%3C%2Fgo%3E%3C%2Fi%3E'/>
+                    <line tab='1' comment='no+OS%3B+threads+are+not+truly+supported' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3ENONE%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='DSP%2FBIOS' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EDSPBIOS%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='Linux' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3ELINUX%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='DSPLINK+%2B+BIOS+%28DSP%29' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EDSPLINK_BIOS%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='DSPLINK+%2B+Linux+%28ARM%29' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EDSPLINK_LINUX%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='Windows+CE' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EWINCE%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='DSPLINK+%2B+Windows+CE+%28ARM%29' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EDSPLINK_WINCE%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopMeta>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2FruntimeEnv%2Fpackage.html%22+title%3D%22runtimeEnv%22%3EruntimeEnv%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='config' name='embedBuildInfo' anchor='embed.Build.Info' altext='ti.sdo.ce.osal.Global.embedBuildInfo' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Indication+whether+to+embed+build+info+%28packages+and+their+directories%29%0A++into+the+generated+executable+for+debugging%2Fdiagnostic+purposes.%0A++Setting+this+to+%27false%27+may+reduce+the+static+data+size+by+around+1K.%0A++Applies+to+all+configurations'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EembedBuildInfo%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Etrue%253C%252Fspan%253E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EembedBuildInfo%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%3C%2Fi%3E+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Etrue%253C%252Fspan%253E%3B'/>
+                </synopMeta>
+            </decl>
+            <decl kind='config' name='os' anchor='os' altext='ti.sdo.ce.osal.Global.os' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='A+specific+OSAL+implementations+%22Settings%22+module%2C+for+example%2C%0A++ti.sdo.ce.osal.bios.Settings+or+ti.sdo.ce.osal.linux.Settings.%0A++To+set+the+OS+of+the+executable+to+BIOS%2C+set+Global.os+to%3A%0A++xdc.useModule%28%27ti.sdo.ce.osal.bios.Settings%27%29'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Fce%2Fosal%2FIOsal.html%23.Module%22+title%3D%22ti.sdo.ce.osal.IOsal.Module%22%3EIOsal.Module%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eos%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3Eos%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Fce%2Fosal%2FIOsal.html%23.Module%22+title%3D%22ti.sdo.ce.osal.IOsal.Module%22%3EIOsal.Module%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='When+this+config+param+is+used%2C+the+%7B%40+link+ti.sdo.ce.ipc.Settings%23ipc%0A++config+param+must+also+be+set.'/>
+                    <docPara content='This+should+only+be+used+to+explicitly+configure+the+OSAL+to%0A++a+package+not+provided+with+Codec+Engine.++To+use+an+OSAL+provided%0A++by+Codec+Engine%2C+it%27s+recommended+to+configure+the+OSAL+using%0A++the+runtimeEnv+config+param+instead+of+this+one.'/>
+                    <docPara content='See+%7B%40+link+http%3A%2F%2Fwiki.davincidsp.com%2Findex.php%3Ftitle%3DCE_Config_Updates%0A++for+more+details%7D'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2FruntimeEnv%2Fpackage.html%22+title%3D%22runtimeEnv%22%3EruntimeEnv%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='runtimeEnv' anchor='runtime.Env' altext='ti.sdo.ce.osal.Global.runtimeEnv' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='The+runtime+OS+used+to+implement+the+abstractions+provided+by%0A++this+package'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Fce%2Fosal%2FGlobal.html%23.Runtime.Env%22+title%3D%22ti.sdo.ce.osal.Global.RuntimeEnv%22%3EGlobal.RuntimeEnv%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EruntimeEnv%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EruntimeEnv%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Fce%2Fosal%2FGlobal.html%23.Runtime.Env%22+title%3D%22ti.sdo.ce.osal.Global.RuntimeEnv%22%3EGlobal.RuntimeEnv%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22RuntimeEnv.html%22+title%3D%22RuntimeEnv%22%3ERuntimeEnv%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='skipVirtualAddressTranslation' anchor='skip.Virtual.Address.Translation' altext='ti.sdo.ce.osal.Global.skipVirtualAddressTranslation' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='If+set+to+true%2C+will+make+Memory_getBufferPhysicalAddress%28%29%0A++skip+address+translation+and+return+the+given+address+as+the%0A++physical+address.+Needed+when+the+VISA+calls+are+made+with%0A++physical+buffer+addresses+instead+of+virtual+ones%2C+specifically%0A++in+the+multi-process-via-kernel-driver+case'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EskipVirtualAddressTranslation%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Efalse%253C%252Fspan%253E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EskipVirtualAddressTranslation%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%3C%2Fi%3E+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Efalse%253C%252Fspan%253E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='Applies+only+to+environments+where+virtual+memory+is+used+%28e.g.+Linux%29'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+            <decl kind='fxn' name='addObjectToProgramInfoFile' anchor='add.Object.To.Program.Info.File' altext='ti.sdo.ce.osal.Global.addObjectToProgramInfoFile' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='Internal+method+for+adding+an+object+to+an+XML-like+program+info+file%0A++created+alongside+the+executable'>
+                <synopSpec>
+                    <line tab='0' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3Efunction+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-id%22%3EaddObjectToProgramInfoFile%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EobjName%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eobj%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EaddObjectToProgramInfoFile%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EobjName%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eobj%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+            </decl>
+            <decl kind='fxn' name='parseInfoFile' anchor='parse.Info.File' altext='ti.sdo.ce.osal.Global.parseInfoFile' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='Internal+method+for+parsing+an+XML-like+server+program+file%0A++that+lies+alongside+the+executable'>
+                <synopSpec>
+                    <line tab='0' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3Efunction+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-id%22%3EparseInfoFile%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EinfoFile%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3EparseInfoFile%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EinfoFile%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+            </decl>
+            <decl kind='fxn' name='validate' anchor='validate' altext='ti.sdo.ce.osal.Global.validate' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='Internal+validate+method+%28see+package.xs%29'>
+                <synopSpec>
+                    <line tab='0' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3Efunction+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-id%22%3Evalidate%3C%2Fspan%3E%3C%2Fgo%3E%28++%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EGlobal.%3Cspan+class%3D%22xdoc-id%22%3Evalidate%3C%2Fspan%3E%3C%2Fgo%3E%28++%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+            </decl>
+        </group>
+    </unit>
+    <docSect name='details'>
+        <docPara content='This+packages+defines+a+set+of+modules+used+by+the+Codec+Engine+runtime%0A++to+interact+with+the+runtime+host+OS.++Clients+that+restrict+themselves%0A++to+the+services+of+theis+package+can+operate+unchanged+on+any+OS%0A++supported+by+this+package.'/>
+    </docSect>
+</package>

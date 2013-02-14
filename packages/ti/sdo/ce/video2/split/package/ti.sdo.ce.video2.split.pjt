@@ -1,0 +1,15 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.video2.split"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.video2.split.c"
+Source="../viddec2front.c"
+Source="../viddec2front_skel.c"
+Source="../viddec2front_stubs.c"
+Source="../viddec2back.c"
+Source="../viddec2back_skel.c"
+Source="../viddec2back_stubs.c"

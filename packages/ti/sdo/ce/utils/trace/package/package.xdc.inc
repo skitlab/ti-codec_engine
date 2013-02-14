@@ -1,0 +1,16 @@
+package.xdc
+package.xs
+TraceUtil.xdc
+TraceUtil.xdt
+package/ti.sdo.ce.utils.trace.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_sdo_ce_utils_trace.java
+package/ti_sdo_ce_utils_trace.class
+package/package_ti.sdo.ce.utils.trace.c
+package/package.defs.h
+package/TraceUtil_Module_GateProxy.h
+package/internal/TraceUtil_Module_GateProxy.xdc.h
+package/ti.sdo.ce.utils.trace.ccs

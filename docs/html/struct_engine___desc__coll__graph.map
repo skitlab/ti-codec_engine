@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" href="$struct_engine___alg_desc.html" title="Descriptor for an alg. This object can be passed to Engine_addAlg(), to dynamically add an alg to an ..." alt="" coords="8,266,144,503" />
+<area shape="rect" href="$struct_i_a_l_g___fxns.html" title="Defines the fields and methods that must be supplied by all XDAIS algorithms." alt="" coords="13,9,138,201" />
+</map>

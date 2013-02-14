@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.alg" version="1, 0, 1" producerId="undefined">
+    <units>
+        <module name="Algorithm"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="Algorithm_BIOS.c"/>
+        <srcFile name="Algorithm_noOS.c"/>
+        <srcFile name="alg_control.c"/>
+        <srcFile name="alg_create.c"/>
+        <srcFile name="alg_malloc.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/debug/Algorithm_BIOS.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/Algorithm_BIOS/package/package_ti.sdo.ce.alg.oem3.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/debug/Algorithm_BIOS/Algorithm_BIOS.oem3.dep" src="Algorithm_BIOS.c"/>
+        <srcFile name="lib/release/Algorithm_BIOS.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/Algorithm_BIOS/package/package_ti.sdo.ce.alg.oem3.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/release/Algorithm_BIOS/Algorithm_BIOS.oem3.dep" src="Algorithm_BIOS.c"/>
+        <srcFile name="lib/debug/Algorithm_BIOS.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/Algorithm_BIOS/package/package_ti.sdo.ce.alg.oe674.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/debug/Algorithm_BIOS/Algorithm_BIOS.oe674.dep" src="Algorithm_BIOS.c"/>
+        <srcFile name="lib/release/Algorithm_BIOS.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/Algorithm_BIOS/package/package_ti.sdo.ce.alg.oe674.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/release/Algorithm_BIOS/Algorithm_BIOS.oe674.dep" src="Algorithm_BIOS.c"/>
+        <srcFile name="lib/debug/Algorithm_noOS.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/Algorithm_noOS/package/package_ti.sdo.ce.alg.ov5T.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/debug/Algorithm_noOS/Algorithm_noOS.ov5T.dep" src="Algorithm_noOS.c"/>
+        <srcFile name="lib/debug/alg.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/alg/package/package_ti.sdo.ce.alg.ov5T.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/debug/alg/alg_control.ov5T.dep" src="alg_control.c"/>
+        <srcFile name="package/lib/lib/debug/alg/alg_create.ov5T.dep" src="alg_create.c"/>
+        <srcFile name="package/lib/lib/debug/alg/alg_malloc.ov5T.dep" src="alg_malloc.c"/>
+        <srcFile name="lib/release/Algorithm_noOS.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/Algorithm_noOS/package/package_ti.sdo.ce.alg.ov5T.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/release/Algorithm_noOS/Algorithm_noOS.ov5T.dep" src="Algorithm_noOS.c"/>
+        <srcFile name="lib/release/alg.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/alg/package/package_ti.sdo.ce.alg.ov5T.dep" src="package/package_ti.sdo.ce.alg.c"/>
+        <srcFile name="package/lib/lib/release/alg/alg_control.ov5T.dep" src="alg_control.c"/>
+        <srcFile name="package/lib/lib/release/alg/alg_create.ov5T.dep" src="alg_create.c"/>
+        <srcFile name="package/lib/lib/release/alg/alg_malloc.ov5T.dep" src="alg_malloc.c"/>
+        <srcFile name="package/rel/ti_sdo_ce_alg.tar.dep" src="package/rel/ti_sdo_ce_alg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="host.platforms.arm"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/codesourcery/arm-2009q1/"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/debug/Algorithm_BIOS"
+        pname="lib/debug/Algorithm_BIOS.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/Algorithm_BIOS"
+        pname="lib/release/Algorithm_BIOS.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/Algorithm_BIOS"
+        pname="lib/debug/Algorithm_BIOS.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/Algorithm_BIOS"
+        pname="lib/release/Algorithm_BIOS.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/Algorithm_noOS"
+        pname="lib/debug/Algorithm_noOS.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/debug/alg"
+        pname="lib/debug/alg.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/release/Algorithm_noOS"
+        pname="lib/release/Algorithm_noOS.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/release/alg"
+        pname="lib/release/alg.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_alg"
+        pname="ti_sdo_ce_alg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="alg.h"/>
+        <file name="Algorithm.h"/>
+        <file name="_alg.h"/>
+        <file name="package.bld"/>
+        <file name="_Algorithm.h"/>
+        <file name="simple_GCArmv5T.mak"/>
+        <file name="alg_control.c"/>
+        <file name="alg_create.c"/>
+        <file name="alg_malloc.c"/>
+        <file name="Algorithm_BIOS.c"/>
+        <file name="Algorithm_noOS.c"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/Algorithm_BIOS.aem3"/>
+        <file name="package/package_ti.sdo.ce.alg.c"/>
+        <file name="lib/release/Algorithm_BIOS.aem3"/>
+        <file name="lib/debug/Algorithm_BIOS.ae674"/>
+        <file name="lib/release/Algorithm_BIOS.ae674"/>
+        <file name="lib/debug/Algorithm_noOS.av5T"/>
+        <file name="lib/debug/alg.av5T"/>
+        <file name="lib/release/Algorithm_noOS.av5T"/>
+        <file name="lib/release/alg.av5T"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

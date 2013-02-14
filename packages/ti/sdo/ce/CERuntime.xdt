@@ -1,0 +1,281 @@
+%%{
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+%%}
+%%{
+    /*
+     *  ======== CERuntime.xdt ========
+     *  Generate initialization backplace for the Codec Engine
+     */
+
+    var Server = this.$package.Server;
+    var Engine = this.$package.Engine;
+    var Settings = this.$package.Settings;
+
+    var ipcSettings = xdc.module('ti.sdo.ce.ipc.Settings');
+
+    // Get the name of the ipc module
+    var ipcName = ipcSettings.ipc.$name;
+
+    // Determine if the ipc has a property called "useLinkArbiter", and if it
+    // does, set the value of the variable useLinkArbiterProp to true. If it
+    // does not, we will generate the symbol Global_useLinkArbiter.
+    var ipc = xdc.module(ipcName);
+
+    var useLinkArbiterProp = false;
+    if ("useLinkArbiter" in ipc) {
+        //print("Server.xdt: ipc *has* property useLinkArbiter");
+        useLinkArbiterProp = true;
+    }
+    else {
+        //print("Server.xdt: ipc does *not* have property useLinkArbiter");
+    }
+%%}
+
+#include <xdc/std.h>
+#include <xdc/runtime/Diags.h>
+
+#include <ti/sdo/ce/global/CESettings.h>
+#include <ti/sdo/fc/global/FCSettings.h>
+
+#include <ti/sdo/ce/osal/Global.h>
+#include <ti/sdo/ce/ipc/Comm.h>
+#include <ti/sdo/ce/osal/Loader.h>
+#include <ti/sdo/ce/osal/Memory.h>
+#include <ti/sdo/ce/osal/Queue.h>
+#include <ti/sdo/ce/osal/Trace.h>
+#include <ti/sdo/ce/ipc/Processor.h>
+#include <ti/sdo/ce/alg/Algorithm.h>
+#include <ti/sdo/ce/Server.h>
+#include <ti/sdo/ce/Engine.h>
+#include <ti/sdo/ce/rms.h>
+#include <ti/sdo/ce/utils/xdm/XdmUtils.h>
+
+% // If the symbol Global_useLinkArbiter is not defined by the ipc (eg, for
+% // ce.ipc.linux), we need to define this symbol and set it to FALSE. The
+% // function Server_init() references this symbol for v5T targets.
+% if (!useLinkArbiterProp) {
+/* This symbol is referenced by Server_init() */
+Int Global_useLinkArbiter = FALSE;
+% }
+
+%// Hopefully temporary workaround for 'whole_program' profiles which
+%// optimize away these generated fxns.  :(
+#ifdef __ti__
+    #pragma FUNC_EXT_CALLED(CERuntime_init);
+    #pragma FUNC_EXT_CALLED(CERuntime_exit);
+#endif
+
+#ifdef xdc_target__os_Linux
+
+#include <pthread.h>
+
+static pthread_mutex_t ceInitMutex = PTHREAD_MUTEX_INITIALIZER;
+#endif
+
+static Int ceInit = 0;
+
+/*
+ *  ======== CERuntime_init ========
+ */
+Void CERuntime_init(Void)
+{
+#ifdef xdc_target__os_Linux
+    pthread_mutex_lock(&ceInitMutex);
+#endif
+
+    if (ceInit++ == 0) {
+
+        CESettings_init();
+        FCSettings_init();
+
+% if (Settings.checked) {
+        /* Checked build enabled, turn on trace level 7 */
+        // TODO: GT_set("*+7");
+% }
+
+        /* if CE_DEBUG is set, turn on tracing and DSP auto trace collection */
+        if (Global_getenv("CE_DEBUG") != NULL) {
+            extern Bool   Engine_alwaysCollectDspTrace;
+            extern String Engine_ceDebugDspTraceMask;
+
+            Engine_alwaysCollectDspTrace = TRUE;
+
+            /*
+             * Note the strategy for setting trace masks below...
+             * For any mods not yet registered, we set the
+             * [FC|CE]SETTINGS_MODNAME mask.  For any mods already
+             * registered, we Diags_setMask() them.
+             */
+
+            if (Global_getenv("CE_DEBUG")[0] == '1') {
+                /* Turn on CE/FC levels 6 and 7 */
+                xdc_runtime_Diags_setMask(CESETTINGS_MODNAME"+67");
+                xdc_runtime_Diags_setMask(FCSETTINGS_MODNAME"+67");
+                xdc_runtime_Diags_setMask("ti.sdo.ce.%+67");
+                xdc_runtime_Diags_setMask("ti.sdo.fc.%+67");
+
+                /* Same for any Servers */
+                Engine_ceDebugDspTraceMask = "ti.sdo.ce.%+67;ti.sdo.fc.%+67";
+            }
+            else if (Global_getenv("CE_DEBUG")[0] == '2') {
+                xdc_runtime_Diags_setMask(CESETTINGS_MODNAME"+EX1234567");
+                xdc_runtime_Diags_setMask(FCSETTINGS_MODNAME"+EX1234567");
+                xdc_runtime_Diags_setMask("ti.sdo.ce.%+EX1234567");
+                xdc_runtime_Diags_setMask("ti.sdo.fc.%+EX1234567");
+
+                xdc_runtime_Diags_setMask("ti.sdo.xdcruntime.linux.%+EX1234567");
+
+                Engine_ceDebugDspTraceMask =
+                    // Current Diags mask: (time=2 ==> display time in delta usec
+                    "ti.sdo.ce.%+EX1234567;ti.sdo.fc.%+EX12345678;ti.sdo.ce.rms=67;ti.sdo.fc.dman3-2;ti.sdo.fc.dskt2-2;time=2";
+            }
+            else if (Global_getenv("CE_DEBUG")[0] == '0') {
+                /* Don't set anything if someone tries to turn CE_DEBUG off */
+            } else {
+                xdc_runtime_Diags_setMask("ti.sdo.ce.%+EX1234567");
+                xdc_runtime_Diags_setMask("ti.sdo.fc.%+EX1234567");
+                //TEMP (jeh) xdc_runtime_Diags_setMask("ti.sdo.ce.Engine-3");
+                xdc_runtime_Diags_setMask("ti.sdo.xdcruntime.linux.%+EX1234567");
+
+                Engine_ceDebugDspTraceMask =
+                    "time=2;ti.sdo.fc.%+EX1234567;ti.sdo.ce.%+EX1234567;ti.sdo.fc.dskt2-2";
+            }
+        }
+        else {
+            //xdc_runtime_Diags_setMask("ti.sdo.ce.Engine-EX1234567");
+            //xdc_runtime_Diags_setMask("ti.sdo.ce.VISA-EX1234567");
+        }
+
+        if (Global_getenv("CE_CHECK") != NULL) {
+            extern Bool VISA_checked;
+
+            /*
+             * Currently just change _this_ processor's value... perhaps we
+             * should enable remote processors as well?
+             */
+            if (Global_getenv("CE_CHECK")[0] == '1') {
+                VISA_checked = TRUE;
+                xdc_runtime_Diags_setMask("ti.sdo.ce.%+7");
+            } else if (Global_getenv("CE_CHECK")[0] == '0') {
+                VISA_checked = FALSE;
+            } else {
+                /* leave it whatever it was. maybe we should drop a warning? */
+            }
+        }
+
+        /* allow user to over-ride via CE_TRACE. */
+        if (Global_getenv("CE_TRACE") != NULL) {
+            xdc_runtime_Diags_setMask(Global_getenv("CE_TRACE"));
+        }
+        Global_init();
+
+% if (this.$private.addEarlyInitCodeText != undefined) {
+        `this.$private.addEarlyInitCodeText`
+% }
+
+        ti_sdo_ce_osal_Memory_init();
+        Comm_init();
+        Processor_init();
+        Algorithm_init();
+        XdmUtils_init();
+
+%if (Server.$used) {
+        Trace_init();
+        RMS_init();
+        Global_atexit((Fxn)RMS_exit);
+%}
+%if (Engine.$used) {
+        Engine_init();
+        _VISA_init();
+        Loader_init();
+       Server_init();
+%}
+        if ((Global_getenv("CE_DEBUG") != NULL) &&
+                (Global_getenv("CE_DEBUG")[0] == '2')) {
+
+            /*
+             *  set up masks that must be deferred until the modules have been
+             *  initialized.
+             */
+            //xdc_runtime_Diags_setMask(Comm_MODNAME"-EX12345");
+            xdc_runtime_Diags_setMask("ti.sdo.ce.osal.%-EX123");
+            //xdc_runtime_Diags_setMask(Algorithm_MODNAME"-EX12345");
+
+            xdc_runtime_Diags_setMask("ti.sdo.ce.Engine-3");
+            xdc_runtime_Diags_setMask("ti.sdo.ce.ipc.Comm=67");
+        }
+
+        /*
+         *  Allow user to over-ride via CE_TRACE. Putting this after module
+         *  initialization, since it will have no effect may have no effect
+         *  if called before. Only wildcard settings seem to work when placed
+         *  before module initialization.
+         */
+        if (Global_getenv("CE_TRACE") != NULL) {
+            xdc_runtime_Diags_setMask(Global_getenv("CE_TRACE"));
+        }
+
+% if (this.$private.addLateInitCodeText != undefined) {
+        `this.$private.addLateInitCodeText`
+            % }
+    }
+#ifdef xdc_target__os_Linux
+    pthread_mutex_unlock(&ceInitMutex);
+#endif
+}
+
+/*
+ *  ======== CERuntime_exit ========
+ */
+Void CERuntime_exit(Void)
+{
+#ifdef xdc_target__os_Linux
+    pthread_mutex_lock(&ceInitMutex);
+#endif
+
+    if (--ceInit == 0) {
+        Global_exit();
+    }
+
+#ifdef xdc_target__os_Linux
+    pthread_mutex_unlock(&ceInitMutex);
+#endif
+}
+%%{
+/*
+ * @(#) ti.sdo.ce; 1, 0, 6,1; 2-24-2012 19:27:25; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+
+%%}

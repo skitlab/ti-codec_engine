@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce" version="1, 0, 6" producerId="undefined">
+    <units>
+        <interface name="ICodec"/>
+        <module name="Engine"/>
+        <module name="Server"/>
+        <module name="VISA"/>
+        <module name="CERuntime"/>
+        <module name="Settings"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.c"/>
+        <srcFile name="Engine.c"/>
+        <srcFile name="rms.c"/>
+        <srcFile name="visa.c"/>
+        <srcFile name="Server.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/debug/ce.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ce/package/package_ti.sdo.ce.oem3.dep" src="package/package_ti.sdo.ce.c"/>
+        <srcFile name="package/lib/lib/debug/ce/Engine.oem3.dep" src="Engine.c"/>
+        <srcFile name="package/lib/lib/debug/ce/rms.oem3.dep" src="rms.c"/>
+        <srcFile name="package/lib/lib/debug/ce/visa.oem3.dep" src="visa.c"/>
+        <srcFile name="package/lib/lib/debug/ce/Server.oem3.dep" src="Server.c"/>
+        <srcFile name="lib/release/ce.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ce/package/package_ti.sdo.ce.oem3.dep" src="package/package_ti.sdo.ce.c"/>
+        <srcFile name="package/lib/lib/release/ce/Engine.oem3.dep" src="Engine.c"/>
+        <srcFile name="package/lib/lib/release/ce/rms.oem3.dep" src="rms.c"/>
+        <srcFile name="package/lib/lib/release/ce/visa.oem3.dep" src="visa.c"/>
+        <srcFile name="package/lib/lib/release/ce/Server.oem3.dep" src="Server.c"/>
+        <srcFile name="lib/debug/ce.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ce/package/package_ti.sdo.ce.oe674.dep" src="package/package_ti.sdo.ce.c"/>
+        <srcFile name="package/lib/lib/debug/ce/Engine.oe674.dep" src="Engine.c"/>
+        <srcFile name="package/lib/lib/debug/ce/rms.oe674.dep" src="rms.c"/>
+        <srcFile name="package/lib/lib/debug/ce/visa.oe674.dep" src="visa.c"/>
+        <srcFile name="package/lib/lib/debug/ce/Server.oe674.dep" src="Server.c"/>
+        <srcFile name="lib/release/ce.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ce/package/package_ti.sdo.ce.oe674.dep" src="package/package_ti.sdo.ce.c"/>
+        <srcFile name="package/lib/lib/release/ce/Engine.oe674.dep" src="Engine.c"/>
+        <srcFile name="package/lib/lib/release/ce/rms.oe674.dep" src="rms.c"/>
+        <srcFile name="package/lib/lib/release/ce/visa.oe674.dep" src="visa.c"/>
+        <srcFile name="package/lib/lib/release/ce/Server.oe674.dep" src="Server.c"/>
+        <srcFile name="lib/debug/ce.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ce/package/package_ti.sdo.ce.ov5T.dep" src="package/package_ti.sdo.ce.c"/>
+        <srcFile name="package/lib/lib/debug/ce/Engine.ov5T.dep" src="Engine.c"/>
+        <srcFile name="package/lib/lib/debug/ce/rms.ov5T.dep" src="rms.c"/>
+        <srcFile name="package/lib/lib/debug/ce/visa.ov5T.dep" src="visa.c"/>
+        <srcFile name="package/lib/lib/debug/ce/Server.ov5T.dep" src="Server.c"/>
+        <srcFile name="lib/release/ce.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ce/package/package_ti.sdo.ce.ov5T.dep" src="package/package_ti.sdo.ce.c"/>
+        <srcFile name="package/lib/lib/release/ce/Engine.ov5T.dep" src="Engine.c"/>
+        <srcFile name="package/lib/lib/release/ce/rms.ov5T.dep" src="rms.c"/>
+        <srcFile name="package/lib/lib/release/ce/visa.ov5T.dep" src="visa.c"/>
+        <srcFile name="package/lib/lib/release/ce/Server.ov5T.dep" src="Server.c"/>
+        <srcFile name="package/rel/ti_sdo_ce.tar.dep" src="package/rel/ti_sdo_ce.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="host.platforms.arm"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/codesourcery/arm-2009q1/"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/debug/ce"
+        pname="lib/debug/ce.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/ce"
+        pname="lib/release/ce.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/ce"
+        pname="lib/debug/ce.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/ce"
+        pname="lib/release/ce.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/ce"
+        pname="lib/debug/ce.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/release/ce"
+        pname="lib/release/ce.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce"
+        pname="ti_sdo_ce.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="CERuntime.h"/>
+        <file name="Server.h"/>
+        <file name="Engine.h"/>
+        <file name="visa.h"/>
+        <file name="skel.h"/>
+        <file name="rms.h"/>
+        <file name="ServerDataSheet.html.xdt"/>
+        <file name="async-extensions.txt"/>
+        <file name="package.bld"/>
+        <file name="simple_GCArmv5T.mak"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/ce.aem3"/>
+        <file name="package/package_ti.sdo.ce.c"/>
+        <file name="Engine.c"/>
+        <file name="rms.c"/>
+        <file name="visa.c"/>
+        <file name="Server.c"/>
+        <file name="lib/release/ce.aem3"/>
+        <file name="lib/debug/ce.ae674"/>
+        <file name="lib/release/ce.ae674"/>
+        <file name="lib/debug/ce.av5T"/>
+        <file name="lib/release/ce.av5T"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

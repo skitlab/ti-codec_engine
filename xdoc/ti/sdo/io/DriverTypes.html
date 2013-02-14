@@ -1,0 +1,1553 @@
+<html>
+<head>
+<title>module ti.sdo.io.DriverTypes</title>
+<meta name="description" content="DriverTypes module">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.io.</span><span class="xdoc-id">DriverTypes</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_left.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/package.html" title="package ti.sdo.io"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html">index URL</a></div>
+<p class="xdocHdrSummary">DriverTypes module</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#targ-synop">C synopsis</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocElems">Individual elements</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This module defines several types required by modules implementing the
+  IDriver interface.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2">C</span></tt> synopsis</td>
+<td class="xdocLabelCenter">target-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/DriverTypes-src.html"><span class="xdocLabelFile">ti/sdo/io/DriverTypes.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynT">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw3">#include</span> <span class="xdoc-id">&lt;ti/sdo/io/DriverTypes.h&gt;</span>
+</div>
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="xdocSynFxnCat" colspan="2"><div class="xdocSynFxnCat">Functions common to all target modules</div></td></tr>
+
+<tr>
+<td></td>
+<td>
+<div class="xdocSynTblPack">
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTypes_Module_getMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Returns the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTypes_Module_hasMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test whether this module has a diagnostics mask</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTypes_Module_heap</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The heap from which this module allocates memory</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTypes_Module_id</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Get this module's unique id</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTypes_Module_setMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Set the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTypes_Module_startupDone</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test if this module has completed startup</span></span></a>
+</div>
+</td>
+</tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Defines</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.C.O.M.P.L.E.T.E.D"><span class="xdoc-id">DriverTypes_COMPLETED</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;completed status <span class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</span></span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)0x0</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.R.R.O.R"><span class="xdoc-id">DriverTypes_ERROR</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;error status <span class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</span></span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)0x2</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.N.O.E.R.R.O.R"><span class="xdoc-id">DriverTypes_NOERROR</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;used in <span class="xdoc-link" href="DriverTypes.html#.Packet" title="Packet">Packet</span> when io completes without an error</span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)0</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.P.E.N.D.I.N.G"><span class="xdoc-id">DriverTypes_PENDING</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;async callback <span class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</span></span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)0x1</div></td></tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Typedefs</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <i>opaque</i> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Control.Cmd"><span class="xdoc-id">DriverTypes_ControlCmd</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Control command type</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl">(*<a class="xdocSynGo" href="#.Done.Fxn"><span class="xdoc-id">DriverTypes_DoneFxn</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Typedef for driver's callback function</span></span></a>)(<span class="xdoc-kw2">UArg</span>,<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes_Packet</a>*);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">enum</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.I.O.Mode"><span class="xdoc-id">DriverTypes_IOMode</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Packet"><span class="xdoc-id">DriverTypes_Packet</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;IO packet</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <i>opaque</i> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Packet.Cmd"><span class="xdoc-id">DriverTypes_PacketCmd</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Packet command type</span></span></a>;</div></td></tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Constants</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.C.H.A.N_.A.B.O.R.T"><span class="xdoc-id">DriverTypes_CHAN_ABORT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Abort channel</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.C.H.A.N_.R.E.S.E.T"><span class="xdoc-id">DriverTypes_CHAN_RESET</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Reset channel</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.D.E.V.I.C.E_.R.E.S.E.T"><span class="xdoc-id">DriverTypes_DEVICE_RESET</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Reset device</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.A.B.O.R.T.E.D"><span class="xdoc-id">DriverTypes_EABORTED</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error within aborted packet</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.B.A.D.A.R.G.S"><span class="xdoc-id">DriverTypes_EBADARGS</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.B.A.D.I.O"><span class="xdoc-id">DriverTypes_EBADIO</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.B.A.D.M.O.D.E"><span class="xdoc-id">DriverTypes_EBADMODE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.I.N.U.S.E"><span class="xdoc-id">DriverTypes_EINUSE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.I.N.V.A.L.I.D.D.E.V"><span class="xdoc-id">DriverTypes_EINVALIDDEV</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E.N.O.T.I.M.P.L"><span class="xdoc-id">DriverTypes_ENOTIMPL</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event" title="xdc.runtime.Log.Event">Log_Event</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.L.M_io.Complete"><span class="xdoc-id">DriverTypes_LM_ioComplete</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Logged when io is completed</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event" title="xdc.runtime.Log.Event">Log_Event</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.L.M_start.I.O"><span class="xdoc-id">DriverTypes_LM_startIO</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Logged just prior to submitting IO packet to driver</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd" title="ti.sdo.io.DriverTypes.PacketCmd">DriverTypes_PacketCmd</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.R.E.A.D"><span class="xdoc-id">DriverTypes_READ</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;READ IO operation</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd" title="ti.sdo.io.DriverTypes.PacketCmd">DriverTypes_PacketCmd</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.W.R.I.T.E"><span class="xdoc-id">DriverTypes_WRITE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;WRITE IO operation</span></span></a>;</div></td></tr>
+</table>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This module defines several types required by modules implementing the
+  IDriver interface.</div>
+<div class="xdocText">This modules defines two Encoded types PacketCmd and ControlCmd.
+  The @Encoded keyword is used here to allow us to have different
+  representations for PacketCmd and ControlCmd in the meta
+  domain and in the target domain. Here these datatypes are Bits32 in
+  the target domain. In the meta domain they are represented as
+  structures whose contents decide the value in the target domain.
+  The purpose is to assign unique values to all PacketCmds in the
+  application. Similarly all config parameters of type ControlCmds
+  get assigned unique values at configuration time.
+  The encoding scheme used is (moduleId &lt;&lt; 16) | unique number.</div>
+<div class="xdocText">Modules that implement IDriver can define their own ControlCmds and
+  PacketCmds as follows</div>
+<div class="xdocText">readonly config ControlCmd MYCMD;</div>
+<div class="xdocText">readonly config PacketCmd MYPKTCMD;</div>
+<div class="xdocText">This module also defines the IO packet used to send buffers to a driver. 
+  Common cmds and errors useful to all IDriver modules are also defined here.</div>
+<div id="xdocSep">
+</div>
+<div id="xdocElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".C.O.M.P.L.E.T.E.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">COMPLETED</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.C.O.M.P.L.E.T.E.D">index URL</a></div>
+<p class="xdocHdrSummaryDcl">completed status <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">DriverTypes_COMPLETED</span>  (<i><span class="xdoc-kw2">UInt</span></i>)0x0
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.R.R.O.R"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">ERROR</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.R.R.O.R">index URL</a></div>
+<p class="xdocHdrSummaryDcl">error status <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">DriverTypes_ERROR</span>  (<i><span class="xdoc-kw2">UInt</span></i>)0x2
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".N.O.E.R.R.O.R"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">NOERROR</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.N.O.E.R.R.O.R">index URL</a></div>
+<p class="xdocHdrSummaryDcl">used in <a class="xdoc-link" href="DriverTypes.html#.Packet" title="Packet">Packet</a> when io completes without an error</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">DriverTypes_NOERROR</span>  (<i><span class="xdoc-kw2">UInt</span></i>)0
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".P.E.N.D.I.N.G"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">PENDING</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.P.E.N.D.I.N.G">index URL</a></div>
+<p class="xdocHdrSummaryDcl">async callback <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">DriverTypes_PENDING</span>  (<i><span class="xdoc-kw2">UInt</span></i>)0x1
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".I.O.Mode"></a>
+<a class="xdocAnchor" id=".I.N.P.U.T"></a>
+<a class="xdocAnchor" id=".O.U.T.P.U.T"></a>
+<a class="xdocAnchor" id=".I.N.O.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">IOMode</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.I.O.Mode">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">enum</span> <span class="xdoc-id">DriverTypes_IOMode</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-id">DriverTypes_INPUT</span>, 
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;open channel for input</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-id">DriverTypes_OUTPUT</span>, 
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;open channel for output</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-id">DriverTypes_INOUT</span>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;simultaneous input/output</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">DriverTypes_IOMode</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Control.Cmd"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">typedef</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">ControlCmd</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.Control.Cmd">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Control command type</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <i>opaque</i> <span class="xdoc-id">DriverTypes_ControlCmd</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Done.Fxn"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">typedef</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">DoneFxn</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.Done.Fxn">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Typedef for driver's callback function</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw2">Void</span>&nbsp;(*<span class="xdoc-id">DriverTypes_DoneFxn</span>)(<span class="xdoc-kw2">UArg</span>,<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes_Packet</a>*);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The driver will call a function of this type whenever an I/O
+  operation completes after an async submit() call.</div>
+<div class="xdocText">The UArg is the callback function arg specified during 
+  <a class="xdoc-link" href="IDriver.html#open" title="IDriver.open">IDriver.open</a>.
+  The Packet* points to packet used during <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a> call.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Packet.Cmd"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">typedef</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">PacketCmd</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.Packet.Cmd">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Packet command type</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <i>opaque</i> <span class="xdoc-id">DriverTypes_PacketCmd</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Packet"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">Packet</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.Packet">index URL</a></div>
+<p class="xdocHdrSummaryDcl">IO packet</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">DriverTypes_Packet</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../ti/sdo/utils/List.html#.Elem" title="ti.sdo.utils.List.Elem">List_Elem</a>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">link</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;queue link</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">addr</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;buffer address</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">origSize</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;size requested</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">size</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;processed size</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">arg</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;arg to be used by end app</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd" title="ti.sdo.io.DriverTypes.PacketCmd">DriverTypes_PacketCmd</a>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">cmd</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;command for mini-driver</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">error</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;error id</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">misc</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;reserved</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">status</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;reserved for legacy IOM support</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">drvArg</span></span></go>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;reserved for use by driver</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">DriverTypes_Packet</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">FIELDS</div>
+<div class="xdocChild"><span class="xdocChildId">link</span>
+<span class="xdocChildSum">&#151;&nbsp;field can be used by driver to queue up IO packets.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">addr</span>
+<span class="xdocChildSum">&#151;&nbsp;field points to buffer of data. 
+                  The driver preserves this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">origSize</span>
+<span class="xdocChildSum">&#151;&nbsp;is the size of data buffer. 
+                  The driver preserves this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">size</span>
+<span class="xdocChildSum">&#151;&nbsp;is actual size of data written or read. 
+                  Driver updates this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">arg</span>
+<span class="xdocChildSum">&#151;&nbsp;is used by end application. The driver preserves 
+                  this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmd</span>
+<span class="xdocChildSum">&#151;&nbsp;is the Packet command. Driver preserves this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">error</span>
+<span class="xdocChildSum">&#151;&nbsp;is filled in by the mini-driver and contains status 
+                  of IO.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">misc</span>
+<span class="xdocChildSum">&#151;&nbsp;is used by <a class="xdoc-link" href="Stream.html" title="Stream">Stream</a>. The driver preserves 
+                  this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">status</span>
+<span class="xdocChildSum">&#151;&nbsp;is reserved for use by iom adapters.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">drvArg</span>
+<span class="xdocChildSum">&#151;&nbsp;is reserved for use by drivers. Only drivers can use
+                  this field.</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Packets are the basis for all I/O operations. Packets are sent
+ to the driver using <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a> function.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".C.H.A.N_.A.B.O.R.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">CHAN_ABORT</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.C.H.A.N_.A.B.O.R.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Abort channel</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;<span class="xdoc-id">DriverTypes_CHAN_ABORT</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This is a control command that all drivers must attempt
+  to support. This control command will abort ALL the packets
+  queued up in the driver and return the packets by calling the
+  <a class="xdoc-link" href="DriverTypes.html#.Done.Fxn" title="DoneFxn">DoneFxn</a> for each packet. Aborted packets are marked
+  with <a class="xdoc-link" href="DriverTypes.html#.E_.Aborted" title="E_Aborted">E_Aborted</a>. This control command arg is an (UInt *).
+  The driver returns number of packets aborted in the cmdArg.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".C.H.A.N_.R.E.S.E.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">CHAN_RESET</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.C.H.A.N_.R.E.S.E.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Reset channel</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;<span class="xdoc-id">DriverTypes_CHAN_RESET</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".D.E.V.I.C.E_.R.E.S.E.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">DEVICE_RESET</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.D.E.V.I.C.E_.R.E.S.E.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Reset device</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;<span class="xdoc-id">DriverTypes_DEVICE_RESET</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".R.E.A.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">READ</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.R.E.A.D">index URL</a></div>
+<p class="xdocHdrSummaryDcl">READ IO operation</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd" title="ti.sdo.io.DriverTypes.PacketCmd">DriverTypes_PacketCmd</a>&nbsp;<span class="xdoc-id">DriverTypes_READ</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".W.R.I.T.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">WRITE</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.W.R.I.T.E">index URL</a></div>
+<p class="xdocHdrSummaryDcl">WRITE IO operation</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd" title="ti.sdo.io.DriverTypes.PacketCmd">DriverTypes_PacketCmd</a>&nbsp;<span class="xdoc-id">DriverTypes_WRITE</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.A.B.O.R.T.E.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">EABORTED</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.A.B.O.R.T.E.D">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error within aborted packet</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_EABORTED</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This is a special error that all drivers will return in the IO packet
+  in case <a class="xdoc-link" href="DriverTypes.html#.A.B.O.R.T" title="ABORT">ABORT</a> control cmd is received.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.B.A.D.A.R.G.S"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">EBADARGS</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.B.A.D.A.R.G.S">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_EBADARGS</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.B.A.D.I.O"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">EBADIO</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.B.A.D.I.O">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_EBADIO</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.B.A.D.M.O.D.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">EBADMODE</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.B.A.D.M.O.D.E">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_EBADMODE</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.I.N.U.S.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">EINUSE</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.I.N.U.S.E">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_EINUSE</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.I.N.V.A.L.I.D.D.E.V"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">EINVALIDDEV</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.I.N.V.A.L.I.D.D.E.V">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_EINVALIDDEV</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E.N.O.T.I.M.P.L"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">ENOTIMPL</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.N.O.T.I.M.P.L">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">DriverTypes_ENOTIMPL</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".L.M_io.Complete"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">LM_ioComplete</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.L.M_io.Complete">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Logged when io is completed</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event" title="xdc.runtime.Log.Event">Log_Event</a>&nbsp;<span class="xdoc-id">DriverTypes_LM_ioComplete</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".L.M_start.I.O"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes_</span><span class="xdoc-id">LM_startIO</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.L.M_start.I.O">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Logged just prior to submitting IO packet to driver</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event" title="xdc.runtime.Log.Event">Log_Event</a>&nbsp;<span class="xdoc-id">DriverTypes_LM_startIO</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="module-wide_built-ins"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Module-Wide Built-Ins</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#module-wide_built-ins">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Module.Id" title="xdc.runtime.Types.ModuleId">Types_ModuleId</a> <span class="xdoc-id">DriverTypes_Module_id</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Get this module's unique id</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">DriverTypes_Module_startupDone</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test if this module has completed startup</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a> <span class="xdoc-id">DriverTypes_Module_heap</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The heap from which this module allocates memory</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">DriverTypes_Module_hasMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test whether this module has a diagnostics mask</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">DriverTypes_Module_getMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Returns the diagnostics mask for this module</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">DriverTypes_Module_setMask</span>(<span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">mask</span>);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Set the diagnostics mask for this module</div>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/DriverTypes-src.html"><span class="xdocLabelFile">ti/sdo/io/DriverTypes.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> DriverTypes = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.io.DriverTypes'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.C.O.M.P.L.E.T.E.D">DriverTypes.<span class="xdoc-id">COMPLETED</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;completed status <span class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</span></span></span></a> = 0x0;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.E.R.R.O.R">DriverTypes.<span class="xdoc-id">ERROR</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;error status <span class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</span></span></span></a> = 0x2;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.N.O.E.R.R.O.R">DriverTypes.<span class="xdoc-id">NOERROR</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;used in <span class="xdoc-link" href="DriverTypes.html#.Packet" title="Packet">Packet</span> when io completes without an error</span></span></a> = 0;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.P.E.N.D.I.N.G">DriverTypes.<span class="xdoc-id">PENDING</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;async callback <span class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</span></span></span></a> = 0x1;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><i>values of type <a class="xdocSynGo" href="#meta.I.O.Mode">DriverTypes.<span class="xdoc-id">IOMode</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.I.O.Mode">DriverTypes.<span class="xdoc-id">INPUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;open channel for input</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.I.O.Mode">DriverTypes.<span class="xdoc-id">OUTPUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;open channel for output</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.I.O.Mode">DriverTypes.<span class="xdoc-id">INOUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;simultaneous input/output</span></span></a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#meta.Packet">DriverTypes.<span class="xdoc-id">Packet</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;IO packet</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">link</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;queue link</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/utils/List.html#.Elem" title="ti.sdo.utils.List.Elem">List.Elem</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">addr</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;buffer address</span></span></a> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">origSize</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;size requested</span></span></a> = <i><span class="xdoc-kw2">SizeT</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">size</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;processed size</span></span></a> = <i><span class="xdoc-kw2">SizeT</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">arg</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;arg to be used by end app</span></span></a> = <i><span class="xdoc-kw2">UArg</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">cmd</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;command for mini-driver</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd.Desc" title="ti.sdo.io.DriverTypes.PacketCmdDesc">DriverTypes.PacketCmdDesc</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">error</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;error id</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">misc</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;reserved</span></span></a> = <i><span class="xdoc-kw2">UArg</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">status</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;reserved for legacy IOM support</span></span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Packet"><span class="xdoc-id">drvArg</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;reserved for use by driver</span></span></a> = <i><span class="xdoc-kw2">UArg</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.C.H.A.N_.A.B.O.R.T">DriverTypes.<span class="xdoc-id">CHAN_ABORT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Abort channel</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd.Desc" title="ti.sdo.io.DriverTypes.ControlCmdDesc">DriverTypes.ControlCmdDesc</a></i> <i>computed value</i>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.C.H.A.N_.R.E.S.E.T">DriverTypes.<span class="xdoc-id">CHAN_RESET</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Reset channel</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd.Desc" title="ti.sdo.io.DriverTypes.ControlCmdDesc">DriverTypes.ControlCmdDesc</a></i> <i>computed value</i>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.D.E.V.I.C.E_.R.E.S.E.T">DriverTypes.<span class="xdoc-id">DEVICE_RESET</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Reset device</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd.Desc" title="ti.sdo.io.DriverTypes.ControlCmdDesc">DriverTypes.ControlCmdDesc</a></i> <i>computed value</i>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.R.E.A.D">DriverTypes.<span class="xdoc-id">READ</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;READ IO operation</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd.Desc" title="ti.sdo.io.DriverTypes.PacketCmdDesc">DriverTypes.PacketCmdDesc</a></i> <i>computed value</i>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.W.R.I.T.E">DriverTypes.<span class="xdoc-id">WRITE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;WRITE IO operation</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd.Desc" title="ti.sdo.io.DriverTypes.PacketCmdDesc">DriverTypes.PacketCmdDesc</a></i> <i>computed value</i>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.A.B.O.R.T.E.D">DriverTypes.<span class="xdoc-id">EABORTED</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error within aborted packet</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Aborted Packet"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.B.A.D.A.R.G.S">DriverTypes.<span class="xdoc-id">EBADARGS</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Bad args"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.B.A.D.I.O">DriverTypes.<span class="xdoc-id">EBADIO</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Generic Failure"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.B.A.D.M.O.D.E">DriverTypes.<span class="xdoc-id">EBADMODE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Illegal Mode"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.I.N.U.S.E">DriverTypes.<span class="xdoc-id">EINUSE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Channel in use"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.I.N.V.A.L.I.D.D.E.V">DriverTypes.<span class="xdoc-id">EINVALIDDEV</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Invalid devNum"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E.N.O.T.I.M.P.L">DriverTypes.<span class="xdoc-id">ENOTIMPL</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Not implemented"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.L.M_io.Complete">DriverTypes.<span class="xdoc-id">LM_ioComplete</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Logged when io is completed</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event.Desc" title="xdc.runtime.Log.EventDesc">Log.EventDesc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>mask: <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R1" title="xdc.runtime.Diags.USER1">Diags.USER1</a> | <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R2" title="xdc.runtime.Diags.USER2">Diags.USER2</a>,
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "LM_ioComplete: buf: 0x%x, size: 0x%x, arg: 0x%x"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.L.M_start.I.O">DriverTypes.<span class="xdoc-id">LM_startIO</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Logged just prior to submitting IO packet to driver</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event.Desc" title="xdc.runtime.Log.EventDesc">Log.EventDesc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>mask: <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R1" title="xdc.runtime.Diags.USER1">Diags.USER1</a> | <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R2" title="xdc.runtime.Diags.USER2">Diags.USER2</a>,
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "LM_startIO: buf: 0x%x, size: 0x%x, arg: 0x%x"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#common$">DriverTypes.<span class="xdoc-id">common$</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Common module configuration parameters</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.C.O.M.P.L.E.T.E.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">COMPLETED</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.C.O.M.P.L.E.T.E.D">index URL</a></div>
+<p class="xdocHdrSummaryDcl">completed status <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">COMPLETED</span> = 0x0;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.C.O.M.P.L.E.T.E.D" title="DriverTypes_COMPLETED">DriverTypes_COMPLETED</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.R.R.O.R"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">ERROR</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.R.R.O.R">index URL</a></div>
+<p class="xdocHdrSummaryDcl">error status <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">ERROR</span> = 0x2;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.R.R.O.R" title="DriverTypes_ERROR">DriverTypes_ERROR</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.N.O.E.R.R.O.R"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">NOERROR</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.N.O.E.R.R.O.R">index URL</a></div>
+<p class="xdocHdrSummaryDcl">used in <a class="xdoc-link" href="DriverTypes.html#.Packet" title="Packet">Packet</a> when io completes without an error</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">NOERROR</span> = 0;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.N.O.E.R.R.O.R" title="DriverTypes_NOERROR">DriverTypes_NOERROR</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.P.E.N.D.I.N.G"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">PENDING</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.P.E.N.D.I.N.G">index URL</a></div>
+<p class="xdocHdrSummaryDcl">async callback <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">PENDING</span> = 0x1;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.P.E.N.D.I.N.G" title="DriverTypes_PENDING">DriverTypes_PENDING</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.I.O.Mode"></a>
+<a class="xdocAnchor" id=".I.N.P.U.T"></a>
+<a class="xdocAnchor" id=".O.U.T.P.U.T"></a>
+<a class="xdocAnchor" id=".I.N.O.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">IOMode</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.I.O.Mode">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i>values of type DriverTypes.<span class="xdoc-id">IOMode</span></i>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">INPUT</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;open channel for input</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">OUTPUT</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;open channel for output</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">INOUT</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;simultaneous input/output</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.I.O.Mode" title="DriverTypes_IOMode">DriverTypes_IOMode</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.Packet"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">Packet</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.Packet">index URL</a></div>
+<p class="xdocHdrSummaryDcl">IO packet</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> DriverTypes.<span class="xdoc-id">Packet</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">link</span> = <i><a class="xdoc-link" href="../../../ti/sdo/utils/List.html#.Elem" title="ti.sdo.utils.List.Elem">List.Elem</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;queue link</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">addr</span> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;buffer address</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">origSize</span> = <i><span class="xdoc-kw2">SizeT</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;size requested</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">size</span> = <i><span class="xdoc-kw2">SizeT</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;processed size</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">arg</span> = <i><span class="xdoc-kw2">UArg</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;arg to be used by end app</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">cmd</span> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd.Desc" title="ti.sdo.io.DriverTypes.PacketCmdDesc">DriverTypes.PacketCmdDesc</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;command for mini-driver</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">error</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;error id</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">misc</span> = <i><span class="xdoc-kw2">UArg</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;reserved</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">status</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;reserved for legacy IOM support</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">drvArg</span> = <i><span class="xdoc-kw2">UArg</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;reserved for use by driver</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">FIELDS</div>
+<div class="xdocChild"><span class="xdocChildId">link</span>
+<span class="xdocChildSum">&#151;&nbsp;field can be used by driver to queue up IO packets.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">addr</span>
+<span class="xdocChildSum">&#151;&nbsp;field points to buffer of data. 
+                  The driver preserves this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">origSize</span>
+<span class="xdocChildSum">&#151;&nbsp;is the size of data buffer. 
+                  The driver preserves this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">size</span>
+<span class="xdocChildSum">&#151;&nbsp;is actual size of data written or read. 
+                  Driver updates this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">arg</span>
+<span class="xdocChildSum">&#151;&nbsp;is used by end application. The driver preserves 
+                  this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmd</span>
+<span class="xdocChildSum">&#151;&nbsp;is the Packet command. Driver preserves this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">error</span>
+<span class="xdocChildSum">&#151;&nbsp;is filled in by the mini-driver and contains status 
+                  of IO.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">misc</span>
+<span class="xdocChildSum">&#151;&nbsp;is used by <a class="xdoc-link" href="Stream.html" title="Stream">Stream</a>. The driver preserves 
+                  this field.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">status</span>
+<span class="xdocChildSum">&#151;&nbsp;is reserved for use by iom adapters.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">drvArg</span>
+<span class="xdocChildSum">&#151;&nbsp;is reserved for use by drivers. Only drivers can use
+                  this field.</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Packets are the basis for all I/O operations. Packets are sent
+ to the driver using <a class="xdoc-link" href="IDriver.html#submit" title="IDriver.submit">IDriver.submit</a> function.</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.Packet" title="DriverTypes_Packet">DriverTypes_Packet</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.C.H.A.N_.A.B.O.R.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">CHAN_ABORT</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.C.H.A.N_.A.B.O.R.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Abort channel</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">CHAN_ABORT</span> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd.Desc" title="ti.sdo.io.DriverTypes.ControlCmdDesc">DriverTypes.ControlCmdDesc</a></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This is a control command that all drivers must attempt
+  to support. This control command will abort ALL the packets
+  queued up in the driver and return the packets by calling the
+  <a class="xdoc-link" href="DriverTypes.html#.Done.Fxn" title="DoneFxn">DoneFxn</a> for each packet. Aborted packets are marked
+  with <a class="xdoc-link" href="DriverTypes.html#.E_.Aborted" title="E_Aborted">E_Aborted</a>. This control command arg is an (UInt *).
+  The driver returns number of packets aborted in the cmdArg.</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.C.H.A.N_.A.B.O.R.T" title="DriverTypes_CHAN_ABORT">DriverTypes_CHAN_ABORT</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.C.H.A.N_.R.E.S.E.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">CHAN_RESET</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.C.H.A.N_.R.E.S.E.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Reset channel</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">CHAN_RESET</span> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd.Desc" title="ti.sdo.io.DriverTypes.ControlCmdDesc">DriverTypes.ControlCmdDesc</a></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.C.H.A.N_.R.E.S.E.T" title="DriverTypes_CHAN_RESET">DriverTypes_CHAN_RESET</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.D.E.V.I.C.E_.R.E.S.E.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">DEVICE_RESET</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.D.E.V.I.C.E_.R.E.S.E.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Reset device</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">DEVICE_RESET</span> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd.Desc" title="ti.sdo.io.DriverTypes.ControlCmdDesc">DriverTypes.ControlCmdDesc</a></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.D.E.V.I.C.E_.R.E.S.E.T" title="DriverTypes_DEVICE_RESET">DriverTypes_DEVICE_RESET</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.R.E.A.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">READ</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.R.E.A.D">index URL</a></div>
+<p class="xdocHdrSummaryDcl">READ IO operation</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">READ</span> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd.Desc" title="ti.sdo.io.DriverTypes.PacketCmdDesc">DriverTypes.PacketCmdDesc</a></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.R.E.A.D" title="DriverTypes_READ">DriverTypes_READ</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.W.R.I.T.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">WRITE</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.W.R.I.T.E">index URL</a></div>
+<p class="xdocHdrSummaryDcl">WRITE IO operation</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> DriverTypes.<span class="xdoc-id">WRITE</span> = <i><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet.Cmd.Desc" title="ti.sdo.io.DriverTypes.PacketCmdDesc">DriverTypes.PacketCmdDesc</a></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.W.R.I.T.E" title="DriverTypes_WRITE">DriverTypes_WRITE</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.A.B.O.R.T.E.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">EABORTED</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.A.B.O.R.T.E.D">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error within aborted packet</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">EABORTED</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Aborted Packet"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This is a special error that all drivers will return in the IO packet
+  in case <a class="xdoc-link" href="DriverTypes.html#.A.B.O.R.T" title="ABORT">ABORT</a> control cmd is received.</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.A.B.O.R.T.E.D" title="DriverTypes_EABORTED">DriverTypes_EABORTED</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.B.A.D.A.R.G.S"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">EBADARGS</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.B.A.D.A.R.G.S">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">EBADARGS</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Bad args"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.B.A.D.A.R.G.S" title="DriverTypes_EBADARGS">DriverTypes_EBADARGS</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.B.A.D.I.O"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">EBADIO</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.B.A.D.I.O">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">EBADIO</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Generic Failure"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.B.A.D.I.O" title="DriverTypes_EBADIO">DriverTypes_EBADIO</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.B.A.D.M.O.D.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">EBADMODE</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.B.A.D.M.O.D.E">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">EBADMODE</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Illegal Mode"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.B.A.D.M.O.D.E" title="DriverTypes_EBADMODE">DriverTypes_EBADMODE</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.I.N.U.S.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">EINUSE</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.I.N.U.S.E">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">EINUSE</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Channel in use"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.I.N.U.S.E" title="DriverTypes_EINUSE">DriverTypes_EINUSE</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.I.N.V.A.L.I.D.D.E.V"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">EINVALIDDEV</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.I.N.V.A.L.I.D.D.E.V">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">EINVALIDDEV</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Invalid devNum"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.I.N.V.A.L.I.D.D.E.V" title="DriverTypes_EINVALIDDEV">DriverTypes_EINVALIDDEV</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E.N.O.T.I.M.P.L"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">ENOTIMPL</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.E.N.O.T.I.M.P.L">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">ENOTIMPL</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "Not implemented"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E.N.O.T.I.M.P.L" title="DriverTypes_ENOTIMPL">DriverTypes_ENOTIMPL</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.L.M_io.Complete"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">LM_ioComplete</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.L.M_io.Complete">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Logged when io is completed</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">LM_ioComplete</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event.Desc" title="xdc.runtime.Log.EventDesc">Log.EventDesc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>mask: <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R1" title="xdc.runtime.Diags.USER1">Diags.USER1</a> | <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R2" title="xdc.runtime.Diags.USER2">Diags.USER2</a>,
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "LM_ioComplete: buf: 0x%x, size: 0x%x, arg: 0x%x"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.L.M_io.Complete" title="DriverTypes_LM_ioComplete">DriverTypes_LM_ioComplete</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.L.M_start.I.O"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">LM_startIO</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#.L.M_start.I.O">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Logged just prior to submitting IO packet to driver</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">LM_startIO</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Log.html#.Event.Desc" title="xdc.runtime.Log.EventDesc">Log.EventDesc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>mask: <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R1" title="xdc.runtime.Diags.USER1">Diags.USER1</a> | <a class="xdoc-link" href="../../../xdc/runtime/Diags.html#.U.S.E.R2" title="xdc.runtime.Diags.USER2">Diags.USER2</a>,
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "LM_startIO: buf: 0x%x, size: 0x%x, arg: 0x%x"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.L.M_start.I.O" title="DriverTypes_LM_startIO">DriverTypes_LM_startIO</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="common$"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTypes.</span><span class="xdoc-id">common$</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTypes.html#common$">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Common module configuration parameters</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTypes.<span class="xdoc-id">common$</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">All modules have this configuration parameter.  Its name
+  contains the '$' character to ensure it does not conflict with
+  configuration parameters declared by the module.  This allows
+  new configuration parameters to be added in the future without
+  any chance of breaking existing modules.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:16 GMT</div>
+</div></div></body>
+</html>

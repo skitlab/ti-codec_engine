@@ -1,0 +1,15 @@
+package.xdc
+Main.xdc
+Main.xs
+Gui.xdc
+Gui.xs
+package/ti.sdo.ce.wizards.genserver.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_sdo_ce_wizards_genserver.java
+package/ti_sdo_ce_wizards_genserver.class
+package/package_ti.sdo.ce.wizards.genserver.c
+package/package.defs.h
+package/ti.sdo.ce.wizards.genserver.ccs

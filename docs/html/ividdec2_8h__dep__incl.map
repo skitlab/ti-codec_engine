@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" href="$split_2ividdec2_8h.html" title="This header defines all types, constants, enums, and functions that are common across all split IVIDD..." alt="" coords="7,84,85,108" />
+<area shape="rect" href="$viddec2_8h.html" title="The VIDDEC2 video decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="109,84,181,108" />
+<area shape="rect" href="$split_2viddec2_8h.html" title="The VIDDEC2 split video decoder interface. Provides the user an interface to create and interact with..." alt="" coords="59,158,131,182" />
+</map>

@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>interface ti.sdo.io.IDriver</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> * Copyright (c) 2012, Texas Instruments Incorporated
+</span>     3    <span class="comment"> * All rights reserved.
+</span>     4    <span class="comment"> *
+</span>     5    <span class="comment"> * Redistribution and use in source and binary forms, with or without
+</span>     6    <span class="comment"> * modification, are permitted provided that the following conditions
+</span>     7    <span class="comment"> * are met:
+</span>     8    <span class="comment"> *
+</span>     9    <span class="comment"> * *  Redistributions of source code must retain the above copyright
+</span>    10    <span class="comment"> *    notice, this list of conditions and the following disclaimer.
+</span>    11    <span class="comment"> *
+</span>    12    <span class="comment"> * *  Redistributions in binary form must reproduce the above copyright
+</span>    13    <span class="comment"> *    notice, this list of conditions and the following disclaimer in the
+</span>    14    <span class="comment"> *    documentation and/or other materials provided with the distribution.
+</span>    15    <span class="comment"> *
+</span>    16    <span class="comment"> * *  Neither the name of Texas Instruments Incorporated nor the names of
+</span>    17    <span class="comment"> *    its contributors may be used to endorse or promote products derived
+</span>    18    <span class="comment"> *    from this software without specific prior written permission.
+</span>    19    <span class="comment"> *
+</span>    20    <span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+</span>    21    <span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+</span>    22    <span class="comment"> * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+</span>    23    <span class="comment"> * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+</span>    24    <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+</span>    25    <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+</span>    26    <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+</span>    27    <span class="comment"> * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+</span>    28    <span class="comment"> * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+</span>    29    <span class="comment"> * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+</span>    30    <span class="comment"> * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>    31    <span class="comment"> * */</span>
+    32    <span class="comment">/*
+</span>    33    <span class="comment"> *  ======== IDriver.xdc ========
+</span>    34    <span class="comment"> *  Device Driver interface 
+</span>    35    <span class="comment"> *
+</span>    36    <span class="comment"> */</span>
+    37    
+    38    import xdc.runtime.Error;
+    39    
+    40    <span class="xdoc">/*!
+</span>    41    <span class="xdoc"> *  Interface for IO drivers.
+</span>    42    <span class="xdoc"> *
+</span>    43    <span class="xdoc"> *  An IO Driver manages a peripheral(s) that provide channels for input and
+</span>    44    <span class="xdoc"> *  output. All peripherals of the same type are ideally managed by a single 
+</span>    45    <span class="xdoc"> *  driver. For example all uarts on a platform are managed by a single uart 
+</span>    46    <span class="xdoc"> *  driver.
+</span>    47    <span class="xdoc"> *
+</span>    48    <span class="xdoc"> *  The user will call the driver specific create function to instantiate a
+</span>    49    <span class="xdoc"> *  driver (e.g. a uart instance). The driver specific create function will 
+</span>    50    <span class="xdoc"> *  take device specific parameters. The create function will also take a 
+</span>    51    <span class="xdoc"> *  device ID to allow the client to specify a particular device.
+</span>    52    <span class="xdoc"> *  This allows users to select devices to be managed by the driver. It also
+</span>    53    <span class="xdoc"> *  allows the driver to manage resources and mark devices in use.
+</span>    54    <span class="xdoc"> *  
+</span>    55    <span class="xdoc"> *  The user calls {<b>@link</b> #open} at runtime using the handle returned by create
+</span>    56    <span class="xdoc"> *  to open a channel for use. The user passes a name, mode, chanParams,
+</span>    57    <span class="xdoc"> *  callback function and callback arg and an {<b>@link</b> xdc.runtime.Error#Block}. 
+</span>    58    <span class="xdoc"> *  open() could fail (e.g. channel is in use). When successful, the driver 
+</span>    59    <span class="xdoc"> *  returns an opaque channel handle, usually a pointer to the channel object.
+</span>    60    <span class="xdoc"> *
+</span>    61    <span class="xdoc"> *  The user uses {<b>@link</b> #close} to close the channel. {<b>@link</b> #close} raises an 
+</span>    62    <span class="xdoc"> *  error in case of failure. e.g. Trying to close a channel not is use.
+</span>    63    <span class="xdoc"> *
+</span>    64    <span class="xdoc"> *  The user calls {<b>@link</b> #submit} with the channel handle and an 
+</span>    65    <span class="xdoc"> *  {<b>@link</b> ti.sdo.io.DriverTypes#Packet} to initiate IO. 
+</span>    66    <span class="xdoc"> *  It may be possible for the driver to complete the IO 
+</span>    67    <span class="xdoc"> *  without the use of an asynchronous interrupt. e.g enough room in peripheral
+</span>    68    <span class="xdoc"> *  buffer, polling mode used, etc. In such cases the driver will return
+</span>    69    <span class="xdoc"> *  {<b>@link</b> ti.sdo.io.DriverTypes#COMPLETED} status and there is no callback.
+</span>    70    <span class="xdoc"> * 
+</span>    71    <span class="xdoc"> *  {<b>@link</b> ti.sdo.io.DriverTypes#ERROR} is returned by submit() if there is an error.
+</span>    72    <span class="xdoc"> *
+</span>    73    <span class="xdoc"> *  When the driver requires an asynchronous event like an interrupt to 
+</span>    74    <span class="xdoc"> *  complete the IO submit() will return {<b>@link</b> ti.sdo.io.DriverTypes#PENDING} status. 
+</span>    75    <span class="xdoc"> *  In such cases the asynchronous event will result in a callback. In the 
+</span>    76    <span class="xdoc"> *  callback the user should check for errors in the IO packet. The error in
+</span>    77    <span class="xdoc"> *  the packet could be driver specific. In case of success the 
+</span>    78    <span class="xdoc"> *  {<b>@link</b> xdc.runtime.Error#Id} in the packet will be null.
+</span>    79    <span class="xdoc"> *  The driver needs to update the size field to reflect the actual size of IO. 
+</span>    80    <span class="xdoc"> *
+</span>    81    <span class="xdoc"> *  In all cases the driver is responsible for raising errors except in the
+</span>    82    <span class="xdoc"> *  case when submit returns {<b>@link</b> ti.sdo.io.DriverTypes#PENDING}. In this case the 
+</span>    83    <span class="xdoc"> *  driver fills the {<b>@link</b> xdc.runtime.Error#Id} in the IO Packet. 
+</span>    84    <span class="xdoc"> *
+</span>    85    <span class="xdoc"> *  The driver is expected to queue up IO packets for transfer if necessary and
+</span>    86    <span class="xdoc"> *  must not error when given more than one packet.
+</span>    87    <span class="xdoc"> *
+</span>    88    <span class="xdoc"> *  The driver is non-blocking. e.g cannot call APIs that block as it is 
+</span>    89    <span class="xdoc"> *  expected that the higher layer will wait for IO to be completed and take 
+</span>    90    <span class="xdoc"> *  action in case of timeout.
+</span>    91    <span class="xdoc"> *
+</span>    92    <span class="xdoc"> *  The user will use {<b>@link</b> #control} with channel handle, command and argument
+</span>    93    <span class="xdoc"> *  to change channel parameters (e.g baud rate of uart). An error status is
+</span>    94    <span class="xdoc"> *  returned in case of failure. The control commands are used to specify
+</span>    95    <span class="xdoc"> *  channel parameters. Drivers can define their own control commands. See
+</span>    96    <span class="xdoc"> *  {<b>@link</b> ti.sdo.io.DriverTypes}
+</span>    97    <span class="xdoc"> *
+</span>    98    <span class="xdoc"> *  The command and command argument within the IO packet is used to control 
+</span>    99    <span class="xdoc"> *  the IO operation. Drivers can also define their own packet commands.
+</span>   100    <span class="xdoc"> *  See {<b>@link</b> ti.sdo.io.DriverTypes}.
+</span>   101    <span class="xdoc"> *
+</span>   102    <span class="xdoc"> *  A control command {<b>@link</b> ti.sdo.io.DriverTypes#CHAN_ABORT} is used to 
+</span>   103    <span class="xdoc"> *  abort/discard all packets queued up for a channel. Note that when the driver
+</span>   104    <span class="xdoc"> *  receives the abort control cmd, it must abort ALL packets and call the 
+</span>   105    <span class="xdoc"> *  callback for very packet. If a packet is currently in progress, the driver
+</span>   106    <span class="xdoc"> *  must attempt to shut down dma etc and return the packet. Aborted packets
+</span>   107    <span class="xdoc"> *  need to be updated with error filed set to {<b>@link</b> ti.sdo.io.DriverTypes#E_Aborted}.
+</span>   108    <span class="xdoc"> * 
+</span>   109    <span class="xdoc"> */</span>
+   110    <span class=key>interface</span> IDriver
+   111    {
+   112        
+   113    <span class=key>instance</span>:
+   114        
+   115        <span class="xdoc">/*!
+</span>   116    <span class="xdoc">     *  ======== open ========
+</span>   117    <span class="xdoc">     *  Open a channel
+</span>   118    <span class="xdoc">     *
+</span>   119    <span class="xdoc">     *  Use this function to open a channel. The name parameter allows for
+</span>   120    <span class="xdoc">     *  driver specific configuration. e.g when a channel id is required. The
+</span>   121    <span class="xdoc">     *  name will be null for most drivers. The mode is either 
+</span>   122    <span class="xdoc">     *  {<b>@link</b> ti.sdo.io.DriverTypes#INPUT} or {<b>@link</b> ti.sdo.io.DriverTypes#OUTPUT}.
+</span>   123    <span class="xdoc">     *  chanParams are driver specific. When chanparams is null driver will use
+</span>   124    <span class="xdoc">     *  default params which were statically configured. The callback function
+</span>   125    <span class="xdoc">     *  and arg are used to indicate completion of IO after an async 
+</span>   126    <span class="xdoc">     *  {<b>@link</b> #submit} call. The driver will raise an error when open fails and
+</span>   127    <span class="xdoc">     *  the error block will contain a driver specific error or a generic error
+</span>   128    <span class="xdoc">     *  defined by {<b>@link</b> ti.sdo.io.DriverTypes}.
+</span>   129    <span class="xdoc">     *  open returns a driver specific opaque channel handle.
+</span>   130    <span class="xdoc">     *  Note that open() can be called at Startup time and the driver
+</span>   131    <span class="xdoc">     *  has to ensure that open() returns the channel pointer even though the
+</span>   132    <span class="xdoc">     *  driver startup has not been called. 
+</span>   133    <span class="xdoc">     *
+</span>   134    <span class="xdoc">     *  <b>@param(name)</b>            name string
+</span>   135    <span class="xdoc">     *  <b>@param(mode)</b>            open mode for channel
+</span>   136    <span class="xdoc">     *  <b>@param(chanParams)</b>      driver specific channel parameters
+</span>   137    <span class="xdoc">     *  <b>@param(cbFxn)</b>           callback function
+</span>   138    <span class="xdoc">     *  <b>@param(cbArg)</b>           callback function arg
+</span>   139    <span class="xdoc">     *  <b>@param(eb)</b>              error block
+</span>   140    <span class="xdoc">     *  <b>@b(returns)</b>             opaque channel handle
+</span>   141    <span class="xdoc">     */</span>
+   142        Ptr open(String name, UInt mode, UArg chanParams, DriverTypes.DoneFxn cbFxn,
+   143             UArg cbArg, Error.Block *eb);
+   144        
+   145        <span class="xdoc">/*!
+</span>   146    <span class="xdoc">     *  ======== close ========
+</span>   147    <span class="xdoc">     *  Close a channel. Raises an error upon failure. 
+</span>   148    <span class="xdoc">     *
+</span>   149    <span class="xdoc">     *  For example, trying to close a channel which is NOT in use could raise 
+</span>   150    <span class="xdoc">     *  an error. The error could be driver specific or generic errors defined
+</span>   151    <span class="xdoc">     *  by {<b>@link</b> ti.sdo.io.DriverTypes}
+</span>   152    <span class="xdoc">     *  
+</span>   153    <span class="xdoc">     *
+</span>   154    <span class="xdoc">     *  <b>@param(chanHandle)</b>      opaque channel handle
+</span>   155    <span class="xdoc">     *  <b>@param(eb)</b>              error block
+</span>   156    <span class="xdoc">     */</span>
+   157        Void close(Ptr chanHandle, Error.Block *eb);
+   158    
+   159        <span class="xdoc">/*!
+</span>   160    <span class="xdoc">     *  ======== submit ========
+</span>   161    <span class="xdoc">     *  Submit io packet to a channel. This may result in a callback.  
+</span>   162    <span class="xdoc">     *
+</span>   163    <span class="xdoc">     *  The driver may be able to complete the IO immediately and will return
+</span>   164    <span class="xdoc">     *  {<b>@link</b> ti.sdo.io.DriverTypes#COMPLETED} status. If the driver requires an async
+</span>   165    <span class="xdoc">     *  callback then, it will return {<b>@link</b> ti.sdo.io.DriverTypes#PENDING}. When the
+</span>   166    <span class="xdoc">     *  driver raises an error, it will return {<b>@link</b> ti.sdo.io.DriverTypes#ERROR} and the
+</span>   167    <span class="xdoc">     *  caller need to check the error block.
+</span>   168    <span class="xdoc">     *  In case the return value is {<b>@link</b> ti.sdo.io.DriverTypes#PENDING}, the driver will
+</span>   169    <span class="xdoc">     *  call the function specified during {<b>@link</b> #open} with the IO packet.
+</span>   170    <span class="xdoc">     *
+</span>   171    <span class="xdoc">     *  <b>@param(chanHandle)</b>      opaque channel handle
+</span>   172    <span class="xdoc">     *  <b>@param(packet)</b>          io packet
+</span>   173    <span class="xdoc">     *  <b>@param(eb)</b>              error block
+</span>   174    <span class="xdoc">     *  <b>@b(returns)</b>             status (DriverTypes_COMPLETED/PENDING/ERROR)
+</span>   175    <span class="xdoc">     */</span>
+   176        UInt submit(Ptr chanHandle, DriverTypes.Packet *packet, Error.Block *eb);
+   177        
+   178        <span class="xdoc">/*!
+</span>   179    <span class="xdoc">     *  ======== control ========
+</span>   180    <span class="xdoc">     *  Send driver specific command to channel or associated device.
+</span>   181    <span class="xdoc">     *
+</span>   182    <span class="xdoc">     *  <b>@param(chanHandle)</b>      opaque channel handle
+</span>   183    <span class="xdoc">     *  <b>@param(cmd)</b>             control command
+</span>   184    <span class="xdoc">     *  <b>@param(cmdArgs)</b>         command argument
+</span>   185    <span class="xdoc">     *  <b>@param(eb)</b>              error block
+</span>   186    <span class="xdoc">     */</span>
+   187        Void control(Ptr chanHandle, DriverTypes.ControlCmd cmd, UArg cmdArgs, Error.Block *eb);
+   188    
+   189    }
+   190    
+   191    <span class="comment">/*
+</span>   192    <span class="comment"> *  @(#) ti.sdo.io; 1, 0, 0, 0,2; 2-11-2012 16:30:24; /db/vtree/library/trees/ipc/ipc-h27/src/ xlibrary
+</span>   193    <span class="comment">
+</span>   194    <span class="comment"> */</span>
+   195    
+</pre>
+</body></html>

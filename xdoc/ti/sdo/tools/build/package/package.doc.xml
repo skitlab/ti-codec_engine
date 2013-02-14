@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.sdo.tools.build' nodoc='0' root='../../../../' summary='Package+build+help+tools'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.sdo.tools.build%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='PackageBuildHelp' kind='module' nodoc='0' metaonly='1' summary='Common+package+build+support'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2Fpackage.html%22+title%3D%22ti.sdo.tools.build%22%3Eti.sdo.tools.build%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EPackageBuildHelp%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EPackageBuildHelp%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+PackageBuildHelp+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.sdo.tools.build.PackageBuildHelp%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <docSect name='details'>
+            <docPara content='This+module+is+a+helper+module+for+your+package+build+script%0A++%28%3Ctt%3Epackage.bld%3C%2Ftt%3E%29.+It+provides+a+high-level+interface+for+defining%0A++your+libraries+and+executables%2C+and+provides+functions+to+generate%0A++your+package+interface+%28makefiles%29.'/>
+        </docSect>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='struct' name='LibAttrs' anchor='.Lib.Attrs' altext='ti.sdo.tools.build.PackageBuildHelp.LibAttrs' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Attributes+for+a+library+instances'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELibAttrs%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' comment='library+name' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ename%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='source+files+to+build' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Esources%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='1' comment='array+of+input+isa%27s' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eicw%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='1' comment='library+attributes' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FLibrary.html%23.Attrs%22+title%3D%22xdc.bld.Library.Attrs%22%3ELibrary.Attrs%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ElibAttrs%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+%3Ci%3Eobj%3C%2Fi%3E+%3D+%3Cspan+class%3D%22xdoc-kw1%22%3Enew%3C%2Fspan%3E+%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3ELibAttrs%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line blank='1' always='0'/>
+                    <line tab='1' comment='library+name' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ename%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='source+files+to+build' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Esources%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='array+of+input+isa%27s' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eicw%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='library+attributes' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ElibAttrs%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FLibrary.html%23.Attrs%22+title%3D%22xdc.bld.Library.Attrs%22%3ELibrary.Attrs%3C%2Fa%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                </synopMeta>
+                <docSect name='FIELDS'>
+                    <docChild name='name' summary='The+name+of+the+library+with+an+optional%0A++directory+prefix.'>
+                    </docChild>
+                    <docChild name='sources' summary='An+array+of+source+files+to+be+compiled%0A++for+the+library.'>
+                    </docChild>
+                    <docChild name='icw' summary='An+array+of+strings+listing+isa%27s+that+a+given+target%0A++must+be+able+to+accept.+Use+this+property+to+limit+which+targets%0A++will+be+used+to+build+this+library.+See+Details+below.'>
+                    </docChild>
+                    <docChild name='libAttrs' summary='An+xdc.bld.Library.Attrs+object+used+to+specify%0A++optional+attributes+of+the+library+instance.'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='An+array+of+this+type+is+passed+to+%3Ctt%3EPackageBuildHelp.makeLibraries%3C%2Ftt%3E.%0A++Each+element+in+the+array+describes+the+build+properties+for+the%0A++library.+Multiple+library+instances+may+be+produced+from+a+single%0A++%3Ctt%3ELibAttrs%3C%2Ftt%3E+element.+For+example%2C+a+library+instance+may+be+build+for%0A++different+profiles+and%2For+different+targets.'/>
+                    <docPara content='The+%3Ctt%3Eicw%3C%2Ftt%3E+array+is+used+to+limit+which+targets+will+be+use+for%0A++building+the+library.+For+example%2C+if+you+have+a+library+which%0A++should+only+be+built+for+ARM%2C+but+you+know+the+build+model+has+a%0A++target+for+DSP%2C+then+set+the+%3Ctt%3Eicw%3C%2Ftt%3E+array+as+follows+to+build+only%0A++for+the+ARM+targets+and+exclude+the+DSP+targets.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++icw%3A+%5B+%22v5T%22+%5D%0A%3C%2FPRE%3E'/>
+                    <docPara content='Note+that+all+ARM+targets+which+accept+v5T+as+an+input+isa+will%0A++build+the+library+using+their+output+isa.+For+example%2C+if+the+build%0A++model+contains+both+GCArmv5T+%28isa%3Dv5T%29+and+GCArmv6+%28isa%3Dv6%29+targets%2C%0A++then+both+targets+will+build+this+library+using+their+respective%0A++isa.+However%2C+if+the+build+model+contains+the+C64P+%28isa%3D64P%29+target%2C%0A++it+will+not+be+used+to+build+this+library+because+it+cannot+accept%0A++the+v5T+isa.'/>
+                </docSect>
+                <docSect name='See Also'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22PackageBuildHelp.html%23make.Libraries%22+title%3D%22makeLibraries%22%3EmakeLibraries%3C%2Fa%3E+--+for+additional+examples'/>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+            <decl kind='struct' name='ProgAttrs' anchor='.Prog.Attrs' altext='ti.sdo.tools.build.PackageBuildHelp.ProgAttrs' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Attributes+for+an+executable+instance'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EProgAttrs%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' comment='executable+name' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ename%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' comment='source+files+to+build' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Esources%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='1' comment='array+of+platform+names' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eplatforms%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='1' comment='array+of+input+isa%27s' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eicw%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='1' comment='array+of+output+isa%27s' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eisas%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='1' comment='executble+attributes' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FExecutable.html%23.Attrs%22+title%3D%22xdc.bld.Executable.Attrs%22%3EExecutable.Attrs%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EexecAttrs%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+%3Ci%3Eobj%3C%2Fi%3E+%3D+%3Cspan+class%3D%22xdoc-kw1%22%3Enew%3C%2Fspan%3E+%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EProgAttrs%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line blank='1' always='0'/>
+                    <line tab='1' comment='executable+name' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ename%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='source+files+to+build' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Esources%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='array+of+platform+names' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eplatforms%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='array+of+input+isa%27s' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eicw%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='array+of+output+isa%27s' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eisas%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' comment='executble+attributes' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EexecAttrs%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FExecutable.html%23.Attrs%22+title%3D%22xdc.bld.Executable.Attrs%22%3EExecutable.Attrs%3C%2Fa%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                </synopMeta>
+                <docSect name='FIELDS'>
+                    <docChild name='name' summary='The+name+of+the+executable+with+an+optional%0A++directory+prefix.'>
+                    </docChild>
+                    <docChild name='sources' summary='An+array+of+strings+listing+the+source+files%0A++to+be+compiled+for+the+executables.'>
+                    </docChild>
+                    <docChild name='platforms' summary='An+array+of+platform+%28and%2For+platform+instance%29%0A++names+which+are+supported+by+this+program.+When+this+property+is%0A++specified%2C+the+executable+is+built+only+for+those+platforms+listed%0A++by+this+property%2C+otherwise%2C+the+executable+is+built+for+all%0A++platforms+specified+in+the+target%27s+platforms+array+property.'>
+                    </docChild>
+                    <docChild name='icw' summary='An+array+of+strings+listing+isa%27s+which+are+compatible%0A++for+this+executable.+Use+this+property+to+limit+which+isa%27s+the%0A++program+will+be+built+for.'>
+                    </docChild>
+                    <docChild name='isas' summary='An+array+of+isa%27s+the+program+should+be+built+for.'>
+                    </docChild>
+                    <docChild name='execAttrs' summary='An+xdc.bld.Executable.Attrs+object+used+to+specify%0A++optional+attributes+of+the+executable+instance.'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='An+array+of+this+type+is+passed+to+%3Ctt%3EPackageBuildHelp.makeExecutables%3C%2Ftt%3E.%0A++Each+element+in+the+array+describes+the+build+properties+for+the%0A++executable.+Multiple+executable+instances+may+be+produced+from+a%0A++single+%3Ctt%3EProgAttrs%3C%2Ftt%3E+element.+For+example%2C+an+executable+instance+may%0A++be+build+for+different+profiles%2C+targets%2C+and+platforms.'/>
+                    <docPara content='The+%3Ctt%3Eicw%3C%2Ftt%3E+array+is+used+to+limit+which+targets+will+be+use+for%0A++building+the+executable.+For+example%2C+if+you+have+an+executable%0A++which+should+only+be+built+for+ARM%2C+but+you+know+the+build+model%0A++has+a+target+for+DSP%2C+then+set+the+%3Ctt%3Eicw%3C%2Ftt%3E+array+as+follows+to+build%0A++only+for+the+ARM+targets+and+exclude+the+DSP+targets.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++icw%3A+%5B+%22v5T%22+%5D%0A%3C%2FPRE%3E'/>
+                    <docPara content='Note+that+all+ARM+targets+which+accept+v5T+as+an+input+isa+will%0A++build+the+executable+using+their+output+isa.+For+example%2C+if+the+build%0A++model+contains+both+GCArmv5T+%28isa%3Dv5T%29+and+GCArmv6+%28isa%3Dv6%29+targets%2C%0A++then+both+targets+will+build+this+executable+using+their+respective%0A++isa.+However%2C+if+the+build+model+contains+the+C64P+%28isa%3D64P%29+target%2C%0A++it+will+not+be+used+to+build+this+executable+because+it+cannot+accept%0A++the+v5T+isa.'/>
+                    <docPara content='Note%3A+this+property+is+more+useful+to+building+libraries+than%0A++executables.+The+%3Ctt%3Eisas%3C%2Ftt%3E+property+is+usually+used+when+building%0A++executables.'/>
+                    <docPara content='The+%3Ctt%3Eisas%3C%2Ftt%3E+array+is+used+to+control+the+executable%27s+isa.+Only+those%0A++targets+which+have+an+output+isa+that+matches+any+entry+in+this+array%0A++will+be+used+to+build+the+executable.+For+example%2C+if+you+have+a%0A++program+which+should+be+built+for+ARM+v5T+or+ARM+v6+but+not+for+ARM%0A++v7A%2C+but+you+know+the+build+model+has+targets+for+all+three%2C+then%0A++set+the+%3Ctt%3Eisas%3C%2Ftt%3E+array+as+follows+to+get+the+desired+output.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++isas%3A+%5B+%22v5T%22%2C+%22v6%22+%5D%0A%3C%2FPRE%3E'/>
+                    <docPara content='Note%3A+although+the+GCArmv7A+target+accepts+v5T+and+v6+isa+as+input%2C%0A++it+will+not+participate+in+the+build+because+it+outputs+v7A+isa+which%0A++not+specified+in+the+%3Ctt%3Eisas%3C%2Ftt%3E+array.'/>
+                </docSect>
+                <docSect name='See Also'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22PackageBuildHelp.html%23make.Executables%22+title%3D%22makeExecutables%22%3EmakeExecutables%3C%2Fa%3E+--+for+additional+examples'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='config' name='fileArray' anchor='file.Array' altext='ti.sdo.tools.build.PackageBuildHelp.fileArray' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Record+all+source+files+and+config+scripts+in+given+array'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EfileArray%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EfileArray%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='When+this+config+param+is+assigned+to+a+string+array%2C+each+call%0A++to+%3Ctt%3EPackageBuildHelp.makeExecutables%3C%2Ftt%3E+and%0A++%3Ctt%3EPackageBuildHelp.makeLibraries%3C%2Ftt%3E+will+append+all+given+source+files%0A++and+config+scripts+to+the+array.'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='skipExec' anchor='skip.Exec' altext='ti.sdo.tools.build.PackageBuildHelp.skipExec' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Skip+given+program+if+function+returns+true'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EskipExec%3C%2Fspan%3E%3C%2Fgo%3E%28%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Prog.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.ProgAttrs%22%3EPackageBuildHelp.ProgAttrs%3C%2Fa%3E%2C%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%2C%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EskipExec%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%28%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Prog.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.ProgAttrs%22%3EPackageBuildHelp.ProgAttrs%3C%2Fa%3E%2C%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%2C%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%29%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='ARGUMENTS'>
+                    <docPara content=''/>
+                    <docPara content='%3CDL%3E%3CDT%3E+prog%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3EPackageBuildHelp.ProgAttrs%3C%2Ftt%3E%29+An+element+from+the+%3Ctt%3EprogAry%3C%2Ftt%3E%0A++++++argument+passed+to+the+%3Ctt%3EPackageBuildHelp.makeExecutables%3C%2Ftt%3E%0A++++++function.%0A%3C%2FDD%3E%3CDT%3E+targ%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3Exdc.bld.ITarget.Module%3C%2Ftt%3E%29+The+target+used+for+building+the%0A++++++current+executable.%0A%3C%2FDD%3E%3CDT%3E+platName%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3EString%3C%2Ftt%3E%29+The+name+of+the+platform+used+for+the+current%0A++++++executable.%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+                    <docPara content=''/>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='If+you+don%27t+want+your+package+to+build+a+given+executable+based%0A++on+certain+build+attributes%2C+set+this+config+param+to+a+function%0A++defined+in+your+package.bld+script+which+returns+true+for+any%0A++executable+you+do+not+want+to+build.'/>
+                    <docPara content='This+function+can+also+be+used+to+modify+the+program+object+just%0A++before+building+it.+The+following+example+show+a+function+which%0A++adds+a+source+file+depending+on+the+target.os+property.+It+always%0A++returns+false%2C+because+we+don%27t+want+to+skip+the+executable.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.skipExec+%3D+function%28prog%2C+targ%2C+platName%29%0A++%7B%0A++++++if+%28targ.os+%3D%3D+undefined%29+%7B%0A++++++++++prog.sources.push%28%22main_BIOS.c%22%29%3B%0A++++++%7D%0A++++++else+%7B%0A++++++++++prog.sources.push%28%22main_native.c%22%29%3B%0A++++++%7D%0A++++++return+false%3B%0A++%7D%0A%0A%3C%2FPRE%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='skipLib' anchor='skip.Lib' altext='ti.sdo.tools.build.PackageBuildHelp.skipLib' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Skip+given+library+if+function+returns+true'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EskipLib%3C%2Fspan%3E%3C%2Fgo%3E%28%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Lib.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.LibAttrs%22%3EPackageBuildHelp.LibAttrs%3C%2Fa%3E%2C%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EskipLib%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%28%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Lib.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.LibAttrs%22%3EPackageBuildHelp.LibAttrs%3C%2Fa%3E%2C%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%29%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='ARGUMENTS'>
+                    <docPara content=''/>
+                    <docPara content='%3CDL%3E%3CDT%3E+lib%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3EPackageBuildHelp.LibAttrs%3C%2Ftt%3E%29+An+element+from+the+%3Ctt%3ElibAry%3C%2Ftt%3E%0A++++++argument+passed+to+the+%3Ctt%3EPackageBuildHelp.makeLibraries%3C%2Ftt%3E+function.%0A%3C%2FDD%3E%3CDT%3E+targ%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3Exdc.bld.ITarget.Module%3C%2Ftt%3E%29+The+target+used+for+building+the%0A++++++current+library.%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+                    <docPara content=''/>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='If+you+don%27t+want+your+package+to+build+a+given+library+based%0A++on+certain+build+attributes%2C+set+this+config+param+to+a+function%0A++defined+in+your+package.bld+script+which+returns+true+for+any%0A++library+you+do+not+want+to+build.'/>
+                    <docPara content='This+function+can+also+be+used+to+modify+the+library+object+just%0A++before+building+it.+The+following+example+show+a+function+which%0A++adds+a+source+file+depending+on+the+target.os+property.+It+always%0A++returns+false%2C+because+we+don%27t+want+to+skip+the+library.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.skipLib+%3D+function%28lib%2C+targ%29%0A++%7B%0A++++++if+%28targ.os+%3D%3D+undefined%29+%7B%0A++++++++++lib.sources.push%28%22util_BIOS.c%22%29%3B%0A++++++%7D%0A++++++else+%7B%0A++++++++++lib.sources.push%28%22util_native.c%22%29%3B%0A++++++%7D%0A++++++return+false%3B%0A++%7D%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='This+example+show+a+function+which+builds+the+library+only+if+the%0A++library+name+contains+the+string+%22syslink%22+and+the+target%27s%0A++os+%28Operating+System%29+property+matches+%22Linux%22.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.skipLib+%3D+function%28lib%2C+targ%29%0A++%7B%0A++++++if+%28lib.name.match%28%2Fsyslink%2F%29%29+%7B%0A++++++++++return+targ.os+%21%3D+%22Linux%22+%3F+true+%3A+false%3B%0A++++++%7D%0A++++++else+%7B%0A++++++++++return+false%3B%0A++++++%7D%0A++%7D%0A%0A%3C%2FPRE%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='skipPlatform' anchor='skip.Platform' altext='ti.sdo.tools.build.PackageBuildHelp.skipPlatform' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Skip+given+platform+if+function+returns+true'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EskipPlatform%3C%2Fspan%3E%3C%2Fgo%3E%28%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%2C%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EskipPlatform%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%2C%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%29%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='ARGUMENTS'>
+                    <docPara content=''/>
+                    <docPara content='%3CDL%3E%3CDT%3E+platName%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3EString%3C%2Ftt%3E%29+The+name+of+the+platform+used+for+the+current%0A++++++executable.%0A%3C%2FDD%3E%3CDT%3E+targ%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3Exdc.bld.ITarget.Module%3C%2Ftt%3E%29+The+target+used+for+building+the%0A++++++current+executable.%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+                    <docPara content=''/>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='If+you+do+not+want+your+package+to+build+for+a+particular%0A++platform%2C+set+this+config+param+to+a+function+defined+in+your%0A++%3Ctt%3Epackage.bld%3C%2Ftt%3E+script+which+returns+true+for+any+platform+you+wish%0A++to+skip.'/>
+                    <docPara content='The+following+example+shows+a+function+which+skips+any+platform%0A++named+%3Ctt%3Eti.platforms.evm3530%3C%2Ftt%3E.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.skipPlatform+%3D+function%28platName%2C+targ%29%0A++%7B%0A++++++return+platName.match%28%2Fti.platforms.evm3530%2F%29+%3F+true+%3A+false%3B%0A++%7D%0A%0A%3C%2FPRE%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='skipTarget' anchor='skip.Target' altext='ti.sdo.tools.build.PackageBuildHelp.skipTarget' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Skip+given+target+if+function+returns+true'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EskipTarget%3C%2Fspan%3E%3C%2Fgo%3E%28%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EskipTarget%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%28%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fxdc%2Fbld%2FITarget.html%23.Module%22+title%3D%22xdc.bld.ITarget.Module%22%3EITarget.Module%3C%2Fa%3E%29%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='ARGUMENTS'>
+                    <docPara content=''/>
+                    <docPara content='%3CDL%3E%3CDT%3E+targ%3C%2FDT%3E%3CDD%3E%0A++++++%28%3Ctt%3Exdc.bld.ITarget.Module%3C%2Ftt%3E%29+The+target+used+for+building+the%0A++++++current+library+or+executable.%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+                    <docPara content=''/>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='If+you+do+not+want+your+package+to+build+for+a+particular%0A++target%2C+set+this+config+param+to+a+function+defined+in+your%0A++package.bld+script+which+returns+true+for+any+target+you+wish%0A++to+skip.'/>
+                    <docPara content='The+following+example+shows+a+function+which+skips+any+target%0A++named+%3Ctt%3EUCArm9%3C%2Ftt%3E.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.skipTarget+%3D+function%28targ%29%0A++%7B%0A++++++return+targ.name.match%28%2FUCArm9%2F%29+%3F+true+%3A+false%3B%0A++%7D%0A%0A%3C%2FPRE%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='usePlatformInstanceName' anchor='use.Platform.Instance.Name' altext='ti.sdo.tools.build.PackageBuildHelp.usePlatformInstanceName' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Use+platform+instance+name+when+constructing+executable+pathname'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EusePlatformInstanceName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Efalse%253C%252Fspan%253E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EusePlatformInstanceName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%3C%2Fi%3E+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Efalse%253C%252Fspan%253E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='The+executable+pathname+is+constructed+using+the+following%0A++elements%3A+%27bin%27%2C+platform+name%2C+directory+prefix+used+in%0A++program+name%2C+profile%2C+and+the+executable+basename.+These%0A++elements+are+combined+in+the+following+pattern%3A'/>
+                    <docPara content='bin%2Fplatform%2Fprefix%2Fprofile%2Fname'/>
+                    <docPara content='This+config+param+controls+the+platform+part+of+the+pathname%0A++when+using+platform+instances.+When+set+to+true%2C+the+platform%0A++instance+name+is+used%2C+otherwise%2C+the+platform+base+name+is+used.%0A++When+using+the+default+platform+instance+the+platform+base+name%0A++is+always+used.'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+            <decl kind='fxn' name='makeExecutables' anchor='make.Executables' altext='ti.sdo.tools.build.PackageBuildHelp.makeExecutables' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Add+executables+to+the+build+model'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EmakeExecutables%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Prog.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.ProgAttrs%22%3EPackageBuildHelp.ProgAttrs%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EprogAry%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Earguments%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eprofiles%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EmakeExecutables%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Prog.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.ProgAttrs%22%3EPackageBuildHelp.ProgAttrs%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EprogAry%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Earguments%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eprofiles%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='progAry' summary='An+array+of+program+attributes%2C+one+for+each%0A++executable+to+build.'>
+                    </docChild>
+                    <docChild name='arguments' summary='The+global+arguments+object+passed+to+the+build%0A++script+which+contains+the+arguments+assigned+to+the+XDCARGS%0A++environment+variable+used+by+the+xdc+command.'>
+                    </docChild>
+                    <docChild name='profiles' summary='Optional.+%28%3Ctt%3EString%5B%5D%3C%2Ftt%3E%29+Array+of+profile+names+to%0A++build+provided+the+target+supports+the+profile.+If+not+supported%0A++by+the+target%2C+the+profile+is+ignored.+When+omitted%2C+all+profiles%0A++defined+in+the+target+will+be+used.+If+a+profile+is+specified+in%0A++XDCARGS+as+described+above%2C+this+parameter+is+ignored.'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='This+function+iterates+over+the+given+%3Ctt%3EprogAry%3C%2Ftt%3E+and+adds+each+element%0A++to+the+build+model%2C+possibly+multiple+times+to+cover+all+combinations%0A++of+platforms%2C+targets%2C+and+profiles.'/>
+                    <docPara content='The+following+code+adds+a+program+called+%3Ctt%3Eprogram%3C%2Ftt%3E+to+the+build+model%0A++for+all+combinations+of+platforms%2C+targets%2C+and+profiles+in+the+build%0A++model.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++var+PackageBuildHelp+%3D+xdc.useModule%28%27ti.sdo.tools.build.PackageBuildHelp%27%29%3B%0A++var+progArray+%3D+new+Array%28%29%3B%0A%0A++progArray.push%28%0A++++++new+PackageBuildHelp.ProgAttrs%28%7B%0A++++++++++name%3A+%22program%22%2C%0A++++++++++sources%3A+%5B+%22main.c%22%2C+%22core.c%22+%5D%2C%0A++++++++++execAttrs%3A+%7B%0A++++++++++++++cfgScript%3A+%22server.cfg%22%0A++++++++++%7D%0A++++++%7D%29%0A++%29%3B%0A%0A++PackageBuildHelp.makeExecutables%28progArray%2C+arguments%29%3B%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='You+can+pass+an+array+of+profiles+as+the+third+%28optional%29%0A++argument+to+%3Ctt%3EPackageBuildHelp.makeExecutables%3C%2Ftt%3E.+This+is+useful%0A++for+limiting+the+number+of+executables+to+build+when+the+target%0A++defines+additional+profiles.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.makeExecutables%28%0A++++++progArray%2C+arguments%2C+%5B+%22debug%22%2C+%22release%22+%5D%29%3B%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='You+may+limit+the+build+to+a+single+profile+using+the+XDCARGS%0A++command+line+option%2C+provided+the+target+supports+the+given+profile.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++xdc+-r+XDCARGS%3D%22profile%3Dcoverage%22+all%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='You+may+limit+the+build+to+a+single+platform+using+the+XDCARGS%0A++command+line+option%2C+provided+the+target+supports+the+given+platform.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++xdc+-r+XDCARGS%3D%22platform%3Dti.platforms.evm3530%22+all%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='The+profile+and+platform+arguments+may+be+combined+in+XDCARGS+by%0A++separating+them+with+white+space.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++XDCARGS%3D%22profile%3Dcoverage+platform%3Dti.platforms.evm3530%22%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='When+specifying+platforms%2C+isas%2C+or+both+it+is+important+to+ensure%0A++that+all+possible+combinations+are+valid.+In+other+words%2C+each%0A++platform+specified+in+the+%3Ctt%3Eplatforms%3C%2Ftt%3E+array+must+have+a+core+which%0A++is+either+capable+of+executing+every+isa+specified+in+the+%3Ctt%3Eisas%3C%2Ftt%3E%0A++array+or%2C+if+%3Ctt%3Eisas%3C%2Ftt%3E+is+not+specified%2C+capable+of+executing+code%0A++generated+by+every+target+in+the+build+model.+To+avoid+invalid%0A++combinations%2C+specify+either+or+both.+Use+multiple+%3Ctt%3EProgAttrs%3C%2Ftt%3E%0A++instances+to+cover+all+desired+combinations.%0A++%0A++The+following+example+builds+a+program+for+the+DSP+on+an%0A++OMAP3530+device+and+the+same+program+for+the+VIDEO-M3+on+a+DM8168%0A++device.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++var+BuildHelp+%3D+xdc.useModule%28%27ti.sdo.tools.build.PackageBuildHelp%27%29%3B%0A++var+progArray+%3D+new+Array%28%29%3B%0A%0A++progArray.push%28%0A++++++new+BuildHelp.ProgAttrs%28%7B%0A++++++++++name%3A+%22server%22%2C%0A++++++++++platforms%3A+%5B+%22ti.platforms.evm3530%22+%5D%2C%0A++++++++++isas%3A+%5B+%2264P%22+%5D%2C%0A++++++++++sources%3A+%5B+%22server.c%22%2C+%22utils.c%22+%5D%0A++++++%7D%29%0A++%29%3B%0A%0A++progArray.push%28%0A++++++new+BuildHelp.ProgAttrs%28%7B%0A++++++++++name%3A+%22server%22%2C%0A++++++++++platforms%3A+%5B+%22ti.platforms.evmDM8168%22+%5D%2C%0A++++++++++isas%3A+%5B+%22v7M%22+%5D%2C%0A++++++++++sources%3A+%5B+%22server.c%22%2C+%22utils.c%22+%5D%0A++++++%7D%29%0A++%29%3B%0A%0A++BuildHelp.makeExecutables%28progArray%2C+arguments%29%3B%0A%3C%2FPRE%3E'/>
+                    <docPara content='Note+that+combining+these+two+entries+into+one+would+generate+an%0A++invalid+combination.+For+example%2C+there+is+no+core+on+the+OMAP3530%0A++capable+of+running+the+v7M+isa.'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='makeLibraries' anchor='make.Libraries' altext='ti.sdo.tools.build.PackageBuildHelp.makeLibraries' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Add+libraries+to+the+build+model'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EmakeLibraries%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Lib.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.LibAttrs%22%3EPackageBuildHelp.LibAttrs%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ElibAry%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Earguments%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eprofiles%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EPackageBuildHelp.%3Cspan+class%3D%22xdoc-id%22%3EmakeLibraries%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2F..%2Fti%2Fsdo%2Ftools%2Fbuild%2FPackageBuildHelp.html%23.Lib.Attrs%22+title%3D%22ti.sdo.tools.build.PackageBuildHelp.LibAttrs%22%3EPackageBuildHelp.LibAttrs%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ElibAry%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Earguments%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eprofiles%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='libAry' summary='An+array+of+library+attributes%2C+one+for+each%0A++library+to+build.'>
+                    </docChild>
+                    <docChild name='arguments' summary='The+global+arguments+object+passed+to+the+build%0A++script+which+contains+the+arguments+assigned+to+the+XDCARGS%0A++environment+variable+used+by+the+xdc+command.'>
+                    </docChild>
+                    <docChild name='profiles' summary='Optional.+%28%3Ctt%3EString%5B%5D%3C%2Ftt%3E%29+Array+of+profile+names+to%0A++build+provided+the+target+supports+the+profile.+If+not+supported%0A++by+the+target%2C+the+profile+is+ignored.+When+omitted%2C+all+profiles%0A++defined+in+the+target+will+be+used.+If+a+profile+is+specified+in%0A++XDCARGS+as+described+above%2C+this+parameter+is+ignored.'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='This+function+iterates+over+the+given+%3Ctt%3ElibAry%3C%2Ftt%3E+and+adds+each+element%0A++to+the+build+model%2C+possibly+multiple+times+to+cover+all+combinations%0A++of+targets+and+profiles.'/>
+                    <docPara content='The+following+code+adds+a+library+called+%3Ctt%3Ercm%3C%2Ftt%3E+to+the+build+model%0A++for+all+combinations+of+targets+and+profiles+in+the+build+model.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++var+PackageBuildHelp+%3D+xdc.useModule%28%27ti.sdo.tools.build.PackageBuildHelp%27%29%3B%0A++var+libArray+%3D+new+Array%28%29%3B%0A%0A++libArray.push%28%0A++++++new+PackageBuildHelp.LibAttrs%28%7B%0A++++++++++name%3A+%22rcm%22%2C%0A++++++++++sources%3A+%5B+%22rcm.c%22+%5D%2C%0A++++++%7D%29%0A++%29%3B%0A%0A++PackageBuildHelp.makeLibraries%28libArray%2C+arguments%29%3B%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='You+can+pass+an+array+of+profiles+as+the+third+%28optional%29%0A++argument+to+%3Ctt%3EPackageBuildHelp.makelibraries%3C%2Ftt%3E.+This+is+useful%0A++for+limiting+the+number+of+libraries+to+build+when+the+target%0A++defines+additional+profiles.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++PackageBuildHelp.makeLibraries%28%0A++++++libArray%2C+arguments%2C+%5B+%22debug%22%2C+%22release%22+%5D%29%3B%0A%0A%3C%2FPRE%3E'/>
+                    <docPara content='You+may+limit+the+build+to+a+single+profile+using+the+XDCARGS%0A++command+line+option%2C+provided+the+target+supports+the+given+profile.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++xdc+-r+XDCARGS%3D%22profile%3Ddebug%22+all%0A%3C%2FPRE%3E'/>
+                    <docPara content=''/>
+                </docSect>
+                <docSect name='Examples'>
+                    <docPara content='The+following+example+builds+the+library+only+for+ARM+targets+and%0A++only+for+the+debug+and+release+profiles.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++var+BuildHelp+%3D+xdc.useModule%28%27ti.sdo.tools.build.PackageBuildHelp%27%29%3B%0A++var+libArray+%3D+new+Array%28%29%3B%0A%0A++libArray.push%28%0A++++++new+BuildHelp.LibAttrs%28%7B%0A++++++++++name%3A+%22host%22%2C%0A++++++++++sources%3A+%5B+%22config_host.c%22+%5D%2C%0A++++++++++icw%3A+%5B+%22v5T%22+%5D%0A++++++%7D%29%0A+++%29%3B%0A%0A++BuildHelp.makeLibraries%28libArray%2C+arguments%2C+%5B%22debug%22%2C%22release%22%5D%29%3B%0A%3C%2FPRE%3E'/>
+                    <docPara content='If+the+build+model+contained+the+GCArmv5T%2C+GCArmv6%2C+and+C64P+targets%2C%0A++the+following+libraries+would+be+produced.+Note%2C+the+C64P+target+is%0A++excluded.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++lib%2Fdebug%2Fhost.av5T%0A++lib%2Fdebug%2Fhost.av6%0A++lib%2Frelease%2Fhost.av5T%0A++lib%2Frelease%2Fhost.av6%0A%3C%2FPRE%3E'/>
+                    <docPara content=''/>
+                </docSect>
+            </decl>
+        </group>
+    </unit>
+</package>

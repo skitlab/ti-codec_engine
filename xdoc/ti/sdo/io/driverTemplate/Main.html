@@ -1,0 +1,360 @@
+<html>
+<head>
+<title>module ti.sdo.io.driverTemplate.Main</title>
+<meta name="description" content="Generate driver starter files">
+<link rel="stylesheet" type="text/css" href="../../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.io.driverTemplate.</span><span class="xdoc-id">Main</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/package.html" title="package ti.sdo.io.driverTemplate"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html">index URL</a></div>
+<p class="xdocHdrSummary">Generate driver starter files</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This command line tool helps driver writers by generating starter
+   files. The driver writer can then fill in driver specific code
+   and rebuild.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../../ti/sdo/io/driverTemplate/Main-src.html"><span class="xdocLabelFile">ti/sdo/io/driverTemplate/Main.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> Main = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.io.driverTemplate.Main'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#usage">Main.<span class="xdoc-id">usage</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i> [
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>'-m modName -o outputDir',
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>'[--help]'
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>];
+</div>
+<div class='xdocSynHdr'>module-wide functions</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#main">Main.<span class="xdoc-id">main</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;main() function, invoked from the command line</span></span></a>(<i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i> <go><span class="xdoc-id">arguments</span></go>) <i>returns</i> <i><span class="xdoc-kw2">Int</span></i>
+</div>
+<div class='xdocSynHdr'>per-instance config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<a class="xdocSynGo" href="#per-instance_config_parameters"><span class="xdoc-id">Params</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Instance config-params object</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#arguments"><span class="xdoc-id">arguments</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Positional parameters</span></span></a> = <i><span class="xdoc-kw2">Any</span>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#input"><span class="xdoc-id">input</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#input.Path"><span class="xdoc-id">inputPath</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#mod.Name"><span class="xdoc-id">modName</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Name of the generated module. You need to specify package name within
+ the modName</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#output"><span class="xdoc-id">output</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Output file or directory</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#preserve.Mod.Time"><span class="xdoc-id">preserveModTime</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Only modify the timestamps of output files whose contents changed</span></span></a> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">false</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This command line tool helps driver writers by generating starter
+   files. The driver writer can then fill in driver specific code
+   and rebuild.</div>
+<div class="xdocText">required arguments are the output directory name "-o" and the module 
+   name "-m".</div>
+<div class="xdocText">The name of the module and the package name is derived from the module 
+   name. For e.g for -m drivers.io.Uart the module name is Uart and the
+   package name is drivers.dma.</div>
+<div class="xdocText">The "-o" option must inlcude package path. For the example above
+   -o "C:\Product\drivers\dma.</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="usage"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">usage</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#usage">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Main.<span class="xdoc-id">usage</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i> [
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>'-m modName -o outputDir',
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>'[--help]'
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>];
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="main"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Main.</span><span class="xdoc-id">main</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#main">index URL</a></div>
+<p class="xdocHdrSummaryDcl">main() function, invoked from the command line</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Main.<span class="xdoc-id">main</span>(<i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-id">arguments</span>) <i>returns</i> <i><span class="xdoc-kw2">Int</span></i>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Parses command line arguments then calls <a class="xdoc-link" href="Main.html#mkpkg" title="mkpkg">mkpkg()</a>.</div>
+<a class="xdocAnchor" id="per-instance_config_parameters"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Config Parameters</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#per-instance_config_parameters">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Instance config-params object</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">arguments</span> = <i><span class="xdoc-kw2">Any</span>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Positional parameters</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">input</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">inputPath</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">modName</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Name of the generated module. You need to specify package name within
+ the modName</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">output</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Output file or directory</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">preserveModTime</span> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">false</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Only modify the timestamps of output files whose contents changed</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="arguments"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">arguments</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#arguments">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Positional parameters</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">arguments</span> = <i><span class="xdoc-kw2">Any</span>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="input"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">input</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#input">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> params.<span class="xdoc-id">input</span> = <i><span class="xdoc-kw2">String</span></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="input.Path"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">inputPath</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#input.Path">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> params.<span class="xdoc-id">inputPath</span> = <i><span class="xdoc-kw2">String</span></i> <i>computed value</i>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="mod.Name"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">modName</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#mod.Name">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Name of the generated module. You need to specify package name within
+ the modName</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">modName</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="output"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">output</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#output">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Output file or directory</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">output</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="preserve.Mod.Time"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Main.</span><span class="xdoc-id">preserveModTime</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/io/driverTemplate/Main.html" title="module Main"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/io/driverTemplate/Main.html#preserve.Mod.Time">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Only modify the timestamps of output files whose contents changed</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Main.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">preserveModTime</span> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">false</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This flag changes the behavior of mkpkg in the case when some
+ of the output files already exists, in particular from a previous
+ invocation of mkpkg. If true, any output file that already
+ exists will only be touched if its contents must change.
+ If the new content is identical, then the timestamp on the
+ file remains unmodified.</div>
+<div class="xdocText">This is an optimization that can improve the behavior of
+ mkpkg when used with programs like "make" that are sensitive
+ to file timestamps.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:14 GMT</div>
+</div></div></body>
+</html>

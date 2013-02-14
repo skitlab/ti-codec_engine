@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Codec Engine 3.22.01.06">
+  <topic label="Release Notes" href="codec_engine_3_22_01_06_ReleaseNotes.html" />
+  <topic label="API Reference Guide" href="html/index.html">
+    <link toc="doxy_toc.xml" />
+  </topic>
+  <topic label="Package Reference Guide" href="xdoc/codec_engine_3_22_01_06/package.html">
+    <link toc="eclipse_toc.xml" />
+  </topic>
+</toc>

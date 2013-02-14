@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.examples.servers" version="1, 0, 0" producerId="codec_engine_3_22_01_06">
+    <units>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_sdo_ce_examples_servers.tar.dep" src="package/rel/ti_sdo_ce_examples_servers.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_examples_servers"
+        pname="ti_sdo_ce_examples_servers.tar"
+        label="default"
+        relScript="tisb/release/filters/copyright.rel">
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="makefile"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/makefile"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/makeapp.mk"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/paths.mk"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/makecfg.mk"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/_config.bld"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/rtcfg_all.cfg"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/ti_platforms_evm3530.cfg"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/app_config.c"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/main.c"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/rtcfg.c"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/rtcfg_bios_fcinit.c"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/rtcfg_bios_ceinit.c"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/svr_config.c"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/mylink.cmd"/>
+        <file name="rtcfg/all_codecs/rtcfg_evm3530/readme.txt"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" href="$xdm_8h.html" title="This header defines all types, constants, and functions shared across the various XDM classes of algo..." alt="" coords="298,233,416,257" />
+<area shape="rect" href="$split_2ividdec2_8h.html" title="This header defines all types, constants, enums, and functions that are common across all split IVIDD..." alt="" coords="66,84,234,108" />
+<area shape="rect" href="$_engine_8h.html" title="The Codec Engine Runtime." alt="" coords="592,233,709,257" />
+<area shape="rect" href="$visa_8h.html" title="The Codec Engine System Programming Interface. Provides system developers with services necessary to ..." alt="" coords="434,158,536,182" />
+<area shape="rect" href="$viddec2_8h.html" title="The VIDDEC2 video decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="390,84,553,108" />
+<area shape="rect" href="$ialg_8h.html" title="This header defines all types, constants, and functions defined by XDAIS for algorithms." alt="" coords="297,308,390,332" />
+<area shape="rect" href="$xdas_8h.html" title="This header defines all types and constants used in the XDAS interfaces." alt="" coords="161,308,260,332" />
+<area shape="rect" href="$ividdec2_8h.html" title="This header defines all types, constants, and functions shared by all implementations of the video de..." alt="" coords="212,158,300,182" />
+<area shape="rect" href="$ivideo_8h.html" title="This header defines all types, constants, enums, and functions that are common across the various vid..." alt="" coords="109,233,173,257" />
+<area shape="rect" href="$_server_8h.html" title="The Codec Engine Server Interface. Provides the user an inteface to open and manipulate a Server whic..." alt="" coords="873,308,988,332" />
+</map>

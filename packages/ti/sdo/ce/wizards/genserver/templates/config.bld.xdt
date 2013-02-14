@@ -1,0 +1,192 @@
+%%{
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+%%}
+/*
+ *  ======== config.bld ========
+ *  This script is run prior to all build scripts.  It initializes the
+ *  rootDir configuration parameter of all supported targets.
+ *
+ *  There are more details about config.bld here:
+ *  http://rtsc.eclipse.org/docs-tip/Glossary#config.bld
+ */
+
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+/* initialize local vars with those set in xdcpaths.mak (via XDCARGS) */
+for (x = 0; x < arguments.length; x++) {
+    if (arguments[x].match(/^CODEGEN_INSTALL_DIR=/)) {
+        cgRootDir = arguments[x].split("=")[1];
+    }
+}
+
+% if (this.bios6) {
+var mem_ext = [
+% var len = this.memConfig.length;
+% if (this.platform == 'ti.platforms.evmTI816X' ||
+%     this.platform == 'ti.platforms.evmDM8148') {
+%    --len;
+% }
+% for (var i = 0; i < len; i++) {
+["`this.memConfig[i].sect`", {
+    comment:    "`this.memComment[this.memConfig[i].sect]`",
+    name:       "`this.memConfig[i].sect`",
+    base:       `this.memConfig[i].base`,
+    len:        `this.memConfig[i].len`,
+% if (this.platform != 'ti.platforms.evmTI816X' &&
+%     this.platform != 'ti.platforms.evmDM8148') {
+    space:      "code/data"
+% }
+    }
+],
+% }
+% if (this.platform == 'ti.platforms.evmTI816X' ||
+%     this.platform == 'ti.platforms.evmDM8148') {
+["DDR3_SR1", {
+    comment:    "DDR3 Memory reserved for use by SharedRegion 1",
+    name:       "DDR3_SR1",
+    base:       0x8D000000,
+    len:        0x00C00000,
+    }
+],
+["DDR3_SR0", {
+    comment: "DDR3 Memory reserved for use by SharedRegion 0",
+    name: "DDR3_SR0",
+    base: 0x8E000000,
+    len:  0x01000000    /* 16 MB */
+    }
+],
+% }
+% else if (this.platform == 'ti.platforms.evm3530') {
+["L4CORE", {
+    comment:    "L4CORE: L4-Core Interconnect Address Space",
+    name:       "L4CORE",
+    base:       0x48000000,
+    len:        0x01000000,
+    space:      "data"
+    }
+],
+["L4PER", {
+    comment:    "L4PER: L4-Peripheral Interconnect Address Space",
+    name:       "L4PER",
+    base:       0x49000000,
+    len:        0x00100000,
+    space:      "data"
+    }
+],
+% }
+% if (this.enablePwr) {
+["IVAMMU", {
+    comment:    "IVA Memory Management Unit",
+    name:       "IVAMMU",
+    base:       0x5D000000,
+    len:        0x00001000,  // 4 KB
+    space:      "data"
+    }
+]
+% }
+];
+
+/* platform instances used by this package */
+Build.platformTable["`this.platform`"] = {
+    externalMemoryMap: mem_ext,
+    l1DMode:"32k",
+    l1PMode:"32k",
+    l2Mode:"`this.l2Cache[this.platform]`",            
+    codeMemory: "`this.platformTable[this.platform].codeMemory`",
+    dataMemory: "`this.platformTable[this.platform].dataMemory`",
+    stackMemory: "`this.platformTable[this.platform].stackMemory`"
+};
+
+% }
+/* should test here that cgRootDir is set! */
+
+% var targ;
+% if (this.platform.match(/evmOMAPL13[78]/) || this.platform.match(/evmTI816X/) ||
+%     this.platform.match(/evmDM8148/)) {
+% if (this.elf) {
+% targ = 'ti.targets.elf.C674';
+var C674 = xdc.useModule('`targ`');
+% }
+% else {
+% targ = 'ti.targets.C674';
+var C674 = xdc.useModule('`targ`');
+C674.ccOpts.suffix = "-mi10 -mo ";
+% }
+C674.rootDir = cgRootDir;
+
+C674.platforms = [
+    "`this.platform`"
+];
+
+$trace("Adding `targ` to Build.targets", 1, ['genserver']);
+Build.targets.$add(C674);
+%var targ = 'C674';
+% }
+% else {
+% if (this.elf) {
+% targ = 'ti.targets.elf.C64P';
+var C64P = xdc.useModule('`targ`');
+% }
+% else {
+% targ = 'ti.targets.C64P';
+var C64P = xdc.useModule('`targ`');
+% }
+C64P.rootDir = cgRootDir;
+
+C64P.platforms = [
+    "`this.platform`"
+];
+
+$trace("Adding `targ` to Build.targets", 1, ['genserver']);
+Build.targets.$add(C64P);
+
+%var targ = 'C64P';
+% }
+
+/* We remove a few profiles, just to cut down on build time */
+delete `targ`.profiles["coverage"];
+delete `targ`.profiles["profile"];
+delete `targ`.profiles["whole_program"];
+delete `targ`.profiles["whole_program_debug"];
+
+/* Create a .zip file for redistribution.  Remove this line if you prefer .tar */
+Pkg.attrs.archiver = 'zip';
+%%{
+/*
+ * @(#) ti.sdo.ce.wizards.genserver; 1, 0, 0,1; 2-24-2012 19:32:36; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+
+%%}

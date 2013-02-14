@@ -1,0 +1,15 @@
+package.xdc
+package.xs
+UNIVERSALConfig.xdc
+IUNIVERSAL.xdc
+UNIVERSALConfig.xdt
+package/ti.sdo.ce.universal.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_sdo_ce_universal.java
+package/ti_sdo_ce_universal.class
+package/package_ti.sdo.ce.universal.c
+package/package.defs.h
+package/ti.sdo.ce.universal.ccs

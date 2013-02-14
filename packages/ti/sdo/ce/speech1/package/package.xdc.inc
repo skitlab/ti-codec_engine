@@ -1,0 +1,14 @@
+package.xdc
+package.xs
+ISPHENC1.xdc
+ISPHDEC1.xdc
+package/ti.sdo.ce.speech1.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_sdo_ce_speech1.java
+package/ti_sdo_ce_speech1.class
+package/package_ti.sdo.ce.speech1.c
+package/package.defs.h
+package/ti.sdo.ce.speech1.ccs

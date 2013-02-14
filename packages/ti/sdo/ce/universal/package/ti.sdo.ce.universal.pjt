@@ -1,0 +1,12 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.universal"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.universal.c"
+Source="../universal.c"
+Source="../universal_skel.c"
+Source="../universal_stubs.c"

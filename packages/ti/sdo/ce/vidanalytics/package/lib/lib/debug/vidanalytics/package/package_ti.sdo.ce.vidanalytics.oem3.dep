@@ -1,0 +1,9 @@
+package/lib/lib/debug/vidanalytics/package/package_ti.sdo.ce.vidanalytics.oem3: package/package_ti.sdo.ce.vidanalytics.c /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/std.h /proj/productization/tools/cgt470/cgt470_4_9_2/include/stdarg.h /proj/productization/tools/cgt470/cgt470_4_9_2/include/stddef.h /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/ti/targets/arm/elf/std.h /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/ti/targets/select.h /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/ti/targets/std.h /proj/productization/tools/cgt470/cgt470_4_9_2/include/stdint.h 
+package/package_ti.sdo.ce.vidanalytics.c:
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/std.h:
+/proj/productization/tools/cgt470/cgt470_4_9_2/include/stdarg.h:
+/proj/productization/tools/cgt470/cgt470_4_9_2/include/stddef.h:
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/ti/targets/arm/elf/std.h:
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/ti/targets/select.h:
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/ti/targets/std.h:
+/proj/productization/tools/cgt470/cgt470_4_9_2/include/stdint.h:

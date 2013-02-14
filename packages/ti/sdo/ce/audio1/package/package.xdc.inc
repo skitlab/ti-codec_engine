@@ -1,0 +1,14 @@
+package.xdc
+package.xs
+IAUDENC1.xdc
+IAUDDEC1.xdc
+package/ti.sdo.ce.audio1.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_sdo_ce_audio1.java
+package/ti_sdo_ce_audio1.class
+package/package_ti.sdo.ce.audio1.c
+package/package.defs.h
+package/ti.sdo.ce.audio1.ccs

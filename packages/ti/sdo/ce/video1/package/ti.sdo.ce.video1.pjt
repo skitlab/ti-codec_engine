@@ -1,0 +1,15 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.video1"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.video1.c"
+Source="../viddec1.c"
+Source="../viddec1_skel.c"
+Source="../viddec1_stubs.c"
+Source="../videnc1.c"
+Source="../videnc1_skel.c"
+Source="../videnc1_stubs.c"

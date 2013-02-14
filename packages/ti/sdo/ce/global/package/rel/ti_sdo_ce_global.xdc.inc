@@ -1,0 +1,17 @@
+package/package.bld.xml
+package/package.ext.xml
+package/package.rel.dot
+package/build.cfg
+package/package.xdc.inc
+package.bld
+CESettings.h
+simple_GCArmv5T.mak
+package/package.cfg.xdc.inc
+lib/debug/cesettings.aem3
+package/package_ti.sdo.ce.global.c
+CESettings.c
+lib/release/cesettings.aem3
+lib/debug/cesettings.ae674
+lib/release/cesettings.ae674
+lib/debug/cesettings.av5T
+lib/release/cesettings.av5T

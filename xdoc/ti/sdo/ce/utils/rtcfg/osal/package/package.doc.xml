@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.sdo.ce.utils.rtcfg.osal' nodoc='0' root='../../../../../../' summary='This+package+is+used+to+build+the+runtime-configuration+%28non-RTSC+config%29%0A++examples.+We+build+them+from+here+so+that+we+don%27t+get+the+%27package%27%0A++subdirectory+with+these+examples'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.sdo.ce.utils.rtcfg.osal%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+</package>

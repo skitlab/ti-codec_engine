@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.global" version="1, 0, 0" producerId="undefined">
+    <units>
+        <module name="Settings"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="CESettings.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/debug/cesettings.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/cesettings/package/package_ti.sdo.ce.global.oem3.dep" src="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="package/lib/lib/debug/cesettings/CESettings.oem3.dep" src="CESettings.c"/>
+        <srcFile name="lib/release/cesettings.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/cesettings/package/package_ti.sdo.ce.global.oem3.dep" src="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="package/lib/lib/release/cesettings/CESettings.oem3.dep" src="CESettings.c"/>
+        <srcFile name="lib/debug/cesettings.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/cesettings/package/package_ti.sdo.ce.global.oe674.dep" src="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="package/lib/lib/debug/cesettings/CESettings.oe674.dep" src="CESettings.c"/>
+        <srcFile name="lib/release/cesettings.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/cesettings/package/package_ti.sdo.ce.global.oe674.dep" src="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="package/lib/lib/release/cesettings/CESettings.oe674.dep" src="CESettings.c"/>
+        <srcFile name="lib/debug/cesettings.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/cesettings/package/package_ti.sdo.ce.global.ov5T.dep" src="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="package/lib/lib/debug/cesettings/CESettings.ov5T.dep" src="CESettings.c"/>
+        <srcFile name="lib/release/cesettings.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/cesettings/package/package_ti.sdo.ce.global.ov5T.dep" src="package/package_ti.sdo.ce.global.c"/>
+        <srcFile name="package/lib/lib/release/cesettings/CESettings.ov5T.dep" src="CESettings.c"/>
+        <srcFile name="package/rel/ti_sdo_ce_global.tar.dep" src="package/rel/ti_sdo_ce_global.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="host.platforms.arm"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/codesourcery/arm-2009q1/"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/debug/cesettings"
+        pname="lib/debug/cesettings.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/cesettings"
+        pname="lib/release/cesettings.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/cesettings"
+        pname="lib/debug/cesettings.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/cesettings"
+        pname="lib/release/cesettings.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/cesettings"
+        pname="lib/debug/cesettings.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/release/cesettings"
+        pname="lib/release/cesettings.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_global"
+        pname="ti_sdo_ce_global.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package.bld"/>
+        <file name="CESettings.h"/>
+        <file name="simple_GCArmv5T.mak"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/cesettings.aem3"/>
+        <file name="package/package_ti.sdo.ce.global.c"/>
+        <file name="CESettings.c"/>
+        <file name="lib/release/cesettings.aem3"/>
+        <file name="lib/debug/cesettings.ae674"/>
+        <file name="lib/release/cesettings.ae674"/>
+        <file name="lib/debug/cesettings.av5T"/>
+        <file name="lib/release/cesettings.av5T"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

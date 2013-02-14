@@ -1,0 +1,129 @@
+%%{
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+%%}
+%%{
+    /*
+     *  ======== Settings.xdt ========
+     *  Generate the config structure for osal.bios module
+     */
+    var Settings = this;
+%%}
+% /* for BIOS builds (w/ or w/o dsplink) define the tracebuffer and its size */
+/*
+ *  Definition of the globally visible character buffer holding all trace
+ *  data
+ */
+Char Global_traceBuffer[`Settings.traceBufferSize`];
+Int  Global_traceBufferSize = `Settings.traceBufferSize`;
+
+#include <ti/sdo/ce/osal/bios/Global_BIOS.h>
+__FAR__ Char ti_sdo_ce_osal_bios_Global_CE_DEBUG[2] = "";
+__FAR__ Char ti_sdo_ce_osal_bios_Global_CE_CHECK[2] = "";
+
+%%{
+    /*
+     *  Go through all the global objects looking for those that are a
+     *  ti.sysbios.heaps.HeapMem instance. The global names of these heaps
+     *  will be put in the RMS_heapList array. This will allow us to add
+     *  the heap name to the Memory_Stat objects.
+     */
+var heapList = [];
+if ('ti.sysbios.heaps.HeapMem' in xdc.om) {
+    var Heap = xdc.om['ti.sysbios.heaps.HeapMem'];
+}
+else {
+    var Heap = null;
+}
+
+print("Heap: " + Heap);
+
+var nGlobal = Program.global.length;
+//print("Number of globals: " + nGlobal);
+for (var glob in Program.global) {
+    //print("Program.global[" + glob + "]: " + Program.global[glob]);
+    if (Heap != null) {
+        if (Program.global[glob] instanceof Heap.Instance) {
+            //print(glob + " is a HeapMem instance!");
+            heapList[heapList.length++] = glob;
+        }
+        else {
+            //print(glob + " is NOT a HeapMem instance!");
+        }
+    }
+}
+
+for (var i = 0; i < heapList.length; i++) {
+    //print("heapList[" + i + "] = " + heapList[i]);
+}
+
+%%}
+
+#include <ti/sysbios/heaps/HeapMem.h>
+#include <xdc/cfg/global.h>
+
+% if (heapList.length == 0) {
+Int ti_sdo_ce_osal_Memory_numHeaps = 0;
+String *ti_sdo_ce_osal_Memory_heapNames = NULL;
+ti_sysbios_heaps_HeapMem_Handle *ti_sdo_ce_osal_Memory_heapList = NULL;
+% } else {
+Int ti_sdo_ce_osal_Memory_numHeaps = `heapList.length`;
+
+ti_sysbios_heaps_HeapMem_Handle ti_sdo_ce_osal_Memory_heapList[`heapList.length`];
+String ti_sdo_ce_osal_Memory_heapNames[`heapList.length`] = {
+%     for (var i = 0; i < heapList.length; i++) {
+    "`heapList[i]`",
+%     }
+}; 
+% }
+
+/*
+ *  ======== Memory_cfgInit ========
+ *  Set up table of HeapMem handles that correspond to array of heap names.
+ *  This is only used for getting memory heap statistics.
+ */
+Void ti_sdo_ce_osal_Memory_cfgInit()
+{
+% if (heapList.length > 0) {
+%     for (var i = 0; i < heapList.length; i++) {
+    ti_sdo_ce_osal_Memory_heapList[`i`] = `heapList[i]`;
+%     }
+% }
+}
+%%{
+/*
+ * @(#) ti.sdo.ce.osal.bios; 2, 0, 1,1; 2-24-2012 19:30:18; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+
+%%}

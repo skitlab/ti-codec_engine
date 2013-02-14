@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module qnx.targets.arm.Qnx</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> *  Copyright (c) 2012 Texas Instruments and others.
+</span>     3    <span class="comment"> *  All rights reserved. This program and the accompanying materials
+</span>     4    <span class="comment"> *  are made available under the terms of the Eclipse Public License v1.0
+</span>     5    <span class="comment"> *  which accompanies this distribution, and is available at
+</span>     6    <span class="comment"> *  http://www.eclipse.org/legal/epl-v10.html
+</span>     7    <span class="comment"> *
+</span>     8    <span class="comment"> *  Contributors:
+</span>     9    <span class="comment"> *      Texas Instruments - initial implementation
+</span>    10    <span class="comment"> *
+</span>    11    <span class="comment"> * 
+</span>    12    <span class="comment"> */</span>
+    13    import xdc.bld.ITarget2;
+    14    
+    15    <span class="xdoc">/*!
+</span>    16    <span class="xdoc"> *  ======== Qnx.xdc ========
+</span>    17    <span class="xdoc"> *  Embedded little endian ARM v7 Qnx target
+</span>    18    <span class="xdoc"> *
+</span>    19    <span class="xdoc"> *  This module defines an embedded target for Qnx on ARM.
+</span>    20    <span class="xdoc"> *
+</span>    21    <span class="xdoc"> */</span>
+    22    @TargetHeader(<span class="string">"xdc/bld/stddefs.xdt"</span>)
+    23    <span class=key>metaonly</span> <span class=key>module</span> Qnx <span class=key>inherits</span> xdc.bld.ITarget2 {
+    24        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string name                = <span class="string">"Qnx"</span>;
+    25        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string os                  = <span class="string">"Qnx"</span>;
+    26        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string suffix              = <span class="string">"qv7"</span>;
+    27        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string isa                 = <span class="string">"v7A"</span>;
+    28        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> xdc.bld.ITarget.Model model= {
+    29            endian: <span class="string">"little"</span>
+    30        };
+    31    
+    32        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string rts = <span class="string">"qnx.targets.arm.rts"</span>;
+    33        <span class=key>override</span> <span class=key>config</span> string platform     = <span class="string">"host.platforms.arm"</span>;
+    34    
+    35        <span class=key>config</span> String QNX_HOST = <span class="string">""</span>;
+    36        <span class=key>config</span> String QNX_TARGET = <span class="string">""</span>;
+    37        <span class=key>config</span> String QNX_CONFIGURATION = <span class="string">""</span>;
+    38        <span class=key>config</span> String GCCVERS = <span class="string">""</span>;
+    39    
+    40        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> String stdInclude = <span class="string">"qnx/targets/arm/std.h"</span>;
+    41    
+    42        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> ITarget2.Command cc = {
+    43            cmd: <span class="string">"$(rootDir)/bin/qcc -Vgcc_ntoarmv7 -EL -c"</span>,
+    44            opts: <span class="string">""</span>
+    45        };
+    46    
+    47        <span class=key>override</span> <span class=key>config</span> ITarget2.Options ccOpts = {
+    48    <span class=comment>//        prefix: "-fPIC -Wunused",</span>
+    49            prefix: <span class="string">""</span>,
+    50            suffix: <span class="string">"-Dfar= "</span>
+    51        };
+    52    
+    53        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> ITarget2.Command asm = {
+    54            cmd: <span class="string">"$(rootDir)/bin/qcc -c -x assembler"</span>,
+    55            opts: <span class="string">""</span>
+    56        };
+    57    
+    58        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> ITarget2.Command ar = {
+    59            cmd: <span class="string">"$(rootDir)/bin/ntoarm-ar "</span>,
+    60            opts: <span class="string">"cr"</span>
+    61        };
+    62    
+    63        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> ITarget2.Command lnk = {
+    64            cmd: <span class="string">"$(rootDir)/bin/qcc -Vgcc_ntoarmv7 -EL "</span>,
+    65            opts: <span class="string">""</span>
+    66        };
+    67    
+    68        <span class=key>override</span> <span class=key>config</span> ITarget2.Options lnkOpts = {
+    69            prefix: <span class="string">""</span>,
+    70            suffix: <span class="string">""</span>
+    71    <span class=comment>//        suffix: "-Wl,-Map=$(XDCCFGDIR)/$@.map"</span>
+    72        };
+    73    
+    74        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> xdc.bld.ITarget.StdTypes stdTypes = {
+    75            t_IArg          : { size: 4, align: 4 },
+    76            t_Char          : { size: 1, align: 1 },
+    77            t_Double        : { size: 8, align: 4 },
+    78            t_Float         : { size: 4, align: 4 },
+    79            t_Fxn           : { size: 4, align: 4 },
+    80            t_Int           : { size: 4, align: 4 },
+    81            t_Int8          : { size: 1, align: 1 },
+    82            t_Int16         : { size: 2, align: 2 },
+    83            t_Int32         : { size: 4, align: 4 },
+    84            t_Int64         : { size: 8, align: 4 },
+    85            t_Long          : { size: 4, align: 4 },
+    86            t_LDouble       : { size: 8, align: 4 },
+    87            t_LLong         : { size: 8, align: 4 },
+    88            t_Ptr           : { size: 4, align: 4 },
+    89            t_Short         : { size: 2, align: 2 },
+    90            t_Size          : { size: 4, align: 4 },
+    91        };
+    92    }
+    93    <span class="comment">/*
+</span>    94    <span class="comment"> *  @(#) qnx.targets.arm; 1, 0, 0,11; 2-10-2012 11:27:43; /db/ztree/library/trees/xdctargets/xdctargets-f18x/src/ xlibrary
+</span>    95    <span class="comment">
+</span>    96    <span class="comment"> */</span>
+    97    
+</pre>
+</body></html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.ipc.bios" version="2, 0, 1" producerId="undefined">
+    <units>
+        <module name="Ipc"/>
+        <module name="Processor"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="Processor_noOS.c"/>
+        <srcFile name="Comm_BIOS.c"/>
+        <srcFile name="Ipc_defs.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/debug/ipc_bios_nomsg.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/package/package_ti.sdo.ce.ipc.bios.oem3.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/Processor_noOS.oem3.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/Comm_BIOS.oem3.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/Ipc_defs.oem3.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/debug/ipc_bios.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/package/package_ti.sdo.ce.ipc.bios.oem3.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/Processor_noOS.oem3.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/Comm_BIOS.oem3.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/Ipc_defs.oem3.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/release/ipc_bios_nomsg.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/package/package_ti.sdo.ce.ipc.bios.oem3.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/Processor_noOS.oem3.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/Comm_BIOS.oem3.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/Ipc_defs.oem3.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/release/ipc_bios.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/package/package_ti.sdo.ce.ipc.bios.oem3.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/Processor_noOS.oem3.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/Comm_BIOS.oem3.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/Ipc_defs.oem3.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/debug/ipc_bios_nomsg.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/package/package_ti.sdo.ce.ipc.bios.oe674.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/Processor_noOS.oe674.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/Comm_BIOS.oe674.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios_nomsg/Ipc_defs.oe674.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/debug/ipc_bios.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/package/package_ti.sdo.ce.ipc.bios.oe674.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/Processor_noOS.oe674.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/Comm_BIOS.oe674.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/debug/ipc_bios/Ipc_defs.oe674.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/release/ipc_bios_nomsg.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/package/package_ti.sdo.ce.ipc.bios.oe674.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/Processor_noOS.oe674.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/Comm_BIOS.oe674.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios_nomsg/Ipc_defs.oe674.dep" src="Ipc_defs.c"/>
+        <srcFile name="lib/release/ipc_bios.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/package/package_ti.sdo.ce.ipc.bios.oe674.dep" src="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/Processor_noOS.oe674.dep" src="Processor_noOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/Comm_BIOS.oe674.dep" src="Comm_BIOS.c"/>
+        <srcFile name="package/lib/lib/release/ipc_bios/Ipc_defs.oe674.dep" src="Ipc_defs.c"/>
+        <srcFile name="package/rel/ti_sdo_ce_ipc_bios.tar.dep" src="package/rel/ti_sdo_ce_ipc_bios.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/debug/ipc_bios_nomsg"
+        pname="lib/debug/ipc_bios_nomsg.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/ipc_bios"
+        pname="lib/debug/ipc_bios.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/ipc_bios_nomsg"
+        pname="lib/release/ipc_bios_nomsg.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/ipc_bios"
+        pname="lib/release/ipc_bios.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/ipc_bios_nomsg"
+        pname="lib/debug/ipc_bios_nomsg.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/ipc_bios"
+        pname="lib/debug/ipc_bios.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/ipc_bios_nomsg"
+        pname="lib/release/ipc_bios_nomsg.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/ipc_bios"
+        pname="lib/release/ipc_bios.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_ipc_bios"
+        pname="ti_sdo_ce_ipc_bios.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package.bld"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/ipc_bios_nomsg.aem3"/>
+        <file name="package/package_ti.sdo.ce.ipc.bios.c"/>
+        <file name="Processor_noOS.c"/>
+        <file name="Comm_BIOS.c"/>
+        <file name="Ipc_defs.c"/>
+        <file name="lib/debug/ipc_bios.aem3"/>
+        <file name="lib/release/ipc_bios_nomsg.aem3"/>
+        <file name="lib/release/ipc_bios.aem3"/>
+        <file name="lib/debug/ipc_bios_nomsg.ae674"/>
+        <file name="lib/debug/ipc_bios.ae674"/>
+        <file name="lib/release/ipc_bios_nomsg.ae674"/>
+        <file name="lib/release/ipc_bios.ae674"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

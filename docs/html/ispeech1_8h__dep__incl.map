@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" href="$ispeech1__amr_8h.html" title="This header defines all types, constants, enums, and functions that are needed for AMR..." alt="" coords="8,84,112,108" />
+<area shape="rect" href="$ispeech1__evrc_8h.html" title="This header defines all types, constants, enums, and functions that are needed for EVRC..." alt="" coords="136,84,242,108" />
+<area shape="rect" href="$ispeech1__g722_8h.html" title="This header defines all types, constants, enums, and functions that are needed for G..." alt="" coords="266,84,376,108" />
+<area shape="rect" href="$ispeech1__g7221_8h.html" title="This header defines all types, constants, enums, and functions that are needed for G..." alt="" coords="400,84,517,108" />
+<area shape="rect" href="$ispeech1__g723_8h.html" title="This header defines all types, constants, enums, and functions that are needed for G..." alt="" coords="541,84,650,108" />
+<area shape="rect" href="$ispeech1__g726_8h.html" title="This header defines all types, constants, enums, and functions that are needed for G..." alt="" coords="674,84,784,108" />
+<area shape="rect" href="$ispeech1__ilbc_8h.html" title="This header defines all types, constants, enums, and functions that are needed for iLBC..." alt="" coords="808,84,912,108" />
+<area shape="rect" href="$ispeech1__pcm_8h.html" title="This header defines all types, constants, enums, and functions that are common across all G..." alt="" coords="936,84,1042,108" />
+<area shape="rect" href="$ispeech1__smv_8h.html" title="This header defines all types, constants, enums, and functions that are common across all SMV speech ..." alt="" coords="1066,84,1173,108" />
+<area shape="rect" href="$ispeech1__wbamr_8h.html" title="This header defines all types, constants, enums, and functions that are needed for WB&#45;AMR..." alt="" coords="1197,84,1317,108" />
+<area shape="rect" href="$isphdec1_8h.html" title="This header defines all types, constants, and functions shared by all implementations of the speech d..." alt="" coords="1341,84,1418,108" />
+<area shape="rect" href="$isphenc1_8h.html" title="This header defines all types, constants, and functions shared by all implementations of the speech e..." alt="" coords="1442,84,1520,108" />
+<area shape="rect" href="$sphdec1_8h.html" title="The SPHDEC1 speech decoder interface. Provides the user an interface to create and interact with XDAI..." alt="" coords="1342,158,1417,182" />
+<area shape="rect" href="$sphenc1_8h.html" title="The SPHENC1 speech encoder codec interface. Provides the user an interface to create and interact wit..." alt="" coords="1444,158,1518,182" />
+</map>

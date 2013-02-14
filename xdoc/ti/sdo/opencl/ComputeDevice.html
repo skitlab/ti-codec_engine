@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>module ti.sdo.opencl.ComputeDevice</title>
+<meta name="description" content="Global configuration settings for the this package">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.opencl.</span><span class="xdoc-id">ComputeDevice</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/package.html" title="package ti.sdo.opencl"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/OpenCL.html" title="module OpenCL"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/opencl/ComputeDevice.html">index URL</a></div>
+<p class="xdocHdrSummary">Global configuration settings for the this package</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This is a RTSC meta-only module. When building your executable with
+  XDCtools, use this module to configure this package.
+</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/opencl/ComputeDevice-src.html"><span class="xdocLabelFile">ti/sdo/opencl/ComputeDevice.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> ComputeDevice = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.opencl.ComputeDevice'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><i>values of type <a class="xdocSynGo" href="#.Arg.Type">ComputeDevice.<span class="xdoc-id">ArgType</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Arg.Type" title="ti.sdo.opencl.ComputeDevice.ArgType">ComputeDevice.<span class="xdoc-id">ArgType_Int</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Arg.Type" title="ti.sdo.opencl.ComputeDevice.ArgType">ComputeDevice.<span class="xdoc-id">ArgType_LocalPtr</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Arg.Type" title="ti.sdo.opencl.ComputeDevice.ArgType">ComputeDevice.<span class="xdoc-id">ArgType_GlobalPtr</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Arg.Type" title="ti.sdo.opencl.ComputeDevice.ArgType">ComputeDevice.<span class="xdoc-id">ArgType_SrPtr</span></a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#.Fxn.Desc">ComputeDevice.<span class="xdoc-id">FxnDesc</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Fxn.Desc" title="ti.sdo.opencl.ComputeDevice.FxnDesc"><span class="xdoc-id">name</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Fxn.Desc" title="ti.sdo.opencl.ComputeDevice.FxnDesc"><span class="xdoc-id">addr</span></a> = <i><span class="xdoc-kw2">Fxn</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Fxn.Desc" title="ti.sdo.opencl.ComputeDevice.FxnDesc"><span class="xdoc-id">numArgs</span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Fxn.Desc" title="ti.sdo.opencl.ComputeDevice.FxnDesc"><span class="xdoc-id">args</span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/opencl/ComputeDevice.html#.Arg.Type" title="ti.sdo.opencl.ComputeDevice.ArgType">ComputeDevice.ArgType</a>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#.Unit">ComputeDevice.<span class="xdoc-id">Unit</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Unit" title="ti.sdo.opencl.ComputeDevice.Unit"><span class="xdoc-id">initFxn</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Unit" title="ti.sdo.opencl.ComputeDevice.Unit"><span class="xdoc-id">exitFxn</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Unit" title="ti.sdo.opencl.ComputeDevice.Unit"><span class="xdoc-id">fxnTab</span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/opencl/ComputeDevice.html#.Fxn.Desc" title="ti.sdo.opencl.ComputeDevice.FxnDesc">ComputeDevice.FxnDesc</a>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#units">ComputeDevice.<span class="xdoc-id">units</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/opencl/ComputeDevice.html#.Unit" title="ti.sdo.opencl.ComputeDevice.Unit">ComputeDevice.Unit</a>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Arg.Type"></a>
+<a class="xdocAnchor" id=".Arg.Type_.Int"></a>
+<a class="xdocAnchor" id=".Arg.Type_.Local.Ptr"></a>
+<a class="xdocAnchor" id=".Arg.Type_.Global.Ptr"></a>
+<a class="xdocAnchor" id=".Arg.Type_.Sr.Ptr"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">ComputeDevice.</span><span class="xdoc-id">ArgType</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/ComputeDevice.html" title="module ComputeDevice"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/opencl/ComputeDevice.html#.Arg.Type">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i>values of type ComputeDevice.<span class="xdoc-id">ArgType</span></i>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> ComputeDevice.<span class="xdoc-id">ArgType_Int</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> ComputeDevice.<span class="xdoc-id">ArgType_LocalPtr</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> ComputeDevice.<span class="xdoc-id">ArgType_GlobalPtr</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> ComputeDevice.<span class="xdoc-id">ArgType_SrPtr</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Fxn.Desc"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">ComputeDevice.</span><span class="xdoc-id">FxnDesc</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/ComputeDevice.html" title="module ComputeDevice"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/opencl/ComputeDevice.html#.Fxn.Desc">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> ComputeDevice.<span class="xdoc-id">FxnDesc</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">name</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">addr</span> = <i><span class="xdoc-kw2">Fxn</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">numArgs</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">args</span> = <i><a class="xdoc-link" href="../../../ti/sdo/opencl/ComputeDevice.html#.Arg.Type" title="ti.sdo.opencl.ComputeDevice.ArgType">ComputeDevice.ArgType</a>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Unit"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">ComputeDevice.</span><span class="xdoc-id">Unit</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/ComputeDevice.html" title="module ComputeDevice"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/opencl/ComputeDevice.html#.Unit">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> ComputeDevice.<span class="xdoc-id">Unit</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">initFxn</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">exitFxn</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">fxnTab</span> = <i><a class="xdoc-link" href="../../../ti/sdo/opencl/ComputeDevice.html#.Fxn.Desc" title="ti.sdo.opencl.ComputeDevice.FxnDesc">ComputeDevice.FxnDesc</a>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="units"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">ComputeDevice.</span><span class="xdoc-id">units</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/ComputeDevice.html" title="module ComputeDevice"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/opencl/ComputeDevice.html#units">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>ComputeDevice.<span class="xdoc-id">units</span> = <i><a class="xdoc-link" href="../../../ti/sdo/opencl/ComputeDevice.html#.Unit" title="ti.sdo.opencl.ComputeDevice.Unit">ComputeDevice.Unit</a>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:07 GMT</div>
+</div></div></body>
+</html>

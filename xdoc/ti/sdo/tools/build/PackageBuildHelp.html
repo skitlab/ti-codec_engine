@@ -1,0 +1,791 @@
+<html>
+<head>
+<title>module ti.sdo.tools.build.PackageBuildHelp</title>
+<meta name="description" content="Common package build support">
+<link rel="stylesheet" type="text/css" href="../../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.tools.build.</span><span class="xdoc-id">PackageBuildHelp</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/package.html" title="package ti.sdo.tools.build"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html">index URL</a></div>
+<p class="xdocHdrSummary">Common package build support</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This module is a helper module for your package build script
+  (<tt>package.bld</tt>). It provides a high-level interface for defining
+  your libraries and executables, and provides functions to generate
+  your package interface (makefiles).
+</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp-src.html"><span class="xdocLabelFile">ti/sdo/tools/build/PackageBuildHelp.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> PackageBuildHelp = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.tools.build.PackageBuildHelp'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#.Lib.Attrs">PackageBuildHelp.<span class="xdoc-id">LibAttrs</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Attributes for a library instances</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Lib.Attrs"><span class="xdoc-id">name</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;library name</span></span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Lib.Attrs"><span class="xdoc-id">sources</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;source files to build</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Lib.Attrs"><span class="xdoc-id">icw</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;array of input isa's</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Lib.Attrs"><span class="xdoc-id">libAttrs</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;library attributes</span></span></a> = <i><a class="xdoc-link" href="../../../../xdc/bld/Library.html#.Attrs" title="xdc.bld.Library.Attrs">Library.Attrs</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#.Prog.Attrs">PackageBuildHelp.<span class="xdoc-id">ProgAttrs</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Attributes for an executable instance</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Prog.Attrs"><span class="xdoc-id">name</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;executable name</span></span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Prog.Attrs"><span class="xdoc-id">sources</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;source files to build</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Prog.Attrs"><span class="xdoc-id">platforms</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;array of platform names</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Prog.Attrs"><span class="xdoc-id">icw</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;array of input isa's</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Prog.Attrs"><span class="xdoc-id">isas</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;array of output isa's</span></span></a> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Prog.Attrs"><span class="xdoc-id">execAttrs</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;executble attributes</span></span></a> = <i><a class="xdoc-link" href="../../../../xdc/bld/Executable.html#.Attrs" title="xdc.bld.Executable.Attrs">Executable.Attrs</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#file.Array">PackageBuildHelp.<span class="xdoc-id">fileArray</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Record all source files and config scripts in given array</span></span></a> = <i><span class="xdoc-kw2">Any</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#skip.Exec">PackageBuildHelp.<span class="xdoc-id">skipExec</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Skip given program if function returns true</span></span></a> = <i><span class="xdoc-kw2">Bool</span>(<a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Prog.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.ProgAttrs">PackageBuildHelp.ProgAttrs</a>,<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>,<span class="xdoc-kw2">String</span>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#skip.Lib">PackageBuildHelp.<span class="xdoc-id">skipLib</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Skip given library if function returns true</span></span></a> = <i><span class="xdoc-kw2">Bool</span>(<a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Lib.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.LibAttrs">PackageBuildHelp.LibAttrs</a>,<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#skip.Platform">PackageBuildHelp.<span class="xdoc-id">skipPlatform</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Skip given platform if function returns true</span></span></a> = <i><span class="xdoc-kw2">Bool</span>(<span class="xdoc-kw2">String</span>,<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#skip.Target">PackageBuildHelp.<span class="xdoc-id">skipTarget</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Skip given target if function returns true</span></span></a> = <i><span class="xdoc-kw2">Bool</span>(<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#use.Platform.Instance.Name">PackageBuildHelp.<span class="xdoc-id">usePlatformInstanceName</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Use platform instance name when constructing executable pathname</span></span></a> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">false</span>;
+</div>
+<div class='xdocSynHdr'>module-wide functions</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#make.Executables">PackageBuildHelp.<span class="xdoc-id">makeExecutables</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Add executables to the build model</span></span></a>(<i><a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Prog.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.ProgAttrs">PackageBuildHelp.ProgAttrs</a>[<span class="xdoc-kw2"></span>]</i> <go><span class="xdoc-id">progAry</span></go>, <i><span class="xdoc-kw2">Any</span></i> <go><span class="xdoc-id">arguments</span></go>, <i><span class="xdoc-kw2">Any</span></i> <go><span class="xdoc-id">profiles</span></go>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#make.Libraries">PackageBuildHelp.<span class="xdoc-id">makeLibraries</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Add libraries to the build model</span></span></a>(<i><a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Lib.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.LibAttrs">PackageBuildHelp.LibAttrs</a>[<span class="xdoc-kw2"></span>]</i> <go><span class="xdoc-id">libAry</span></go>, <i><span class="xdoc-kw2">Any</span></i> <go><span class="xdoc-id">arguments</span></go>, <i><span class="xdoc-kw2">Any</span></i> <go><span class="xdoc-id">profiles</span></go>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Lib.Attrs"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">LibAttrs</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#.Lib.Attrs">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Attributes for a library instances</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> PackageBuildHelp.<span class="xdoc-id">LibAttrs</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">name</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;library name</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">sources</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;source files to build</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">icw</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;array of input isa's</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">libAttrs</span> = <i><a class="xdoc-link" href="../../../../xdc/bld/Library.html#.Attrs" title="xdc.bld.Library.Attrs">Library.Attrs</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;library attributes</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">FIELDS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;The name of the library with an optional
+  directory prefix.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">sources</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of source files to be compiled
+  for the library.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">icw</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of strings listing isa's that a given target
+  must be able to accept. Use this property to limit which targets
+  will be used to build this library. See Details below.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">libAttrs</span>
+<span class="xdocChildSum">&#151;&nbsp;An xdc.bld.Library.Attrs object used to specify
+  optional attributes of the library instance.</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">An array of this type is passed to <tt>PackageBuildHelp.makeLibraries</tt>.
+  Each element in the array describes the build properties for the
+  library. Multiple library instances may be produced from a single
+  <tt>LibAttrs</tt> element. For example, a library instance may be build for
+  different profiles and/or different targets.</div>
+<div class="xdocText">The <tt>icw</tt> array is used to limit which targets will be use for
+  building the library. For example, if you have a library which
+  should only be built for ARM, but you know the build model has a
+  target for DSP, then set the <tt>icw</tt> array as follows to build only
+  for the ARM targets and exclude the DSP targets.</div>
+<div class="xdocText"><PRE class="Example">  icw: [ "v5T" ]
+</PRE></div>
+<div class="xdocText">Note that all ARM targets which accept v5T as an input isa will
+  build the library using their output isa. For example, if the build
+  model contains both GCArmv5T (isa=v5T) and GCArmv6 (isa=v6) targets,
+  then both targets will build this library using their respective
+  isa. However, if the build model contains the C64P (isa=64P) target,
+  it will not be used to build this library because it cannot accept
+  the v5T isa.</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">SEE ALSO</div>
+<div class="xdocText"><a class="xdoc-link" href="PackageBuildHelp.html#make.Libraries" title="makeLibraries">makeLibraries</a> -- for additional examples</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Prog.Attrs"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">ProgAttrs</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#.Prog.Attrs">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Attributes for an executable instance</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> PackageBuildHelp.<span class="xdoc-id">ProgAttrs</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">name</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;executable name</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">sources</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;source files to build</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">platforms</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;array of platform names</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">icw</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;array of input isa's</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">isas</span> = <i><span class="xdoc-kw2">String</span>[<span class="xdoc-kw2"></span>]</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;array of output isa's</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">execAttrs</span> = <i><a class="xdoc-link" href="../../../../xdc/bld/Executable.html#.Attrs" title="xdc.bld.Executable.Attrs">Executable.Attrs</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;executble attributes</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">FIELDS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;The name of the executable with an optional
+  directory prefix.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">sources</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of strings listing the source files
+  to be compiled for the executables.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">platforms</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of platform (and/or platform instance)
+  names which are supported by this program. When this property is
+  specified, the executable is built only for those platforms listed
+  by this property, otherwise, the executable is built for all
+  platforms specified in the target's platforms array property.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">icw</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of strings listing isa's which are compatible
+  for this executable. Use this property to limit which isa's the
+  program will be built for.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">isas</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of isa's the program should be built for.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">execAttrs</span>
+<span class="xdocChildSum">&#151;&nbsp;An xdc.bld.Executable.Attrs object used to specify
+  optional attributes of the executable instance.</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">An array of this type is passed to <tt>PackageBuildHelp.makeExecutables</tt>.
+  Each element in the array describes the build properties for the
+  executable. Multiple executable instances may be produced from a
+  single <tt>ProgAttrs</tt> element. For example, an executable instance may
+  be build for different profiles, targets, and platforms.</div>
+<div class="xdocText">The <tt>icw</tt> array is used to limit which targets will be use for
+  building the executable. For example, if you have an executable
+  which should only be built for ARM, but you know the build model
+  has a target for DSP, then set the <tt>icw</tt> array as follows to build
+  only for the ARM targets and exclude the DSP targets.</div>
+<div class="xdocText"><PRE class="Example">  icw: [ "v5T" ]
+</PRE></div>
+<div class="xdocText">Note that all ARM targets which accept v5T as an input isa will
+  build the executable using their output isa. For example, if the build
+  model contains both GCArmv5T (isa=v5T) and GCArmv6 (isa=v6) targets,
+  then both targets will build this executable using their respective
+  isa. However, if the build model contains the C64P (isa=64P) target,
+  it will not be used to build this executable because it cannot accept
+  the v5T isa.</div>
+<div class="xdocText">Note: this property is more useful to building libraries than
+  executables. The <tt>isas</tt> property is usually used when building
+  executables.</div>
+<div class="xdocText">The <tt>isas</tt> array is used to control the executable's isa. Only those
+  targets which have an output isa that matches any entry in this array
+  will be used to build the executable. For example, if you have a
+  program which should be built for ARM v5T or ARM v6 but not for ARM
+  v7A, but you know the build model has targets for all three, then
+  set the <tt>isas</tt> array as follows to get the desired output.</div>
+<div class="xdocText"><PRE class="Example">  isas: [ "v5T", "v6" ]
+</PRE></div>
+<div class="xdocText">Note: although the GCArmv7A target accepts v5T and v6 isa as input,
+  it will not participate in the build because it outputs v7A isa which
+  not specified in the <tt>isas</tt> array.</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">SEE ALSO</div>
+<div class="xdocText"><a class="xdoc-link" href="PackageBuildHelp.html#make.Executables" title="makeExecutables">makeExecutables</a> -- for additional examples</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="file.Array"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">fileArray</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#file.Array">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Record all source files and config scripts in given array</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">fileArray</span> = <i><span class="xdoc-kw2">Any</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">When this config param is assigned to a string array, each call
+  to <tt>PackageBuildHelp.makeExecutables</tt> and
+  <tt>PackageBuildHelp.makeLibraries</tt> will append all given source files
+  and config scripts to the array.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="skip.Exec"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">skipExec</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#skip.Exec">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Skip given program if function returns true</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">skipExec</span> = <i><span class="xdoc-kw2">Bool</span>(<a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Prog.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.ProgAttrs">PackageBuildHelp.ProgAttrs</a>,<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>,<span class="xdoc-kw2">String</span>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocText"></div>
+<div class="xdocText"><DL><DT> prog</DT><DD>
+      (<tt>PackageBuildHelp.ProgAttrs</tt>) An element from the <tt>progAry</tt>
+      argument passed to the <tt>PackageBuildHelp.makeExecutables</tt>
+      function.
+</DD><DT> targ</DT><DD>
+      (<tt>xdc.bld.ITarget.Module</tt>) The target used for building the
+      current executable.
+</DD><DT> platName</DT><DD>
+      (<tt>String</tt>) The name of the platform used for the current
+      executable.
+</DD></DL></div>
+<div class="xdocText"></div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">If you don't want your package to build a given executable based
+  on certain build attributes, set this config param to a function
+  defined in your package.bld script which returns true for any
+  executable you do not want to build.</div>
+<div class="xdocText">This function can also be used to modify the program object just
+  before building it. The following example show a function which
+  adds a source file depending on the target.os property. It always
+  returns false, because we don't want to skip the executable.</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.skipExec = function(prog, targ, platName)
+  {
+      if (targ.os == undefined) {
+          prog.sources.push("main_BIOS.c");
+      }
+      else {
+          prog.sources.push("main_native.c");
+      }
+      return false;
+  }
+
+</PRE></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="skip.Lib"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">skipLib</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#skip.Lib">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Skip given library if function returns true</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">skipLib</span> = <i><span class="xdoc-kw2">Bool</span>(<a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Lib.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.LibAttrs">PackageBuildHelp.LibAttrs</a>,<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocText"></div>
+<div class="xdocText"><DL><DT> lib</DT><DD>
+      (<tt>PackageBuildHelp.LibAttrs</tt>) An element from the <tt>libAry</tt>
+      argument passed to the <tt>PackageBuildHelp.makeLibraries</tt> function.
+</DD><DT> targ</DT><DD>
+      (<tt>xdc.bld.ITarget.Module</tt>) The target used for building the
+      current library.
+</DD></DL></div>
+<div class="xdocText"></div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">If you don't want your package to build a given library based
+  on certain build attributes, set this config param to a function
+  defined in your package.bld script which returns true for any
+  library you do not want to build.</div>
+<div class="xdocText">This function can also be used to modify the library object just
+  before building it. The following example show a function which
+  adds a source file depending on the target.os property. It always
+  returns false, because we don't want to skip the library.</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.skipLib = function(lib, targ)
+  {
+      if (targ.os == undefined) {
+          lib.sources.push("util_BIOS.c");
+      }
+      else {
+          lib.sources.push("util_native.c");
+      }
+      return false;
+  }
+
+</PRE></div>
+<div class="xdocText">This example show a function which builds the library only if the
+  library name contains the string "syslink" and the target's
+  os (Operating System) property matches "Linux".</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.skipLib = function(lib, targ)
+  {
+      if (lib.name.match(/syslink/)) {
+          return targ.os != "Linux" ? true : false;
+      }
+      else {
+          return false;
+      }
+  }
+
+</PRE></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="skip.Platform"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">skipPlatform</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#skip.Platform">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Skip given platform if function returns true</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">skipPlatform</span> = <i><span class="xdoc-kw2">Bool</span>(<span class="xdoc-kw2">String</span>,<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocText"></div>
+<div class="xdocText"><DL><DT> platName</DT><DD>
+      (<tt>String</tt>) The name of the platform used for the current
+      executable.
+</DD><DT> targ</DT><DD>
+      (<tt>xdc.bld.ITarget.Module</tt>) The target used for building the
+      current executable.
+</DD></DL></div>
+<div class="xdocText"></div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">If you do not want your package to build for a particular
+  platform, set this config param to a function defined in your
+  <tt>package.bld</tt> script which returns true for any platform you wish
+  to skip.</div>
+<div class="xdocText">The following example shows a function which skips any platform
+  named <tt>ti.platforms.evm3530</tt>.</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.skipPlatform = function(platName, targ)
+  {
+      return platName.match(/ti.platforms.evm3530/) ? true : false;
+  }
+
+</PRE></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="skip.Target"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">skipTarget</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#skip.Target">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Skip given target if function returns true</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">skipTarget</span> = <i><span class="xdoc-kw2">Bool</span>(<a class="xdoc-link" href="../../../../xdc/bld/ITarget.html#.Module" title="xdc.bld.ITarget.Module">ITarget.Module</a>)</i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocText"></div>
+<div class="xdocText"><DL><DT> targ</DT><DD>
+      (<tt>xdc.bld.ITarget.Module</tt>) The target used for building the
+      current library or executable.
+</DD></DL></div>
+<div class="xdocText"></div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">If you do not want your package to build for a particular
+  target, set this config param to a function defined in your
+  package.bld script which returns true for any target you wish
+  to skip.</div>
+<div class="xdocText">The following example shows a function which skips any target
+  named <tt>UCArm9</tt>.</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.skipTarget = function(targ)
+  {
+      return targ.name.match(/UCArm9/) ? true : false;
+  }
+
+</PRE></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="use.Platform.Instance.Name"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">usePlatformInstanceName</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#use.Platform.Instance.Name">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Use platform instance name when constructing executable pathname</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">usePlatformInstanceName</span> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">false</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The executable pathname is constructed using the following
+  elements: 'bin', platform name, directory prefix used in
+  program name, profile, and the executable basename. These
+  elements are combined in the following pattern:</div>
+<div class="xdocText">bin/platform/prefix/profile/name</div>
+<div class="xdocText">This config param controls the platform part of the pathname
+  when using platform instances. When set to true, the platform
+  instance name is used, otherwise, the platform base name is used.
+  When using the default platform instance the platform base name
+  is always used.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="make.Executables"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">makeExecutables</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#make.Executables">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Add executables to the build model</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">makeExecutables</span>(<i><a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Prog.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.ProgAttrs">PackageBuildHelp.ProgAttrs</a>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-id">progAry</span>, <i><span class="xdoc-kw2">Any</span></i> <span class="xdoc-id">arguments</span>, <i><span class="xdoc-kw2">Any</span></i> <span class="xdoc-id">profiles</span>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">progAry</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of program attributes, one for each
+  executable to build.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">arguments</span>
+<span class="xdocChildSum">&#151;&nbsp;The global arguments object passed to the build
+  script which contains the arguments assigned to the XDCARGS
+  environment variable used by the xdc command.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">profiles</span>
+<span class="xdocChildSum">&#151;&nbsp;Optional. (<tt>String[]</tt>) Array of profile names to
+  build provided the target supports the profile. If not supported
+  by the target, the profile is ignored. When omitted, all profiles
+  defined in the target will be used. If a profile is specified in
+  XDCARGS as described above, this parameter is ignored.</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This function iterates over the given <tt>progAry</tt> and adds each element
+  to the build model, possibly multiple times to cover all combinations
+  of platforms, targets, and profiles.</div>
+<div class="xdocText">The following code adds a program called <tt>program</tt> to the build model
+  for all combinations of platforms, targets, and profiles in the build
+  model.</div>
+<div class="xdocText"><PRE class="Example">  var PackageBuildHelp = xdc.useModule('ti.sdo.tools.build.PackageBuildHelp');
+  var progArray = new Array();
+
+  progArray.push(
+      new PackageBuildHelp.ProgAttrs({
+          name: "program",
+          sources: [ "main.c", "core.c" ],
+          execAttrs: {
+              cfgScript: "server.cfg"
+          }
+      })
+ );
+
+  PackageBuildHelp.makeExecutables(progArray, arguments);
+
+</PRE></div>
+<div class="xdocText">You can pass an array of profiles as the third (optional)
+  argument to <tt>PackageBuildHelp.makeExecutables</tt>. This is useful
+  for limiting the number of executables to build when the target
+  defines additional profiles.</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.makeExecutables(
+      progArray, arguments, [ "debug", "release" ]);
+
+</PRE></div>
+<div class="xdocText">You may limit the build to a single profile using the XDCARGS
+  command line option, provided the target supports the given profile.</div>
+<div class="xdocText"><PRE class="Example">  xdc -r XDCARGS="profile=coverage" all
+
+</PRE></div>
+<div class="xdocText">You may limit the build to a single platform using the XDCARGS
+  command line option, provided the target supports the given platform.</div>
+<div class="xdocText"><PRE class="Example">  xdc -r XDCARGS="platform=ti.platforms.evm3530" all
+
+</PRE></div>
+<div class="xdocText">The profile and platform arguments may be combined in XDCARGS by
+  separating them with white space.</div>
+<div class="xdocText"><PRE class="Example">  XDCARGS="profile=coverage platform=ti.platforms.evm3530"
+
+</PRE></div>
+<div class="xdocText">When specifying platforms, isas, or both it is important to ensure
+  that all possible combinations are valid. In other words, each
+  platform specified in the <tt>platforms</tt> array must have a core which
+  is either capable of executing every isa specified in the <tt>isas</tt>
+  array or, if <tt>isas</tt> is not specified, capable of executing code
+  generated by every target in the build model. To avoid invalid
+  combinations, specify either or both. Use multiple <tt>ProgAttrs</tt>
+  instances to cover all desired combinations.
+  
+  The following example builds a program for the DSP on an
+  OMAP3530 device and the same program for the VIDEO-M3 on a DM8168
+  device.</div>
+<div class="xdocText"><PRE class="Example">  var BuildHelp = xdc.useModule('ti.sdo.tools.build.PackageBuildHelp');
+  var progArray = new Array();
+
+  progArray.push(
+      new BuildHelp.ProgAttrs({
+          name: "server",
+          platforms: [ "ti.platforms.evm3530" ],
+          isas: [ "64P" ],
+          sources: [ "server.c", "utils.c" ]
+      })
+ );
+
+  progArray.push(
+      new BuildHelp.ProgAttrs({
+          name: "server",
+          platforms: [ "ti.platforms.evmDM8168" ],
+          isas: [ "v7M" ],
+          sources: [ "server.c", "utils.c" ]
+      })
+  );
+
+  BuildHelp.makeExecutables(progArray, arguments);
+</PRE></div>
+<div class="xdocText">Note that combining these two entries into one would generate an
+  invalid combination. For example, there is no core on the OMAP3530
+  capable of running the v7M isa.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="make.Libraries"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">PackageBuildHelp.</span><span class="xdoc-id">makeLibraries</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html" title="module PackageBuildHelp"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/tools/build/PackageBuildHelp.html#make.Libraries">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Add libraries to the build model</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>PackageBuildHelp.<span class="xdoc-id">makeLibraries</span>(<i><a class="xdoc-link" href="../../../../ti/sdo/tools/build/PackageBuildHelp.html#.Lib.Attrs" title="ti.sdo.tools.build.PackageBuildHelp.LibAttrs">PackageBuildHelp.LibAttrs</a>[<span class="xdoc-kw2"></span>]</i> <span class="xdoc-id">libAry</span>, <i><span class="xdoc-kw2">Any</span></i> <span class="xdoc-id">arguments</span>, <i><span class="xdoc-kw2">Any</span></i> <span class="xdoc-id">profiles</span>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">libAry</span>
+<span class="xdocChildSum">&#151;&nbsp;An array of library attributes, one for each
+  library to build.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">arguments</span>
+<span class="xdocChildSum">&#151;&nbsp;The global arguments object passed to the build
+  script which contains the arguments assigned to the XDCARGS
+  environment variable used by the xdc command.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">profiles</span>
+<span class="xdocChildSum">&#151;&nbsp;Optional. (<tt>String[]</tt>) Array of profile names to
+  build provided the target supports the profile. If not supported
+  by the target, the profile is ignored. When omitted, all profiles
+  defined in the target will be used. If a profile is specified in
+  XDCARGS as described above, this parameter is ignored.</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This function iterates over the given <tt>libAry</tt> and adds each element
+  to the build model, possibly multiple times to cover all combinations
+  of targets and profiles.</div>
+<div class="xdocText">The following code adds a library called <tt>rcm</tt> to the build model
+  for all combinations of targets and profiles in the build model.</div>
+<div class="xdocText"><PRE class="Example">  var PackageBuildHelp = xdc.useModule('ti.sdo.tools.build.PackageBuildHelp');
+  var libArray = new Array();
+
+  libArray.push(
+      new PackageBuildHelp.LibAttrs({
+          name: "rcm",
+          sources: [ "rcm.c" ],
+      })
+ );
+
+  PackageBuildHelp.makeLibraries(libArray, arguments);
+
+</PRE></div>
+<div class="xdocText">You can pass an array of profiles as the third (optional)
+  argument to <tt>PackageBuildHelp.makelibraries</tt>. This is useful
+  for limiting the number of libraries to build when the target
+  defines additional profiles.</div>
+<div class="xdocText"><PRE class="Example">  PackageBuildHelp.makeLibraries(
+      libArray, arguments, [ "debug", "release" ]);
+
+</PRE></div>
+<div class="xdocText">You may limit the build to a single profile using the XDCARGS
+  command line option, provided the target supports the given profile.</div>
+<div class="xdocText"><PRE class="Example">  xdc -r XDCARGS="profile=debug" all
+</PRE></div>
+<div class="xdocText"></div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">EXAMPLES</div>
+<div class="xdocText">The following example builds the library only for ARM targets and
+  only for the debug and release profiles.</div>
+<div class="xdocText"><PRE class="Example">  var BuildHelp = xdc.useModule('ti.sdo.tools.build.PackageBuildHelp');
+  var libArray = new Array();
+
+  libArray.push(
+      new BuildHelp.LibAttrs({
+          name: "host",
+          sources: [ "config_host.c" ],
+          icw: [ "v5T" ]
+      })
+  );
+
+  BuildHelp.makeLibraries(libArray, arguments, ["debug","release"]);
+</PRE></div>
+<div class="xdocText">If the build model contained the GCArmv5T, GCArmv6, and C64P targets,
+  the following libraries would be produced. Note, the C64P target is
+  excluded.</div>
+<div class="xdocText"><PRE class="Example">  lib/debug/host.av5T
+  lib/debug/host.av6
+  lib/release/host.av5T
+  lib/release/host.av6
+</PRE></div>
+<div class="xdocText"></div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:13 GMT</div>
+</div></div></body>
+</html>

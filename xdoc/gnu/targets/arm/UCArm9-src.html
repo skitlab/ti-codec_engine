@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module gnu.targets.arm.UCArm9</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> *  Copyright (c) 2008 Texas Instruments and others.
+</span>     3    <span class="comment"> *  All rights reserved. This program and the accompanying materials
+</span>     4    <span class="comment"> *  are made available under the terms of the Eclipse Public License v1.0
+</span>     5    <span class="comment"> *  which accompanies this distribution, and is available at
+</span>     6    <span class="comment"> *  http://www.eclipse.org/legal/epl-v10.html
+</span>     7    <span class="comment"> * 
+</span>     8    <span class="comment"> *  Contributors:
+</span>     9    <span class="comment"> *      Texas Instruments - initial implementation
+</span>    10    <span class="comment"> * 
+</span>    11    <span class="comment"> * */</span>
+    12    
+    13    <span class="xdoc">/*!
+</span>    14    <span class="xdoc"> *  ======== UCArm9.xdc ========
+</span>    15    <span class="xdoc"> *  uClibc Arm9 little endian embedded Linux target
+</span>    16    <span class="xdoc"> *
+</span>    17    <span class="xdoc"> *  Arm nomenclature:
+</span>    18    <span class="xdoc"> *  <b>@p(blist)</b>
+</span>    19    <span class="xdoc"> *      Arm7*  devices contain v4 Cores
+</span>    20    <span class="xdoc"> *      Arm9*  devices contain v5 Cores
+</span>    21    <span class="xdoc"> *      Arm11* devices contain v6 thumb2 Cores
+</span>    22    <span class="xdoc"> *  <b>@p</b>
+</span>    23    <span class="xdoc"> */</span>
+    24    <span class=key>metaonly</span> <span class=key>module</span> UCArm9 <span class=key>inherits</span> gnu.targets.ITarget {
+    25        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string name                = <span class="string">"UCArm9"</span>;     
+    26        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string os                  = <span class="string">"Linux"</span>;      
+    27        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string suffix              = <span class="string">"470uC"</span>;
+    28        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string isa                 = <span class="string">"v5T"</span>;
+    29        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> xdc.bld.ITarget.Model model= {
+    30            endian: <span class="string">"little"</span>
+    31        };
+    32    
+    33        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string rts = <span class="string">"gnu.targets.arm.rts470uC"</span>;
+    34        <span class=key>override</span> <span class=key>config</span> string platform     = <span class="string">"ti.platforms.evmDM6446"</span>;
+    35        
+    36        <span class=key>override</span> <span class=key>config</span> string LONGNAME = <span class="string">"/bin/arm-linux-gcc"</span>;
+    37    
+    38        <span class=key>override</span> <span class=key>config</span> xdc.bld.ITarget2.Options ccOpts = {
+    39            prefix: <span class="string">"-Wunused"</span>,
+    40            suffix: <span class="string">"-Dfar= "</span>
+    41        };
+    42    
+    43        <span class=key>override</span> <span class=key>config</span> xdc.bld.ITarget2.Options lnkOpts = {
+    44            prefix: <span class="string">"-static"</span>,
+    45            suffix: <span class="string">"-Wl,-Map=$(XDCCFGDIR)/$@.map -L$(rootDir)/lib"</span>
+    46        };
+    47            
+    48        <span class="xdoc">/*!
+</span>    49    <span class="xdoc">     *  ======== versionMap ========
+</span>    50    <span class="xdoc">     *  This map translates version string information from the compiler
+</span>    51    <span class="xdoc">     *  into a compatibility key.  The compatibilty key is used to
+</span>    52    <span class="xdoc">     *  validate consistency among a collection of packages used in
+</span>    53    <span class="xdoc">     *  a configuration.
+</span>    54    <span class="xdoc">     *
+</span>    55    <span class="xdoc">     *  The compiler version string is "gcc&lt;ver&gt;", where &lt;ver&gt; is
+</span>    56    <span class="xdoc">     *  GCCVERS.
+</span>    57    <span class="xdoc">     *
+</span>    58    <span class="xdoc">     *  If a compiler version is not found in this map the default is
+</span>    59    <span class="xdoc">     *  "1,0,&lt;ver&gt;", where &lt;ver&gt; is the compiler version number.  Thus,
+</span>    60    <span class="xdoc">     *  the user only needs to extend this table when a significant
+</span>    61    <span class="xdoc">     *  incompatibility occurs or when two versions of the compiler should
+</span>    62    <span class="xdoc">     *  be treated as 100% compatible.
+</span>    63    <span class="xdoc">     */</span>
+    64        <span class=key>override</span> <span class=key>config</span> string versionMap[string] = [
+    65            [<span class="string">"gcc3.2"</span>, <span class="string">"1,0,3.2,0"</span>],
+    66        ];
+    67    
+    68        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> xdc.bld.ITarget.StdTypes stdTypes = {
+    69            t_IArg          : { size: 4, align: 4 },
+    70            t_Char          : { size: 1, align: 1 },
+    71            t_Double        : { size: 8, align: 4 },
+    72            t_Float         : { size: 4, align: 4 },
+    73            t_Fxn           : { size: 4, align: 4 },
+    74            t_Int           : { size: 4, align: 4 },
+    75            t_Int8          : { size: 1, align: 1 },
+    76            t_Int16         : { size: 2, align: 2 },
+    77            t_Int32         : { size: 4, align: 4 },
+    78            t_Int64         : { size: 8, align: 4 },
+    79            t_Long          : { size: 4, align: 4 },
+    80            t_LDouble       : { size: 8, align: 4 },
+    81            t_LLong         : { size: 8, align: 4 },
+    82            t_Ptr           : { size: 4, align: 4 },
+    83            t_Short         : { size: 2, align: 2 },
+    84            t_Size          : { size: 4, align: 4 },
+    85        };
+    86    }
+    87    <span class="comment">/*
+</span>    88    <span class="comment"> *  @(#) gnu.targets.arm; 1, 0, 0, 0,343; 2-10-2012 11:49:04; /db/ztree/library/trees/xdctargets/xdctargets-f18x/src/ xlibrary
+</span>    89    <span class="comment">
+</span>    90    <span class="comment"> */</span>
+    91    
+</pre>
+</body></html>

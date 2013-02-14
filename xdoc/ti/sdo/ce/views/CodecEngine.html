@@ -1,0 +1,671 @@
+<html>
+<head>
+<title>module ti.sdo.ce.views.CodecEngine</title>
+<link rel="stylesheet" type="text/css" href="../../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.ce.views.</span><span class="xdoc-id">CodecEngine</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/package.html" title="package ti.sdo.ce.views"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html">index URL</a></div>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#targ-synop">C synopsis</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocElems">Individual elements</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2">C</span></tt> synopsis</td>
+<td class="xdocLabelCenter">target-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../../ti/sdo/ce/views/CodecEngine-src.html"><span class="xdocLabelFile">ti/sdo/ce/views/CodecEngine.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynT">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw3">#include</span> <span class="xdoc-id">&lt;ti/sdo/ce/views/CodecEngine.h&gt;</span>
+</div>
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="xdocSynFxnCat" colspan="2"><div class="xdocSynFxnCat">Functions common to all target modules</div></td></tr>
+
+<tr>
+<td></td>
+<td>
+<div class="xdocSynTblPack">
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">CodecEngine_Module_getMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Returns the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">CodecEngine_Module_hasMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test whether this module has a diagnostics mask</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">CodecEngine_Module_heap</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The heap from which this module allocates memory</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">CodecEngine_Module_id</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Get this module's unique id</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">CodecEngine_Module_setMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Set the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">CodecEngine_Module_startupDone</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test if this module has completed startup</span></span></a>
+</div>
+</td>
+</tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Typedefs</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Engine_.Alg.Desc"><span class="xdoc-id">CodecEngine_Engine_AlgDesc</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">enum</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Engine_.Cached.Mem.Type"><span class="xdoc-id">CodecEngine_Engine_CachedMemType</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Engine_.Config"><span class="xdoc-id">CodecEngine_Engine_Config</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.Engine_.Desc"><span class="xdoc-id">CodecEngine_Engine_Desc</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.N.O.D.E_.Uuid"><span class="xdoc-id">CodecEngine_NODE_Uuid</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> ...</div></td></tr>
+</table>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Engine_.Cached.Mem.Type"></a>
+<a class="xdocAnchor" id=".Engine_.U.S.E.C.A.C.H.E.D.M.E.M_.D.E.F.A.U.L.T"></a>
+<a class="xdocAnchor" id=".Engine_.U.S.E.C.A.C.H.E.D.M.E.M_.N.O.N.C.A.C.H.E.D"></a>
+<a class="xdocAnchor" id=".Engine_.U.S.E.C.A.C.H.E.D.M.E.M_.C.A.C.H.E.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">CodecEngine_</span><span class="xdoc-id">Engine_CachedMemType</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Cached.Mem.Type">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">enum</span> <span class="xdoc-id">CodecEngine_Engine_CachedMemType</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-id">CodecEngine_Engine_USECACHEDMEM_DEFAULT</span>, 
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-id">CodecEngine_Engine_USECACHEDMEM_NONCACHED</span>, 
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-id">CodecEngine_Engine_USECACHEDMEM_CACHED</span>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">CodecEngine_Engine_CachedMemType</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Engine_.Alg.Desc"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_</span><span class="xdoc-id">Engine_AlgDesc</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Alg.Desc">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_Engine_AlgDesc</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">name</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.N.O.D.E_.Uuid" title="ti.sdo.ce.views.CodecEngine.NODE_Uuid">CodecEngine_NODE_Uuid</a>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">uuid</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">fxns</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">idmaFxns</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">String</span>&nbsp;*<span class="xdoc-id"><go><span class="xdoc-id">typeTab</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Bool</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">isLocal</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">groupId</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">rpcProtocolVersion</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">iresFxns</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">codecClassConfig</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Cached.Mem.Type" title="ti.sdo.ce.views.CodecEngine.Engine_CachedMemType">CodecEngine_Engine_CachedMemType</a>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">memType</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">CodecEngine_Engine_AlgDesc</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Engine_.Config"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_</span><span class="xdoc-id">Engine_Config</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Config">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_Engine_Config</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc">CodecEngine_Engine_Desc</a>&nbsp;*<span class="xdoc-id"><go><span class="xdoc-id">engineTab</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">localEngine</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">CodecEngine_Engine_Config</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Engine_.Desc"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_</span><span class="xdoc-id">Engine_Desc</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Desc">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_Engine_Desc</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">name</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc">CodecEngine_Engine_AlgDesc</a>&nbsp;*<span class="xdoc-id"><go><span class="xdoc-id">algTab</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">remoteName</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">linkCfg</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">numAlgs</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">heapId</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">CodecEngine_Engine_Desc</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".N.O.D.E_.Uuid"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_</span><span class="xdoc-id">NODE_Uuid</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.N.O.D.E_.Uuid">index URL</a></div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine_NODE_Uuid</span> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UInt32</span>&nbsp;<span class="xdoc-id"><go><span class="xdoc-id">data</span></span></go>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">CodecEngine_NODE_Uuid</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="module-wide_built-ins"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Module-Wide Built-Ins</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#module-wide_built-ins">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../../xdc/runtime/Types.html#.Module.Id" title="xdc.runtime.Types.ModuleId">Types_ModuleId</a> <span class="xdoc-id">CodecEngine_Module_id</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Get this module's unique id</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">CodecEngine_Module_startupDone</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test if this module has completed startup</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a> <span class="xdoc-id">CodecEngine_Module_heap</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The heap from which this module allocates memory</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">CodecEngine_Module_hasMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test whether this module has a diagnostics mask</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">CodecEngine_Module_getMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Returns the diagnostics mask for this module</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">CodecEngine_Module_setMask</span>(<span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">mask</span>);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Set the diagnostics mask for this module</div>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../../ti/sdo/ce/views/CodecEngine-src.html"><span class="xdocLabelFile">ti/sdo/ce/views/CodecEngine.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> CodecEngine = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.ce.views.CodecEngine'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><i>values of type <a class="xdocSynGo" href="#meta.Engine_.Cached.Mem.Type">CodecEngine.<span class="xdoc-id">Engine_CachedMemType</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.Engine_.Cached.Mem.Type" title="ti.sdo.ce.views.CodecEngine.Engine_CachedMemType">CodecEngine.<span class="xdoc-id">Engine_USECACHEDMEM_DEFAULT</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.Engine_.Cached.Mem.Type" title="ti.sdo.ce.views.CodecEngine.Engine_CachedMemType">CodecEngine.<span class="xdoc-id">Engine_USECACHEDMEM_NONCACHED</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.Engine_.Cached.Mem.Type" title="ti.sdo.ce.views.CodecEngine.Engine_CachedMemType">CodecEngine.<span class="xdoc-id">Engine_USECACHEDMEM_CACHED</span></a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#meta.Engine_.Alg.Desc">CodecEngine.<span class="xdoc-id">Engine_AlgDesc</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">name</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">uuid</span></a> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.N.O.D.E_.Uuid" title="ti.sdo.ce.views.CodecEngine.NODE_Uuid">CodecEngine.NODE_Uuid</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">fxns</span></a> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">idmaFxns</span></a> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">typeTab</span></a> = <i><span class="xdoc-kw2">String</span>*</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">isLocal</span></a> = <i><span class="xdoc-kw2">Bool</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">groupId</span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">rpcProtocolVersion</span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">iresFxns</span></a> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">codecClassConfig</span></a> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc"><span class="xdoc-id">memType</span></a> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Cached.Mem.Type" title="ti.sdo.ce.views.CodecEngine.Engine_CachedMemType">CodecEngine.Engine_CachedMemType</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#meta.Engine_.Config">CodecEngine.<span class="xdoc-id">Engine_Config</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Config" title="ti.sdo.ce.views.CodecEngine.Engine_Config"><span class="xdoc-id">engineTab</span></a> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc">CodecEngine.Engine_Desc</a>*</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Config" title="ti.sdo.ce.views.CodecEngine.Engine_Config"><span class="xdoc-id">localEngine</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#meta.Engine_.Desc">CodecEngine.<span class="xdoc-id">Engine_Desc</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc"><span class="xdoc-id">name</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc"><span class="xdoc-id">algTab</span></a> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc">CodecEngine.Engine_AlgDesc</a>*</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc"><span class="xdoc-id">remoteName</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc"><span class="xdoc-id">linkCfg</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc"><span class="xdoc-id">numAlgs</span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc"><span class="xdoc-id">heapId</span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#.Engine_.Meta">CodecEngine.<span class="xdoc-id">Engine_Meta</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Engine_.Meta" title="ti.sdo.ce.views.CodecEngine.Engine_Meta"><span class="xdoc-id">algName</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Engine_.Meta" title="ti.sdo.ce.views.CodecEngine.Engine_Meta"><span class="xdoc-id">isLocal</span></a> = <i><span class="xdoc-kw2">Bool</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Engine_.Meta" title="ti.sdo.ce.views.CodecEngine.Engine_Meta"><span class="xdoc-id">heapId</span></a> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#meta.N.O.D.E_.Uuid">CodecEngine.<span class="xdoc-id">NODE_Uuid</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#meta.N.O.D.E_.Uuid" title="ti.sdo.ce.views.CodecEngine.NODE_Uuid"><span class="xdoc-id">data</span></a> = <i><span class="xdoc-kw2">UInt32</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#common$">CodecEngine.<span class="xdoc-id">common$</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Common module configuration parameters</span></span></a> = <i><a class="xdoc-link" href="../../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#rov.View.Info">CodecEngine.<span class="xdoc-id">rovViewInfo</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../../xdc/rov/ViewInfo.html#.Instance" title="xdc.rov.ViewInfo.Instance">ViewInfo.Instance</a></i> <a class="xdoc-link" href="../../../../xdc/rov/ViewInfo.html#per-instance_creation" title="xdc.rov.ViewInfo.create">ViewInfo.create</a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.Engine_.Cached.Mem.Type"></a>
+<a class="xdocAnchor" id=".Engine_.U.S.E.C.A.C.H.E.D.M.E.M_.D.E.F.A.U.L.T"></a>
+<a class="xdocAnchor" id=".Engine_.U.S.E.C.A.C.H.E.D.M.E.M_.N.O.N.C.A.C.H.E.D"></a>
+<a class="xdocAnchor" id=".Engine_.U.S.E.C.A.C.H.E.D.M.E.M_.C.A.C.H.E.D"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">Engine_CachedMemType</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Cached.Mem.Type">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i>values of type CodecEngine.<span class="xdoc-id">Engine_CachedMemType</span></i>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> CodecEngine.<span class="xdoc-id">Engine_USECACHEDMEM_DEFAULT</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> CodecEngine.<span class="xdoc-id">Engine_USECACHEDMEM_NONCACHED</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> CodecEngine.<span class="xdoc-id">Engine_USECACHEDMEM_CACHED</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.Engine_.Cached.Mem.Type" title="CodecEngine_Engine_CachedMemType">CodecEngine_Engine_CachedMemType</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.Engine_.Alg.Desc"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">Engine_AlgDesc</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Alg.Desc">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> CodecEngine.<span class="xdoc-id">Engine_AlgDesc</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">name</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">uuid</span> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.N.O.D.E_.Uuid" title="ti.sdo.ce.views.CodecEngine.NODE_Uuid">CodecEngine.NODE_Uuid</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">fxns</span> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">idmaFxns</span> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">typeTab</span> = <i><span class="xdoc-kw2">String</span>*</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">isLocal</span> = <i><span class="xdoc-kw2">Bool</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">groupId</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">rpcProtocolVersion</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">iresFxns</span> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">codecClassConfig</span> = <i><span class="xdoc-kw2">Ptr</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">memType</span> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Cached.Mem.Type" title="ti.sdo.ce.views.CodecEngine.Engine_CachedMemType">CodecEngine.Engine_CachedMemType</a></i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.Engine_.Alg.Desc" title="CodecEngine_Engine_AlgDesc">CodecEngine_Engine_AlgDesc</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.Engine_.Config"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">Engine_Config</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Config">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> CodecEngine.<span class="xdoc-id">Engine_Config</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">engineTab</span> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_Desc">CodecEngine.Engine_Desc</a>*</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">localEngine</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.Engine_.Config" title="CodecEngine_Engine_Config">CodecEngine_Engine_Config</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.Engine_.Desc"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">Engine_Desc</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Desc">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> CodecEngine.<span class="xdoc-id">Engine_Desc</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">name</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">algTab</span> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/views/CodecEngine.html#.Engine_.Alg.Desc" title="ti.sdo.ce.views.CodecEngine.Engine_AlgDesc">CodecEngine.Engine_AlgDesc</a>*</i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">remoteName</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">linkCfg</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">numAlgs</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">heapId</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.Engine_.Desc" title="CodecEngine_Engine_Desc">CodecEngine_Engine_Desc</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Engine_.Meta"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">Engine_Meta</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.Engine_.Meta">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> CodecEngine.<span class="xdoc-id">Engine_Meta</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">algName</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">isLocal</span> = <i><span class="xdoc-kw2">Bool</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">heapId</span> = <i><span class="xdoc-kw2">Int</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.N.O.D.E_.Uuid"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">struct</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">NODE_Uuid</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#.N.O.D.E_.Uuid">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> CodecEngine.<span class="xdoc-id">NODE_Uuid</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">data</span> = <i><span class="xdoc-kw2">UInt32</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.N.O.D.E_.Uuid" title="CodecEngine_NODE_Uuid">CodecEngine_NODE_Uuid</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="common$"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">common$</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#common$">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Common module configuration parameters</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>CodecEngine.<span class="xdoc-id">common$</span> = <i><a class="xdoc-link" href="../../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">All modules have this configuration parameter.  Its name
+  contains the '$' character to ensure it does not conflict with
+  configuration parameters declared by the module.  This allows
+  new configuration parameters to be added in the future without
+  any chance of breaking existing modules.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="rov.View.Info"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">CodecEngine.</span><span class="xdoc-id">rovViewInfo</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/views/CodecEngine.html" title="module CodecEngine"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/views/CodecEngine.html#rov.View.Info">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>CodecEngine.<span class="xdoc-id">rovViewInfo</span> = <i><a class="xdoc-link" href="../../../../xdc/rov/ViewInfo.html#.Instance" title="xdc.rov.ViewInfo.Instance">ViewInfo.Instance</a></i> <a class="xdoc-link" href="../../../../xdc/rov/ViewInfo.html#per-instance_creation" title="xdc.rov.ViewInfo.create">ViewInfo.create</a>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:47:06 GMT</div>
+</div></div></body>
+</html>

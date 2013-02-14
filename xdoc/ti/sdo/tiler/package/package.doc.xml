@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.sdo.tiler' nodoc='0' root='../../../' summary='The+tiler+memory+manager'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.sdo.tiler%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='Settings' kind='module' nodoc='0' metaonly='1' summary='Global+configuration+settings+for+the+ti.sdo.tiler+package'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Ftiler%2Fpackage.html%22+title%3D%22ti.sdo.tiler%22%3Eti.sdo.tiler%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ESettings%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ESettings%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+Settings+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.sdo.tiler.Settings%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+            <decl kind='enum' name='OperSys' anchor='.Oper.Sys' altext='ti.sdo.tiler.Settings.OperSys' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Operating+systems+used+for+hosting+the+tiler+manager'>
+                <decl kind='enumval' name='OperSys_Linux' anchor='.Oper.Sys_.Linux'/>
+                <decl kind='enumval' name='OperSys_WinCE' anchor='.Oper.Sys_.Win.C.E'/>
+                <decl kind='enumval' name='OperSys_RTOS' anchor='.Oper.Sys_.R.T.O.S'/>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eenum%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EOperSys%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EOperSys_Linux%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EOperSys_WinCE%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EOperSys_RTOS%3C%2Fspan%3E%3C%2Fgo%3E'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Ci%3Evalues+of+type+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EOperSys%3C%2Fspan%3E%3C%2Fgo%3E%3C%2Fi%3E'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EOperSys_Linux%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EOperSys_WinCE%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EOperSys_RTOS%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopMeta>
+                <docSect name='VALUES'>
+                    <docChild name='OperSys_Linux' summary='The+tiler+manager+is+running+on+Linux.'>
+                    </docChild>
+                    <docChild name='OperSys_WinCE' summary='The+tiler+manager+is+running+on+WindowsCE.'>
+                    </docChild>
+                    <docChild name='OperSys_RTOS' summary='The+tiler+manager+is+running+on+a+real-time%0A++operating+system+which+does+not+make+a+distinction+between%0A++user+and+kernel+modes.'>
+                    </docChild>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+            <decl kind='enum' name='TilerLib' anchor='.Tiler.Lib' altext='ti.sdo.tiler.Settings.TilerLib' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Available+tiler+library+implementations'>
+                <decl kind='enumval' name='TilerLib_Stub' anchor='.Tiler.Lib_.Stub'/>
+                <decl kind='enumval' name='TilerLib_Skel' anchor='.Tiler.Lib_.Skel'/>
+                <decl kind='enumval' name='TilerLib_Direct' anchor='.Tiler.Lib_.Direct'/>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eenum%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ETilerLib%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ETilerLib_Stub%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ETilerLib_Skel%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ETilerLib_Direct%3C%2Fspan%3E%3C%2Fgo%3E'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Ci%3Evalues+of+type+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3ETilerLib%3C%2Fspan%3E%3C%2Fgo%3E%3C%2Fi%3E'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3ETilerLib_Stub%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3ETilerLib_Skel%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3ETilerLib_Direct%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopMeta>
+                <docSect name='VALUES'>
+                    <docChild name='TilerLib_Stub' summary='This+library+implements+stub+functions%0A++which+make+remote+function+calls+to+a+tiler+manager+on+another%0A++core.+When+using+this+value%2C+you+must+also+specify+the%0A++%3Ca+class%3D%22xdoc-link%22+href%3D%22Settings.html%23tiler.Daemon%22+title%3D%22tilerDaemon%22%3EtilerDaemon%3C%2Fa%3E+config+param.'>
+                    </docChild>
+                    <docChild name='TilerLib_Skel' summary='This+library+implements+the+skel%0A++functions+which+are+the+remote+parts+of+the+stub+functions.%0A++Use+this+value+when+configuring+the+tiler+daemon.+When+using%0A++this+value%2C+you+must+also+specify+the+%3Ca+class%3D%22xdoc-link%22+href%3D%22Settings.html%23tiler.Manager.O.S%22+title%3D%22tilerManagerOS%22%3EtilerManagerOS%3C%2Fa%3E%0A++config+param.'>
+                    </docChild>
+                    <docChild name='TilerLib_Direct' summary='This+library+links+in+direct+calls+to%0A++the+tiler+manager.+Use+this+value+when+configuring+a+program%0A++which+is+running+on+the+same+core+as+the+tiler+manager.+When%0A++using+this+value%2C+you+must+also+specify+the+%3Ca+class%3D%22xdoc-link%22+href%3D%22Settings.html%23tiler.Manager.O.S%22+title%3D%22tilerManagerOS%22%3EtilerManagerOS%3C%2Fa%3E%0A++config+param.'>
+                    </docChild>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='config' name='heapId' anchor='heap.Id' altext='ti.sdo.tiler.Settings.heapId' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Heap+id+to+use+for+allocating+messages'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EheapId%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EheapId%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='When+using+a+remote+tiler+manager%2C+the+client+application+must%0A++send+messages+to+execute+the+tiler+manager+functions.+This+config%0A++param+is+used+by+the+underlying+IPC+layers+to+identify+which+heap%0A++should+be+used+for+allocating+these+messages.'/>
+                    <docPara content='If+the+executable+is+making+direct+%28local%29+calls+to+the+tiler%0A++manager%2C+then+leave+this+config+param+undefined.'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='tilerDaemonName' anchor='tiler.Daemon.Name' altext='ti.sdo.tiler.Settings.tilerDaemonName' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Specifies+the+name+of+the+tiler+daemon'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EtilerDaemonName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Enull%253C%252Fspan%253E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EtilerDaemonName%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Enull%253C%252Fspan%253E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='When+configuring+an+executable+which+is+using+a+tiler+manager%0A++that+is+running+on+another+core%2C+this+config+param+must+be+set%0A++to+the+name+of+the+tiler+daemon.'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='tilerLib' anchor='tiler.Lib' altext='ti.sdo.tiler.Settings.tilerLib' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Specify+which+tiler+library+implementation+to+use'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Ftiler%2FSettings.html%23.Tiler.Lib%22+title%3D%22ti.sdo.tiler.Settings.TilerLib%22%3ESettings.TilerLib%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EtilerLib%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EtilerLib%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Ftiler%2FSettings.html%23.Tiler.Lib%22+title%3D%22ti.sdo.tiler.Settings.TilerLib%22%3ESettings.TilerLib%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+config+param+specifies+which+tiler+library+implementation+to%0A++link+into+the+program.+There+are+several+different+versions%3A'/>
+                    <docPara content='%3CUL%3E%3CLI%3E+A+tiler+client+program+where+the+tiler+manager+is+running%0A++on+another+core.+Use+%3Ca+class%3D%22xdoc-link%22+href%3D%22Settings.html%23.Tiler.Lib_.Stub%22+title%3D%22TilerLib_Stub%22%3ETilerLib_Stub%3C%2Fa%3E.%0A%3C%2FLI%3E%3CLI%3E+A+tiler+daemon+program+which+is+used+to+service+remote%0A++tiler+client+programs.+The+daemon+must+be+running+on+the+same+core%0A++as+the+tiler+manager.+Use+%3Ca+class%3D%22xdoc-link%22+href%3D%22Settings.html%23.Tiler.Lib_.Skel%22+title%3D%22TilerLib_Skel%22%3ETilerLib_Skel%3C%2Fa%3E.%0A%3C%2FLI%3E%3CLI%3E+A+tiler+client+program+running+on+the+same+core+as+the%0A++tiler+manager.+Use+%3Ca+class%3D%22xdoc-link%22+href%3D%22Settings.html%23.Tiler.Lib_.Direct%22+title%3D%22TilerLib_Direct%22%3ETilerLib_Direct%3C%2Fa%3E.%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='tilerManagerOS' anchor='tiler.Manager.O.S' altext='ti.sdo.tiler.Settings.tilerManagerOS' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Specifies+operating+system+on+which+the+tiler+manager+is+running'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Ftiler%2FSettings.html%23.Oper.Sys%22+title%3D%22ti.sdo.tiler.Settings.OperSys%22%3ESettings.OperSys%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EtilerManagerOS%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ESettings.%3Cspan+class%3D%22xdoc-id%22%3EtilerManagerOS%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Ftiler%2FSettings.html%23.Oper.Sys%22+title%3D%22ti.sdo.tiler.Settings.OperSys%22%3ESettings.OperSys%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='When+configuring+a+program+which+is+running+on+the+same+core%0A++as+the+tiler+manager%2C+set+this+config+param+to+the+host+operating%0A++system.+If+the+tiler+manager+is+not+part+of+the+executable%2C+then%0A++leave+it+undefined.'/>
+                    <docPara content='For+example%2C+if+building+an+executable+which+is+running+on+the+same%0A++core+as+the+tiler+manager%2C+%28e.g.+a+local+tiler+client+or+the+tiler%0A++daemon%29+then+set+this+config+param+to+the+OS+type.+If+building+an%0A++executable+which+is+making+tiler+calls+to+another+core+%28e.g.+a%0A++remote+tiler+client%29%2C+then+leave+this+config+param+undefined.'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+        </group>
+    </unit>
+</package>

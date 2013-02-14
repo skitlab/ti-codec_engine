@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.codec_engine_3_22_01_06"
+      label="Codec Engine"
+      version="3.22.01.06"
+      provider-name="Texas Instruments Incorporated">
+
+   <description url="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ce/index.html">
+      Codec Engine
+   </description>
+
+   <copyright>
+      Copyright (c) 2012 Texas Instruments Incorporated
+   </copyright>
+
+   <license url="">
+      Released under the BSD License.
+   </license>
+
+   <plugin
+        id="com.codec_engine_3_22_01_06"
+        version="3.22.01.06"
+        unpack="false" />
+
+
+</feature>

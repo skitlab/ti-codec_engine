@@ -1,0 +1,55 @@
+/*
+ *  Copyright 2012 by Texas Instruments Incorporated.
+ *
+ */
+
+/*
+ *  Copyright 2011 by Texas Instruments Incorporated.
+ *
+ */
+
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+
+var evm3530_ExtMemMap = {
+        DDRALGHEAP: {
+            name: "DDRALGHEAP",
+            base: 0x86000000,
+            len:  0x01800000,
+            space: "data"
+        },
+        DDR2: {
+            name: "DDR2",
+            base: 0x87800000,
+            len:  0x00300000,
+            space: "code/data"
+        },
+        SR1: {
+            name: "SR1",
+            base: 0x87B00000,
+            len:  0x00200000,
+            space: "data"
+        },
+        SYSLINK: {
+            name: "SYSLINK",
+            base: 0x87D00000,
+            len:  0x00300000,
+            space: "data"
+        }
+};
+
+Build.platformTable["ti.platforms.evm3530:DSP"] = {
+    externalMemoryMap: [
+        [ "DDR2",       evm3530_ExtMemMap.DDR2 ],
+        [ "DDRALGHEAP", evm3530_ExtMemMap.DDRALGHEAP ],
+        [ "SR1",        evm3530_ExtMemMap.SR1 ],
+        [ "SYSLINK",    evm3530_ExtMemMap.SYSLINK ]
+    ],
+    codeMemory: "DDR2",
+    dataMemory: "DDR2",
+    stackMemory: "DDR2"
+};
+/*
+ *  @(#) ti.sdo.ce.examples.servers; 1, 0, 0,1; 2-24-2012 19:29:36; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+

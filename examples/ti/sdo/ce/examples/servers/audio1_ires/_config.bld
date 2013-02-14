@@ -1,0 +1,282 @@
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+/*
+ *  ======== _config.bld ========
+ *  This script is run prior to all build scripts.  It initializes the
+ *  rootDir configuration parameter of all supported targets.
+ */
+
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+//var c6xOpts = " -pds1110 ";
+var c6xOpts = " -pdr -pden -pds=880 -pds=238 -pds452 -pds195 -mi10 -mo -g ";
+var elfLnkOpts = " --compress_dwarf";
+
+var ccOpts = {
+    "ti.targets.C64P"                 : c6xOpts,
+    "ti.targets.C674"                 : c6xOpts,
+
+    "ti.targets.elf.C64P"             : c6xOpts,
+    "ti.targets.elf.C64T"             : c6xOpts,
+    "ti.targets.elf.C66"              : c6xOpts,
+
+    "ti.targets.elf.C674"             : c6xOpts,
+    "ti.targets.arm.elf.M3"           : " -ms -g "
+};
+
+var lnkOpts = {
+    "ti.targets.elf.C64P"             : elfLnkOpts,
+    "ti.targets.elf.C64T"             : elfLnkOpts,
+    "ti.targets.elf.C66"              : elfLnkOpts,
+
+    "ti.targets.elf.C674"             : elfLnkOpts,
+    "ti.targets.arm.elf.M3"           : elfLnkOpts
+};
+
+var devices = "";
+var programs = "";
+
+/* initialize local vars with those set in xdcpaths.mak (via XDCARGS) */
+for (arg = 0; arg < arguments.length; arg++) {
+    /* split each arg into its '+' separated parts */
+    var configParts = arguments[arg].split(";");
+    // print("arg " + arg + " has " + configParts.length + " parts");
+
+    /* if "known args come in, filter them... else they're targets */
+    if (configParts[0].split("=")[0] == "DEVICE") {
+        // print("FOUND DEVICE ARG - " + configParts[0]);
+        devices = configParts[0].split("=")[1];
+        continue;
+    }
+    if (configParts[0].split("=")[0] == "GPPOS") {
+        // print("FOUND GPPOS ARG - " + configParts[0]);
+        gppos = configParts[0].split("=")[1];
+        continue;
+    }
+    if (configParts[0].split("=")[0] == "PROGRAMS") {
+        // print("FOUND PROGRAMS ARG - " + configParts[0]);
+        programs= configParts[0].split("=")[1];
+        continue;
+    }
+
+
+    /*
+     * Get the compiler's installation directory from part one.
+     * For "ti.targets.elf.C674=/vendors/c6x/7.0.3", we get "/vendors/c6x/7.0.3"
+     */
+    var targetName = configParts[0].split("=")[0];
+    var rootDir = configParts[0].split("=")[1];
+
+    /* only build for the specified compilers */
+    if (rootDir == "" || rootDir == undefined) {
+        continue;
+    }
+
+    print("Building '" + targetName + "' using '" + rootDir + "' ...");
+
+    var target = xdc.useModule(targetName);
+    target.rootDir = rootDir;
+
+    if (ccOpts[targetName] != undefined) {
+        target.ccOpts.suffix += ccOpts[targetName];
+    }
+    if (lnkOpts[targetName] != undefined) {
+        target.lnkOpts.suffix += lnkOpts[targetName];
+    }
+
+    /* for all the other parts, assign target.<left> = <right> */
+    for (var i = 1; i < configParts.length; i++) {
+        var modCfgParam = configParts[i].split("=")[0];
+        var modCfgValue = configParts[i].split("=")[1];
+        var modCfgIndex = modCfgParam.split(".");
+        var element = target;
+
+        print("Configuring target." + modCfgParam + " = " + modCfgValue);
+
+        for (j = 0; j < (modCfgIndex.length - 1); j++) {
+                element = element[modCfgIndex[j]];
+        }
+        element[modCfgIndex[j]] = modCfgValue;
+    }
+
+    /* and finally add this target to the Build.targets array */
+    Build.targets.$add(target);
+}
+
+/* only build debug and release profiles */
+for (var t = 0; t < Build.targets.length; t++) {
+    for (prof in Build.targets[t].profiles) {
+        if ((prof != 'release') && (prof != 'debug')) {
+            delete Build.targets[t].profiles[prof];
+        }
+    }
+}
+
+/* Loading this 'capsule' initializes the targets we _will_ build for */
+//utils.loadCapsule('ti/sdo/ce/examples/buildutils/Platforms.xs');
+
+utils.loadCapsule('./serverplatforms.xs');
+
+
+
+/*
+ * And finally, add the requested platforms to the targets, based
+ * on devices, gppos, and programs.
+ */
+//maybe capsule...
+//utils.loadCapsule('./devicemaps.xs');
+
+var devMap = new Array();
+devMap['OMAP3530']      = ['ti.platforms.evm3530:DSP'];
+// TBD  devMap['OMAPL138']      = ['ti.platforms.evmOMAPL138:DSP'];
+devMap['C6472']         = ['ti.platforms.evm6472:CORE1',
+                           'ti.platforms.evm6472:CORE2',
+                           'ti.platforms.evm6472:CORE3',
+                           'ti.platforms.evm6472:CORE4',
+                           'ti.platforms.evm6472:CORE5'];
+devMap['C6474']         = ['ti.platforms.evm6474:CORE1',
+                           'ti.platforms.evm6474:CORE2'];
+devMap['C6678']         = ['ti.platforms.evm6678:CORE1',
+                           'ti.platforms.evm6678:CORE2',
+                           'ti.platforms.evm6678:CORE3',
+                           'ti.platforms.evm6678:CORE4',
+                           'ti.platforms.evm6678:CORE5',
+                           'ti.platforms.evm6678:CORE6',
+                           'ti.platforms.evm6678:CORE7'];
+// TBD devMap['C6670']         = ['ti.platforms.evm6670:CORE1',
+//                         'ti.platforms.evm6670:CORE2',
+//                         'ti.platforms.evm6670:CORE3'];
+devMap['TI816X:C674']   = ['ti.platforms.evmTI816X:DSP'];
+devMap['TI816X:M3']     = ['ti.platforms.evmTI816X:VIDEO-M3',
+                           'ti.platforms.evmTI816X:VPSS-M3'];
+devMap['TI814X:C674']   = ['ti.platforms.evmTI814X:DSP'];
+devMap['TI814X:M3']     = ['ti.platforms.evmTI814X:VIDEO-M3',
+                           'ti.platforms.evmTI814X:VPSS-M3'];
+devMap['TI813X:M3']     = ['ti.platforms.evmTI813X:VIDEO-M3',
+                           'ti.platforms.evmTI813X:VPSS-M3'];
+
+/* This maps platforms to all _potential_ targets that can run a server. */
+var allTargs = new Array();
+allTargs['OMAP3530'] = ['ti.targets.C64P', 'ti.targets.elf.C64P'];
+allTargs['OMAPL138'] = ['ti.targets.elf.C674'];
+allTargs['TI814X:C674'] = ['ti.targets.elf.C674'];
+allTargs['TI814X:M3'] = ['ti.targets.arm.elf.M3'];
+allTargs['TI813X:M3'] = ['ti.targets.arm.elf.M3'];
+allTargs['TI816X:C674'] = ['ti.targets.elf.C674'];
+allTargs['TI816X:M3'] = ['ti.targets.arm.elf.M3'];
+allTargs['C6472'] = ['ti.targets.C64P', 'ti.targets.elf.C64P'];
+allTargs['C6474'] = ['ti.targets.C64P', 'ti.targets.elf.C64P'];
+allTargs['C6678'] = ['ti.targets.elf.C66'];
+//allTargs['C6670'] = ['ti.targets.elf.C66'];
+
+/*
+ * For heterogeneous platforms with different possible slave ISA's, we add
+ * ISA-specific 'DEVICE' settings to match the ISA-specific settings in the
+ * arrays above.
+ */
+var deviceArray = new Array();
+if (devices != "") {
+    deviceArray = devices.match(/^\s*(.*\w+)\s*$/)[1].split(/\s+/);
+
+    for (var x in deviceArray) {
+        if (deviceArray[x] == 'TI814X') {
+            /* override existing element, and add others to the end */
+            deviceArray[x] = 'TI814X:C674';
+            deviceArray.push('TI814X:M3');
+        }
+        if (deviceArray[x] == 'TI813X') {
+            /* override existing element, and add others to the end */
+            deviceArray.push('TI813X:M3');
+        }
+        if (deviceArray[x] == 'TI816X') {
+            /* override existing element, and add others to the end */
+            deviceArray[x] = 'TI816X:C674';
+            deviceArray.push('TI816X:M3');
+        }
+    }
+}
+
+/*
+ * Match all words and trim off leading and trailing white space,
+ * then split on white space (any amount) between words.
+ */
+var foundPlatMatch = false;
+if (devices != "") {
+    for (var i in deviceArray) {
+        var platArr = devMap[deviceArray[i]];
+        if (platArr == undefined) {
+            print("Skipping unsupported DEVICE (" + deviceArray[i] + ")");
+        }
+        else {
+            for (var j in allTargs[deviceArray[i]]) {
+                for (var k = 0; k < Build.targets.length; k++) {
+                    // print("Comparing " + Build.targets[k].$name + " and " +
+                    //         allTargs[deviceArray[i]][j]);
+                    if (Build.targets[k].$name ==
+                            allTargs[deviceArray[i]][j]) {
+                        // print("Adding platforms to " + Build.targets[k].$name +
+                        //         " target ...");
+                        for (var l = 0; l < platArr.length; l++) {
+                            // print("Adding platform " + platArr[l] + " to " +
+                            //         Build.targets[k].$name);
+                            Build.targets[k].platforms.$add(platArr[l]);
+                            foundPlatMatch = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* if we didn't find any targets we support, or the targets we found
+ * don't have any supported platforms, indicate that we don't want to
+ * build anything.
+ */
+if (Build.targets.length == 0 || !foundPlatMatch) {
+    print("Skipping server build for this platform");
+    Build.targets = [];
+    Build.useTargets = null;
+}
+
+/*
+ *  ======== Pkg.attrs.profile ========
+ */
+Pkg.attrs.profile = "release";
+/*
+ *  @(#) ti.sdo.ce.examples.servers.audio1_ires; 1, 0, 0,1; 2-24-2012 19:29:45; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+

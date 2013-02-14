@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" href="$auddec_8h.html" title="The AUDDEC audio decoder interface. Provides the user an interface to create and interact with XDAIS ..." alt="" coords="8,98,77,122" />
+<area shape="rect" href="$audenc_8h.html" title="The AUDENC audio encoder interface. Provides the user an interface to create and interact with XDAIS ..." alt="" coords="101,98,170,122" />
+<area shape="rect" href="$auddec1_8h.html" title="The AUDDEC1 audio decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="194,98,269,122" />
+<area shape="rect" href="$audenc1_8h.html" title="The AUDENC1 audio encoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="293,98,368,122" />
+<area shape="rect" href="$imgdec_8h.html" title="The IMGDEC image decoder interface. Provides the user an interface to create and interact with XDAIS ..." alt="" coords="392,98,461,122" />
+<area shape="rect" href="$imgenc_8h.html" title="The IMGENC image encoder interface. Provides the user an interface to create and interact with XDAIS ..." alt="" coords="485,98,554,122" />
+<area shape="rect" href="$imgdec1_8h.html" title="The IMGDEC1 image decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="578,98,656,122" />
+<area shape="rect" href="$imgenc1_8h.html" title="The IMGENC1 image encoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="680,98,757,122" />
+<area shape="rect" href="$sphdec_8h.html" title="The SPHDEC speech decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="781,98,848,122" />
+<area shape="rect" href="$sphenc_8h.html" title="The SPHENC speech encoder codec interface. Provides the user an interface to create and interact with..." alt="" coords="872,98,938,122" />
+<area shape="rect" href="$sphdec1_8h.html" title="The SPHDEC1 speech decoder interface. Provides the user an interface to create and interact with XDAI..." alt="" coords="962,98,1037,122" />
+<area shape="rect" href="$sphenc1_8h.html" title="The SPHENC1 speech encoder codec interface. Provides the user an interface to create and interact wit..." alt="" coords="1061,98,1136,122" />
+<area shape="rect" href="$universal_8h.html" title="The &quot;universal&quot; algorithm interface. Provides the user an interface to create and interact ..." alt="" coords="1160,98,1240,122" />
+<area shape="rect" href="$vidanalytics_8h.html" title="The VIDANALYTICS video analytics interface. Provides the user an interface to create and interact wit..." alt="" coords="1264,98,1360,122" />
+<area shape="rect" href="$viddec_8h.html" title="The VIDDEC video decoder interface. Provides the user an interface to create and interact with XDAIS ..." alt="" coords="1384,98,1450,122" />
+<area shape="rect" href="$videnc_8h.html" title="The VIDENC video encoder interface. Provides the user an interface to create and interact with XDAIS ..." alt="" coords="1474,98,1541,122" />
+<area shape="rect" href="$viddec1_8h.html" title="The VIDDEC1 video decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="1565,98,1637,122" />
+<area shape="rect" href="$videnc1_8h.html" title="The VIDENC1 video encoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="1661,98,1733,122" />
+<area shape="rect" href="$split_2viddec2_8h.html" title="The VIDDEC2 split video decoder interface. Provides the user an interface to create and interact with..." alt="" coords="1770,173,1842,197" />
+<area shape="rect" href="$viddec2_8h.html" title="The VIDDEC2 video decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="1808,98,1880,122" />
+<area shape="rect" href="$videnc2_8h.html" title="The VIDENC2 video encoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="1904,98,1976,122" />
+<area shape="rect" href="$viddec3_8h.html" title="The VIDDEC3 video decoder interface. Provides the user an interface to create and interact with XDAIS..." alt="" coords="2000,98,2072,122" />
+<area shape="rect" href="$vidtranscode_8h.html" title="The VIDTRANSCODE video transcoder interface. Provides the user an interface to create and interact wi..." alt="" coords="2096,98,2194,122" />
+</map>

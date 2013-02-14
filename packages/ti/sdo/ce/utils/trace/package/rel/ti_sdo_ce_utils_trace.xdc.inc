@@ -1,0 +1,13 @@
+package/package.bld.xml
+package/package.ext.xml
+package/package.rel.dot
+package/build.cfg
+package/package.xdc.inc
+TraceUtil.h
+package.bld
+simple_GCArmv5T.mak
+package/package.cfg.xdc.inc
+lib/release/TraceUtil.av5T
+package/package_ti.sdo.ce.utils.trace.c
+TraceUtil.c
+lib/debug/TraceUtil.av5T

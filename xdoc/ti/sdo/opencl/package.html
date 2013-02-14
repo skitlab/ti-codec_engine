@@ -1,0 +1,302 @@
+<html>
+<head>
+<title>package ti.sdo.opencl</title>
+<meta name="description" content="OpenCL API Implementation">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">package</span> <span class="xdoc-id">ti.sdo.opencl</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/opencl/ComputeDevice.html" title="module ComputeDevice"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/opencl/package.html">index URL</a></div>
+<p class="xdocHdrSummary">OpenCL API Implementation</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-1">DETAILS</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-2">OPENCL PROGRAMMING MODEL</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-3">OPENCL API EXAMPLE CODE</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-4">OPENCL KERNEL EXAMPLE CODE</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-5">OPENCL RUNTIME REGISTRATION</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-6">AVAILABLE FUNCTIONS</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-7">LEGEND</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-8">SEE ALSO</a></li>
+</ul>
+<div class="xdocBrief">
+OpenCL is a programming framework for heterogeneous compute resources
+  developed by the Khronos group. It allows a host processor to execute
+  code on multiple device processors.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/opencl/package-src.html"><span class="xdocLabelFile">ti/sdo/opencl/package.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynX">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">package</span> <go><span class="xdoc-id">ti.sdo.opencl</span></go> [1, 0, 0] {
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../ti/sdo/opencl/ComputeDevice.html' title='ti.sdo.opencl.ComputeDevice'><span class="xdoc-id">ComputeDevice</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Global configuration settings for the this package</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../ti/sdo/opencl/OpenCL.html' title='ti.sdo.opencl.OpenCL'><span class="xdoc-id">OpenCL</span>;</a>
+</div>
+<div class="xdocSynCode">
+<tt></tt>}
+</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">OpenCL is a programming framework for heterogeneous compute resources
+  developed by the Khronos group. It allows a host processor to execute
+  code on multiple device processors.</div>
+<div class="xdocText">This implementation of the OpenCL specification supports only the
+  task-parallel model. Please note, this implementation is still under
+  development.</div>
+<div class="xdocText">The following diagram illustrates an OpenCL application architecture.</div>
+<div class="xdocText"><br>
+  <img src="./doc-files/AppArch.png" />
+  <br></div>
+<div class="xdocText">The application, running on the host processor, makes OpenCL API
+  calls to execute kernel functions on the device processor. In this
+  example, the application is running on the C674x processor and the
+  kernel functions are executed on the ARP32 processor. The application
+  provides the thread (red circle) which calls the OpenCL APIs. The
+  OpenCL Runtime provides the thread on the device processor which is
+  used to execute the kernel functions. There may be multiple device
+  processors in a system but only one host processor.</div>
+<div class="xdocText">The application and the kernel functions have access to the framework
+  components. For example, they can make calls into the XDC and SYS/BIOS
+  components. The kernel functions also have access to the ECPY component.</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">OPENCL PROGRAMMING MODEL</div>
+<div class="xdocText">The application must create the following objects to setup an OpenCL
+  execution environment: a context object, a command queue, and a program
+  object. This is done with the following functions.</div>
+<div class="xdocText"><UL><LI> clGetPlatformIDs
+</LI><LI> clGetDeviceIDs
+</LI><LI> clCreateContext
+</LI><LI> clCreateCommandQueue
+</LI><LI> clCreateProgramWithBinary
+</LI></UL></div>
+<div class="xdocText">Once these objects have been created, the application creates a kernel
+  object for each kernel function it wants to execute on the compute
+  device. The kernel object is used to set the function argument values.
+  The command queue is used to schedule a kernel function for execution.</div>
+<div class="xdocText"><UL><LI> clCreateKernel
+</LI><LI> clSetKernelArg
+</LI><LI> clEnqueueTask
+</LI></UL></div>
+<div class="xdocText">After a kernel function has been scheduled with a call to clEnqueueTask,
+  the kernel object can be reused with new argument values to schedule
+  the kernel function again.</div>
+<div class="xdocText">To release the resources used by OpenCL, the application must call the
+  following functions before terminating.</div>
+<div class="xdocText"><UL><LI> clReleaseKernel
+</LI><LI> clReleaseProgram
+</LI><LI> clReleaseCommandQueue
+</LI><LI> clReleaseContext
+</LI></UL></div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">OPENCL API EXAMPLE CODE</div>
+<div class="xdocText">The following psudeo code gives an example of what an OpenCL program
+  would look like. See the
+  <a class="xdoc-link" href="../../../ti/sdo/opencl/examples/hello/package.html" title="ti.sdo.opencl.examples.hello">Hello Example</a> for a working program.</div>
+<div class="xdocText"><PRE class="Example">  #include &lt;CL/opencl.h&gt;
+
+  cl_context          context;
+  cl_command_queue    cmdQue;
+  cl_program          program;
+  cl_kernel           helloKnl;
+  Ptr                 bufBase;
+
+
+  //  -------- OpenCL Initialization --------
+
+  // get the default platform
+  clGetPlatformIDs(.., platformAry, ..);
+
+  // get an accelerator device
+  clGetDeviceIDs(platformAry, .., deviceAry, ..);
+
+  // create a context for the accelerator device
+  context = clCreateContext(.., deviceAry, ..);
+
+  // create a command-queue for the accelerator device
+  cmdQue = clCreateCommandQueue(context, deviceAry, ..);
+
+  // create program object
+  program = clCreateProgramWithBinary(context, .., deviceAry, ..);
+
+
+  //  -------- Application Execute Phase --------
+
+  // create a handle to the OpenCL kernel (function)
+  helloKnl = clCreateKernel(program, "HelloKnl", ..);
+
+  // allocate buffer using host allocated memory
+  bufBase = Memory_alloc(heap, 64, ..);
+
+  // assign the kernel arguments
+  clSetKernelArg(helloKnl, 0, sizeof(Ptr), &amp;bufBase);
+
+  // invoke the hello world kernel
+  clEnqueueTask(cmdQue, helloKnl, ..);
+
+  // read the buffer contents
+  System_printf("%s\n", (Char *)bufBase);
+  Memory_free(heap, bufBase, bufSize);
+
+
+  //  -------- OpenCL Finalization --------
+
+  clReleaseKernel(helloKnl);
+  clReleaseProgram(program);
+  clReleaseCommandQueue(cmdQue);
+  clReleaseContext(context);
+
+</PRE></div>
+<span id="xdoc-sect-4"></span>
+<div class="xdocSect">OPENCL KERNEL EXAMPLE CODE</div>
+<div class="xdocText">The following psudeo code gives an example of what an OpenCL kernel
+  function looks like. For the most part, it looks just like an ordinary
+  function. However, a kernel function must have a return type of void,
+  cannot use recursion, and does not support pointers to functions.
+  Additional restrictions are specified in the OpenCL Spec in Section 6.8.</div>
+<div class="xdocText"><PRE class="Example">  #include &lt;string.h&gt;
+
+  void HelloKnl(char *buffer)
+  {
+      strncpy(buffer, "Hello World");
+  }
+
+</PRE></div>
+<span id="xdoc-sect-5"></span>
+<div class="xdocSect">OPENCL RUNTIME REGISTRATION</div>
+<div class="xdocText">All kernel functions must be registered with the OpenCL Runtime. This
+  is done using static initialization. The OpenCL Runtime references the
+  following two symbols.</div>
+<div class="xdocText"><PRE class="Example">  Int                 ti_sdo_opencl_ComputeDevices_numUnits
+  ComputeDevice_Unit  ti_sdo_opencl_ComputeDevices_units[]
+</PRE></div>
+<div class="xdocText">When building an executable, you must provide a source file which declares
+  and statically initializes these two symbols. The following figure
+  gives an example.</div>
+<div class="xdocText"><img src="./doc-files/KernelTable.png" /></div>
+<div class="xdocText">In the figure above, there are two units, ModA.c and ModB.c. The ModA
+  unit defines one kernel function. The second unit, ModB, defines an
+  init and exit function and two kernel functions. In the file KernelTable.c,
+  an array of units is declared and initialized with the contents of
+  ModA and ModB.</div>
+<div class="xdocText">Here is the source code of KernelTable.c</div>
+<div class="xdocText"><PRE class="Example">  #include &lt;xdc/std.h&gt;
+  #include &lt;ti/sdo/opencl/ComputeDevice.h&gt;
+
+  UInt ModA_func1_args[] = {
+      ti_cl_arg_type_GlobalPtr,
+      ti_cl_arg_type_Int,
+      ti_cl_arg_type_Int
+  };
+
+  ComputeDevice_FxnDesc ModA_fxnTab[] = {
+      {
+          "ModA_func1",     // fxn name
+          (Fxn)ModA_func1,  // fxn address
+          3,                // num args
+          ModA_func1_args   // arg types
+      }
+  };
+
+  UInt ModB_func1_args[] = {
+      ti_cl_arg_type_Int,
+      ti_cl_arg_type_Int
+  };
+
+  UInt ModB_func2_args[] = {
+      ti_cl_arg_type_Int,
+      ti_cl_arg_type_Int,
+      ti_cl_arg_type_Int,
+      ti_cl_arg_type_Int
+  };
+
+  ComputeDevice_FxnDesc ModB_fxnTab[] = {
+      {
+          "ModB_func1",     // fxn name
+          (Fxn)ModB_func1,  // fxn address
+          2,                // num args
+          ModB_func1_args   // arg types
+      },
+      {
+          "ModB_func2",     // fxn name
+          (Fxn)ModB_func2,  // fxn address
+          4,                // num args
+          ModB_func2_args   // arg types
+      }
+  };
+
+  Int ti_sdo_opencl_ComputeDevice_numUnits = 2;
+  ComputeDevice_Unit ti_sdo_opencl_ComputeDevice_units[] = {
+      {   // ModA
+          NULL,
+          NULL,
+          1,
+          ModA_fxnTab
+      },
+      {   // ModB
+          ModB_initFxn,
+          ModB_exitFxn,
+          2,
+          ModB_fxnTab
+      }
+  };
+
+</PRE></div>
+<span id="xdoc-sect-6"></span>
+<div class="xdocSect">AVAILABLE FUNCTIONS</div>
+<div class="xdocText">The following list of OpenCL APIs are functional in this port. Please
+  note, this is work in progress and not all features may be currently
+  implemented.</div>
+<div class="xdocText">OpenCL Platform Layer</div>
+<div class="xdocText"><UL><LI> clGetPlatformIDs
+</LI><LI> clGetPlatformInfo
+</LI><LI> clGetDeviceIDs
+</LI><LI> clGetDeviceInfo
+</LI><LI> clCreateContext
+</LI><LI> clCreateContextFromType
+</LI><LI> clRetainContext
+</LI><LI> clReleaseContext
+</LI><LI> clGetContextInfo
+</LI></UL></div>
+<div class="xdocText">OpenCL Execution Layer</div>
+<div class="xdocText"><UL><LI> clCreateCommandQueue
+</LI><LI> clRetainCommandQueue
+</LI><LI> clReleaseCommandQueue
+</LI><LI> clGetCommandQueueInfo
+</LI><LI> clSetCommandQueueProperty
+</LI><LI> clCreateProgramWithBinary
+</LI><LI> clRetainProgram
+</LI><LI> clReleaseProgram
+</LI><LI> clGetProgramInfo
+</LI><LI> clCreateKernel
+</LI><LI> clSetKernelArg
+</LI><LI> clRetainKernel
+</LI><LI> clReleaseKernel
+</LI></UL></div>
+<span id="xdoc-sect-7"></span>
+<div class="xdocSect">LEGEND</div>
+<div class="xdocText">This legend applies to all figures.</div>
+<div class="xdocText"><img src="./doc-files/Legend.png" /></div>
+<span id="xdoc-sect-8"></span>
+<div class="xdocSect">SEE ALSO</div>
+<div class="xdocText"></div>
+<div class="xdocText"><DL><DT> <a class="xdoc-linkExt" href="http://www.khronos.org/registry/cl/" title="http://www.khronos.org/registry/cl/">Khronos OpenCL Web Site</a></DT><DD>
+</DD><DT> <a class="xdoc-link" href="../../../ti/sdo/opencl/examples/package.html" title="ti.sdo.opencl.examples">Suite of OpenCL examples for TI devices</a></DT><DD>
+</DD><DT> <a class="xdoc-link" href="../../../ti/sdo/opencl/examples/hello/package.html" title="ti.sdo.opencl.examples.hello">Hellow World example</a></DT><DD>
+</DD></DL></div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:07 GMT</div>
+</div></div></body>
+</html>

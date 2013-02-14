@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>package ti.sdo.ce.examples.codecs.videnc1_copy</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> * Copyright (c) 2012, Texas Instruments Incorporated
+</span>     3    <span class="comment"> * All rights reserved.
+</span>     4    <span class="comment"> *
+</span>     5    <span class="comment"> * Redistribution and use in source and binary forms, with or without
+</span>     6    <span class="comment"> * modification, are permitted provided that the following conditions
+</span>     7    <span class="comment"> * are met:
+</span>     8    <span class="comment"> *
+</span>     9    <span class="comment"> * *  Redistributions of source code must retain the above copyright
+</span>    10    <span class="comment"> *    notice, this list of conditions and the following disclaimer.
+</span>    11    <span class="comment"> *
+</span>    12    <span class="comment"> * *  Redistributions in binary form must reproduce the above copyright
+</span>    13    <span class="comment"> *    notice, this list of conditions and the following disclaimer in the
+</span>    14    <span class="comment"> *    documentation and/or other materials provided with the distribution.
+</span>    15    <span class="comment"> *
+</span>    16    <span class="comment"> * *  Neither the name of Texas Instruments Incorporated nor the names of
+</span>    17    <span class="comment"> *    its contributors may be used to endorse or promote products derived
+</span>    18    <span class="comment"> *    from this software without specific prior written permission.
+</span>    19    <span class="comment"> *
+</span>    20    <span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+</span>    21    <span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+</span>    22    <span class="comment"> * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+</span>    23    <span class="comment"> * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+</span>    24    <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+</span>    25    <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+</span>    26    <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+</span>    27    <span class="comment"> * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+</span>    28    <span class="comment"> * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+</span>    29    <span class="comment"> * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+</span>    30    <span class="comment"> * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>    31    <span class="comment"> * 
+</span>    32    <span class="comment"> */</span>
+    33    <span class=key>requires</span> ti.xdais.dm.examples.videnc1_copy;
+    34    
+    35    <span class="xdoc">/*!
+</span>    36    <span class="xdoc"> *  ======== package.xdc ========
+</span>    37    <span class="xdoc"> *  Codec Engine VIDENC1-compliant codec
+</span>    38    <span class="xdoc"> *
+</span>    39    <span class="xdoc"> *  This package simply wraps the IVIDENC1-compliant example copy codec
+</span>    40    <span class="xdoc"> *  distributed with XDAIS.
+</span>    41    <span class="xdoc"> *
+</span>    42    <span class="xdoc"> *  This codec illustrates the simplest integration into the Codec
+</span>    43    <span class="xdoc"> *  Engine.  Only three files are required to integrate into CE:
+</span>    44    <span class="xdoc"> *  <b>@p(dlist)</b>
+</span>    45    <span class="xdoc"> *      - `package.xdc`
+</span>    46    <span class="xdoc"> *          This file is required to declare a name for this package and to
+</span>    47    <span class="xdoc"> *          list all codec interfaces available.
+</span>    48    <span class="xdoc"> *      - `VIDENC1_COPY.xdc`
+</span>    49    <span class="xdoc"> *          This file specifies a codec (named VIDENC1_COPY) that is
+</span>    50    <span class="xdoc"> *          provided by this package.
+</span>    51    <span class="xdoc"> *      - `VIDENC1_COPY.xs`
+</span>    52    <span class="xdoc"> *          This file implements the functions required by the ICodec
+</span>    53    <span class="xdoc"> *          interface; these functions enable the codec to describe its
+</span>    54    <span class="xdoc"> *          non-functional requirements such as stack size.
+</span>    55    <span class="xdoc"> *
+</span>    56    <span class="xdoc"> *  A package dependency (the 'requires' statement above) is established
+</span>    57    <span class="xdoc"> *  allowing the XDAIS package to provide the [unmodified] codec library
+</span>    58    <span class="xdoc"> *  while this package provides merely the CE-specific metadata necessary
+</span>    59    <span class="xdoc"> *  for integration.
+</span>    60    <span class="xdoc"> */</span>
+    61    <span class=key>package</span> ti.sdo.ce.examples.codecs.videnc1_copy [1, 0, 0] {
+    62        <span class=key>module</span> VIDENC1_COPY;
+    63    }
+    64    <span class="comment">/*
+</span>    65    <span class="comment"> *  @(#) ti.sdo.ce.examples.codecs.videnc1_copy; 1, 0, 0,1; 2-24-2012 19:29:26; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+</span>    66    <span class="comment">
+</span>    67    <span class="comment"> */</span>
+    68    
+</pre>
+</body></html>

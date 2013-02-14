@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.speech" version="1, 0, 2" producerId="undefined">
+    <units>
+        <interface name="ISPHENC"/>
+        <interface name="ISPHDEC"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="sphdec.c"/>
+        <srcFile name="sphdec_skel.c"/>
+        <srcFile name="sphdec_stubs.c"/>
+        <srcFile name="sphenc.c"/>
+        <srcFile name="sphenc_skel.c"/>
+        <srcFile name="sphenc_stubs.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/release/speech.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/speech/package/package_ti.sdo.ce.speech.oem3.dep" src="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec.oem3.dep" src="sphdec.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec_skel.oem3.dep" src="sphdec_skel.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec_stubs.oem3.dep" src="sphdec_stubs.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc.oem3.dep" src="sphenc.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc_skel.oem3.dep" src="sphenc_skel.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc_stubs.oem3.dep" src="sphenc_stubs.c"/>
+        <srcFile name="lib/debug/speech.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/speech/package/package_ti.sdo.ce.speech.oem3.dep" src="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec.oem3.dep" src="sphdec.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec_skel.oem3.dep" src="sphdec_skel.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec_stubs.oem3.dep" src="sphdec_stubs.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc.oem3.dep" src="sphenc.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc_skel.oem3.dep" src="sphenc_skel.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc_stubs.oem3.dep" src="sphenc_stubs.c"/>
+        <srcFile name="lib/release/speech.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/speech/package/package_ti.sdo.ce.speech.oe674.dep" src="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec.oe674.dep" src="sphdec.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec_skel.oe674.dep" src="sphdec_skel.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec_stubs.oe674.dep" src="sphdec_stubs.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc.oe674.dep" src="sphenc.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc_skel.oe674.dep" src="sphenc_skel.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc_stubs.oe674.dep" src="sphenc_stubs.c"/>
+        <srcFile name="lib/debug/speech.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/speech/package/package_ti.sdo.ce.speech.oe674.dep" src="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec.oe674.dep" src="sphdec.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec_skel.oe674.dep" src="sphdec_skel.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec_stubs.oe674.dep" src="sphdec_stubs.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc.oe674.dep" src="sphenc.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc_skel.oe674.dep" src="sphenc_skel.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc_stubs.oe674.dep" src="sphenc_stubs.c"/>
+        <srcFile name="lib/release/speech.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/speech/package/package_ti.sdo.ce.speech.ov5T.dep" src="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec.ov5T.dep" src="sphdec.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec_skel.ov5T.dep" src="sphdec_skel.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphdec_stubs.ov5T.dep" src="sphdec_stubs.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc.ov5T.dep" src="sphenc.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc_skel.ov5T.dep" src="sphenc_skel.c"/>
+        <srcFile name="package/lib/lib/release/speech/sphenc_stubs.ov5T.dep" src="sphenc_stubs.c"/>
+        <srcFile name="lib/debug/speech.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/speech/package/package_ti.sdo.ce.speech.ov5T.dep" src="package/package_ti.sdo.ce.speech.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec.ov5T.dep" src="sphdec.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec_skel.ov5T.dep" src="sphdec_skel.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphdec_stubs.ov5T.dep" src="sphdec_stubs.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc.ov5T.dep" src="sphenc.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc_skel.ov5T.dep" src="sphenc_skel.c"/>
+        <srcFile name="package/lib/lib/debug/speech/sphenc_stubs.ov5T.dep" src="sphenc_stubs.c"/>
+        <srcFile name="package/rel/ti_sdo_ce_speech.tar.dep" src="package/rel/ti_sdo_ce_speech.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="host.platforms.arm"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/codesourcery/arm-2009q1/"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/release/speech"
+        pname="lib/release/speech.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/speech"
+        pname="lib/debug/speech.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/speech"
+        pname="lib/release/speech.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/speech"
+        pname="lib/debug/speech.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/speech"
+        pname="lib/release/speech.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/debug/speech"
+        pname="lib/debug/speech.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_speech"
+        pname="ti_sdo_ce_speech.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="sphdec.h"/>
+        <file name="sphenc.h"/>
+        <file name="_sphdec.h"/>
+        <file name="_sphenc.h"/>
+        <file name="package.bld"/>
+        <file name="simple_GCArmv5T.mak"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/release/speech.aem3"/>
+        <file name="package/package_ti.sdo.ce.speech.c"/>
+        <file name="sphdec.c"/>
+        <file name="sphdec_skel.c"/>
+        <file name="sphdec_stubs.c"/>
+        <file name="sphenc.c"/>
+        <file name="sphenc_skel.c"/>
+        <file name="sphenc_stubs.c"/>
+        <file name="lib/debug/speech.aem3"/>
+        <file name="lib/release/speech.ae674"/>
+        <file name="lib/debug/speech.ae674"/>
+        <file name="lib/release/speech.av5T"/>
+        <file name="lib/debug/speech.av5T"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

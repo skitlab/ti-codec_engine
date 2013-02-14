@@ -1,0 +1,13 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.c"
+Source="../Engine.c"
+Source="../rms.c"
+Source="../visa.c"
+Source="../Server.c"

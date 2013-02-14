@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.audio1" version="1, 0, 1" producerId="undefined">
+    <units>
+        <interface name="IAUDENC1"/>
+        <interface name="IAUDDEC1"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="auddec1.c"/>
+        <srcFile name="auddec1_skel.c"/>
+        <srcFile name="auddec1_stubs.c"/>
+        <srcFile name="audenc1.c"/>
+        <srcFile name="audenc1_skel.c"/>
+        <srcFile name="audenc1_stubs.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/debug/auddec1.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/auddec1/package/package_ti.sdo.ce.audio1.oem3.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1.oem3.dep" src="auddec1.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1_skel.oem3.dep" src="auddec1_skel.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1_stubs.oem3.dep" src="auddec1_stubs.c"/>
+        <srcFile name="lib/debug/audenc1.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/audenc1/package/package_ti.sdo.ce.audio1.oem3.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1.oem3.dep" src="audenc1.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1_skel.oem3.dep" src="audenc1_skel.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1_stubs.oem3.dep" src="audenc1_stubs.c"/>
+        <srcFile name="lib/release/auddec1.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/auddec1/package/package_ti.sdo.ce.audio1.oem3.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1.oem3.dep" src="auddec1.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1_skel.oem3.dep" src="auddec1_skel.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1_stubs.oem3.dep" src="auddec1_stubs.c"/>
+        <srcFile name="lib/release/audenc1.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/audenc1/package/package_ti.sdo.ce.audio1.oem3.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1.oem3.dep" src="audenc1.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1_skel.oem3.dep" src="audenc1_skel.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1_stubs.oem3.dep" src="audenc1_stubs.c"/>
+        <srcFile name="lib/debug/auddec1.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/auddec1/package/package_ti.sdo.ce.audio1.oe674.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1.oe674.dep" src="auddec1.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1_skel.oe674.dep" src="auddec1_skel.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1_stubs.oe674.dep" src="auddec1_stubs.c"/>
+        <srcFile name="lib/debug/audenc1.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/audenc1/package/package_ti.sdo.ce.audio1.oe674.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1.oe674.dep" src="audenc1.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1_skel.oe674.dep" src="audenc1_skel.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1_stubs.oe674.dep" src="audenc1_stubs.c"/>
+        <srcFile name="lib/release/auddec1.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/auddec1/package/package_ti.sdo.ce.audio1.oe674.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1.oe674.dep" src="auddec1.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1_skel.oe674.dep" src="auddec1_skel.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1_stubs.oe674.dep" src="auddec1_stubs.c"/>
+        <srcFile name="lib/release/audenc1.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/audenc1/package/package_ti.sdo.ce.audio1.oe674.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1.oe674.dep" src="audenc1.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1_skel.oe674.dep" src="audenc1_skel.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1_stubs.oe674.dep" src="audenc1_stubs.c"/>
+        <srcFile name="lib/debug/auddec1.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/auddec1/package/package_ti.sdo.ce.audio1.ov5T.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1.ov5T.dep" src="auddec1.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1_skel.ov5T.dep" src="auddec1_skel.c"/>
+        <srcFile name="package/lib/lib/debug/auddec1/auddec1_stubs.ov5T.dep" src="auddec1_stubs.c"/>
+        <srcFile name="lib/debug/audenc1.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/audenc1/package/package_ti.sdo.ce.audio1.ov5T.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1.ov5T.dep" src="audenc1.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1_skel.ov5T.dep" src="audenc1_skel.c"/>
+        <srcFile name="package/lib/lib/debug/audenc1/audenc1_stubs.ov5T.dep" src="audenc1_stubs.c"/>
+        <srcFile name="lib/release/auddec1.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/auddec1/package/package_ti.sdo.ce.audio1.ov5T.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1.ov5T.dep" src="auddec1.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1_skel.ov5T.dep" src="auddec1_skel.c"/>
+        <srcFile name="package/lib/lib/release/auddec1/auddec1_stubs.ov5T.dep" src="auddec1_stubs.c"/>
+        <srcFile name="lib/release/audenc1.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/audenc1/package/package_ti.sdo.ce.audio1.ov5T.dep" src="package/package_ti.sdo.ce.audio1.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1.ov5T.dep" src="audenc1.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1_skel.ov5T.dep" src="audenc1_skel.c"/>
+        <srcFile name="package/lib/lib/release/audenc1/audenc1_stubs.ov5T.dep" src="audenc1_stubs.c"/>
+        <srcFile name="package/rel/ti_sdo_ce_audio1.tar.dep" src="package/rel/ti_sdo_ce_audio1.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="host.platforms.arm"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/codesourcery/arm-2009q1/"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/debug/auddec1"
+        pname="lib/debug/auddec1.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/audenc1"
+        pname="lib/debug/audenc1.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/auddec1"
+        pname="lib/release/auddec1.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/audenc1"
+        pname="lib/release/audenc1.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/auddec1"
+        pname="lib/debug/auddec1.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/audenc1"
+        pname="lib/debug/audenc1.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/auddec1"
+        pname="lib/release/auddec1.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/audenc1"
+        pname="lib/release/audenc1.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/auddec1"
+        pname="lib/debug/auddec1.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/debug/audenc1"
+        pname="lib/debug/audenc1.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/release/auddec1"
+        pname="lib/release/auddec1.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/release/audenc1"
+        pname="lib/release/audenc1.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_audio1"
+        pname="ti_sdo_ce_audio1.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="auddec1.h"/>
+        <file name="audenc1.h"/>
+        <file name="_auddec1.h"/>
+        <file name="_audenc1.h"/>
+        <file name="package.bld"/>
+        <file name="simple_GCArmv5T.mak"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/auddec1.aem3"/>
+        <file name="package/package_ti.sdo.ce.audio1.c"/>
+        <file name="auddec1.c"/>
+        <file name="auddec1_skel.c"/>
+        <file name="auddec1_stubs.c"/>
+        <file name="lib/debug/audenc1.aem3"/>
+        <file name="audenc1.c"/>
+        <file name="audenc1_skel.c"/>
+        <file name="audenc1_stubs.c"/>
+        <file name="lib/release/auddec1.aem3"/>
+        <file name="lib/release/audenc1.aem3"/>
+        <file name="lib/debug/auddec1.ae674"/>
+        <file name="lib/debug/audenc1.ae674"/>
+        <file name="lib/release/auddec1.ae674"/>
+        <file name="lib/release/audenc1.ae674"/>
+        <file name="lib/debug/auddec1.av5T"/>
+        <file name="lib/debug/audenc1.av5T"/>
+        <file name="lib/release/auddec1.av5T"/>
+        <file name="lib/release/audenc1.av5T"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

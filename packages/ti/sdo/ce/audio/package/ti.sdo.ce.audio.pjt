@@ -1,0 +1,15 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.audio"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.audio.c"
+Source="../auddec.c"
+Source="../auddec_skel.c"
+Source="../auddec_stubs.c"
+Source="../audenc.c"
+Source="../audenc_skel.c"
+Source="../audenc_stubs.c"

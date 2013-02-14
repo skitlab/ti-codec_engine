@@ -1,0 +1,14 @@
+package/package.bld.xml
+package/package.ext.xml
+package/package.rel.dot
+package/build.cfg
+package/package.xdc.inc
+package.bld
+_adapted_link_gpptypes.h
+simple_GCArmv5T.mak
+package/package.cfg.xdc.inc
+lib/debug/ipc_syslink.av5T
+package/package_ti.sdo.ce.ipc.dsplink.c
+Processor_dsplink.c
+Comm_dsplink.c
+lib/release/ipc_syslink.av5T

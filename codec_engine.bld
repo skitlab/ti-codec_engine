@@ -1,0 +1,255 @@
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+
+/*
+ *
+ * This file controls which libraries are built, as well as compiler options
+ * to use.
+ *
+ * The contents of this file usually don't change, but having it in your
+ * ownership allows you to tweak your compiler options.  If you do change
+ * this file, however, on the next upgrade of the product we recommend
+ * that you take "sysbios.bld" file as supplied by the upgrade and then merge
+ * your changes with it.
+ */
+
+/*
+ *  ======== codec_engine.bld ========
+ *  This script is run prior to all build scripts. It sets host-system-
+ *  independent values for targets and platforms, then it attempts to
+ *  find the host-system-specific user.bld script that sets rootDirs.
+ *
+ *  These settings may be a function of the following global variables:
+ *
+ *      environment a hash table of environment strings
+ *
+ *      arguments   an array of string arguments to the script
+ *                  initialized as follows:
+ *                      arguments[0] - the file name of the script
+ *                      arguments[1] - the first argument specified in XDCARGS
+ *                          :
+ *                      arguments[n] - the n'th argument in XDCARGS
+ *
+ *      Build       an alias for xdc.om.xdc.bld.BuildEnvironment
+ */
+
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+//var c6xOpts = " -pds1110 ";
+var c6xOpts = " -pdr -pden -pds=880 -pds=238 -pds452 -pds195 -mi10 -mo -g ";
+
+var ccOpts = {
+    "ti.targets.C64P"                 : c6xOpts,
+    "ti.targets.C674"                 : c6xOpts,
+
+    "ti.targets.elf.C64P"             : c6xOpts,
+    "ti.targets.elf.C64T"             : c6xOpts,
+    "ti.targets.elf.C66"              : c6xOpts,
+
+    "ti.targets.elf.C674"             : c6xOpts,
+    "ti.targets.arm.elf.M3"           : " -ms -g ",
+    "gnu.targets.arm.GCArmv5T"        : " -Wall -fno-strict-aliasing ",
+    "google.targets.arm.Bionic"       : " -Wall -fno-strict-aliasing "
+};
+
+var lnkOpts = {
+    "gnu.targets.arm.GCArmv5T"        : " -lpthread -lrt -ldl ",
+    "google.targets.arm.Bionic"       : " -lm -nostdlib " +
+                                        " -Wl,-z,nocopyreloc " +
+                                        " -Wl,--fix-cortex-a8" +
+                                        " -Wl,-z,noexecstack " +
+                                        " -Wl,-dynamic-linker,/system/bin/linker " +
+                                        " -Wl,-T,/db/toolsrc/library/vendors2005/android/rowboat/ti814x/20111011/misc/armelf.x "
+};
+
+var devices = "";
+var programs = "";
+var gppos = "";
+
+/* initialize local vars with those set in xdcpaths.mak (via XDCARGS) */
+for (arg = 0; arg < arguments.length; arg++) {
+    /* split each arg into its '+' separated parts */
+    var configParts = arguments[arg].split(";");
+    // print("arg " + arg + " has " + configParts.length + " parts");
+
+    /* if "known args come in, filter them... else they're targets */
+    if (configParts[0].split("=")[0] == "DEVICE") {
+        // print("FOUND DEVICE ARG - " + configParts[0]);
+        devices = configParts[0].split("=")[1];
+        continue;
+    }
+    if (configParts[0].split("=")[0] == "GPPOS") {
+        // print("FOUND GPPOS ARG - " + configParts[0]);
+        gppos = configParts[0].split("=")[1];
+        continue;
+    }
+    if (configParts[0].split("=")[0] == "PROGRAMS") {
+        // print("FOUND PROGRAMS ARG - " + configParts[0]);
+        programs= configParts[0].split("=")[1];
+        continue;
+    }
+
+
+    /*
+     * Get the compiler's installation directory from part one.
+     * For "ti.targets.elf.C674=/vendors/c6x/7.0.3", we get "/vendors/c6x/7.0.3"
+     */
+    var targetName = configParts[0].split("=")[0];
+    var rootDir = configParts[0].split("=")[1];
+
+    /* only build for the specified compilers */
+    if (rootDir == "" || rootDir == undefined) {
+        continue;
+    }
+
+    print("Building '" + targetName + "' using '" + rootDir + "' ...");
+
+    var target = xdc.useModule(targetName);
+    target.rootDir = rootDir;
+
+    if (ccOpts[targetName] != undefined) {
+        target.ccOpts.suffix += ccOpts[targetName];
+    }
+    if (lnkOpts[targetName] != undefined) {
+        target.lnkOpts.suffix += lnkOpts[targetName];
+        
+        /*
+         * Although not strictly needed, this clumsy special case removes C++
+         * support as many target file systems don't have it installed.
+         */
+        if (targetName.match(/^gnu.targets.arm.GCArmv5T$/)) {
+            target.lnkOpts.suffix = target.lnkOpts.suffix.replace("-lstdc++",
+                    "");
+        }
+    }
+
+    /* for all the other parts, assign target.<left> = <right> */
+    for (var i = 1; i < configParts.length; i++) {
+        var modCfgParam = configParts[i].split("=")[0];
+        var modCfgValue = configParts[i].split("=")[1];
+        var modCfgIndex = modCfgParam.split(".");
+        var element = target;
+
+        print("Configuring target." + modCfgParam + " = " + modCfgValue);
+
+        for (j = 0; j < (modCfgIndex.length - 1); j++) {
+                element = element[modCfgIndex[j]];
+        }
+        element[modCfgIndex[j]] = modCfgValue;
+    }
+
+    /* and finally add this target to the Build.targets array */
+    Build.targets.$add(target);
+}
+
+/* only build debug and release profiles */
+for (var t = 0; t < Build.targets.length; t++) {
+    for (prof in Build.targets[t].profiles) {
+        if ((prof != 'release') && (prof != 'debug')) {
+            delete Build.targets[t].profiles[prof];
+        }
+    }
+}
+
+/*
+ * And finally, add the requested platforms to the targets, based
+ * on devices, gppos, and programs.
+ */
+//maybe capsule...
+//utils.loadCapsule('./devicemaps.xs');
+
+var devMap = new Array();
+devMap['OMAP3530']      = 'ti.platforms.evm3530';
+devMap['OMAPL138']      = 'ti.platforms.evmOMAPL138';
+devMap['OMAP4430']      = 'ti.platforms.sdp4430';
+devMap['C6472']         = 'ti.platforms.evm6472';
+devMap['C6474']         = 'ti.platforms.evm6474';
+devMap['C6678']         = 'ti.platforms.evm6678';
+devMap['C6670']         = 'ti.platforms.evm6670';
+devMap['TI816X']        = 'ti.platforms.evmTI816X';
+devMap['TI814X']        = 'ti.platforms.evmTI814X';
+devMap['TI813X']        = 'ti.platforms.evmTI813X';
+
+/* this maps platforms to all _potential_ targets */
+var allTargs = new Array();
+allTargs['OMAP3530'] = ['ti.targets.C64P', 'ti.targets.elf.C64P',
+        'gnu.targets.arm.GCArmv5T'];
+allTargs['OMAPL138'] = ['ti.targets.elf.C674',
+        'gnu.targets.arm.GCArmv5T'];
+allTargs['TI814X'] = ['ti.targets.elf.C674', 'ti.targets.arm.elf.M3',
+        'gnu.targets.arm.GCArmv5T', 'google.targets.arm.Bionic'];
+allTargs['TI816X'] = ['ti.targets.elf.C674', 'ti.targets.arm.elf.M3',
+        'gnu.targets.arm.GCArmv5T'];
+allTargs['TI813X'] = ['ti.targets.arm.elf.M3', 'gnu.targets.arm.GCArmv5T'];
+allTargs['OMAP4430'] = ['ti.targets.elf.C64T', 'ti.targets.arm.elf.M3',
+        'gnu.targets.arm.GCArmv5T'];
+allTargs['C6472'] = ['ti.targets.C64P', 'ti.targets.elf.C64P'];
+allTargs['C6474'] = ['ti.targets.C64P', 'ti.targets.elf.C64P'];
+allTargs['C6678'] = ['ti.targets.elf.C66'];
+allTargs['C6670'] = ['ti.targets.elf.C66'];
+
+/*
+ * Match all words and trim off leading and trailing white space,
+ * then split on white space (any amount) between words.
+ */
+if (devices != "") {
+    var deviceArray = devices.match(/^\s*(.*\w+)\s*$/)[1].split(/\s+/);
+
+    for (var i in deviceArray) {
+        var platName = devMap[deviceArray[i]];
+        if (platName == undefined) {
+            print("Skipping unsupported DEVICE (" + deviceArray[i] + ")");
+        }
+        else {
+            for (var j in allTargs[deviceArray[i]]) {
+                for (var k = 0; k < Build.targets.length; k++) {
+                    // print("Comparing " + Build.targets[k].$name + " and " +
+                    //         allTargs[deviceArray[i]][j]);
+                    if (Build.targets[k].$name ==
+                            allTargs[deviceArray[i]][j]) {
+                        // print("Adding platform " + platName + " to " +
+                        //         Build.targets[k].$name);
+                        Build.targets[k].platforms.$add(platName);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+ *  @(#) codec_engine_3_22_01_06; 1, 0, 0,1; 2-24-2012 19:49:44; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+

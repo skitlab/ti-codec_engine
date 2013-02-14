@@ -1,0 +1,112 @@
+%%{
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+%%}
+%%{
+    /*
+     *  ======== Ipc.xdt ========
+     *  Generate the config structure for ce.ipc module
+     */
+    var Ipc = this;
+
+    var linkUsed = Ipc.dspLinkUsed();
+    var manageIpc = Ipc.manageIpc;
+    print("manageIpc = " + Ipc.manageIpc);
+%%}
+
+% if (linkUsed) {
+#include <ti/ipc/Ipc.h>
+#include <ti/ipc/MultiProc.h>
+% }
+
+Int ti_sdo_ce_ipc_bios_manageIpc = `manageIpc ? 1 : 0`;
+
+Void IPC_threadGeneratedInit()
+{
+% /*
+%  * If Link-based system, we currently assume we only need to communicate
+%  * to the "HOST" core.
+%  */
+% if (linkUsed && manageIpc) {
+    Int status;
+    UInt16 masterId;
+
+    masterId = MultiProc_getId("HOST");
+% // TODO:M    assert(masterId != MultiProc_INVALIDID);
+
+    do {
+	status = Ipc_attach(masterId);
+    } while (status < 0);
+
+% }
+}
+
+
+Void IPC_threadGeneratedReset()
+{
+% /*
+%  * If Link-based system, we currently assume we only need to communicate
+%  * to the "HOST" core.
+%  */
+% if (linkUsed && manageIpc) {
+    Int status;
+    UInt16 masterId;
+
+    masterId = MultiProc_getId("HOST");
+% // TODO:M    assert(masterId != MultiProc_INVALIDID);
+
+    do {
+	status = Ipc_detach(masterId);
+    } while (status < 0);
+
+    do {
+	status = Ipc_stop();
+    } while (status < 0);
+
+    do {
+	status = Ipc_start();
+    } while (status < 0);
+
+% }
+}
+
+/* size of the communication message */
+UInt32 Comm_MSGSIZE = `Ipc.armCommMsgSize`;
+UInt32 Comm_NUMMSGS = `Ipc.hostCommNumMsgs`;
+%%{
+/*
+ * @(#) ti.sdo.ce.ipc.bios; 2, 0, 1,1; 2-24-2012 19:29:56; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+
+%%}

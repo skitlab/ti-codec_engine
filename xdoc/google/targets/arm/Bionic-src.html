@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module google.targets.arm.Bionic</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> *  Copyright (c) 2011 Texas Instruments and others.
+</span>     3    <span class="comment"> *  All rights reserved. This program and the accompanying materials
+</span>     4    <span class="comment"> *  are made available under the terms of the Eclipse Public License v1.0
+</span>     5    <span class="comment"> *  which accompanies this distribution, and is available at
+</span>     6    <span class="comment"> *  http://www.eclipse.org/legal/epl-v10.html
+</span>     7    <span class="comment"> *
+</span>     8    <span class="comment"> *  Contributors:
+</span>     9    <span class="comment"> *      Texas Instruments - initial implementation
+</span>    10    <span class="comment"> *
+</span>    11    <span class="comment"> * 
+</span>    12    <span class="comment"> */</span>
+    13    import xdc.bld.ITarget2;
+    14    
+    15    <span class="xdoc">/*!
+</span>    16    <span class="xdoc"> *  ======== Bionic.xdc ========
+</span>    17    <span class="xdoc"> *  Embedded little endian ARM v5TE Bionic target
+</span>    18    <span class="xdoc"> *
+</span>    19    <span class="xdoc"> *  This module defines an embedded target for Bionic on ARM. The target
+</span>    20    <span class="xdoc"> *  generates code compatible with the "v5TE" architecture.
+</span>    21    <span class="xdoc"> *
+</span>    22    <span class="xdoc"> */</span>
+    23    <span class=key>metaonly</span> <span class=key>module</span> Bionic <span class=key>inherits</span> google.targets.ITarget {
+    24        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string name                = <span class="string">"Bionic"</span>;
+    25        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string os                  = <span class="string">"Linux"</span>;
+    26        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string suffix              = <span class="string">"bnc"</span>;
+    27        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string isa                 = <span class="string">"v5T"</span>;
+    28        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> xdc.bld.ITarget.Model model= {
+    29            endian: <span class="string">"little"</span>
+    30        };
+    31    
+    32        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> string rts = <span class="string">"google.targets.arm.rts"</span>;
+    33        <span class=key>override</span> <span class=key>config</span> string platform     = <span class="string">"host.platforms.arm"</span>;
+    34    
+    35        <span class=key>override</span> <span class=key>config</span> string LONGNAME;
+    36        <span class=key>override</span> <span class=key>config</span> string libcDir;
+    37        <span class=key>override</span> <span class=key>config</span> string fsDir;
+    38    
+    39        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> String stdInclude = <span class="string">"google/targets/arm/std.h"</span>;
+    40    
+    41        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> ITarget2.Command cc = {
+    42            cmd: <span class="string">"$(rootDir)/$(LONGNAME) -c -MD -MF $@.dep"</span>,
+    43            opts: <span class="string">"-march=armv5t -fno-short-enums "</span>
+    44        };
+    45    
+    46        <span class=key>override</span> <span class=key>config</span> ITarget2.Options ccOpts = {
+    47            prefix: <span class="string">"-fPIC -Wunused"</span>,
+    48            suffix: <span class="string">"-Dfar=  -D_ANDROID_"</span>
+    49        };
+    50    
+    51        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> ITarget2.Command asm = {
+    52            cmd: <span class="string">"$(rootDir)/$(LONGNAME) -c -x assembler"</span>,
+    53            opts: <span class="string">"-march=armv5t"</span>
+    54        };
+    55    
+    56        <span class=key>override</span> <span class=key>config</span> ITarget2.Options lnkOpts = {
+    57            prefix: <span class="string">""</span>,
+    58            suffix: <span class="string">"-Wl,-Map=$(XDCCFGDIR)/$@.map "</span>
+    59        };
+    60    
+    61        <span class=key>override</span> <span class=key>readonly</span> <span class=key>config</span> xdc.bld.ITarget.StdTypes stdTypes = {
+    62            t_IArg          : { size: 4, align: 4 },
+    63            t_Char          : { size: 1, align: 1 },
+    64            t_Double        : { size: 8, align: 4 },
+    65            t_Float         : { size: 4, align: 4 },
+    66            t_Fxn           : { size: 4, align: 4 },
+    67            t_Int           : { size: 4, align: 4 },
+    68            t_Int8          : { size: 1, align: 1 },
+    69            t_Int16         : { size: 2, align: 2 },
+    70            t_Int32         : { size: 4, align: 4 },
+    71            t_Int64         : { size: 8, align: 4 },
+    72            t_Long          : { size: 4, align: 4 },
+    73            t_LDouble       : { size: 8, align: 4 },
+    74            t_LLong         : { size: 8, align: 4 },
+    75            t_Ptr           : { size: 4, align: 4 },
+    76            t_Short         : { size: 2, align: 2 },
+    77                    t_Size          : { size: 4, align: 4 },
+    78        };
+    79    }
+    80    <span class="comment">/*
+</span>    81    <span class="comment"> *  @(#) google.targets.arm; 1, 0, 0,21; 2-10-2012 11:27:42; /db/ztree/library/trees/xdctargets/xdctargets-f18x/src/ xlibrary
+</span>    82    <span class="comment">
+</span>    83    <span class="comment"> */</span>
+    84    
+</pre>
+</body></html>

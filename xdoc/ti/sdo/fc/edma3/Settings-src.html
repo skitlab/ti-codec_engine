@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module ti.sdo.fc.edma3.Settings</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> * Copyright (c) 2012, Texas Instruments Incorporated
+</span>     3    <span class="comment"> * All rights reserved.
+</span>     4    <span class="comment"> *
+</span>     5    <span class="comment"> * Redistribution and use in source and binary forms, with or without
+</span>     6    <span class="comment"> * modification, are permitted provided that the following conditions
+</span>     7    <span class="comment"> * are met:
+</span>     8    <span class="comment"> *
+</span>     9    <span class="comment"> * *  Redistributions of source code must retain the above copyright
+</span>    10    <span class="comment"> *    notice, this list of conditions and the following disclaimer.
+</span>    11    <span class="comment"> *
+</span>    12    <span class="comment"> * *  Redistributions in binary form must reproduce the above copyright
+</span>    13    <span class="comment"> *    notice, this list of conditions and the following disclaimer in the
+</span>    14    <span class="comment"> *    documentation and/or other materials provided with the distribution.
+</span>    15    <span class="comment"> *
+</span>    16    <span class="comment"> * *  Neither the name of Texas Instruments Incorporated nor the names of
+</span>    17    <span class="comment"> *    its contributors may be used to endorse or promote products derived
+</span>    18    <span class="comment"> *    from this software without specific prior written permission.
+</span>    19    <span class="comment"> *
+</span>    20    <span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+</span>    21    <span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+</span>    22    <span class="comment"> * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+</span>    23    <span class="comment"> * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+</span>    24    <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+</span>    25    <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+</span>    26    <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+</span>    27    <span class="comment"> * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+</span>    28    <span class="comment"> * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+</span>    29    <span class="comment"> * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+</span>    30    <span class="comment"> * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>    31    <span class="comment"> * 
+</span>    32    <span class="comment"> */</span>
+    33    
+    34    <span class="comment">/*
+</span>    35    <span class="comment"> * ======== Settings.xdc ========
+</span>    36    <span class="comment"> * Configuration for the EDMA3 module to be able to create handles to the
+</span>    37    <span class="comment"> * resource handles for various scratch groups.
+</span>    38    <span class="comment"> */</span>
+    39    
+    40    
+    41    @Template(<span class="string">"./Settings.xdt"</span>)
+    42    
+    43    <span class=key>metaonly</span> <span class=key>module</span> Settings {
+    44    
+    45        <span class="xdoc">/*! 
+</span>    46    <span class="xdoc">     * ======== controllerId =======
+</span>    47    <span class="xdoc">     * Id of the EDMA3 instance that will be used to request resources from.
+</span>    48    <span class="xdoc">     * If this platform is natively supported by this module and the default
+</span>    49    <span class="xdoc">     * configurations are being used, this Id is used to determine, which EDMA3
+</span>    50    <span class="xdoc">     * instance to request resources from. 
+</span>    51    <span class="xdoc">     */</span>
+    52        <span class=key>config</span> UInt controllerId = 0; 
+    53    
+    54        <span class="xdoc">/*!
+</span>    55    <span class="xdoc">     * ======== region ========
+</span>    56    <span class="xdoc">     * Id of the EDMA3 Region we will program with the assigned Resources etc.
+</span>    57    <span class="xdoc">     * If this platform is natively supported by this module and the default
+</span>    58    <span class="xdoc">     * configurations are being used, region number is used to determine, 
+</span>    59    <span class="xdoc">     * which region of the EDMA3 configuration to request resources from. 
+</span>    60    <span class="xdoc">     * On most heterogenous devices: 
+</span>    61    <span class="xdoc">     * Region number 1 usually corresponds to DSP.
+</span>    62    <span class="xdoc">     * Region number 0 usually corresponds to ARM. 
+</span>    63    <span class="xdoc">     * On most multicore devices:
+</span>    64    <span class="xdoc">     * Region number n corresponds to Core number n. 
+</span>    65    <span class="xdoc">     */</span>
+    66        <span class=key>config</span> UInt region = 1;
+    67    
+    68        <span class="xdoc">/*!
+</span>    69    <span class="xdoc">     * ======== globalConfig ========
+</span>    70    <span class="xdoc">     * If a platform is not natively supported by this module or if the default 
+</span>    71    <span class="xdoc">     * number of EDMA3 hardware resources is to be overriden for some reason, 
+</span>    72    <span class="xdoc">     * this configuration is required to set the SOC specific details of EDMA3 
+</span>    73    <span class="xdoc">     * Set this parameter to the name of a structure of type 
+</span>    74    <span class="xdoc">     * EDMA3_GblConfigParams (defined in edma3_config.h). 
+</span>    75    <span class="xdoc">     * far EDMA3_GblConfigParams _globalConfig;
+</span>    76    <span class="xdoc">     * 
+</span>    77    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for      *  DSP target.
+</span>    78    <span class="xdoc">     */</span>
+    79        <span class=key>config</span> String globalConfig = <span class=key>null</span>;
+    80    
+    81        <span class="xdoc">/*!
+</span>    82    <span class="xdoc">     * ======== regionConfig ========
+</span>    83    <span class="xdoc">     * If a platform is not natively supported by this module or if the default 
+</span>    84    <span class="xdoc">     * number of resources available to a particular region are to be overriden,
+</span>    85    <span class="xdoc">     * region specific configuration can be specified directly via this 
+</span>    86    <span class="xdoc">     * parameter. 
+</span>    87    <span class="xdoc">     * Set this parameter to the name of a structure of type 
+</span>    88    <span class="xdoc">     * EDMA3_InstanceInitConfg (defined in edma3_config.h).
+</span>    89    <span class="xdoc">     * far EDMA3_InstanceInitConfg _regionConfig;
+</span>    90    <span class="xdoc">     *
+</span>    91    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for      *  DSP target.
+</span>    92    <span class="xdoc">     */</span>
+    93        <span class=key>config</span> String regionConfig = <span class=key>null</span>;
+    94    
+    95        <span class="xdoc">/*!
+</span>    96    <span class="xdoc">     * ======== contiguousPaRams ========
+</span>    97    <span class="xdoc">     * Boolean value indicating if PaRams assigned to scratch groups need to be
+</span>    98    <span class="xdoc">     * contiguous or not
+</span>    99    <span class="xdoc">     */</span>
+   100        <span class=key>config</span> <span class=key>bool</span> contiguousPaRams = <span class=key>true</span>;
+   101    
+   102        <span class=key>const</span> UInt EDMA3_MAXGROUPS = 20;  <span class="xdoc">/*! Maximum number of groups for sharing
+</span>   103    <span class="xdoc">                                 EDMA3 resources. */</span>
+   104        <span class=key>const</span> UInt EDMA3_MAXTCS = 8;
+   105    
+   106        <span class="xdoc">/*!
+</span>   107    <span class="xdoc">     * ======== globalInit ========
+</span>   108    <span class="xdoc">     * This flag decides if EDMA3 global registers and PaRam entries will be 
+</span>   109    <span class="xdoc">     * initialized by this module. 
+</span>   110    <span class="xdoc">     * If building this app for a system where ARM-side (or other) drivers might     * perform EDMA3 intialization, set this to false so it doesn't overwrite 
+</span>   111    <span class="xdoc">     * the ARM-side setup.
+</span>   112    <span class="xdoc">     *
+</span>   113    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for
+</span>   114    <span class="xdoc">     *  DSP target.
+</span>   115    <span class="xdoc">     */</span>
+   116        <span class=key>config</span> Bool globalInit = <span class=key>false</span>;
+   117    
+   118     
+   119        <span class="xdoc">/*!
+</span>   120    <span class="xdoc">     * ======== maxTccs ========
+</span>   121    <span class="xdoc">     * Arrays containing the maximum number of TCCs that will be assigned to
+</span>   122    <span class="xdoc">     * groups for sharing.
+</span>   123    <span class="xdoc">     * Algorithms created within a given group ID will share the EDMA3 resources
+</span>   124    <span class="xdoc">     * assigned to that group
+</span>   125    <span class="xdoc">     *
+</span>   126    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for
+</span>   127    <span class="xdoc">     *  DSP target.
+</span>   128    <span class="xdoc">     */</span>
+   129        <span class=key>config</span> UInt maxTccs[EDMA3_MAXGROUPS];
+   130    
+   131        <span class="xdoc">/*!
+</span>   132    <span class="xdoc">     * ======== maxPaRams ========
+</span>   133    <span class="xdoc">     * Arrays containing the maximum number of PaRams that will be assigned to
+</span>   134    <span class="xdoc">     * groups for sharing.
+</span>   135    <span class="xdoc">     * Algorithms created within a given group ID will share the EDMA3 resources
+</span>   136    <span class="xdoc">     * assigned to that group
+</span>   137    <span class="xdoc">     *
+</span>   138    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for
+</span>   139    <span class="xdoc">     *  DSP target.
+</span>   140    <span class="xdoc">     */</span>
+   141        <span class=key>config</span> UInt maxPaRams[EDMA3_MAXGROUPS];
+   142    
+   143        <span class="xdoc">/*!
+</span>   144    <span class="xdoc">     * ======== maxEdmaChannels ========
+</span>   145    <span class="xdoc">     * Array containing the maximum number of Edma Channels that will be
+</span>   146    <span class="xdoc">     * assigned to groups for sharing.
+</span>   147    <span class="xdoc">     * Algorithms created within a given group ID will share the EDMA3 resources
+</span>   148    <span class="xdoc">     * assigned to that group
+</span>   149    <span class="xdoc">     * On devices where DCHMAP doesn't exist, it is recommended to request as
+</span>   150    <span class="xdoc">     * many channels as PaRams requested
+</span>   151    <span class="xdoc">     *
+</span>   152    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for 
+</span>   153    <span class="xdoc">     *  DSP target.
+</span>   154    <span class="xdoc">     */</span>
+   155        <span class=key>config</span> UInt maxEdmaChannels[EDMA3_MAXGROUPS];
+   156    
+   157        <span class="xdoc">/*!
+</span>   158    <span class="xdoc">     * ======== maxQdmaChannels ========
+</span>   159    <span class="xdoc">     * Array containing the maximum number of Qdma Channels that will be
+</span>   160    <span class="xdoc">     * assigned to groups for sharing.
+</span>   161    <span class="xdoc">     * Algorithms created within a given group ID will share the EDMA3 resources
+</span>   162    <span class="xdoc">     * assigned to that group
+</span>   163    <span class="xdoc">     *
+</span>   164    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if application is built for
+</span>   165    <span class="xdoc">     *  DSP target.
+</span>   166    <span class="xdoc">     */</span>
+   167        <span class=key>config</span> UInt maxQdmaChannels[EDMA3_MAXGROUPS];
+   168    
+   169        <span class="xdoc">/*!
+</span>   170    <span class="xdoc">     *  ======== persistentAllocFxn ========
+</span>   171    <span class="xdoc">     *  Function for allocating persistent memory for RMAN's and other IRESMAN
+</span>   172    <span class="xdoc">     *  implementation's internal objects.
+</span>   173    <span class="xdoc">     *
+</span>   174    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if
+</span>   175    <span class="xdoc">     *  {<b>@link</b> ti.sdo.fc.rman.RMAN#useDSKT2} is set to `false`.
+</span>   176    <span class="xdoc">     */</span>
+   177        <span class=key>config</span> String persistentAllocFxn = <span class=key>null</span>;
+   178     
+   179        <span class="xdoc">/*!
+</span>   180    <span class="xdoc">     *  ======== persistentFreeFxn ========
+</span>   181    <span class="xdoc">     *  Function for freeing persistent memory used by RMAN and other IRESMAN
+</span>   182    <span class="xdoc">     *  implementation's internal objects.
+</span>   183    <span class="xdoc">     *
+</span>   184    <span class="xdoc">     *  Note:- This is required to be supplied ONLY if
+</span>   185    <span class="xdoc">     *  {<b>@link</b> ti.sdo.fc.rman.RMAN#useDSKT2} is set to `false`.
+</span>   186    <span class="xdoc">     */</span>
+   187        <span class=key>config</span> String persistentFreeFxn = <span class=key>null</span>;
+   188     
+   189        <span class="xdoc">/*!
+</span>   190    <span class="xdoc">     *  ======== semCreateFxn ========
+</span>   191    <span class="xdoc">     * Function to create semaphores used by various individual resource
+</span>   192    <span class="xdoc">     * manager(s) registered with RMAN.
+</span>   193    <span class="xdoc">     *
+</span>   194    <span class="xdoc">     *  Function signature is:
+</span>   195    <span class="xdoc">     *  <b>@p(code)</b>
+</span>   196    <span class="xdoc">     * Void * _semCreate(Int key, Int count);
+</span>   197    <span class="xdoc">     */</span>
+   198        <span class=key>config</span> String semCreateFxn = <span class=key>null</span>;
+   199     
+   200        <span class="xdoc">/*!
+</span>   201    <span class="xdoc">     *  ======== semDeleteFxn ========
+</span>   202    <span class="xdoc">     * Function to delete semaphores used by various individual resource
+</span>   203    <span class="xdoc">     * manager(s) registered with RMAN.
+</span>   204    <span class="xdoc">     *
+</span>   205    <span class="xdoc">     *  Function signature is:
+</span>   206    <span class="xdoc">     *  <b>@p(code)</b>
+</span>   207    <span class="xdoc">     *  Void _semDelete(Void * sem);
+</span>   208    <span class="xdoc">     */</span>
+   209        <span class=key>config</span> String semDeleteFxn = <span class=key>null</span>;
+   210      
+   211        <span class="xdoc">/*!
+</span>   212    <span class="xdoc">     *  ======== semPendFxn ========
+</span>   213    <span class="xdoc">     * Function to pend on semaphores used by various resource manager(s)
+</span>   214    <span class="xdoc">     * registered with RMAN.
+</span>   215    <span class="xdoc">     *
+</span>   216    <span class="xdoc">     *  Function signature is:
+</span>   217    <span class="xdoc">     *  <b>@p(code)</b>
+</span>   218    <span class="xdoc">     *  Int _semPend(Void * sem, UInt32 timeout);
+</span>   219    <span class="xdoc">     */</span>
+   220        <span class=key>config</span> String semPendFxn = <span class=key>null</span>;
+   221     
+   222        <span class="xdoc">/*!
+</span>   223    <span class="xdoc">     *  ======== semPostFxn ========
+</span>   224    <span class="xdoc">     * Function to post on Semaphores used by various resource manager(s)
+</span>   225    <span class="xdoc">     * registered with RMAN.
+</span>   226    <span class="xdoc">     *
+</span>   227    <span class="xdoc">     *  Function signature is:
+</span>   228    <span class="xdoc">     *  <b>@p(code)</b>
+</span>   229    <span class="xdoc">     * Void _semPost(Void * sem);
+</span>   230    <span class="xdoc">     */</span>
+   231        <span class=key>config</span> String semPostFxn = <span class=key>null</span>;
+   232    
+   233        <span class="xdoc">/*!
+</span>   234    <span class="xdoc">     * ======== maxAlgs ========
+</span>   235    <span class="xdoc">     * Maximum number of algorithm instances that will be created  
+</span>   236    <span class="xdoc">     */</span>
+   237        <span class=key>config</span> UInt maxAlgs = 32;
+   238    
+   239        <span class="xdoc">/*!
+</span>   240    <span class="xdoc">     * ========= maxRequests ======
+</span>   241    <span class="xdoc">     * Maximum number of "active" resource requests that will be 
+</span>   242    <span class="xdoc">     * made by the algorithms in each scratch group
+</span>   243    <span class="xdoc">     */</span>  
+   244        <span class=key>config</span> UInt maxRequests = 64;
+   245    
+   246        <span class="xdoc">/*!
+</span>   247    <span class="xdoc">     * ======= intMemoryQ =======
+</span>   248    <span class="xdoc">     * Configuration to setup Queue # to be used to internal memory writes, 
+</span>   249    <span class="xdoc">     * Multiple Queues can be configured for same type of memory writes to allow
+</span>   250    <span class="xdoc">     * load balancing for performance.
+</span>   251    <span class="xdoc">     * This is required to be supplied ONLY if application is built for DSP 
+</span>   252    <span class="xdoc">     * target .
+</span>   253    <span class="xdoc">     */</span>
+   254        <span class=key>config</span> UInt intMemoryQ0; 
+   255        <span class=key>config</span> UInt intMemoryQ1; 
+   256        <span class=key>config</span> UInt intMemoryQ2; 
+   257    
+   258        <span class="xdoc">/*!
+</span>   259    <span class="xdoc">     * ======= extMemoryQ =======
+</span>   260    <span class="xdoc">     * Configuration to setup Queue # to be used to external memory writes
+</span>   261    <span class="xdoc">     * Multiple Queues can be configured for same type of memory writes to allow
+</span>   262    <span class="xdoc">     * load balancing for performance.
+</span>   263    <span class="xdoc">     * This is required to be supplied ONLY if application is built for DSP 
+</span>   264    <span class="xdoc">     * target .
+</span>   265    <span class="xdoc">     */</span>
+   266        <span class=key>config</span> UInt extMemoryQ0; 
+   267        <span class=key>config</span> UInt extMemoryQ1; 
+   268        <span class=key>config</span> UInt extMemoryQ2; 
+   269    
+   270        <span class="comment">/*
+</span>   271    <span class="comment">     * ======= otherQ ======= 
+</span>   272    <span class="comment">     * Configuration to setup Queue # for "Other", possibly peripheral, writes. 
+</span>   273    <span class="comment">     * Multiple Queues can be configured for same type of memory writes to allow
+</span>   274    <span class="comment">     * load balancing for performance.
+</span>   275    <span class="comment">     * This is required to be supplied ONLY if application is built for DSP 
+</span>   276    <span class="comment">     * target .
+</span>   277    <span class="comment">     */</span>
+   278        <span class=key>config</span> UInt otherQ0; 
+   279        <span class=key>config</span> UInt otherQ1; 
+   280    
+   281        <span class="xdoc">/*!
+</span>   282    <span class="xdoc">     * ======== eventQueueSetup ========
+</span>   283    <span class="xdoc">     * This flag decides if EDMA3 global registers related to Transfer 
+</span>   284    <span class="xdoc">     * Controller/Queues should be programmed.  
+</span>   285    <span class="xdoc">     * If using on a device where ARM-side drivers might perform the 
+</span>   286    <span class="xdoc">     * intialization, set this to false so it doesn't overwrite the ARM-side
+</span>   287    <span class="xdoc">     * setup.
+</span>   288    <span class="xdoc">     * This is required to be supplied ONLY if application is built for 
+</span>   289    <span class="xdoc">     * DSP target.
+</span>   290    <span class="xdoc">     */</span>
+   291        <span class=key>config</span> Bool eventQueueSetup = <span class=key>false</span>;
+   292    
+   293        <span class="xdoc">/*!
+</span>   294    <span class="xdoc">     * ======= defaultQ =======
+</span>   295    <span class="xdoc">     * Default queue assignment for all channels allocated for this app. When
+</span>   296    <span class="xdoc">     * channels are first granted to the algorithm, they will be mapped to this
+</span>   297    <span class="xdoc">     * Event Queue. 
+</span>   298    <span class="xdoc">     */</span> 
+   299        <span class=key>config</span> UInt defaultQ = 0;
+   300    
+   301        <span class="comment">/*
+</span>   302    <span class="comment">     * ======= queueTCMap =======
+</span>   303    <span class="comment">     * Maps Event queues to TCs. Default mapping is from Queue #n to TC #n 
+</span>   304    <span class="comment">     * If modifying this, please ensure that queue setup for different types 
+</span>   305    <span class="comment">     * of writes has been adjusted accordingly.
+</span>   306    <span class="comment">     * By default Queue # N gets mapped to TC # N 
+</span>   307    <span class="comment">     * If certain queue mappings are not to be overridden, set those entries in
+</span>   308    <span class="comment">     * array to -1.    
+</span>   309    <span class="comment">     */</span>
+   310        <span class=key>config</span> Int queueTCMap[EDMA3_MAXTCS];
+   311    
+   312        <span class="comment">/*
+</span>   313    <span class="comment">     * ======= queuePriority =======
+</span>   314    <span class="comment">     * Assigns priority to different queues. This priority has an effect during
+</span>   315    <span class="comment">     * arbitration of transfers within the SCR. 
+</span>   316    <span class="comment">     * For consistency, program the higher priority queues (lower #) with a 
+</span>   317    <span class="comment">     * higher priority (lower #).  
+</span>   318    <span class="comment">     * Note:- The higher priority queues (lower #) also get serviced first by 
+</span>   319    <span class="comment">     * the transfer controller. 
+</span>   320    <span class="comment">     * By default, Queue # N, has priority# N.
+</span>   321    <span class="comment">     * If certain queue priorities are not to be overridden, set entries in
+</span>   322    <span class="comment">     * array to -1.    
+</span>   323    <span class="comment">     */</span>
+   324        <span class=key>config</span> Int queuePriority[EDMA3_MAXTCS];
+   325    
+   326        <span class="xdoc">/*!
+</span>   327    <span class="xdoc">     *  ======== ipcKeyBase ========
+</span>   328    <span class="xdoc">     *  Linux only. Base value of keys of Linux IPC objects used by
+</span>   329    <span class="xdoc">     *  EDMA3. The IPC objects created by EDMA3 will use keys starting
+</span>   330    <span class="xdoc">     *  at this
+</span>   331    <span class="xdoc">     *  value, and incrementing with each new object. There are currently
+</span>   332    <span class="xdoc">     *  three IPC objects, so keys in the range of ipcKeyBase to ipcKeyBase + 2
+</span>   333    <span class="xdoc">     *  will be reserved for EDMA3. The default value of ipcKeyBase is
+</span>   334    <span class="xdoc">     *  ascii code for "3AMD".
+</span>   335    <span class="xdoc">     *
+</span>   336    <span class="xdoc">     *  WARNING: This value should only be changed if it conflicts with
+</span>   337    <span class="xdoc">     *  another IPC key in the system that cannot be changed. If this value
+</span>   338    <span class="xdoc">     *  is changed, all programs using EDMA3 that will be run simultaneously
+</span>   339    <span class="xdoc">     *  must have the ipcKeyBase configured to the new value.
+</span>   340    <span class="xdoc">     *  <b>@_nodoc</b>
+</span>   341    <span class="xdoc">     */</span>
+   342        <span class=key>config</span> UInt ipcKeyBase = 0x33414D44;
+   343    }
+   344    <span class="comment">/*
+</span>   345    <span class="comment"> *  @(#) ti.sdo.fc.edma3; 3, 0, 0,4; 2-22-2012 18:04:30; /db/atree/library/trees/fc/fc-q07/src/ xlibrary
+</span>   346    <span class="comment">
+</span>   347    <span class="comment"> */</span>
+   348    
+</pre>
+</body></html>

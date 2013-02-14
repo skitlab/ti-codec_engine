@@ -1,0 +1,53 @@
+%%{
+/* 
+ *  Copyright (c) 2008 Texas Instruments. All rights reserved. 
+ *  This program and the accompanying materials are made available under the 
+ *  terms of the Eclipse Public License v1.0 and Eclipse Distribution License
+ *  v. 1.0 which accompanies this distribution. The Eclipse Public License is
+ *  available at http://www.eclipse.org/legal/epl-v10.html and the Eclipse
+ *  Distribution License is available at 
+ *  http://www.eclipse.org/org/documents/edl-v10.php.
+ *
+ *  Contributors:
+ *      Texas Instruments - initial implementation
+ * */
+%%}
+%var SysCBuf = xdc.module("ti.sdo.ce.utils.syscbuf.SysCBuf");
+    %if (SysCBuf.outputFxn == null) {
+
+#include <stdio.h>
+
+/*
+ *  ======== SysCBuf_output__I ========
+ *  HOSTWrite only writes a max of N chars at a time. The amount it writes
+ *  is returned. This function loops until the entire buffer is written.
+ *  Being a static function allows it to conditionally compile out.
+ */
+Void ti_sdo_ce_utils_syscbuf_SysCBuf_output__I(Char *buf, UInt size)
+{
+    fwrite(buf, 1, size, stdout);
+}
+%}
+%else {
+/*
+ *  ======== SysCBuf_output__I ========
+ */
+Void ti_sdo_ce_utils_syscbuf_SysCBuf_output__I(Char *buf, UInt size)
+{
+%    if (SysCBuf.outputFxn != null) {
+%        var cname = SysCBuf.outputFxn.$name;
+%        cname = cname.replace(/\./g,'_');
+         `cname`(buf, size);
+%    }
+%    else {
+    /*  SysCBuf.bufSize == 0, so this function does not need to do anything */
+%    }
+}
+%} /* outputFxn != null */
+%%{
+/*
+ * @(#) ti.sdo.ce.utils.syscbuf; 1, 0, 0,1; 2-24-2012 19:31:42; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+
+%%}

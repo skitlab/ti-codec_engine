@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module ti.sdo.io.drivers.Generator</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> * Copyright (c) 2012, Texas Instruments Incorporated
+</span>     3    <span class="comment"> * All rights reserved.
+</span>     4    <span class="comment"> *
+</span>     5    <span class="comment"> * Redistribution and use in source and binary forms, with or without
+</span>     6    <span class="comment"> * modification, are permitted provided that the following conditions
+</span>     7    <span class="comment"> * are met:
+</span>     8    <span class="comment"> *
+</span>     9    <span class="comment"> * *  Redistributions of source code must retain the above copyright
+</span>    10    <span class="comment"> *    notice, this list of conditions and the following disclaimer.
+</span>    11    <span class="comment"> *
+</span>    12    <span class="comment"> * *  Redistributions in binary form must reproduce the above copyright
+</span>    13    <span class="comment"> *    notice, this list of conditions and the following disclaimer in the
+</span>    14    <span class="comment"> *    documentation and/or other materials provided with the distribution.
+</span>    15    <span class="comment"> *
+</span>    16    <span class="comment"> * *  Neither the name of Texas Instruments Incorporated nor the names of
+</span>    17    <span class="comment"> *    its contributors may be used to endorse or promote products derived
+</span>    18    <span class="comment"> *    from this software without specific prior written permission.
+</span>    19    <span class="comment"> *
+</span>    20    <span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+</span>    21    <span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+</span>    22    <span class="comment"> * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+</span>    23    <span class="comment"> * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+</span>    24    <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+</span>    25    <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+</span>    26    <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+</span>    27    <span class="comment"> * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+</span>    28    <span class="comment"> * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+</span>    29    <span class="comment"> * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+</span>    30    <span class="comment"> * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>    31    <span class="comment"> * */</span>
+    32    <span class="comment">/*
+</span>    33    <span class="comment"> *  ======== Generator.xdc ========
+</span>    34    <span class="comment"> *
+</span>    35    <span class="comment"> *
+</span>    36    <span class="comment"> */</span>
+    37    
+    38    import xdc.rov.ViewInfo;
+    39    
+    40    import xdc.runtime.IHeap;
+    41    import xdc.runtime.Error;
+    42    import ti.sdo.io.DriverTypes;
+    43    import ti.sdo.utils.List;
+    44    
+    45    <span class="xdoc">/*! 
+</span>    46    <span class="xdoc"> *  Generator module
+</span>    47    <span class="xdoc"> *
+</span>    48    <span class="xdoc"> *  Using this module clients can simulate a device with an input channel and
+</span>    49    <span class="xdoc"> *  an output channel.
+</span>    50    <span class="xdoc"> *  Generator channels are used to generate sequences of constants, sine waves, 
+</span>    51    <span class="xdoc"> *  random noise, or other streams of data defined by a user function.
+</span>    52    <span class="xdoc"> *
+</span>    53    <span class="xdoc"> *  When a channel is opened, the user gets to specify a function to simulate
+</span>    54    <span class="xdoc"> *  the input channel and a function to simulate the output channel 
+</span>    55    <span class="xdoc"> *  characteristics.
+</span>    56    <span class="xdoc"> *
+</span>    57    <span class="xdoc"> *  The Generator module can be configured to process the io just like
+</span>    58    <span class="xdoc"> *  a real driver, where a {<b>@link</b> #submit} call will return pending and
+</span>    59    <span class="xdoc"> *  io will be completed in the context of an isr. This mode is called
+</span>    60    <span class="xdoc"> *  returnPending.
+</span>    61    <span class="xdoc"> *  However the user has to call {<b>@link</b> #simulateIsrFxn} in an isr, Swi or a 
+</span>    62    <span class="xdoc"> *  Task to support this mode.  In simulateIsr, one pending IO Packet for both 
+</span>    63    <span class="xdoc"> *  channel for all Generator instances is processed.
+</span>    64    <span class="xdoc"> */</span>
+    65    <span class=key>module</span> Generator <span class=key>inherits</span> ti.sdo.io.IDriver {  
+    66    
+    67        <span class="xdoc">/*! typedef for user specified I/O generators
+</span>    68    <span class="xdoc">     *
+</span>    69    <span class="xdoc">     *  Functions of this type get passed the buffer, buffer size and a 
+</span>    70    <span class="xdoc">     *  function specific argument
+</span>    71    <span class="xdoc">     */</span>
+    72        <span class=key>typedef</span> Void (*GenFunc)(Ptr, SizeT, UArg);
+    73    
+    74        <span class="xdoc">/*! Number of channels per generator device. 
+</span>    75    <span class="xdoc">     *  
+</span>    76    <span class="xdoc">     *  one input and one output channel
+</span>    77    <span class="xdoc">     */</span>
+    78        <span class=key>const</span> Int NUMCHANS = 2;
+    79    
+    80        <span class="xdoc">/*! Channel parameters used along with open  */</span>
+    81        <span class=key>struct</span> ChanParams {
+    82            GenFunc userFxn;        <span class="comment">/* user defined function           */</span>
+    83            UArg    userArg;        <span class="comment">/* argument for user defined function     */</span>
+    84            Bool    returnPending;  <span class="comment">/* TRUE to simulate driver which postpones 
+</span>    85    <span class="comment">                                   io processing */</span>
+    86        };
+    87        
+    88        <span class=key>metaonly</span> <span class=key>struct</span> BasicView {
+    89            String label;
+    90        };
+    91        
+    92        <span class=key>metaonly</span> <span class=key>struct</span> GeneratorView {
+    93            String                  mode;
+    94            Bool                    inUse;
+    95            Bool                    returnPending;
+    96            String                  callbackFxn[];
+    97            UArg                    callbackArg;
+    98            String                  userFxn[];
+    99            UArg                    userArg;
+   100        }
+   101        
+   102        @Facet
+   103        <span class=key>metaonly</span> <span class=key>config</span> ViewInfo.Instance rovViewInfo = 
+   104            ViewInfo.create({
+   105                viewMap: [
+   106                    [<span class="string">'Basic'</span>, {type: ViewInfo.INSTANCE,      viewInitFxn: <span class="string">'viewInitBasic'</span>, structName: <span class="string">'BasicView'</span>}],
+   107                    [<span class="string">'Data'</span>,  {type: ViewInfo.INSTANCE_DATA, viewInitFxn: <span class="string">'viewInitData'</span>,  structName: <span class="string">'GeneratorView'</span>}],                   
+   108                ]
+   109            });
+   110    
+   111    
+   112        <span class="xdoc">/*!
+</span>   113    <span class="xdoc">     *  Error raised when NULL chanParams is specified.
+</span>   114    <span class="xdoc">     */</span>
+   115        <span class=key>config</span> Error.Id E_nullParams  = {
+   116            msg: <span class="string">"E_nullParams: chanParams is null."</span>
+   117        };
+   118        
+   119        <span class="xdoc">/*!
+</span>   120    <span class="xdoc">     *  This function is used to give energy to the Generator 
+</span>   121    <span class="xdoc">     *  driver to process its IO packets.  It simulates real ISR.
+</span>   122    <span class="xdoc">     *
+</span>   123    <span class="xdoc">     *  The application needs to call this function within a hwi, swi or
+</span>   124    <span class="xdoc">     *  task thread if any channels are opened in {<b>@link</b> #returnPending}
+</span>   125    <span class="xdoc">     *  mode.
+</span>   126    <span class="xdoc">     *
+</span>   127    <span class="xdoc">     *  The Generator module will process all channels with returnPending set 
+</span>   128    <span class="xdoc">     *  to true within this function. One packet per channel for all
+</span>   129    <span class="xdoc">     *  generator instances gets processed during a single call to this 
+</span>   130    <span class="xdoc">     *  function.
+</span>   131    <span class="xdoc">     */</span>
+   132        Void simulateIsr(UArg arg);
+   133    
+   134    <span class=key>internal</span>:
+   135    
+   136        <span class=key>struct</span> ChanObj {
+   137            List.Elem               elem;
+   138            Bool                    inUse;         <span class="comment">/* is channel is use? */</span>
+   139            Bool                    returnPending; <span class="comment">/* pending mode */</span> 
+   140            List.Handle             pendList;     <span class="comment">/* queue io packets */</span>
+   141            DriverTypes.DoneFxn     cbFxn;        <span class="comment">/* callback fxn */</span>
+   142            UArg                    cbArg;        <span class="comment">/* callback arg */</span>
+   143            GenFunc                 userFxn;      <span class="comment">/* user gen fxn */</span>
+   144            UArg                    userArg;      <span class="comment">/* user gen arg */</span>
+   145        };
+   146    
+   147        <span class=key>struct</span> Instance_State{
+   148            ChanObj chans[NUMCHANS];<span class="comment">/* two chans per device */</span>
+   149        };
+   150        
+   151        <span class=key>struct</span> Module_State {
+   152            List.Object chanList;
+   153        }
+   154    }
+   155    <span class="comment">/*
+</span>   156    <span class="comment"> *  @(#) ti.sdo.io.drivers; 1, 0, 0, 0,2; 2-11-2012 16:30:22; /db/vtree/library/trees/ipc/ipc-h27/src/ xlibrary
+</span>   157    <span class="comment">
+</span>   158    <span class="comment"> */</span>
+   159    
+</pre>
+</body></html>

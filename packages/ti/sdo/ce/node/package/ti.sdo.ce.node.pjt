@@ -1,0 +1,16 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.node"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.node.c"
+Source="../node_init.c"
+Source="../node_stat.c"
+Source="../node_crea.c"
+Source="../node_dele.c"
+Source="../node_start.c"
+Source="../node_getpri.c"
+Source="../node_exec.c"

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.sdo.ce.image" version="1, 0, 3" producerId="undefined">
+    <units>
+        <interface name="IIMGDEC"/>
+        <interface name="IIMGENC"/>
+        <module name="IMGDECConfig"/>
+        <module name="IMGENCConfig"/>
+    </units>
+    <sources>
+        <srcFile name="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="imgdec.c"/>
+        <srcFile name="imgdec_skel.c"/>
+        <srcFile name="imgdec_stubs.c"/>
+        <srcFile name="imgenc.c"/>
+        <srcFile name="imgenc_skel.c"/>
+        <srcFile name="imgenc_stubs.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/release/image.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/image/package/package_ti.sdo.ce.image.oem3.dep" src="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec.oem3.dep" src="imgdec.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec_skel.oem3.dep" src="imgdec_skel.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec_stubs.oem3.dep" src="imgdec_stubs.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc.oem3.dep" src="imgenc.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc_skel.oem3.dep" src="imgenc_skel.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc_stubs.oem3.dep" src="imgenc_stubs.c"/>
+        <srcFile name="lib/debug/image.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/image/package/package_ti.sdo.ce.image.oem3.dep" src="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec.oem3.dep" src="imgdec.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec_skel.oem3.dep" src="imgdec_skel.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec_stubs.oem3.dep" src="imgdec_stubs.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc.oem3.dep" src="imgenc.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc_skel.oem3.dep" src="imgenc_skel.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc_stubs.oem3.dep" src="imgenc_stubs.c"/>
+        <srcFile name="lib/release/image.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/image/package/package_ti.sdo.ce.image.oe674.dep" src="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec.oe674.dep" src="imgdec.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec_skel.oe674.dep" src="imgdec_skel.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec_stubs.oe674.dep" src="imgdec_stubs.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc.oe674.dep" src="imgenc.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc_skel.oe674.dep" src="imgenc_skel.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc_stubs.oe674.dep" src="imgenc_stubs.c"/>
+        <srcFile name="lib/debug/image.ae674.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/image/package/package_ti.sdo.ce.image.oe674.dep" src="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec.oe674.dep" src="imgdec.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec_skel.oe674.dep" src="imgdec_skel.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec_stubs.oe674.dep" src="imgdec_stubs.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc.oe674.dep" src="imgenc.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc_skel.oe674.dep" src="imgenc_skel.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc_stubs.oe674.dep" src="imgenc_stubs.c"/>
+        <srcFile name="lib/release/image.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/image/package/package_ti.sdo.ce.image.ov5T.dep" src="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec.ov5T.dep" src="imgdec.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec_skel.ov5T.dep" src="imgdec_skel.c"/>
+        <srcFile name="package/lib/lib/release/image/imgdec_stubs.ov5T.dep" src="imgdec_stubs.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc.ov5T.dep" src="imgenc.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc_skel.ov5T.dep" src="imgenc_skel.c"/>
+        <srcFile name="package/lib/lib/release/image/imgenc_stubs.ov5T.dep" src="imgenc_stubs.c"/>
+        <srcFile name="lib/debug/image.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/image/package/package_ti.sdo.ce.image.ov5T.dep" src="package/package_ti.sdo.ce.image.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec.ov5T.dep" src="imgdec.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec_skel.ov5T.dep" src="imgdec_skel.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgdec_stubs.ov5T.dep" src="imgdec_stubs.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc.ov5T.dep" src="imgenc.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc_skel.ov5T.dep" src="imgenc_skel.c"/>
+        <srcFile name="package/lib/lib/debug/image/imgenc_stubs.ov5T.dep" src="imgenc_stubs.c"/>
+        <srcFile name="package/rel/ti_sdo_ce_image.tar.dep" src="package/rel/ti_sdo_ce_image.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,2"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/proj/productization/tools/cgt470/cgt470_4_9_2/"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,1"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/dsp-devkit/cgt6x_7_3_1"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="host.platforms.arm"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/codesourcery/arm-2009q1/"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/release/image"
+        pname="lib/release/image.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/debug/image"
+        pname="lib/debug/image.aem3"
+        profile="debug"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/release/image"
+        pname="lib/release/image.ae674"
+        profile="release"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/debug/image"
+        pname="lib/debug/image.ae674"
+        profile="debug"
+        target="ti.targets.elf.C674"/>
+    <library name="lib/release/image"
+        pname="lib/release/image.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/debug/image"
+        pname="lib/debug/image.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_sdo_ce_image"
+        pname="ti_sdo_ce_image.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="imgdec.h"/>
+        <file name="imgenc.h"/>
+        <file name="_imgdec.h"/>
+        <file name="_imgenc.h"/>
+        <file name="package.bld"/>
+        <file name="IIMGDEC_dsutils.xs"/>
+        <file name="IIMGENC_dsutils.xs"/>
+        <file name="simple_GCArmv5T.mak"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/release/image.aem3"/>
+        <file name="package/package_ti.sdo.ce.image.c"/>
+        <file name="imgdec.c"/>
+        <file name="imgdec_skel.c"/>
+        <file name="imgdec_stubs.c"/>
+        <file name="imgenc.c"/>
+        <file name="imgenc_skel.c"/>
+        <file name="imgenc_stubs.c"/>
+        <file name="lib/debug/image.aem3"/>
+        <file name="lib/release/image.ae674"/>
+        <file name="lib/debug/image.ae674"/>
+        <file name="lib/release/image.av5T"/>
+        <file name="lib/debug/image.av5T"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

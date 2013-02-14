@@ -1,0 +1,224 @@
+<html>
+<head>
+<title>module ti.sdo.ce.osal.Global</title>
+<meta name="description" content="Global OS Abstract Layer Configuration">
+<link rel="stylesheet" type="text/css" href="../../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.ce.osal.</span><span class="xdoc-id">Global</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/osal/IOsal.html" title="interface IOsal"><img class="xdocHdrArrow" src="../../../../Arrow_left.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/osal/package.html" title="package ti.sdo.ce.osal"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/osal/Global.html">index URL</a></div>
+<p class="xdocHdrSummary">Global OS Abstract Layer Configuration</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../../ti/sdo/ce/osal/Global-src.html"><span class="xdocLabelFile">ti/sdo/ce/osal/Global.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> Global = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.ce.osal.Global'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><i>values of type <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">RuntimeEnv</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;All runtime OSs that are abstracted by this package</span></span></a></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">NONE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;no OS; threads are not truly supported</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">DSPBIOS</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;DSP/BIOS</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">LINUX</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Linux</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">DSPLINK_BIOS</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;DSPLINK + BIOS (DSP)</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">DSPLINK_LINUX</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;DSPLINK + Linux (ARM)</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">WINCE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Windows CE</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Runtime.Env">Global.<span class="xdoc-id">DSPLINK_WINCE</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;DSPLINK + Windows CE (ARM)</span></span></a>;
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#embed.Build.Info">Global.<span class="xdoc-id">embedBuildInfo</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Indication whether to embed build info (packages and their directories)
+  into the generated executable for debugging/diagnostic purposes.
+  Setting this to 'false' may reduce the static data size by around 1K.
+  Applies to all configurations</span></span></a> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">true</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#os">Global.<span class="xdoc-id">os</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;A specific OSAL implementations "Settings" module, for example,
+  ti.sdo.ce.osal.bios.Settings or ti.sdo.ce.osal.linux.Settings.
+  To set the OS of the executable to BIOS, set Global.os to:
+  xdc.useModule('ti.sdo.ce.osal.bios.Settings')</span></span></a> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/osal/IOsal.html#.Module" title="ti.sdo.ce.osal.IOsal.Module">IOsal.Module</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#runtime.Env">Global.<span class="xdoc-id">runtimeEnv</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The runtime OS used to implement the abstractions provided by
+  this package</span></span></a> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/osal/Global.html#.Runtime.Env" title="ti.sdo.ce.osal.Global.RuntimeEnv">Global.RuntimeEnv</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Runtime.Env"></a>
+<a class="xdocAnchor" id=".N.O.N.E"></a>
+<a class="xdocAnchor" id=".D.S.P.B.I.O.S"></a>
+<a class="xdocAnchor" id=".L.I.N.U.X"></a>
+<a class="xdocAnchor" id=".D.S.P.L.I.N.K_.B.I.O.S"></a>
+<a class="xdocAnchor" id=".D.S.P.L.I.N.K_.L.I.N.U.X"></a>
+<a class="xdocAnchor" id=".W.I.N.C.E"></a>
+<a class="xdocAnchor" id=".D.S.P.L.I.N.K_.W.I.N.C.E"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">Global.</span><span class="xdoc-id">RuntimeEnv</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/osal/Global.html" title="module Global"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/osal/Global.html#.Runtime.Env">index URL</a></div>
+<p class="xdocHdrSummaryDcl">All runtime OSs that are abstracted by this package</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i>values of type Global.<span class="xdoc-id">RuntimeEnv</span></i>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">NONE</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;no OS; threads are not truly supported</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">DSPBIOS</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;DSP/BIOS</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">LINUX</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Linux</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">DSPLINK_BIOS</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;DSPLINK + BIOS (DSP)</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">DSPLINK_LINUX</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;DSPLINK + Linux (ARM)</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">WINCE</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Windows CE</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Global.<span class="xdoc-id">DSPLINK_WINCE</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;DSPLINK + Windows CE (ARM)</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">SEE</div>
+<div class="xdocText"><a class="xdoc-link" href="../../../../runtimeEnv/package.html" title="runtimeEnv">runtimeEnv</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="embed.Build.Info"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Global.</span><span class="xdoc-id">embedBuildInfo</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/osal/Global.html" title="module Global"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/osal/Global.html#embed.Build.Info">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Indication whether to embed build info (packages and their directories)
+  into the generated executable for debugging/diagnostic purposes.
+  Setting this to 'false' may reduce the static data size by around 1K.
+  Applies to all configurations</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Global.<span class="xdoc-id">embedBuildInfo</span> = <i><span class="xdoc-kw2">Bool</span></i> <span class="xdoc-kw2">true</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="os"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Global.</span><span class="xdoc-id">os</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/osal/Global.html" title="module Global"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/osal/Global.html#os">index URL</a></div>
+<p class="xdocHdrSummaryDcl">A specific OSAL implementations "Settings" module, for example,
+  ti.sdo.ce.osal.bios.Settings or ti.sdo.ce.osal.linux.Settings.
+  To set the OS of the executable to BIOS, set Global.os to:
+  xdc.useModule('ti.sdo.ce.osal.bios.Settings')</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Global.<span class="xdoc-id">os</span> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/osal/IOsal.html#.Module" title="ti.sdo.ce.osal.IOsal.Module">IOsal.Module</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">When this config param is used, the {@ link ti.sdo.ce.ipc.Settings#ipc
+  config param must also be set.</div>
+<div class="xdocText">This should only be used to explicitly configure the OSAL to
+  a package not provided with Codec Engine.  To use an OSAL provided
+  by Codec Engine, it's recommended to configure the OSAL using
+  the runtimeEnv config param instead of this one.</div>
+<div class="xdocText">See {@ link http://wiki.davincidsp.com/index.php?title=CE_Config_Updates
+  for more details}</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">SEE</div>
+<div class="xdocText"><a class="xdoc-link" href="../../../../runtimeEnv/package.html" title="runtimeEnv">runtimeEnv</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="runtime.Env"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Global.</span><span class="xdoc-id">runtimeEnv</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../ti/sdo/ce/osal/Global.html" title="module Global"><img class="xdocHdrArrow" src="../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../index.html#ti/sdo/ce/osal/Global.html#runtime.Env">index URL</a></div>
+<p class="xdocHdrSummaryDcl">The runtime OS used to implement the abstractions provided by
+  this package</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Global.<span class="xdoc-id">runtimeEnv</span> = <i><a class="xdoc-link" href="../../../../ti/sdo/ce/osal/Global.html#.Runtime.Env" title="ti.sdo.ce.osal.Global.RuntimeEnv">Global.RuntimeEnv</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">SEE</div>
+<div class="xdocText"><a class="xdoc-link" href="RuntimeEnv.html" title="RuntimeEnv">RuntimeEnv</a></div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:47:05 GMT</div>
+</div></div></body>
+</html>

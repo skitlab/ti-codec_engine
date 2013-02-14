@@ -1,0 +1,15 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.speech"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.speech.c"
+Source="../sphdec.c"
+Source="../sphdec_skel.c"
+Source="../sphdec_stubs.c"
+Source="../sphenc.c"
+Source="../sphenc_skel.c"
+Source="../sphenc_stubs.c"

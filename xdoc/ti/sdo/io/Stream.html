@@ -1,0 +1,2108 @@
+<html>
+<head>
+<title>module ti.sdo.io.Stream</title>
+<meta name="description" content="Module to stream data to/from a driver">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.io.</span><span class="xdoc-id">Stream</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_left.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/package.html" title="package ti.sdo.io"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html">index URL</a></div>
+<p class="xdocHdrSummary">Module to stream data to/from a driver</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#targ-synop">C synopsis</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocElems">Individual elements</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This module offers both the issue/reclaim model and the read/write model to 
+  send and receive data from drivers.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2">C</span></tt> synopsis</td>
+<td class="xdocLabelCenter">target-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/Stream-src.html"><span class="xdocLabelFile">ti/sdo/io/Stream.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynT">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw3">#include</span> <span class="xdoc-id">&lt;ti/sdo/io/Stream.h&gt;</span>
+</div>
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Functions</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">UInt</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#abort"><span class="xdoc-id">Stream_abort</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Abort all pending IO</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#add"><span class="xdoc-id">Stream_add</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Add to IConverter table at runtime</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <a class="xdoc-link" href="../../../ti/sdo/io/IConverter.html#per-instance_object_types" title="ti.sdo.io.IConverter.Handle">IConverter_Handle</a>&nbsp;<go><span class="xdoc-id">handle</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw2">Void</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_creation"><span class="xdoc-id">Stream_construct</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Initialize a new instance object inside the provided structure</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Struct">Stream_Struct</a> *structP, <span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">mode</span></go>, <span class="xdoc-kw1">const</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> *params, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a> *eb);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#control"><span class="xdoc-id">Stream_control</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Send a control command to the driver</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;<go><span class="xdoc-id">cmd</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">cmdArg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_creation"><span class="xdoc-id">Stream_create</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Allocate and initialize a new instance object and return its handle</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">mode</span></go>, <span class="xdoc-kw1">const</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> *params, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a> *eb);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw2">Void</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_deletion"><span class="xdoc-id">Stream_delete</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Finalize and free this previously allocated instance object, setting the referenced handle to NULL</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> *handleP);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw2">Void</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_deletion"><span class="xdoc-id">Stream_destruct</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Finalize the instance object inside the provided structure</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Struct">Stream_Struct</a> *structP);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#issue"><span class="xdoc-id">Stream_issue</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Issue a buffer to the stream</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">buf</span></go>, <span class="xdoc-kw2">SizeT</span>&nbsp;<go><span class="xdoc-id">size</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">arg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw2">Void</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_config_parameters"><span class="xdoc-id">Stream_Params_init</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Initialize this config-params structure with supplier-specified defaults before instance creation</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> *params);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#prime"><span class="xdoc-id">Stream_prime</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Prime an <span class="xdoc-link" href="Stream.html#.O.U.T.P.U.T" title="OUTPUT">OUTPUT</span> stream instance</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">buf</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">arg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">SizeT</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#read"><span class="xdoc-id">Stream_read</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Read data from a stream</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">bufp</span></go>, <span class="xdoc-kw2">SizeT</span>&nbsp;<go><span class="xdoc-id">size</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">timeout</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">SizeT</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#reclaim"><span class="xdoc-id">Stream_reclaim</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Reclaim a buffer that was previously issued by calling <span class="xdoc-link" href="Stream.html#issue" title="issue">issue</span></span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;*<go><span class="xdoc-id">pbufp</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">timeout</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;*<go><span class="xdoc-id">parg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#remove"><span class="xdoc-id">Stream_remove</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Remove entry from IConverter table at runtime</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">SizeT</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#write"><span class="xdoc-id">Stream_write</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Write data to a stream</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">bufp</span></go>, <span class="xdoc-kw2">SizeT</span>&nbsp;<go><span class="xdoc-id">size</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">timeout</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr><td class="xdocSynFxnCat" colspan="2"><div class="xdocSynFxnCat">Functions common to all target instances</div></td></tr>
+
+<tr>
+<td></td>
+<td>
+<div class="xdocSynTblPack">
+<a class="xdocSynGo" href="#per-instance_object_types"><span class="xdoc-id">Stream_handle</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Convert this instance structure pointer into an instance handle</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Handle_label</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The label associated with this instance object</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Handle_name</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The name of this instance object</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Object_count</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The number of statically-created instance objects</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Object_first</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The handle of the first dynamically-created instance object, or NULL</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Object_get</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The handle of the i-th statically-created instance object (array == NULL)</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Object_heap</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The heap used to allocate dynamically-created instance objects</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_built-ins"><span class="xdoc-id">Stream_Object_next</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The handle of the next dynamically-created instance object, or NULL</span></span></a>,
+<a class="xdocSynGo" href="#per-instance_object_types"><span class="xdoc-id">Stream_struct</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Convert this instance handle into an instance structure pointer</span></span></a>
+</div>
+</td>
+</tr>
+<tr><td class="xdocSynFxnCat" colspan="2"><div class="xdocSynFxnCat">Functions common to all target modules</div></td></tr>
+
+<tr>
+<td></td>
+<td>
+<div class="xdocSynTblPack">
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">Stream_Module_getMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Returns the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">Stream_Module_hasMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test whether this module has a diagnostics mask</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">Stream_Module_heap</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The heap from which this module allocates memory</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">Stream_Module_id</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Get this module's unique id</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">Stream_Module_setMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Set the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">Stream_Module_startupDone</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test if this module has completed startup</span></span></a>
+</div>
+</td>
+</tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Defines</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.I.N.O.U.T"><span class="xdoc-id">Stream_INOUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;mode for input &amp; output</span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)2</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.I.N.P.U.T"><span class="xdoc-id">Stream_INPUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;mode for input</span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)0</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw3">#define</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.O.U.T.P.U.T"><span class="xdoc-id">Stream_OUTPUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;mode for output</span></span></a>  (<i><span class="xdoc-kw2">UInt</span></i>)1</div></td></tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Typedefs</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Object">Stream_Object</a> *</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_object_types"><span class="xdoc-id">Stream_Handle</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Client reference to an instance object</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_object_types"><span class="xdoc-id">Stream_Object</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Opaque internal representation of an instance object</span></span></a> <go><span class="xdoc-id">Stream_Object</span></go>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_config_parameters"><span class="xdoc-id">Stream_Params</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Instance config-params structure</span></span></a> ...</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> </div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#per-instance_object_types"><span class="xdoc-id">Stream_Struct</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Opaque client structure large enough to hold an instance object</span></span></a> <go><span class="xdoc-id">Stream_Struct</span></go>;</div></td></tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Constants</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Id" title="xdc.runtime.Assert.Id">Assert_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.A_bad.Mode"><span class="xdoc-id">Stream_A_badMode</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Assert when <span class="xdoc-link" href="Stream.html#read" title="read">read</span> or <span class="xdoc-link" href="Stream.html#write" title="write">write</span> on wrong channel</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Id" title="xdc.runtime.Assert.Id">Assert_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.A_pending.Reclaims"><span class="xdoc-id">Stream_A_pendingReclaims</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Assert when there are more packets to be reclaimed</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Id" title="xdc.runtime.Assert.Id">Assert_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.A_sync.Non.Blocking"><span class="xdoc-id">Stream_A_syncNonBlocking</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Assert when ISync is non-blocking but Stream_read/write called</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E_no.Buffers.Issued"><span class="xdoc-id">Stream_E_noBuffersIssued</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when reclaim called but no outstanding buffers issued</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E_no.Packets"><span class="xdoc-id">Stream_E_noPackets</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when there are no packets for IO</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E_not.Found"><span class="xdoc-id">Stream_E_notFound</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when name not found in IConverter Table and DriverTable</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#.E_timeout"><span class="xdoc-id">Stream_E_timeout</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when a timeout occurs during reclaim</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider_Handle</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#gate"><span class="xdoc-id">Stream_gate</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;For making the table thread safe</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#max.Name.Len"><span class="xdoc-id">Stream_maxNameLen</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Length, in MAUs, of the name field in the table</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#max.Runtime.Entries"><span class="xdoc-id">Stream_maxRuntimeEntries</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Max entries that can be added at runtime</span></span></a>;</div></td></tr>
+</table>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This module offers both the issue/reclaim model and the read/write model to 
+  send and receive data from drivers.</div>
+<div class="xdocText">In the issue/reclaim model, the client calls <a class="xdoc-link" href="Stream.html#issue" title="issue">issue</a> when he has
+  a buffer of data. issue() is non-blocking and returns. The buffer 
+  has been issued for IO. To get the buffer back the client has to call 
+  <a class="xdoc-link" href="Stream.html#reclaim" title="reclaim">reclaim</a>. A call to reclaim() can block. Upon return from reclaim(),
+  the client can re-use his buffer.</div>
+<div class="xdocText">The client can issue many buffers before reclaiming them.
+  Buffers are always reclaimed in the order that they were issued.
+  The client can optionally pass a user argument to issue().</div>
+<div class="xdocText">In the read/write model, clients will call <a class="xdoc-link" href="Stream.html#read" title="read">read</a> or <a class="xdoc-link" href="Stream.html#write" title="write">write</a>
+  to send/receive data. Here the client may block until buffer is ready or 
+  a timeout occurs.</div>
+<div class="xdocText">Stream also provides <a class="xdoc-link" href="Stream.html#control" title="control">control</a> to send down driver specific control 
+  commands. There is <a class="xdoc-link" href="Stream.html#abort" title="abort">abort</a> function to abort the stream.</div>
+<div class="xdocText">Stream also maintains a name table of <a class="xdoc-link" href="IConverter.html" title="IConverter">IConverter</a> handles. 
+  This table is used by Stream to create an IO stack. The name passed to
+  <a class="xdoc-link" href="Stream.html#per-instance_creation" title="create">create</a> is usually of the form "/scale/uart". This name may
+  correspond to the following IO stack.</div>
+<div class="xdocText">Stream Instance</div>
+<div class="xdocText">|</div>
+<div class="xdocText">V</div>
+<div class="xdocText">IConverter Instance (/scale)</div>
+<div class="xdocText">|</div>
+<div class="xdocText">V</div>
+<div class="xdocText">IDriver Instance (/uart)</div>
+<div class="xdocText">In this case the Stream requires "/scale" to be in its IConverter table 
+  and "/uart" to be in <a class="xdoc-link" href="DriverTable.html" title="DriverTable">DriverTable</a>. The IConverter table associates
+  a name with an IConverter Handle. Note that these names have to be of the
+  form "/name1".</div>
+<div class="xdocText">This module uses <a class="xdoc-link" href="../../../ti/sdo/utils/NameServer.html" title="ti.sdo.utils.NameServer">ti.sdo.utils.NameServer</a> to maintain its IConverter
+  table</div>
+<div class="xdocText">Stream uses the <a class="xdoc-link" href="../../../xdc/runtime/knl/Sync.html" title="xdc.runtime.knl.Sync">xdc.runtime.knl.Sync</a> module for synchronization.
+  Stream will call <a class="xdoc-link" href="../../../xdc/runtime/knl/Sync.html#signal" title="xdc.runtime.knl.Sync.signal">xdc.runtime.knl.Sync.signal</a> when IO completes and
+  <a class="xdoc-link" href="../../../xdc/runtime/knl/Sync.html#wait" title="xdc.runtime.knl.Sync.wait">xdc.runtime.knl.Sync.wait</a> to wait for IO completion.</div>
+<div class="xdocText">Stream will create a Sync.Handle passing NULL for ISync 
+  handle to <a class="xdoc-link" href="Stream.html#per-instance_creation" title="create">create</a>.</div>
+<div id="xdocSep">
+</div>
+<div id="xdocElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".I.N.O.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">INOUT</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.I.N.O.U.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">mode for input &amp; output</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">Stream_INOUT</span>  (<i><span class="xdoc-kw2">UInt</span></i>)2
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".I.N.P.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">INPUT</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.I.N.P.U.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">mode for input</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">Stream_INPUT</span>  (<i><span class="xdoc-kw2">UInt</span></i>)0
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".O.U.T.P.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">OUTPUT</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.O.U.T.P.U.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">mode for output</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw3">#define</span> <span class="xdoc-id">Stream_OUTPUT</span>  (<i><span class="xdoc-kw2">UInt</span></i>)1
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".A_bad.Mode"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">A_badMode</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.A_bad.Mode">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Assert when <a class="xdoc-link" href="Stream.html#read" title="read">read</a> or <a class="xdoc-link" href="Stream.html#write" title="write">write</a> on wrong channel</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Id" title="xdc.runtime.Assert.Id">Assert_Id</a>&nbsp;<span class="xdoc-id">Stream_A_badMode</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Assert when <a class="xdoc-link" href="Stream.html#read" title="read">read</a> is called and mode = <a class="xdoc-link" href="Stream.html#.O.U.T.P.U.T" title="OUTPUT">OUTPUT</a> or
+  when <a class="xdoc-link" href="Stream.html#write" title="write">write</a> is called and mode = <a class="xdoc-link" href="Stream.html#.I.N.P.U.T" title="INPUT">INPUT</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".A_pending.Reclaims"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">A_pendingReclaims</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.A_pending.Reclaims">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Assert when there are more packets to be reclaimed</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Id" title="xdc.runtime.Assert.Id">Assert_Id</a>&nbsp;<span class="xdoc-id">Stream_A_pendingReclaims</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".A_sync.Non.Blocking"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">A_syncNonBlocking</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.A_sync.Non.Blocking">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Assert when ISync is non-blocking but Stream_read/write called</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Id" title="xdc.runtime.Assert.Id">Assert_Id</a>&nbsp;<span class="xdoc-id">Stream_A_syncNonBlocking</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E_no.Buffers.Issued"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">E_noBuffersIssued</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_no.Buffers.Issued">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when reclaim called but no outstanding buffers issued</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">Stream_E_noBuffersIssued</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Clients can check for this error while calling <a class="xdoc-link" href="Stream.html#reclaim" title="reclaim">reclaim</a> to make 
+  sure they got all their buffers back.</div>
+<div class="xdocText"><PRE class="Example">  #include &lt;xdc/runtime/Error.h&gt;
+  #include &lt;ti/sdo/io/Stream.h&gt;
+
+  Error_Block eb;
+  Stream_Handle streamHdl;
+  SizeT len;
+  Ptr *bufp;
+  
+  Error_init(&amp;eb); 
+  
+  do {
+      len = Stream_reclaim(streamHdl, bufp, NULL, &amp;eb); 
+  }while (!Error_check(&amp;eb));
+  
+  if (Error_getId == Stream_E_noBuffersIssued) {
+      ....all issues buffers have been reclaimed
+  }
+</PRE></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E_no.Packets"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">E_noPackets</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_no.Packets">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when there are no packets for IO</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">Stream_E_noPackets</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E_not.Found"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">E_notFound</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_not.Found">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when name not found in IConverter Table and DriverTable</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">Stream_E_notFound</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".E_timeout"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">E_timeout</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_timeout">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when a timeout occurs during reclaim</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">Error_Id</a>&nbsp;<span class="xdoc-id">Stream_E_timeout</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="gate"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">gate</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#gate">index URL</a></div>
+<p class="xdocHdrSummaryDcl">For making the table thread safe</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider_Handle</a>&nbsp;<span class="xdoc-id">Stream_gate</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="max.Name.Len"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">maxNameLen</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#max.Name.Len">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Length, in MAUs, of the name field in the table</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">Stream_maxNameLen</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="max.Runtime.Entries"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">maxRuntimeEntries</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#max.Runtime.Entries">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Max entries that can be added at runtime</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">Stream_maxRuntimeEntries</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This module requires total number of converters that need
+  to be added at runtime to be identified at configuration time.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="add"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">add</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#add">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Add to IConverter table at runtime</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">Stream_add</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <a class="xdoc-link" href="../../../ti/sdo/io/IConverter.html#per-instance_object_types" title="ti.sdo.io.IConverter.Handle">IConverter_Handle</a>&nbsp;<span class="xdoc-id">handle</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;Name of entry</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;IConverter handle</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;Error Block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This API is not thread safe. Set <a class="xdoc-link" href="Stream.html#gate" title="gate">gate</a> parameter
+  to protect table if called from multiple threads.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="remove"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">remove</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#remove">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Remove entry from IConverter table at runtime</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">Stream_remove</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name of entry</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This API is not thread safe. Set <a class="xdoc-link" href="Stream.html#gate" title="gate">gate</a> parameter
+  to protect table if called from multiple threads.</div>
+<a class="xdocAnchor" id="module-wide_built-ins"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Module-Wide Built-Ins</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#module-wide_built-ins">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Module.Id" title="xdc.runtime.Types.ModuleId">Types_ModuleId</a> <span class="xdoc-id">Stream_Module_id</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Get this module's unique id</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">Stream_Module_startupDone</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test if this module has completed startup</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a> <span class="xdoc-id">Stream_Module_heap</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The heap from which this module allocates memory</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">Stream_Module_hasMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test whether this module has a diagnostics mask</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">Stream_Module_getMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Returns the diagnostics mask for this module</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">Stream_Module_setMask</span>(<span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">mask</span>);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Set the diagnostics mask for this module</div>
+</div>
+<a class="xdocAnchor" id="per-instance_object_types"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Object Types</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_object_types">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">Stream_Object</span> <span class="xdoc-id">Stream_Object</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Opaque internal representation of an instance object</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Object">Stream_Object</a> *<span class="xdoc-id">Stream_Handle</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Client reference to an instance object</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">Stream_Struct</span> <span class="xdoc-id">Stream_Struct</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Opaque client structure large enough to hold an instance object</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> <span class="xdoc-id">Stream_handle</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Struct">Stream_Struct</a> *structP);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Convert this instance structure pointer into an instance handle</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Struct">Stream_Struct</a> *<span class="xdoc-id">Stream_struct</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Convert this instance handle into an instance structure pointer</div>
+</div>
+<a class="xdocAnchor" id="per-instance_config_parameters"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Config Parameters</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_config_parameters">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw1">struct</span> <span class="xdoc-id">Stream_Params</span> {
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Instance config-params structure</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../xdc/runtime/IInstance.html#per-instance_config_parameters" title="xdc.runtime.IInstance.Params">IInstance_Params</a> *instance;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Common per-instance configs</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">chanParams</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Channel params for driver if present in IO stack</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">maxIssues</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Max outstanding issues</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a>&nbsp;<span class="xdoc-id">packetHeap</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Heap used to allocate <a class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</a> in dynamic create</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../xdc/runtime/knl/ISync.html#per-instance_object_types" title="xdc.runtime.knl.ISync.Handle">ISync_Handle</a>&nbsp;<span class="xdoc-id">sync</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;ISync handle used to signal IO completion</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>} <span class="xdoc-id">Stream_Params</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">Stream_Params_init</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> *params);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Initialize this config-params structure with supplier-specified defaults before instance creation</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="chan.Params"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">chanParams</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#chan.Params">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Channel params for driver if present in IO stack</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">struct</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">chanParams</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="max.Issues"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">maxIssues</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#max.Issues">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Max outstanding issues</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">struct</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">maxIssues</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="packet.Heap"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">packetHeap</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#packet.Heap">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Heap used to allocate <a class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</a> in dynamic create</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">struct</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a>&nbsp;<span class="xdoc-id">packetHeap</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="sync"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream_</span><span class="xdoc-id">sync</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#sync">index URL</a></div>
+<p class="xdocHdrSummaryDcl">ISync handle used to signal IO completion</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">struct</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><a class="xdoc-link" href="../../../xdc/runtime/knl/ISync.html#per-instance_object_types" title="xdc.runtime.knl.ISync.Handle">ISync_Handle</a>&nbsp;<span class="xdoc-id">sync</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="per-instance_creation"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Creation</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_creation">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> <span class="xdoc-id">Stream_create</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">mode</span>, <span class="xdoc-kw1">const</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> *params, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a> *eb);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Allocate and initialize a new instance object and return its handle</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">Stream_construct</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Struct">Stream_Struct</a> *structP, <span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">mode</span>, <span class="xdoc-kw1">const</span> <a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Stream_Params</a> *params, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a> *eb);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Initialize a new instance object inside the provided structure</div>
+</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name that identifies the IO stack</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">mode</span>
+<span class="xdocChildSum">&#151;&nbsp;mode of channel.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">params</span>
+<span class="xdocChildSum">&#151;&nbsp;per-instance config params, or <tt>NULL</tt> to select default values (target-domain only)</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;active error-handling block, or <tt>NULL</tt> to select default policy (target-domain only)</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Creates a new Stream instance and sets up the IO stack specified by 
+  name.
+  The name is usually of the following form "/scale/uart".
+  The mode is either <a class="xdoc-link" href="Stream.html#.I.N.P.U.T" title="INPUT">INPUT</a> or <a class="xdoc-link" href="Stream.html#.O.U.T.P.U.T" title="OUTPUT">OUTPUT</a>.</div>
+<a class="xdocAnchor" id="per-instance_deletion"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Deletion</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_deletion">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">Stream_delete</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> *handleP);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Finalize and free this previously allocated instance object, setting the referenced handle to NULL</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">Stream_destruct</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Struct">Stream_Struct</a> *structP);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Finalize the instance object inside the provided structure</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="abort"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">abort</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#abort">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Abort all pending IO</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">Stream_abort</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">RETURNS</div>
+<div class="xdocText">number of buffers aborted</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The underlying device connected to stream is idled as a result of 
+  calling abort and all buffers are ready for reclaim().</div>
+<div class="xdocText">The client still needs to call <a class="xdoc-link" href="Stream.html#reclaim" title="reclaim">reclaim</a> to get back his
+  buffers. However the client will NOT block when calling reclaim()
+  after an abort().</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="control"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">control</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#control">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Send a control command to the driver</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">Stream_control</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes_ControlCmd</a>&nbsp;<span class="xdoc-id">cmd</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">cmdArg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmd</span>
+<span class="xdocChildSum">&#151;&nbsp;device specific command</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmdArg</span>
+<span class="xdocChildSum">&#151;&nbsp;command specific arg</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="issue"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">issue</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#issue">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Issue a buffer to the stream</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">Stream_issue</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">buf</span>, <span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id">size</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">arg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">buf</span>
+<span class="xdocChildSum">&#151;&nbsp;buffer pointer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">size</span>
+<span class="xdocChildSum">&#151;&nbsp;size of buffer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">arg</span>
+<span class="xdocChildSum">&#151;&nbsp;app arg</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This function issues a buffer to the stream for IO. This API is
+  non-blocking.</div>
+<div class="xdocText">Failure of issue() indicates that the stream was not able to accept the
+  buffer being issued or that there was a error from the underlying
+  IConverter or IDriver. Note that the error could be driver specific.
+  If issue() fails because of an underlying driver problem
+  <a class="xdoc-link" href="Stream.html#abort" title="abort">abort</a> should be called before attempting more I/O through the 
+  stream.</div>
+<div class="xdocText">The interpretation of the logical size of a buffer, is 
+  direction dependent.
+  For a stream opened in <a class="xdoc-link" href="DriverTypes.html#.O.U.T.P.U.T" title="DriverTypes.OUTPUT">DriverTypes.OUTPUT</a> mode, the logical size
+  of the buffer indicates the number of minimum addressable units of of 
+  data it contains.</div>
+<div class="xdocText">For a stream opened in <a class="xdoc-link" href="DriverTypes.html#.I.N.P.U.T" title="DriverTypes.INPUT">DriverTypes.INPUT</a> mode, the logical size 
+  of a buffer indicates the number of minimum addressable units being 
+  requested by the client. In either case, the logical size of the buffer 
+  must be less than or equal to the physical size of the buffer.</div>
+<div class="xdocText">issue() is used in conjunction with <a class="xdoc-link" href="Stream.html#reclaim" title="reclaim">reclaim</a>. The issue() call 
+  sends a buffer to a stream, and reclaim() retrieves a buffer 
+  from a stream. In normal operation each issue() call is followed by an 
+  reclaim() call.</div>
+<div class="xdocText">Short bursts of multiple issue() calls can be made without an
+  intervening reclaim() call followed by short bursts of reclaim() calls, 
+  but over the life of the stream issue() and reclaim() must be called 
+  the same number of times. The number of issue() calls can exceed the 
+  number of reclaim() calls by <a class="xdoc-link" href="Stream.html#max.Issues" title="maxIssues">maxIssues</a>.</div>
+<div class="xdocText">The client argument is not interpreted by Stream or the underlying 
+  modules, but is offered as a service to the stream client. All compliant
+  device drivers preserve the value of arg and maintain its association 
+  with the data that it was issued with. arg provides a method for a 
+  client to associate additional information with a particular buffer of 
+  data. The arg is returned during reclaim().</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="prime"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">prime</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#prime">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Prime an <a class="xdoc-link" href="Stream.html#.O.U.T.P.U.T" title="OUTPUT">OUTPUT</a> stream instance</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">Stream_prime</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">buf</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">arg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">buf</span>
+<span class="xdocChildSum">&#151;&nbsp;buffer pointer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">arg</span>
+<span class="xdocChildSum">&#151;&nbsp;app arg</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This API facilitates buffering of an output channel. Consider a
+  task that constantly gets data from input channel and sends to an 
+  output channel. To start with it may want to issue buffers to the 
+  input channel and output channel to enable double buffering.
+  For an input channel there is no problem. For an output channel however
+  the buffer data is sent out through the peripheral and in the case of a
+  heterogenous system, the data will be sent to the other processor.</div>
+<div class="xdocText">In such cases where the driver cannot handle dummy buffers, 
+  Stream_prime can be used to make buffers available instantly for 
+  reclaim without actually sending the buffers to the driver. 
+  This API is non-blocking.</div>
+<div class="xdocText">The primary use of prime() is used when applications want to prime
+  an output channel at startup, without sending data to the driver.
+  This allows them to reclaim and issue in their task.</div>
+<div class="xdocText">Failure of prime() indicates that the stream was not able to accept the
+  buffer being issued  due to un-avaibailibity of IO packets.</div>
+<div class="xdocText">The client argument is not interpreted by Stream.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="read"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">read</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#read">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Read data from a stream</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id">Stream_read</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">bufp</span>, <span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id">size</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">timeout</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">bufp</span>
+<span class="xdocChildSum">&#151;&nbsp;buffer pointer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">size</span>
+<span class="xdocChildSum">&#151;&nbsp;size of buffer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">timeout</span>
+<span class="xdocChildSum">&#151;&nbsp;timeout in microseconds</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">RETURNS</div>
+<div class="xdocText">size transferred</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Equivalent to an issue/reclaim pair for a instance with 
+  mode = DriverTypes.INPUT. This call is synchronous and the buffer
+  has data upon return from this API.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="reclaim"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">reclaim</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#reclaim">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Reclaim a buffer that was previously issued by calling <a class="xdoc-link" href="Stream.html#issue" title="issue">issue</a></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id">Stream_reclaim</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;*<span class="xdoc-id">pbufp</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">timeout</span>, <span class="xdoc-kw2">UArg</span>&nbsp;*<span class="xdoc-id">parg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">pbufp</span>
+<span class="xdocChildSum">&#151;&nbsp;returned buffer pointer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">timeout</span>
+<span class="xdocChildSum">&#151;&nbsp;timeout in microseconds</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">parg</span>
+<span class="xdocChildSum">&#151;&nbsp;pointer to client arg. Can be null.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">RETURNS</div>
+<div class="xdocText">size transferred</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">reclaim() is used to request a buffer back from a stream.</div>
+<div class="xdocText">If a stream was created in <a class="xdoc-link" href="DriverTypes.html#.O.U.T.P.U.T" title="DriverTypes.OUTPUT">DriverTypes.OUTPUT</a> mode, then 
+  reclaim() returns a processed buffer, and size is zero.
+  If a stream was opened in <a class="xdoc-link" href="DriverTypes.html#.I.N.P.U.T" title="DriverTypes.INPUT">DriverTypes.INPUT</a> mode, reclaim() 
+  returns a full buffer, and size is the number of minimum addressable 
+  units of data in the buffer.</div>
+<div class="xdocText">reclaim() blocks until a buffer can be returned to the caller, or until 
+  a timeout occurs.</div>
+<div class="xdocText">Failure of reclaim() indicates that no buffer was returned to 
+  the  client. Therefore, if reclaim() fails, the client should 
+  not attempt to de-reference pbufp, since it is not guaranteed to contain
+  a valid buffer pointer.</div>
+<div class="xdocText">reclaim() is used in conjunction with <a class="xdoc-link" href="Stream.html#issue" title="issue">issue</a> to operate 
+  a stream. The issue() call sends a buffer to a stream, and 
+  reclaim() retrieves a  buffer from a stream. In normal operation
+  each issue call is followed by an reclaim call.</div>
+<div class="xdocText">Short bursts of multiple issue() calls can be made without an
+  intervening reclaim() call followed by short bursts of reclaim() calls, 
+  but over the life of the stream issue() and reclaim() must be called 
+  the same number of times. The number of issue() calls can exceed the 
+  number of reclaim() calls by <a class="xdoc-link" href="Stream.html#max.Issues" title="maxIssues">maxIssues</a>.</div>
+<div class="xdocText">A reclaim() call should not be made without at least one 
+  outstanding issue() call. Calling reclaim() with no 
+  outstanding issue() calls results in an error <a class="xdoc-link" href="Stream.html#.E_no.Buffers.Issued" title="E_noBuffersIssued">E_noBuffersIssued</a></div>
+<div class="xdocText">reclaim() only returns buffers that were passed in using issue(). It 
+  also returns the buffers in the same order that they were issued.</div>
+<div class="xdocText">reclaim() returns the size transferred in case of success.
+  It returns zero when an error is caught. In case of timeout, the error 
+  is <a class="xdoc-link" href="Stream.html#.E_timeout" title="E_timeout">E_timeout</a>.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="write"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">Stream_</span><span class="xdoc-id">write</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#write">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Write data to a stream</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id">Stream_write</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">bufp</span>, <span class="xdoc-kw2">SizeT</span>&nbsp;<span class="xdoc-id">size</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">timeout</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;handle of a previously-created <tt>Stream</tt> instance object</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">bufp</span>
+<span class="xdocChildSum">&#151;&nbsp;buffer pointer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">size</span>
+<span class="xdocChildSum">&#151;&nbsp;size of buffer</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">timeout</span>
+<span class="xdocChildSum">&#151;&nbsp;timeout in microseconds</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">RETURNS</div>
+<div class="xdocText">size transferred</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Equivalent to an issue/reclaim pair for a instance with 
+  mode = DriverTypes.OUTPUT.
+  This call is synchronous and the driver has finished processing the
+  buffer upon return from this API.</div>
+<a class="xdocAnchor" id="per-instance_built-ins"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Built-Ins</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_built-ins">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Int</span> <span class="xdoc-id">Stream_Object_count</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The number of statically-created instance objects</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> <span class="xdoc-id">Stream_Object_get</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Object">Stream_Object</a> *array, <span class="xdoc-kw2">Int</span> i);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The handle of the i-th statically-created instance object (array == NULL)</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> <span class="xdoc-id">Stream_Object_first</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The handle of the first dynamically-created instance object, or NULL</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> <span class="xdoc-id">Stream_Object_next</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The handle of the next dynamically-created instance object, or NULL</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a> <span class="xdoc-id">Stream_Object_heap</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The heap used to allocate dynamically-created instance objects</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Label" title="xdc.runtime.Types.Label">Types_Label</a> *<span class="xdoc-id">Stream_Handle_label</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle, <a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Label" title="xdc.runtime.Types.Label">Types_Label</a> *buf);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The label associated with this instance object</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">String</span> <span class="xdoc-id">Stream_Handle_name</span>(<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_object_types" title="ti.sdo.io.Stream.Handle">Stream_Handle</a> handle);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The name of this instance object</div>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/Stream-src.html"><span class="xdocLabelFile">ti/sdo/io/Stream.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> Stream = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.io.Stream'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.I.N.O.U.T">Stream.<span class="xdoc-id">INOUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;mode for input &amp; output</span></span></a> = 2;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.I.N.P.U.T">Stream.<span class="xdoc-id">INPUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;mode for input</span></span></a> = 0;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#meta.O.U.T.P.U.T">Stream.<span class="xdoc-id">OUTPUT</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;mode for output</span></span></a> = 1;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> <a class="xdocSynGo" href="#.Basic.View">Stream.<span class="xdoc-id">BasicView</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Basic.View" title="ti.sdo.io.Stream.BasicView"><span class="xdoc-id">label</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Basic.View" title="ti.sdo.io.Stream.BasicView"><span class="xdoc-id">maxIssues</span></a> = <i><span class="xdoc-kw2">UInt</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Basic.View" title="ti.sdo.io.Stream.BasicView"><span class="xdoc-id">issued</span></a> = <i><span class="xdoc-kw2">UInt</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Basic.View" title="ti.sdo.io.Stream.BasicView"><span class="xdoc-id">ready</span></a> = <i><span class="xdoc-kw2">UInt</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Basic.View" title="ti.sdo.io.Stream.BasicView"><span class="xdoc-id">mode</span></a> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<a class="xdocSynGo" href="#.Basic.View" title="ti.sdo.io.Stream.BasicView"><span class="xdoc-id">userSuppliedSync</span></a> = <i><span class="xdoc-kw2">Bool</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.A_bad.Mode">Stream.<span class="xdoc-id">A_badMode</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Assert when <span class="xdoc-link" href="Stream.html#read" title="read">read</span> or <span class="xdoc-link" href="Stream.html#write" title="write">write</span> on wrong channel</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Desc" title="xdc.runtime.Assert.Desc">Assert.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "A_badMode: Bad Mode"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.A_pending.Reclaims">Stream.<span class="xdoc-id">A_pendingReclaims</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Assert when there are more packets to be reclaimed</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Desc" title="xdc.runtime.Assert.Desc">Assert.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "A_pendingReclaims: Packets issued but not reclaimed"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.A_sync.Non.Blocking">Stream.<span class="xdoc-id">A_syncNonBlocking</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Assert when ISync is non-blocking but Stream_read/write called</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Desc" title="xdc.runtime.Assert.Desc">Assert.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "A_syncNonBlocking: ISync should have blocking quality"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E_no.Buffers.Issued">Stream.<span class="xdoc-id">E_noBuffersIssued</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when reclaim called but no outstanding buffers issued</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_noBuffersIssued: No outstanding buffers"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E_no.Packets">Stream.<span class="xdoc-id">E_noPackets</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when there are no packets for IO</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_noPackets: No packets available. maxIssues is %d"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E_not.Found">Stream.<span class="xdoc-id">E_notFound</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when name not found in IConverter Table and DriverTable</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_notFound: %s name not found"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#meta.E_timeout">Stream.<span class="xdoc-id">E_timeout</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Error raised when a timeout occurs during reclaim</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_timeout: Timeout"
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt>};
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#metagate">Stream.<span class="xdoc-id">gate</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;For making the table thread safe</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#metamax.Name.Len">Stream.<span class="xdoc-id">maxNameLen</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Length, in MAUs, of the name field in the table</span></span></a> = <i><span class="xdoc-kw2">UInt</span></i> 16;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#metamax.Runtime.Entries">Stream.<span class="xdoc-id">maxRuntimeEntries</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Max entries that can be added at runtime</span></span></a> = <i><span class="xdoc-kw2">UInt</span></i> 0;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#common$">Stream.<span class="xdoc-id">common$</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Common module configuration parameters</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#rov.View.Info">Stream.<span class="xdoc-id">rovViewInfo</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/rov/ViewInfo.html#.Instance" title="xdc.rov.ViewInfo.Instance">ViewInfo.Instance</a></i> <a class="xdoc-link" href="../../../xdc/rov/ViewInfo.html#per-instance_creation" title="xdc.rov.ViewInfo.create">ViewInfo.create</a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#table.Section">Stream.<span class="xdoc-id">tableSection</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Section name used to place the IConverter table</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynHdr'>module-wide functions</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#add.Meta">Stream.<span class="xdoc-id">addMeta</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Add to IConverter table at configuration time</span></span></a>(<i><span class="xdoc-kw2">String</span></i> <go><span class="xdoc-id">name</span></go>, <i><a class="xdoc-link" href="../../../ti/sdo/io/IConverter.html#per-instance_object_types" title="ti.sdo.io.IConverter.Handle">IConverter.Handle</a></i> <go><span class="xdoc-id">handle</span></go>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+<div class='xdocSynHdr'>per-instance config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<a class="xdocSynGo" href="#metaper-instance_config_parameters"><span class="xdoc-id">Params</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Instance config-params object</span></span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#metachan.Params"><span class="xdoc-id">chanParams</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Channel params for driver if present in IO stack</span></span></a> = <i><span class="xdoc-kw2">UArg</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#metamax.Issues"><span class="xdoc-id">maxIssues</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Max outstanding issues</span></span></a> = <i><span class="xdoc-kw2">UInt</span></i> 2;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#metapacket.Heap"><span class="xdoc-id">packetHeap</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Heap used to allocate <span class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</span> in dynamic create</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#metapacket.Section"><span class="xdoc-id">packetSection</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Section name used to place <span class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</span></span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<a class="xdocSynGo" href="#metasync"><span class="xdoc-id">sync</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;ISync handle used to signal IO completion</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/knl/ISync.html#per-instance_object_types" title="xdc.runtime.knl.ISync.Handle">ISync.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynHdr'>per-instance creation</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">var</span> inst = Stream.<a class="xdocSynGo" href="#metaper-instance_creation"><span class="xdoc-id">create</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Create an instance-object</span></span></a>(<i><span class="xdoc-kw2">String</span></i> <go><span class="xdoc-id">name</span></go>, <i><span class="xdoc-kw2">UInt</span></i> <go><span class="xdoc-id">mode</span></go>, params);
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.I.N.O.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">INOUT</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.I.N.O.U.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">mode for input &amp; output</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> Stream.<span class="xdoc-id">INOUT</span> = 2;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.I.N.O.U.T" title="Stream_INOUT">Stream_INOUT</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.I.N.P.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">INPUT</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.I.N.P.U.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">mode for input</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> Stream.<span class="xdoc-id">INPUT</span> = 0;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.I.N.P.U.T" title="Stream_INPUT">Stream_INPUT</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.O.U.T.P.U.T"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">OUTPUT</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.O.U.T.P.U.T">index URL</a></div>
+<p class="xdocHdrSummaryDcl">mode for output</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> Stream.<span class="xdoc-id">OUTPUT</span> = 1;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.O.U.T.P.U.T" title="Stream_OUTPUT">Stream_OUTPUT</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Basic.View"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">struct</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">BasicView</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.Basic.View">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> <i>obj</i> = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">BasicView</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">label</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">maxIssues</span> = <i><span class="xdoc-kw2">UInt</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">issued</span> = <i><span class="xdoc-kw2">UInt</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">ready</span> = <i><span class="xdoc-kw2">UInt</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">mode</span> = <i><span class="xdoc-kw2">String</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>obj</i>.<span class="xdoc-id">userSuppliedSync</span> = <i><span class="xdoc-kw2">Bool</span></i><b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.A_bad.Mode"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">A_badMode</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.A_bad.Mode">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Assert when <a class="xdoc-link" href="Stream.html#read" title="read">read</a> or <a class="xdoc-link" href="Stream.html#write" title="write">write</a> on wrong channel</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">A_badMode</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Desc" title="xdc.runtime.Assert.Desc">Assert.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "A_badMode: Bad Mode"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Assert when <a class="xdoc-link" href="Stream.html#read" title="read">read</a> is called and mode = <a class="xdoc-link" href="Stream.html#.O.U.T.P.U.T" title="OUTPUT">OUTPUT</a> or
+  when <a class="xdoc-link" href="Stream.html#write" title="write">write</a> is called and mode = <a class="xdoc-link" href="Stream.html#.I.N.P.U.T" title="INPUT">INPUT</a></div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.A_bad.Mode" title="Stream_A_badMode">Stream_A_badMode</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.A_pending.Reclaims"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">A_pendingReclaims</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.A_pending.Reclaims">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Assert when there are more packets to be reclaimed</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">A_pendingReclaims</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Desc" title="xdc.runtime.Assert.Desc">Assert.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "A_pendingReclaims: Packets issued but not reclaimed"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.A_pending.Reclaims" title="Stream_A_pendingReclaims">Stream_A_pendingReclaims</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.A_sync.Non.Blocking"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">A_syncNonBlocking</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.A_sync.Non.Blocking">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Assert when ISync is non-blocking but Stream_read/write called</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">A_syncNonBlocking</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Assert.html#.Desc" title="xdc.runtime.Assert.Desc">Assert.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "A_syncNonBlocking: ISync should have blocking quality"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.A_sync.Non.Blocking" title="Stream_A_syncNonBlocking">Stream_A_syncNonBlocking</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E_no.Buffers.Issued"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">E_noBuffersIssued</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_no.Buffers.Issued">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when reclaim called but no outstanding buffers issued</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">E_noBuffersIssued</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_noBuffersIssued: No outstanding buffers"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Clients can check for this error while calling <a class="xdoc-link" href="Stream.html#reclaim" title="reclaim">reclaim</a> to make 
+  sure they got all their buffers back.</div>
+<div class="xdocText"><PRE class="Example">  #include &lt;xdc/runtime/Error.h&gt;
+  #include &lt;ti/sdo/io/Stream.h&gt;
+
+  Error_Block eb;
+  Stream_Handle streamHdl;
+  SizeT len;
+  Ptr *bufp;
+  
+  Error_init(&amp;eb); 
+  
+  do {
+      len = Stream_reclaim(streamHdl, bufp, NULL, &amp;eb); 
+  }while (!Error_check(&amp;eb));
+  
+  if (Error_getId == Stream_E_noBuffersIssued) {
+      ....all issues buffers have been reclaimed
+  }
+</PRE></div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E_no.Buffers.Issued" title="Stream_E_noBuffersIssued">Stream_E_noBuffersIssued</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E_no.Packets"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">E_noPackets</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_no.Packets">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when there are no packets for IO</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">E_noPackets</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_noPackets: No packets available. maxIssues is %d"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E_no.Packets" title="Stream_E_noPackets">Stream_E_noPackets</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E_not.Found"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">E_notFound</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_not.Found">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when name not found in IConverter Table and DriverTable</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">E_notFound</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_notFound: %s name not found"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E_not.Found" title="Stream_E_notFound">Stream_E_notFound</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="meta.E_timeout"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">E_timeout</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#.E_timeout">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Error raised when a timeout occurs during reclaim</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">E_timeout</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Desc" title="xdc.runtime.Error.Desc">Error.Desc</a></i> {
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>msg: "E_timeout: Timeout"
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>};
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#.E_timeout" title="Stream_E_timeout">Stream_E_timeout</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metagate"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">gate</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#gate">index URL</a></div>
+<p class="xdocHdrSummaryDcl">For making the table thread safe</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">gate</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#gate" title="Stream_gate">Stream_gate</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metamax.Name.Len"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">maxNameLen</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#max.Name.Len">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Length, in MAUs, of the name field in the table</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">maxNameLen</span> = <i><span class="xdoc-kw2">UInt</span></i> 16;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#max.Name.Len" title="Stream_maxNameLen">Stream_maxNameLen</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metamax.Runtime.Entries"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">maxRuntimeEntries</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#max.Runtime.Entries">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Max entries that can be added at runtime</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">maxRuntimeEntries</span> = <i><span class="xdoc-kw2">UInt</span></i> 0;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This module requires total number of converters that need
+  to be added at runtime to be identified at configuration time.</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#max.Runtime.Entries" title="Stream_maxRuntimeEntries">Stream_maxRuntimeEntries</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="common$"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">common$</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#common$">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Common module configuration parameters</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">common$</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">All modules have this configuration parameter.  Its name
+  contains the '$' character to ensure it does not conflict with
+  configuration parameters declared by the module.  This allows
+  new configuration parameters to be added in the future without
+  any chance of breaking existing modules.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="rov.View.Info"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">rovViewInfo</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#rov.View.Info">index URL</a></div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">rovViewInfo</span> = <i><a class="xdoc-link" href="../../../xdc/rov/ViewInfo.html#.Instance" title="xdc.rov.ViewInfo.Instance">ViewInfo.Instance</a></i> <a class="xdoc-link" href="../../../xdc/rov/ViewInfo.html#per-instance_creation" title="xdc.rov.ViewInfo.create">ViewInfo.create</a>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="table.Section"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">tableSection</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#table.Section">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Section name used to place the IConverter table</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">tableSection</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="add.Meta"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-id">Stream.</span><span class="xdoc-id">addMeta</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#add.Meta">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Add to IConverter table at configuration time</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Stream.<span class="xdoc-id">addMeta</span>(<i><span class="xdoc-kw2">String</span></i> <span class="xdoc-id">name</span>, <i><a class="xdoc-link" href="../../../ti/sdo/io/IConverter.html#per-instance_object_types" title="ti.sdo.io.IConverter.Handle">IConverter.Handle</a></i> <span class="xdoc-id">handle</span>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name of entry</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">handle</span>
+<span class="xdocChildSum">&#151;&nbsp;IConverter handle</span>
+</div>
+<a class="xdocAnchor" id="metaper-instance_config_parameters"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Config Parameters</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_config_parameters">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">Params</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Instance config-params object</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">chanParams</span> = <i><span class="xdoc-kw2">UArg</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Channel params for driver if present in IO stack</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">maxIssues</span> = <i><span class="xdoc-kw2">UInt</span></i> 2;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Max outstanding issues</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">packetHeap</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Heap used to allocate <a class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</a> in dynamic create</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">packetSection</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Section name used to place <a class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</a></div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>params.<span class="xdoc-id">sync</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/knl/ISync.html#per-instance_object_types" title="xdc.runtime.knl.ISync.Handle">ISync.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;ISync handle used to signal IO completion</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metachan.Params"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">chanParams</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#chan.Params">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Channel params for driver if present in IO stack</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">chanParams</span> = <i><span class="xdoc-kw2">UArg</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#chan.Params" title="null">null</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metamax.Issues"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">maxIssues</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#max.Issues">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Max outstanding issues</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">maxIssues</span> = <i><span class="xdoc-kw2">UInt</span></i> 2;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#max.Issues" title="null">null</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metapacket.Heap"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">packetHeap</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#packet.Heap">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Heap used to allocate <a class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</a> in dynamic create</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">packetHeap</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#packet.Heap" title="null">null</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metasync"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">sync</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#sync">index URL</a></div>
+<p class="xdocHdrSummaryDcl">ISync handle used to signal IO completion</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">sync</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/knl/ISync.html#per-instance_object_types" title="xdc.runtime.knl.ISync.Handle">ISync.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#sync" title="null">null</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="packet.Section"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">Stream.</span><span class="xdoc-id">packetSection</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#packet.Section">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Section name used to place <a class="xdoc-link" href="DriverTypes.html#.Packet" title="DriverTypes.Packet">DriverTypes.Packet</a></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<span class="xdoc-id">Params</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><b>&nbsp;&nbsp;...</b>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<span class="xdoc-id">packetSection</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Default of null results in no explicit section placement.</div>
+<a class="xdocAnchor" id="metaper-instance_creation"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Instance Creation</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Stream.html" title="module Stream"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/Stream.html#per-instance_creation">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> params = <span class="xdoc-kw1">new</span> Stream.<a class="xdoc-link" href="../../../ti/sdo/io/Stream.html#per-instance_config_parameters" title="ti.sdo.io.Stream.Params">Params</a>;
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Allocate instance config-params</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt>params.<i>config</i> = <b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Assign individual configs</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">var</span> inst = Stream.<span class="xdoc-id">create</span>(<i><span class="xdoc-kw2">String</span></i> <span class="xdoc-id">name</span>, <i><span class="xdoc-kw2">UInt</span></i> <span class="xdoc-id">mode</span>, params);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Create an instance-object</div>
+</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name that identifies the IO stack</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">mode</span>
+<span class="xdocChildSum">&#151;&nbsp;mode of channel.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">params</span>
+<span class="xdocChildSum">&#151;&nbsp;per-instance config params, or <tt>NULL</tt> to select default values (target-domain only)</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;active error-handling block, or <tt>NULL</tt> to select default policy (target-domain only)</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Creates a new Stream instance and sets up the IO stack specified by 
+  name.
+  The name is usually of the following form "/scale/uart".
+  The mode is either <a class="xdoc-link" href="Stream.html#.I.N.P.U.T" title="INPUT">INPUT</a> or <a class="xdoc-link" href="Stream.html#.O.U.T.P.U.T" title="OUTPUT">OUTPUT</a>.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:16 GMT</div>
+</div></div></body>
+</html>

@@ -1,0 +1,450 @@
+<html>
+<head>
+<title>module ti.sdo.io.DriverTable</title>
+<meta name="description" content="DriverTable module">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.io.</span><span class="xdoc-id">DriverTable</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Build.html" title="module Build"><img class="xdocHdrArrow" src="../../../Arrow_left.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/package.html" title="package ti.sdo.io"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTypes.html" title="module DriverTypes"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html">index URL</a></div>
+<p class="xdocHdrSummary">DriverTable module</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#targ-synop">C synopsis</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocElems">Individual elements</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This module maintains a table of <a class="xdoc-link" href="IDriver.html#per-instance_object_types" title="IDriver.Handle">IDriver.Handle</a>. Other modules can
+  lookup these handles by name and open channels for IO. The <a class="xdoc-link" href="Stream.html" title="Stream">Stream</a>
+  module will open channels using this table. All names in this table have to
+  be unique.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2">C</span></tt> synopsis</td>
+<td class="xdocLabelCenter">target-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/DriverTable-src.html"><span class="xdocLabelFile">ti/sdo/io/DriverTable.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynT">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw3">#include</span> <span class="xdoc-id">&lt;ti/sdo/io/DriverTable.h&gt;</span>
+</div>
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Functions</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#add"><span class="xdoc-id">DriverTable_add</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Add IDriver handle to the table at runtime</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <a class="xdoc-link" href="../../../ti/sdo/io/IDriver.html#per-instance_object_types" title="ti.sdo.io.IDriver.Handle">IDriver_Handle</a>&nbsp;<go><span class="xdoc-id">driverHandle</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#remove"><span class="xdoc-id">DriverTable_remove</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Remove entry from IDriver table at runtime</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);</div></td></tr>
+<tr><td class="xdocSynFxnCat" colspan="2"><div class="xdocSynFxnCat">Functions common to all target modules</div></td></tr>
+
+<tr>
+<td></td>
+<td>
+<div class="xdocSynTblPack">
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTable_Module_getMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Returns the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTable_Module_hasMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test whether this module has a diagnostics mask</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTable_Module_heap</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;The heap from which this module allocates memory</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTable_Module_id</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Get this module's unique id</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTable_Module_setMask</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Set the diagnostics mask for this module</span></span></a>,
+<a class="xdocSynGo" href="#module-wide_built-ins"><span class="xdoc-id">DriverTable_Module_startupDone</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Test if this module has completed startup</span></span></a>
+</div>
+</td>
+</tr>
+<tr><td colspan='2'><div class='xdocSynTblHdr'>Constants</div></td></tr>
+
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider_Handle</a>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#gate"><span class="xdoc-id">DriverTable_gate</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Gate used to make the table thread safe</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#max.Name.Len"><span class="xdoc-id">DriverTable_maxNameLen</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Length, in MAUs, of the name field in the table</span></span></a>;</div></td></tr>
+<tr valign="top"><td class="xdocSynDecl" nowrap><div class="xdocSynTblType"><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;</div></td><td class="xdocSynDecl"><div class="xdocSynTblDecl"><a class="xdocSynGo" href="#max.Runtime.Entries"><span class="xdoc-id">DriverTable_maxRuntimeEntries</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Max runtime entries that can be added</span></span></a>;</div></td></tr>
+</table>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This module maintains a table of <a class="xdoc-link" href="IDriver.html#per-instance_object_types" title="IDriver.Handle">IDriver.Handle</a>. Other modules can
+  lookup these handles by name and open channels for IO. The <a class="xdoc-link" href="Stream.html" title="Stream">Stream</a>
+  module will open channels using this table. All names in this table have to
+  be unique.</div>
+<div class="xdocText">This module allows addition of IDriver handles into the table at 
+  configuration time as well as at runtime. However, the total number of 
+  runtime entries have to be decided at configuration time. There is no limit
+  to entries added statically.</div>
+<div class="xdocText">This module uses <a class="xdoc-link" href="../../../ti/sdo/utils/NameServer.html" title="ti.sdo.utils.NameServer">ti.sdo.utils.NameServer</a> to maintain its table</div>
+<div id="xdocSep">
+</div>
+<div id="xdocElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="gate"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable_</span><span class="xdoc-id">gate</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#gate">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Gate used to make the table thread safe</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider_Handle</a>&nbsp;<span class="xdoc-id">DriverTable_gate</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="max.Name.Len"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable_</span><span class="xdoc-id">maxNameLen</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#max.Name.Len">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Length, in MAUs, of the name field in the table</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">DriverTable_maxNameLen</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="max.Runtime.Entries"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable_</span><span class="xdoc-id">maxRuntimeEntries</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#max.Runtime.Entries">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Max runtime entries that can be added</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">extern const</span> <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">DriverTable_maxRuntimeEntries</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Currently this module requires total number of entries that need
+  to be added at runtime to be identified at configuration time.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="add"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">DriverTable_</span><span class="xdoc-id">add</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#add">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Add IDriver handle to the table at runtime</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">DriverTable_add</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <a class="xdoc-link" href="../../../ti/sdo/io/IDriver.html#per-instance_object_types" title="ti.sdo.io.IDriver.Handle">IDriver_Handle</a>&nbsp;<span class="xdoc-id">driverHandle</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name of entry</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">driverHandle</span>
+<span class="xdocChildSum">&#151;&nbsp;<a class="xdoc-link" href="IDriver.html#per-instance_object_types" title="IDriver.Handle">IDriver.Handle</a></span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;Error Block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Will raise an error when name already exists in table.
+  This API is not thread safe. Set <a class="xdoc-link" href="DriverTable.html#gate" title="gate">gate</a> parameter
+  to protect table if called from multiple threads.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="remove"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">DriverTable_</span><span class="xdoc-id">remove</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#remove">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Remove entry from IDriver table at runtime</p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i></i><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">DriverTable_remove</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error_Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name of entry</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Will raise an error when name not found in table
+  This API is not thread safe. Set <a class="xdoc-link" href="DriverTable.html#gate" title="gate">gate</a> parameter
+  to protect table if called from multiple threads.</div>
+<a class="xdocAnchor" id="module-wide_built-ins"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdocSynSum">Module-Wide Built-Ins</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#module-wide_built-ins">index URL</a></div>
+<p class="xdocHdrSummary"></p>
+<span id='targ-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-targ2dcl">C</span></tt> synopsis</td>
+<td class="xdocLabelRight">target-domain</td>
+</tr></table>
+<div class="xdocSynTdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Module.Id" title="xdc.runtime.Types.ModuleId">Types_ModuleId</a> <span class="xdoc-id">DriverTable_Module_id</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Get this module's unique id</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">DriverTable_Module_startupDone</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test if this module has completed startup</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><a class="xdoc-link" href="../../../xdc/runtime/IHeap.html#per-instance_object_types" title="xdc.runtime.IHeap.Handle">IHeap_Handle</a> <span class="xdoc-id">DriverTable_Module_heap</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;The heap from which this module allocates memory</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span> <span class="xdoc-id">DriverTable_Module_hasMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Test whether this module has a diagnostics mask</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">DriverTable_Module_getMask</span>();
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Returns the diagnostics mask for this module</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span> <span class="xdoc-id">DriverTable_Module_setMask</span>(<span class="xdoc-kw2">Bits16</span> <span class="xdoc-id">mask</span>);
+</div>
+<div class='xdocSynSum'><tt></tt><tt></tt>//&nbsp;Set the diagnostics mask for this module</div>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/DriverTable-src.html"><span class="xdocLabelFile">ti/sdo/io/DriverTable.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> DriverTable = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.io.DriverTable'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#metagate">DriverTable.<span class="xdoc-id">gate</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Gate used to make the table thread safe</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#metamax.Name.Len">DriverTable.<span class="xdoc-id">maxNameLen</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Length, in MAUs, of the name field in the table</span></span></a> = <i><span class="xdoc-kw2">UInt</span></i> 16;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#metamax.Runtime.Entries">DriverTable.<span class="xdoc-id">maxRuntimeEntries</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Max runtime entries that can be added</span></span></a> = <i><span class="xdoc-kw2">UInt</span></i> 0;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#common$">DriverTable.<span class="xdoc-id">common$</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Common module configuration parameters</span></span></a> = <i><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#table.Section">DriverTable.<span class="xdoc-id">tableSection</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Section name is used to place the IDriver table</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class='xdocSynHdr'>module-wide functions</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#add.Meta">DriverTable.<span class="xdoc-id">addMeta</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Add to IDriver handle to the table at configuration time</span></span></a>(<i><span class="xdoc-kw2">String</span></i> <go><span class="xdoc-id">name</span></go>, <i><a class="xdoc-link" href="../../../ti/sdo/io/IDriver.html#per-instance_object_types" title="ti.sdo.io.IDriver.Handle">IDriver.Handle</a></i> <go><span class="xdoc-id">driverHandle</span></go>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metagate"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable.</span><span class="xdoc-id">gate</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#gate">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Gate used to make the table thread safe</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTable.<span class="xdoc-id">gate</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/IGateProvider.html#per-instance_object_types" title="xdc.runtime.IGateProvider.Handle">IGateProvider.Handle</a></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#gate" title="DriverTable_gate">DriverTable_gate</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metamax.Name.Len"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable.</span><span class="xdoc-id">maxNameLen</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#max.Name.Len">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Length, in MAUs, of the name field in the table</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTable.<span class="xdoc-id">maxNameLen</span> = <i><span class="xdoc-kw2">UInt</span></i> 16;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#max.Name.Len" title="DriverTable_maxNameLen">DriverTable_maxNameLen</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="metamax.Runtime.Entries"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable.</span><span class="xdoc-id">maxRuntimeEntries</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#max.Runtime.Entries">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Max runtime entries that can be added</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTable.<span class="xdoc-id">maxRuntimeEntries</span> = <i><span class="xdoc-kw2">UInt</span></i> 0;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Currently this module requires total number of entries that need
+  to be added at runtime to be identified at configuration time.</div>
+<div class="xdocSect">C SYNOPSIS</div>
+<div class="xdocText"><a class="xdoc-link" href="#max.Runtime.Entries" title="DriverTable_maxRuntimeEntries">DriverTable_maxRuntimeEntries</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="common$"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable.</span><span class="xdoc-id">common$</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#common$">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Common module configuration parameters</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTable.<span class="xdoc-id">common$</span> = <i><a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">All modules have this configuration parameter.  Its name
+  contains the '$' character to ensure it does not conflict with
+  configuration parameters declared by the module.  This allows
+  new configuration parameters to be added in the future without
+  any chance of breaking existing modules.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="table.Section"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">DriverTable.</span><span class="xdoc-id">tableSection</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#table.Section">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Section name is used to place the IDriver table</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTable.<span class="xdoc-id">tableSection</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="add.Meta"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-id">DriverTable.</span><span class="xdoc-id">addMeta</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/DriverTable.html" title="module DriverTable"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/DriverTable.html#add.Meta">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Add to IDriver handle to the table at configuration time</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>DriverTable.<span class="xdoc-id">addMeta</span>(<i><span class="xdoc-kw2">String</span></i> <span class="xdoc-id">name</span>, <i><a class="xdoc-link" href="../../../ti/sdo/io/IDriver.html#per-instance_object_types" title="ti.sdo.io.IDriver.Handle">IDriver.Handle</a></i> <span class="xdoc-id">driverHandle</span>) <i>returns</i> <i><span class="xdoc-kw2">Void</span></i>
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name of entry</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">driverHandle</span>
+<span class="xdocChildSum">&#151;&nbsp;<a class="xdoc-link" href="IDriver.html#per-instance_object_types" title="IDriver.Handle">IDriver.Handle</a></span>
+</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:16 GMT</div>
+</div></div></body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>module ti.sdo.ce.osal.bios.Settings</title>
+<meta name="description" content="Global OS Abstract Layer Configuration">
+<link rel="stylesheet" type="text/css" href="../../../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.ce.osal.bios.</span><span class="xdoc-id">Settings</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../../ti/sdo/ce/osal/bios/package.html" title="package ti.sdo.ce.osal.bios"><img class="xdocHdrArrow" src="../../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../../index.html#ti/sdo/ce/osal/bios/Settings.html">index URL</a></div>
+<p class="xdocHdrSummary">Global OS Abstract Layer Configuration</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../../../ti/sdo/ce/osal/bios/Settings-src.html"><span class="xdocLabelFile">ti/sdo/ce/osal/bios/Settings.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> Settings = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.ce.osal.bios.Settings'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#trace.Buffer.Size">Settings.<span class="xdoc-id">traceBufferSize</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Size of the server trace buffer, in MAUs</span></span></a> = <i><span class="xdoc-kw2">Int</span></i> 32768;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="trace.Buffer.Size"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">traceBufferSize</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../../../ti/sdo/ce/osal/bios/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../../../index.html#ti/sdo/ce/osal/bios/Settings.html#trace.Buffer.Size">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Size of the server trace buffer, in MAUs</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Settings.<span class="xdoc-id">traceBufferSize</span> = <i><span class="xdoc-kw2">Int</span></i> 32768;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The server trace buffer is a circular buffer of characters written
+  to by clients of ti.sdo.ce.osal.Trace (and ti.sdo.utils.trace.GT) and
+  read by the Engine_*Trace() methods.</div>
+<div class="xdocText">All the trace data in the target memory is stored into a globally
+  visible character buffer
+       Char Global_traceBuffer[ &lt;traceBufferSize&gt; ];</div>
+<div class="xdocText">Only set this parameter if not using ti.sdo.osal.Global.runtimeEnv
+  to set the target OS.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:47:05 GMT</div>
+</div></div></body>
+</html>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" href="$ialg_8h.html" title="This header defines all types, constants, and functions defined by XDAIS for algorithms." alt="" coords="241,233,334,257" />
+<area shape="rect" href="$xdas_8h.html" title="This header defines all types and constants used in the XDAS interfaces." alt="" coords="22,233,121,257" />
+<area shape="rect" href="$ividdec2_8h.html" title="This header defines all types, constants, and functions shared by all implementations of the video de..." alt="" coords="108,84,196,108" />
+<area shape="rect" href="$xdm_8h.html" title="This header defines all types, constants, and functions shared across the various XDM classes of algo..." alt="" coords="109,158,162,182" />
+<area shape="rect" href="$ivideo_8h.html" title="This header defines all types, constants, enums, and functions that are common across the various vid..." alt="" coords="186,158,250,182" />
+</map>

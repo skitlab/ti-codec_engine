@@ -1,0 +1,14 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.alg"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.alg.c"
+Source="../Algorithm_BIOS.c"
+Source="../Algorithm_noOS.c"
+Source="../alg_control.c"
+Source="../alg_create.c"
+Source="../alg_malloc.c"

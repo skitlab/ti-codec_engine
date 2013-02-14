@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module ti.sdo.io.DriverTypes</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> * Copyright (c) 2012, Texas Instruments Incorporated
+</span>     3    <span class="comment"> * All rights reserved.
+</span>     4    <span class="comment"> *
+</span>     5    <span class="comment"> * Redistribution and use in source and binary forms, with or without
+</span>     6    <span class="comment"> * modification, are permitted provided that the following conditions
+</span>     7    <span class="comment"> * are met:
+</span>     8    <span class="comment"> *
+</span>     9    <span class="comment"> * *  Redistributions of source code must retain the above copyright
+</span>    10    <span class="comment"> *    notice, this list of conditions and the following disclaimer.
+</span>    11    <span class="comment"> *
+</span>    12    <span class="comment"> * *  Redistributions in binary form must reproduce the above copyright
+</span>    13    <span class="comment"> *    notice, this list of conditions and the following disclaimer in the
+</span>    14    <span class="comment"> *    documentation and/or other materials provided with the distribution.
+</span>    15    <span class="comment"> *
+</span>    16    <span class="comment"> * *  Neither the name of Texas Instruments Incorporated nor the names of
+</span>    17    <span class="comment"> *    its contributors may be used to endorse or promote products derived
+</span>    18    <span class="comment"> *    from this software without specific prior written permission.
+</span>    19    <span class="comment"> *
+</span>    20    <span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+</span>    21    <span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+</span>    22    <span class="comment"> * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+</span>    23    <span class="comment"> * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+</span>    24    <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+</span>    25    <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+</span>    26    <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+</span>    27    <span class="comment"> * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+</span>    28    <span class="comment"> * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+</span>    29    <span class="comment"> * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+</span>    30    <span class="comment"> * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>    31    <span class="comment"> * */</span>
+    32    <span class="comment">/*
+</span>    33    <span class="comment"> *  ======== DriverTypes.xdc ========
+</span>    34    <span class="comment"> *
+</span>    35    <span class="comment"> */</span>
+    36    
+    37    import xdc.runtime.Error;
+    38    import xdc.runtime.Log;
+    39    import xdc.runtime.Diags;
+    40    import ti.sdo.utils.List;
+    41    
+    42    <span class="xdoc">/*! 
+</span>    43    <span class="xdoc"> *  DriverTypes module
+</span>    44    <span class="xdoc"> *
+</span>    45    <span class="xdoc"> *  This module defines several types required by modules implementing the
+</span>    46    <span class="xdoc"> *  IDriver interface.
+</span>    47    <span class="xdoc"> *
+</span>    48    <span class="xdoc"> *  This modules defines two Encoded types PacketCmd and ControlCmd.
+</span>    49    <span class="xdoc"> *  The <b>@Encoded</b> keyword is used here to allow us to have different
+</span>    50    <span class="xdoc"> *  representations for PacketCmd and ControlCmd in the meta
+</span>    51    <span class="xdoc"> *  domain and in the target domain. Here these datatypes are Bits32 in
+</span>    52    <span class="xdoc"> *  the target domain. In the meta domain they are represented as
+</span>    53    <span class="xdoc"> *  structures whose contents decide the value in the target domain.
+</span>    54    <span class="xdoc"> *  The purpose is to assign unique values to all PacketCmds in the
+</span>    55    <span class="xdoc"> *  application. Similarly all config parameters of type ControlCmds
+</span>    56    <span class="xdoc"> *  get assigned unique values at configuration time.
+</span>    57    <span class="xdoc"> *  The encoding scheme used is (moduleId &lt;&lt; 16) | unique number.
+</span>    58    <span class="xdoc"> * 
+</span>    59    <span class="xdoc"> *  Modules that implement IDriver can define their own ControlCmds and
+</span>    60    <span class="xdoc"> *  PacketCmds as follows
+</span>    61    <span class="xdoc"> *
+</span>    62    <span class="xdoc"> *      readonly config ControlCmd MYCMD;
+</span>    63    <span class="xdoc"> *
+</span>    64    <span class="xdoc"> *      readonly config PacketCmd MYPKTCMD;
+</span>    65    <span class="xdoc"> *
+</span>    66    <span class="xdoc"> *  This module also defines the IO packet used to send buffers to a driver. 
+</span>    67    <span class="xdoc"> *  Common cmds and errors useful to all IDriver modules are also defined here.
+</span>    68    <span class="xdoc"> */</span>
+    69    
+    70    @CustomHeader
+    71    
+    72    <span class=key>module</span> DriverTypes {
+    73    
+    74        <span class="xdoc">/*! <b>@_nodoc</b> */</span>
+    75        <span class=key>metaonly</span> <span class=key>struct</span> PacketCmdDesc { Bits32 val; };
+    76        @Encoded <span class=key>typedef</span> PacketCmdDesc PacketCmd;       <span class="xdoc">/*! Packet command type */</span>
+    77    
+    78        <span class="xdoc">/*! <b>@_nodoc</b> */</span>
+    79        <span class=key>metaonly</span> <span class=key>struct</span> ControlCmdDesc { Bits32 val; };
+    80        @Encoded <span class=key>typedef</span> ControlCmdDesc ControlCmd;     <span class="xdoc">/*! Control command type */</span>
+    81    
+    82    
+    83        <span class="xdoc">/*!
+</span>    84    <span class="xdoc">     * IO packet 
+</span>    85    <span class="xdoc">     *
+</span>    86    <span class="xdoc">     * Packets are the basis for all I/O operations. Packets are sent
+</span>    87    <span class="xdoc">     * to the driver using {<b>@link</b> IDriver#submit} function.
+</span>    88    <span class="xdoc">     *
+</span>    89    <span class="xdoc">     * <b>@field(link)</b>     field can be used by driver to queue up IO packets.
+</span>    90    <span class="xdoc">     *
+</span>    91    <span class="xdoc">     * <b>@field(addr)</b>     field points to buffer of data. 
+</span>    92    <span class="xdoc">     *                  The driver preserves this field.
+</span>    93    <span class="xdoc">     *
+</span>    94    <span class="xdoc">     * <b>@field(origSize)</b> is the size of data buffer. 
+</span>    95    <span class="xdoc">     *                  The driver preserves this field.
+</span>    96    <span class="xdoc">     *
+</span>    97    <span class="xdoc">     * <b>@field(size)</b>     is actual size of data written or read. 
+</span>    98    <span class="xdoc">     *                  Driver updates this field.
+</span>    99    <span class="xdoc">     *
+</span>   100    <span class="xdoc">     * <b>@field(arg)</b>      is used by end application. The driver preserves 
+</span>   101    <span class="xdoc">     *                  this field.
+</span>   102    <span class="xdoc">     *
+</span>   103    <span class="xdoc">     * <b>@field(cmd)</b>      is the Packet command. Driver preserves this field.
+</span>   104    <span class="xdoc">     *
+</span>   105    <span class="xdoc">     * <b>@field(error)</b>    is filled in by the mini-driver and contains status 
+</span>   106    <span class="xdoc">     *                  of IO. 
+</span>   107    <span class="xdoc">     *
+</span>   108    <span class="xdoc">     * <b>@field(misc)</b>     is used by {<b>@link</b> Stream}. The driver preserves 
+</span>   109    <span class="xdoc">     *                  this field.
+</span>   110    <span class="xdoc">     *
+</span>   111    <span class="xdoc">     * <b>@field(status)</b>   is reserved for use by iom adapters.
+</span>   112    <span class="xdoc">     *
+</span>   113    <span class="xdoc">     * <b>@field(drvArg)</b>   is reserved for use by drivers. Only drivers can use
+</span>   114    <span class="xdoc">     *                  this field.
+</span>   115    <span class="xdoc">     *
+</span>   116    <span class="xdoc">     */</span>
+   117        <span class=key>struct</span> Packet {     
+   118            List.Elem       link;       <span class="xdoc">/*! queue link */</span>
+   119            Ptr             addr;       <span class="xdoc">/*! buffer address */</span>
+   120            SizeT           origSize;   <span class="xdoc">/*! size requested */</span>
+   121            SizeT           size;       <span class="xdoc">/*! processed size */</span>
+   122            UArg            arg;        <span class="xdoc">/*! arg to be used by end app */</span>
+   123            PacketCmd       cmd;        <span class="xdoc">/*! command for mini-driver */</span>
+   124            Error.Id        error;      <span class="xdoc">/*! error id */</span>
+   125            UArg            misc;       <span class="xdoc">/*! reserved */</span>
+   126            Int             status;     <span class="xdoc">/*! reserved for legacy IOM support */</span>    
+   127            UArg            drvArg;     <span class="xdoc">/*! reserved for use by driver */</span>
+   128        };
+   129    
+   130        <span class="xdoc">/*!
+</span>   131    <span class="xdoc">     *  Typedef for driver's callback function.
+</span>   132    <span class="xdoc">     *
+</span>   133    <span class="xdoc">     *  The driver will call a function of this type whenever an I/O
+</span>   134    <span class="xdoc">     *  operation completes after an async submit() call.
+</span>   135    <span class="xdoc">     *
+</span>   136    <span class="xdoc">     *  The UArg is the callback function arg specified during 
+</span>   137    <span class="xdoc">     *  {<b>@link</b> IDriver#open}.
+</span>   138    <span class="xdoc">     *  The Packet* points to packet used during {<b>@link</b> IDriver#submit} call.
+</span>   139    <span class="xdoc">     */</span>
+   140        <span class=key>typedef</span> Void (*DoneFxn)(UArg, Packet *);
+   141     
+   142        <span class=key>const</span> UInt COMPLETED = 0x0;    <span class="xdoc">/*! completed status {<b>@link</b> IDriver#submit}*/</span>
+   143        <span class=key>const</span> UInt PENDING   = 0x1;    <span class="xdoc">/*! async callback {<b>@link</b> IDriver#submit}*/</span>
+   144        <span class=key>const</span> UInt ERROR     = 0x2;    <span class="xdoc">/*! error status {<b>@link</b> IDriver#submit}*/</span>
+   145          
+   146        <span class=key>enum</span> IOMode {
+   147            INPUT,          <span class="xdoc">/*! open channel for input */</span>
+   148            OUTPUT,         <span class="xdoc">/*! open channel for output */</span>
+   149            INOUT           <span class="xdoc">/*! simultaneous input/output */</span>
+   150        };
+   151    
+   152        <span class="comment">/*
+</span>   153    <span class="comment">     *  Common Command and Packet commands.
+</span>   154    <span class="comment">     */</span>
+   155    
+   156        <span class=key>readonly</span> <span class=key>config</span> PacketCmd READ;     <span class="xdoc">/*! READ IO operation */</span>
+   157        <span class=key>readonly</span> <span class=key>config</span> PacketCmd WRITE;    <span class="xdoc">/*! WRITE IO operation */</span>
+   158    
+   159         <span class="xdoc">/*! 
+</span>   160    <span class="xdoc">      *  Abort channel 
+</span>   161    <span class="xdoc">      *
+</span>   162    <span class="xdoc">      *  This is a control command that all drivers must attempt
+</span>   163    <span class="xdoc">      *  to support. This control command will abort ALL the packets
+</span>   164    <span class="xdoc">      *  queued up in the driver and return the packets by calling the
+</span>   165    <span class="xdoc">      *  {<b>@link</b> #DoneFxn} for each packet. Aborted packets are marked
+</span>   166    <span class="xdoc">      *  with {<b>@link</b> #E_Aborted}. This control command arg is an (UInt *).
+</span>   167    <span class="xdoc">      *  The driver returns number of packets aborted in the cmdArg.
+</span>   168    <span class="xdoc">      */</span>
+   169         <span class=key>readonly</span> <span class=key>config</span> ControlCmd CHAN_ABORT;
+   170    
+   171         <span class=key>readonly</span> <span class=key>config</span> ControlCmd CHAN_RESET;     <span class="xdoc">/*! Reset channel */</span>
+   172         <span class=key>readonly</span> <span class=key>config</span> ControlCmd DEVICE_RESET;   <span class="xdoc">/*! Reset device */</span> 
+   173    
+   174         <span class="comment">/*
+</span>   175    <span class="comment">      *  Note that the errors below are very generic and it is preferable to
+</span>   176    <span class="comment">      *  avoid using these errors. The drivers should define their own errors.
+</span>   177    <span class="comment">      */</span>
+   178         <span class=key>config</span> Error.Id EBADIO = {msg: <span class="string">"Generic Failure"</span>};
+   179         <span class=key>config</span> Error.Id EBADMODE = {msg: <span class="string">"Illegal Mode"</span>};
+   180         <span class=key>config</span> Error.Id ENOTIMPL = {msg: <span class="string">"Not implemented"</span>};
+   181         <span class=key>config</span> Error.Id EBADARGS = {msg: <span class="string">"Bad args"</span>};
+   182         <span class=key>config</span> Error.Id EINUSE = {msg: <span class="string">"Channel in use"</span>};
+   183         <span class=key>config</span> Error.Id EINVALIDDEV = {msg: <span class="string">"Invalid devNum"</span>};
+   184         
+   185         <span class="xdoc">/*! used in {<b>@link</b> #Packet} when io completes without an error */</span>
+   186         <span class=key>const</span>  UInt NOERROR = 0;          
+   187         <span class="xdoc">/*! 
+</span>   188    <span class="xdoc">      *  Error within aborted packet  
+</span>   189    <span class="xdoc">      *
+</span>   190    <span class="xdoc">      *  This is a special error that all drivers will return in the IO packet
+</span>   191    <span class="xdoc">      *  in case {<b>@link</b> #ABORT} control cmd is received.
+</span>   192    <span class="xdoc">      */</span>
+   193         <span class=key>config</span> Error.Id EABORTED = {msg: <span class="string">"Aborted Packet"</span>};
+   194         
+   195        <span class="xdoc">/*! Logged just prior to submitting IO packet to driver */</span>
+   196        <span class=key>config</span> Log.Event LM_startIO = {
+   197            mask: Diags.USER1 | Diags.USER2,
+   198            msg: <span class="string">"LM_startIO: buf: 0x%x, size: 0x%x, arg: 0x%x"</span>
+   199        };
+   200        
+   201        <span class="xdoc">/*! Logged when io is completed */</span>
+   202        <span class=key>config</span> Log.Event LM_ioComplete = {
+   203            mask: Diags.USER1 | Diags.USER2,
+   204            msg: <span class="string">"LM_ioComplete: buf: 0x%x, size: 0x%x, arg: 0x%x"</span>
+   205        };
+   206    }
+   207    <span class="comment">/*
+</span>   208    <span class="comment"> *  @(#) ti.sdo.io; 1, 0, 0, 0,2; 2-11-2012 16:30:23; /db/vtree/library/trees/ipc/ipc-h27/src/ xlibrary
+</span>   209    <span class="comment">
+</span>   210    <span class="comment"> */</span>
+   211    
+</pre>
+</body></html>

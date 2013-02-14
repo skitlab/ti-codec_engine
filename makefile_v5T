@@ -1,0 +1,108 @@
+#
+#  ======== makefile ========
+#  This makefile rebuilds FC libraries into a lib directory at the top of the
+#  product for Linux ARM v5T. This feature is experimental in this release.
+#  There may be changes and compatibility breaks in future releases.
+#
+include products.mak
+
+CE_INSTALL_DIR=$(CURDIR)
+
+#  ======== all ========
+.PHONY: ce
+.PHONY: all clean
+all: ce
+
+ce:
+	@echo "#"
+	@echo "# Making $@..."
+	$(MAKE) -C packages -f make_v5T.mk  \
+            LINK_INSTALL_DIR=$(LINK_INSTALL_DIR) \
+            XDAIS_INSTALL_DIR=$(XDAIS_INSTALL_DIR) \
+            CMEM_INSTALL_DIR=$(CMEM_INSTALL_DIR) \
+            IPC_INSTALL_DIR=$(IPC_INSTALL_DIR) \
+            CE_INSTALL_DIR=$(CE_INSTALL_DIR) \
+            FC_INSTALL_DIR=$(FC_INSTALL_DIR) \
+            OSAL_INSTALL_DIR=$(OSAL_INSTALL_DIR) \
+            CGTOOLS_V5T=$(CGTOOLS_V5T) \
+            CC_V5T=$(CC_V5T) \
+            AR_V5T=$(AR_V5T) \
+	    LIBDIR=$(CURDIR)/lib
+            $@
+
+
+clean::
+	@echo "#"
+	@echo "# Cleaning packages..."
+	$(MAKE) -C packages -f make_v5T.mk $@
+	$(RM) -r lib/
+
+# Check component dependencies and required options for all goals except for
+# ".show-products", "clean" or "install*"
+#
+ifneq ($(MAKECMDGOALS), .show-products)
+ifneq ($(MAKECMDGOALS), clean)
+ERRMSG = Set this in $(CE_INSTALL_DIR)/products.mak
+ERRMSG1 = which is invalid (could not find file "$(TEST_FILE)"). $(ERRMSG)
+ERRMSG2 = which is invalid (could not find either "$(TEST_FILE1)" or "$(TEST_FILE2)"). $(ERRMSG)
+
+ifeq ($(CGTOOLS_V5T),)
+    $(error CGTOOLS_V5T is not set, $(ERRMSG))
+endif
+ifeq ($(CC_V5T),)
+    $(error CC_V5T is not set, $(ERRMSG))
+endif
+TEST_FILE := $(CGTOOLS_V5T)/$(CC_V5T)
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error CGTOOLS_V5T/CC_V5T is set to "$(CGTOOLS_V5T)/$(CC_V5T)", $(ERRMSG1))
+endif
+
+ifeq ($(AR_V5T),)
+    $(error AR_V5T is not set, $(ERRMSG))
+endif
+TEST_FILE := $(CGTOOLS_V5T)/$(AR_V5T)
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error CGTOOLS_V5T/AR_V5T is set to "$(CGTOOLS_V5T)/$(AR_V5T)", $(ERRMSG1))
+endif
+
+TEST_FILE := $(IPC_INSTALL_DIR)/packages/ti/ipc/package.xdc
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error IPC_INSTALL_DIR is set to "$(IPC_INSTALL_DIR)", $(ERRMSG1))
+endif
+
+TEST_FILE := $(LINK_INSTALL_DIR)/packages/ti/syslink/package.xdc
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error LINK_INSTALL_DIR is set to "$(LINK_INSTALL_DIR)", $(ERRMSG1))
+endif
+
+TEST_FILE := $(XDAIS_INSTALL_DIR)/packages/ti/xdais/package.xdc
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error XDAIS_INSTALL_DIR is set to "$(XDAIS_INSTALL_DIR)", $(ERRMSG1))
+endif
+
+TEST_FILE := $(FC_INSTALL_DIR)/packages/ti/sdo/fc/dskt2/package.xdc
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error FC_INSTALL_DIR is set to "$(FC_INSTALL_DIR)", $(ERRMSG1))
+endif
+
+TEST_FILE := $(CE_INSTALL_DIR)/packages/ti/sdo/ce/package.xdc
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error CE_INSTALL_DIR is set to "$(CE_INSTALL_DIR)", $(ERRMSG1))
+endif
+
+TEST_FILE := $(CMEM_INSTALL_DIR)/packages/ti/sdo/linuxutils/cmem/package.xdc
+ifeq ($(wildcard $(TEST_FILE)),)
+    $(error CMEM_INSTALL_DIR is set to "$(CMEM_INSTALL_DIR)", $(ERRMSG1))
+endif
+
+# One of the following 2 test files must exist
+TEST_FILE1 := $(OSAL_INSTALL_DIR)/sources/xdc/std.h
+TEST_FILE2 := $(OSAL_INSTALL_DIR)/packages/xdc/std.h
+ifeq ($(wildcard $(TEST_FILE1)),)
+    ifeq ($(wildcard $(TEST_FILE2)),)
+        $(error OSAL_INSTALL_DIR is set to "$(OSAL_INSTALL_DIR)", $(ERRMSG2))
+    endif
+endif
+
+endif # clean check
+endif # .show-products check

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.sdo.opencl' nodoc='0' root='../../../' summary='OpenCL+API+Implementation'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.sdo.opencl%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='ComputeDevice' kind='module' nodoc='0' metaonly='1' summary='Global+configuration+settings+for+the+this+package'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2Fpackage.html%22+title%3D%22ti.sdo.opencl%22%3Eti.sdo.opencl%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EComputeDevice%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EComputeDevice%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+ComputeDevice+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.sdo.opencl.ComputeDevice%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <docSect name='details'>
+            <docPara content='This+is+a+RTSC+meta-only+module.+When+building+your+executable+with%0A++XDCtools%2C+use+this+module+to+configure+this+package.'/>
+        </docSect>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+            <decl kind='enum' name='ArgType' anchor='.Arg.Type' altext='ti.sdo.opencl.ComputeDevice.ArgType' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <decl kind='enumval' name='ArgType_Int' anchor='.Arg.Type_.Int'/>
+                <decl kind='enumval' name='ArgType_LocalPtr' anchor='.Arg.Type_.Local.Ptr'/>
+                <decl kind='enumval' name='ArgType_GlobalPtr' anchor='.Arg.Type_.Global.Ptr'/>
+                <decl kind='enumval' name='ArgType_SrPtr' anchor='.Arg.Type_.Sr.Ptr'/>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eenum%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EArgType%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EArgType_Int%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EArgType_LocalPtr%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EArgType_GlobalPtr%3C%2Fspan%3E%3C%2Fgo%3E%2C+'/>
+                    <line tab='1' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EArgType_SrPtr%3C%2Fspan%3E%3C%2Fgo%3E'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Ci%3Evalues+of+type+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EArgType%3C%2Fspan%3E%3C%2Fgo%3E%3C%2Fi%3E'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EArgType_Int%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EArgType_LocalPtr%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EArgType_GlobalPtr%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EArgType_SrPtr%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopMeta>
+            </decl>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='struct' name='FxnDesc' anchor='.Fxn.Desc' altext='ti.sdo.opencl.ComputeDevice.FxnDesc' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EFxnDesc%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ename%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw2%22%3EFxn%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eaddr%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw2%22%3EInt%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EnumArgs%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2FComputeDevice.html%23.Arg.Type%22+title%3D%22ti.sdo.opencl.ComputeDevice.ArgType%22%3EComputeDevice.ArgType%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eargs%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+%3Ci%3Eobj%3C%2Fi%3E+%3D+%3Cspan+class%3D%22xdoc-kw1%22%3Enew%3C%2Fspan%3E+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EFxnDesc%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line blank='1' always='0'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ename%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eaddr%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EFxn%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EnumArgs%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EInt%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eargs%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2FComputeDevice.html%23.Arg.Type%22+title%3D%22ti.sdo.opencl.ComputeDevice.ArgType%22%3EComputeDevice.ArgType%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                </synopMeta>
+            </decl>
+            <decl spacer='1'/>
+            <decl kind='struct' name='Unit' anchor='.Unit' altext='ti.sdo.opencl.ComputeDevice.Unit' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EUnit%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EinitFxn%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EexitFxn%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line tab='1' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2FComputeDevice.html%23.Fxn.Desc%22+title%3D%22ti.sdo.opencl.ComputeDevice.FxnDesc%22%3EComputeDevice.FxnDesc%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EfxnTab%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+%3Ci%3Eobj%3C%2Fi%3E+%3D+%3Cspan+class%3D%22xdoc-kw1%22%3Enew%3C%2Fspan%3E+%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3EUnit%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                    <line blank='1' always='0'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EinitFxn%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EexitFxn%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                    <line tab='1' content='%3Ci%3Eobj%3C%2Fi%3E.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EfxnTab%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2FComputeDevice.html%23.Fxn.Desc%22+title%3D%22ti.sdo.opencl.ComputeDevice.FxnDesc%22%3EComputeDevice.FxnDesc%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+                </synopMeta>
+            </decl>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='config' name='units' anchor='units' altext='ti.sdo.opencl.ComputeDevice.units' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2FComputeDevice.html%23.Unit%22+title%3D%22ti.sdo.opencl.ComputeDevice.Unit%22%3EComputeDevice.Unit%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eunits%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EComputeDevice.%3Cspan+class%3D%22xdoc-id%22%3Eunits%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2FComputeDevice.html%23.Unit%22+title%3D%22ti.sdo.opencl.ComputeDevice.Unit%22%3EComputeDevice.Unit%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw2%22%3E%3C%2Fspan%3E%5D%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+            </decl>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+        </group>
+    </unit>
+    <unit name='OpenCL' kind='module' nodoc='0' metaonly='1' summary=''>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2Fpackage.html%22+title%3D%22ti.sdo.opencl%22%3Eti.sdo.opencl%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EOpenCL%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EOpenCL%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+OpenCL+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.sdo.opencl.OpenCL%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+        </group>
+    </unit>
+    <docSect name='details'>
+        <docPara content='OpenCL+is+a+programming+framework+for+heterogeneous+compute+resources%0A++developed+by+the+Khronos+group.+It+allows+a+host+processor+to+execute%0A++code+on+multiple+device+processors.'/>
+        <docPara content='This+implementation+of+the+OpenCL+specification+supports+only+the%0A++task-parallel+model.+Please+note%2C+this+implementation+is+still+under%0A++development.'/>
+        <docPara content='The+following+diagram+illustrates+an+OpenCL+application+architecture.'/>
+        <docPara content='%3Cbr%3E%0A++%3Cimg+src%3D%22.%2Fdoc-files%2FAppArch.png%22+%2F%3E%0A++%3Cbr%3E'/>
+        <docPara content='The+application%2C+running+on+the+host+processor%2C+makes+OpenCL+API%0A++calls+to+execute+kernel+functions+on+the+device+processor.+In+this%0A++example%2C+the+application+is+running+on+the+C674x+processor+and+the%0A++kernel+functions+are+executed+on+the+ARP32+processor.+The+application%0A++provides+the+thread+%28red+circle%29+which+calls+the+OpenCL+APIs.+The%0A++OpenCL+Runtime+provides+the+thread+on+the+device+processor+which+is%0A++used+to+execute+the+kernel+functions.+There+may+be+multiple+device%0A++processors+in+a+system+but+only+one+host+processor.'/>
+        <docPara content='The+application+and+the+kernel+functions+have+access+to+the+framework%0A++components.+For+example%2C+they+can+make+calls+into+the+XDC+and+SYS%2FBIOS%0A++components.+The+kernel+functions+also+have+access+to+the+ECPY+component.'/>
+    </docSect>
+    <docSect name='OpenCL Programming Model'>
+        <docPara content='The+application+must+create+the+following+objects+to+setup+an+OpenCL%0A++execution+environment%3A+a+context+object%2C+a+command+queue%2C+and+a+program%0A++object.+This+is+done+with+the+following+functions.'/>
+        <docPara content='%3CUL%3E%3CLI%3E+clGetPlatformIDs%0A%3C%2FLI%3E%3CLI%3E+clGetDeviceIDs%0A%3C%2FLI%3E%3CLI%3E+clCreateContext%0A%3C%2FLI%3E%3CLI%3E+clCreateCommandQueue%0A%3C%2FLI%3E%3CLI%3E+clCreateProgramWithBinary%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+        <docPara content='Once+these+objects+have+been+created%2C+the+application+creates+a+kernel%0A++object+for+each+kernel+function+it+wants+to+execute+on+the+compute%0A++device.+The+kernel+object+is+used+to+set+the+function+argument+values.%0A++The+command+queue+is+used+to+schedule+a+kernel+function+for+execution.'/>
+        <docPara content='%3CUL%3E%3CLI%3E+clCreateKernel%0A%3C%2FLI%3E%3CLI%3E+clSetKernelArg%0A%3C%2FLI%3E%3CLI%3E+clEnqueueTask%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+        <docPara content='After+a+kernel+function+has+been+scheduled+with+a+call+to+clEnqueueTask%2C%0A++the+kernel+object+can+be+reused+with+new+argument+values+to+schedule%0A++the+kernel+function+again.'/>
+        <docPara content='To+release+the+resources+used+by+OpenCL%2C+the+application+must+call+the%0A++following+functions+before+terminating.'/>
+        <docPara content='%3CUL%3E%3CLI%3E+clReleaseKernel%0A%3C%2FLI%3E%3CLI%3E+clReleaseProgram%0A%3C%2FLI%3E%3CLI%3E+clReleaseCommandQueue%0A%3C%2FLI%3E%3CLI%3E+clReleaseContext%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+    </docSect>
+    <docSect name='OpenCL API Example Code'>
+        <docPara content='The+following+psudeo+code+gives+an+example+of+what+an+OpenCL+program%0A++would+look+like.+See+the%0A++%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2Fexamples%2Fhello%2Fpackage.html%22+title%3D%22ti.sdo.opencl.examples.hello%22%3EHello+Example%3C%2Fa%3E+for+a+working+program.'/>
+        <docPara content='%3CPRE+class%3D%22Example%22%3E++%23include+%26lt%3BCL%2Fopencl.h%26gt%3B%0A%0A++cl_context++++++++++context%3B%0A++cl_command_queue++++cmdQue%3B%0A++cl_program++++++++++program%3B%0A++cl_kernel+++++++++++helloKnl%3B%0A++Ptr+++++++++++++++++bufBase%3B%0A%0A%0A++%2F%2F++--------+OpenCL+Initialization+--------%0A%0A++%2F%2F+get+the+default+platform%0A++clGetPlatformIDs%28..%2C+platformAry%2C+..%29%3B%0A%0A++%2F%2F+get+an+accelerator+device%0A++clGetDeviceIDs%28platformAry%2C+..%2C+deviceAry%2C+..%29%3B%0A%0A++%2F%2F+create+a+context+for+the+accelerator+device%0A++context+%3D+clCreateContext%28..%2C+deviceAry%2C+..%29%3B%0A%0A++%2F%2F+create+a+command-queue+for+the+accelerator+device%0A++cmdQue+%3D+clCreateCommandQueue%28context%2C+deviceAry%2C+..%29%3B%0A%0A++%2F%2F+create+program+object%0A++program+%3D+clCreateProgramWithBinary%28context%2C+..%2C+deviceAry%2C+..%29%3B%0A%0A%0A++%2F%2F++--------+Application+Execute+Phase+--------%0A%0A++%2F%2F+create+a+handle+to+the+OpenCL+kernel+%28function%29%0A++helloKnl+%3D+clCreateKernel%28program%2C+%22HelloKnl%22%2C+..%29%3B%0A%0A++%2F%2F+allocate+buffer+using+host+allocated+memory%0A++bufBase+%3D+Memory_alloc%28heap%2C+64%2C+..%29%3B%0A%0A++%2F%2F+assign+the+kernel+arguments%0A++clSetKernelArg%28helloKnl%2C+0%2C+sizeof%28Ptr%29%2C+%26amp%3BbufBase%29%3B%0A%0A++%2F%2F+invoke+the+hello+world+kernel%0A++clEnqueueTask%28cmdQue%2C+helloKnl%2C+..%29%3B%0A%0A++%2F%2F+read+the+buffer+contents%0A++System_printf%28%22%25s%5Cn%22%2C+%28Char+*%29bufBase%29%3B%0A++Memory_free%28heap%2C+bufBase%2C+bufSize%29%3B%0A%0A%0A++%2F%2F++--------+OpenCL+Finalization+--------%0A%0A++clReleaseKernel%28helloKnl%29%3B%0A++clReleaseProgram%28program%29%3B%0A++clReleaseCommandQueue%28cmdQue%29%3B%0A++clReleaseContext%28context%29%3B%0A%0A%3C%2FPRE%3E'/>
+    </docSect>
+    <docSect name='OpenCL Kernel Example Code'>
+        <docPara content='The+following+psudeo+code+gives+an+example+of+what+an+OpenCL+kernel%0A++function+looks+like.+For+the+most+part%2C+it+looks+just+like+an+ordinary%0A++function.+However%2C+a+kernel+function+must+have+a+return+type+of+void%2C%0A++cannot+use+recursion%2C+and+does+not+support+pointers+to+functions.%0A++Additional+restrictions+are+specified+in+the+OpenCL+Spec+in+Section+6.8.'/>
+        <docPara content='%3CPRE+class%3D%22Example%22%3E++%23include+%26lt%3Bstring.h%26gt%3B%0A%0A++void+HelloKnl%28char+*buffer%29%0A++%7B%0A++++++strncpy%28buffer%2C+%22Hello+World%22%29%3B%0A++%7D%0A%0A%3C%2FPRE%3E'/>
+    </docSect>
+    <docSect name='OpenCL Runtime Registration'>
+        <docPara content='All+kernel+functions+must+be+registered+with+the+OpenCL+Runtime.+This%0A++is+done+using+static+initialization.+The+OpenCL+Runtime+references+the%0A++following+two+symbols.'/>
+        <docPara content='%3CPRE+class%3D%22Example%22%3E++Int+++++++++++++++++ti_sdo_opencl_ComputeDevices_numUnits%0A++ComputeDevice_Unit++ti_sdo_opencl_ComputeDevices_units%5B%5D%0A%3C%2FPRE%3E'/>
+        <docPara content='When+building+an+executable%2C+you+must+provide+a+source+file+which+declares%0A++and+statically+initializes+these+two+symbols.+The+following+figure%0A++gives+an+example.'/>
+        <docPara content='%3Cimg+src%3D%22.%2Fdoc-files%2FKernelTable.png%22+%2F%3E'/>
+        <docPara content='In+the+figure+above%2C+there+are+two+units%2C+ModA.c+and+ModB.c.+The+ModA%0A++unit+defines+one+kernel+function.+The+second+unit%2C+ModB%2C+defines+an%0A++init+and+exit+function+and+two+kernel+functions.+In+the+file+KernelTable.c%2C%0A++an+array+of+units+is+declared+and+initialized+with+the+contents+of%0A++ModA+and+ModB.'/>
+        <docPara content='Here+is+the+source+code+of+KernelTable.c'/>
+        <docPara content='%3CPRE+class%3D%22Example%22%3E++%23include+%26lt%3Bxdc%2Fstd.h%26gt%3B%0A++%23include+%26lt%3Bti%2Fsdo%2Fopencl%2FComputeDevice.h%26gt%3B%0A%0A++UInt+ModA_func1_args%5B%5D+%3D+%7B%0A++++++ti_cl_arg_type_GlobalPtr%2C%0A++++++ti_cl_arg_type_Int%2C%0A++++++ti_cl_arg_type_Int%0A++%7D%3B%0A%0A++ComputeDevice_FxnDesc+ModA_fxnTab%5B%5D+%3D+%7B%0A++++++%7B%0A++++++++++%22ModA_func1%22%2C+++++%2F%2F+fxn+name%0A++++++++++%28Fxn%29ModA_func1%2C++%2F%2F+fxn+address%0A++++++++++3%2C++++++++++++++++%2F%2F+num+args%0A++++++++++ModA_func1_args+++%2F%2F+arg+types%0A++++++%7D%0A++%7D%3B%0A%0A++UInt+ModB_func1_args%5B%5D+%3D+%7B%0A++++++ti_cl_arg_type_Int%2C%0A++++++ti_cl_arg_type_Int%0A++%7D%3B%0A%0A++UInt+ModB_func2_args%5B%5D+%3D+%7B%0A++++++ti_cl_arg_type_Int%2C%0A++++++ti_cl_arg_type_Int%2C%0A++++++ti_cl_arg_type_Int%2C%0A++++++ti_cl_arg_type_Int%0A++%7D%3B%0A%0A++ComputeDevice_FxnDesc+ModB_fxnTab%5B%5D+%3D+%7B%0A++++++%7B%0A++++++++++%22ModB_func1%22%2C+++++%2F%2F+fxn+name%0A++++++++++%28Fxn%29ModB_func1%2C++%2F%2F+fxn+address%0A++++++++++2%2C++++++++++++++++%2F%2F+num+args%0A++++++++++ModB_func1_args+++%2F%2F+arg+types%0A++++++%7D%2C%0A++++++%7B%0A++++++++++%22ModB_func2%22%2C+++++%2F%2F+fxn+name%0A++++++++++%28Fxn%29ModB_func2%2C++%2F%2F+fxn+address%0A++++++++++4%2C++++++++++++++++%2F%2F+num+args%0A++++++++++ModB_func2_args+++%2F%2F+arg+types%0A++++++%7D%0A++%7D%3B%0A%0A++Int+ti_sdo_opencl_ComputeDevice_numUnits+%3D+2%3B%0A++ComputeDevice_Unit+ti_sdo_opencl_ComputeDevice_units%5B%5D+%3D+%7B%0A++++++%7B+++%2F%2F+ModA%0A++++++++++NULL%2C%0A++++++++++NULL%2C%0A++++++++++1%2C%0A++++++++++ModA_fxnTab%0A++++++%7D%2C%0A++++++%7B+++%2F%2F+ModB%0A++++++++++ModB_initFxn%2C%0A++++++++++ModB_exitFxn%2C%0A++++++++++2%2C%0A++++++++++ModB_fxnTab%0A++++++%7D%0A++%7D%3B%0A%0A%3C%2FPRE%3E'/>
+    </docSect>
+    <docSect name='Available Functions'>
+        <docPara content='The+following+list+of+OpenCL+APIs+are+functional+in+this+port.+Please%0A++note%2C+this+is+work+in+progress+and+not+all+features+may+be+currently%0A++implemented.'/>
+        <docPara content='OpenCL+Platform+Layer'/>
+        <docPara content='%3CUL%3E%3CLI%3E+clGetPlatformIDs%0A%3C%2FLI%3E%3CLI%3E+clGetPlatformInfo%0A%3C%2FLI%3E%3CLI%3E+clGetDeviceIDs%0A%3C%2FLI%3E%3CLI%3E+clGetDeviceInfo%0A%3C%2FLI%3E%3CLI%3E+clCreateContext%0A%3C%2FLI%3E%3CLI%3E+clCreateContextFromType%0A%3C%2FLI%3E%3CLI%3E+clRetainContext%0A%3C%2FLI%3E%3CLI%3E+clReleaseContext%0A%3C%2FLI%3E%3CLI%3E+clGetContextInfo%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+        <docPara content='OpenCL+Execution+Layer'/>
+        <docPara content='%3CUL%3E%3CLI%3E+clCreateCommandQueue%0A%3C%2FLI%3E%3CLI%3E+clRetainCommandQueue%0A%3C%2FLI%3E%3CLI%3E+clReleaseCommandQueue%0A%3C%2FLI%3E%3CLI%3E+clGetCommandQueueInfo%0A%3C%2FLI%3E%3CLI%3E+clSetCommandQueueProperty%0A%3C%2FLI%3E%3CLI%3E+clCreateProgramWithBinary%0A%3C%2FLI%3E%3CLI%3E+clRetainProgram%0A%3C%2FLI%3E%3CLI%3E+clReleaseProgram%0A%3C%2FLI%3E%3CLI%3E+clGetProgramInfo%0A%3C%2FLI%3E%3CLI%3E+clCreateKernel%0A%3C%2FLI%3E%3CLI%3E+clSetKernelArg%0A%3C%2FLI%3E%3CLI%3E+clRetainKernel%0A%3C%2FLI%3E%3CLI%3E+clReleaseKernel%0A%3C%2FLI%3E%3C%2FUL%3E'/>
+    </docSect>
+    <docSect name='Legend'>
+        <docPara content='This+legend+applies+to+all+figures.'/>
+        <docPara content='%3Cimg+src%3D%22.%2Fdoc-files%2FLegend.png%22+%2F%3E'/>
+    </docSect>
+    <docSect name='See Also'>
+        <docPara content=''/>
+        <docPara content='%3CDL%3E%3CDT%3E+%3Ca+class%3D%22xdoc-linkExt%22+href%3D%22http%3A%2F%2Fwww.khronos.org%2Fregistry%2Fcl%2F%22+title%3D%22http%3A%2F%2Fwww.khronos.org%2Fregistry%2Fcl%2F%22%3EKhronos+OpenCL+Web+Site%3C%2Fa%3E%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2Fexamples%2Fpackage.html%22+title%3D%22ti.sdo.opencl.examples%22%3ESuite+of+OpenCL+examples+for+TI+devices%3C%2Fa%3E%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fsdo%2Fopencl%2Fexamples%2Fhello%2Fpackage.html%22+title%3D%22ti.sdo.opencl.examples.hello%22%3EHellow+World+example%3C%2Fa%3E%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+    </docSect>
+</package>

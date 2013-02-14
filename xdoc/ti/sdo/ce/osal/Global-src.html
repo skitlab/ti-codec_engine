@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>module ti.sdo.ce.osal.Global</title>
+<meta name="googlebot" content="noindex,nofollow">
+<link rel="stylesheet" type="text/css" href="../../../../src.css"/>
+</head>
+<body>
+<pre class=src>
+     1    <span class="comment">/* 
+</span>     2    <span class="comment"> * Copyright (c) 2012, Texas Instruments Incorporated
+</span>     3    <span class="comment"> * All rights reserved.
+</span>     4    <span class="comment"> *
+</span>     5    <span class="comment"> * Redistribution and use in source and binary forms, with or without
+</span>     6    <span class="comment"> * modification, are permitted provided that the following conditions
+</span>     7    <span class="comment"> * are met:
+</span>     8    <span class="comment"> *
+</span>     9    <span class="comment"> * *  Redistributions of source code must retain the above copyright
+</span>    10    <span class="comment"> *    notice, this list of conditions and the following disclaimer.
+</span>    11    <span class="comment"> *
+</span>    12    <span class="comment"> * *  Redistributions in binary form must reproduce the above copyright
+</span>    13    <span class="comment"> *    notice, this list of conditions and the following disclaimer in the
+</span>    14    <span class="comment"> *    documentation and/or other materials provided with the distribution.
+</span>    15    <span class="comment"> *
+</span>    16    <span class="comment"> * *  Neither the name of Texas Instruments Incorporated nor the names of
+</span>    17    <span class="comment"> *    its contributors may be used to endorse or promote products derived
+</span>    18    <span class="comment"> *    from this software without specific prior written permission.
+</span>    19    <span class="comment"> *
+</span>    20    <span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+</span>    21    <span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+</span>    22    <span class="comment"> * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+</span>    23    <span class="comment"> * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+</span>    24    <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+</span>    25    <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+</span>    26    <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+</span>    27    <span class="comment"> * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+</span>    28    <span class="comment"> * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+</span>    29    <span class="comment"> * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+</span>    30    <span class="comment"> * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>    31    <span class="comment"> * 
+</span>    32    <span class="comment"> */</span>
+    33    
+    34    <span class="xdoc">/*!
+</span>    35    <span class="xdoc"> *  ======== Global ========
+</span>    36    <span class="xdoc"> *  Global OS Abstract Layer Configuration
+</span>    37    <span class="xdoc"> */</span>
+    38    @Template(<span class="string">"./Global.xdt"</span>)
+    39    
+    40    <span class=key>metaonly</span> <span class=key>module</span> Global {
+    41    
+    42        <span class="xdoc">/*!
+</span>    43    <span class="xdoc">     *  ======== os ========
+</span>    44    <span class="xdoc">     *  A specific OSAL implementations "Settings" module, for example,
+</span>    45    <span class="xdoc">     *  ti.sdo.ce.osal.bios.Settings or ti.sdo.ce.osal.linux.Settings.
+</span>    46    <span class="xdoc">     *  To set the OS of the executable to BIOS, set Global.os to:
+</span>    47    <span class="xdoc">     *  xdc.useModule('ti.sdo.ce.osal.bios.Settings').
+</span>    48    <span class="xdoc">     *
+</span>    49    <span class="xdoc">     *  When this config param is used, the {@ link ti.sdo.ce.ipc.Settings#ipc
+</span>    50    <span class="xdoc">     *  config param must also be set.
+</span>    51    <span class="xdoc">     *
+</span>    52    <span class="xdoc">     *  This should only be used to explicitly configure the OSAL to
+</span>    53    <span class="xdoc">     *  a package not provided with Codec Engine.  To use an OSAL provided
+</span>    54    <span class="xdoc">     *  by Codec Engine, it's recommended to configure the OSAL using
+</span>    55    <span class="xdoc">     *  the runtimeEnv config param instead of this one.
+</span>    56    <span class="xdoc">     *
+</span>    57    <span class="xdoc">     *  See {@ link http://wiki.davincidsp.com/index.php?title=CE_Config_Updates
+</span>    58    <span class="xdoc">     *  for more details}
+</span>    59    <span class="xdoc">     *
+</span>    60    <span class="xdoc">     *  <b>@see</b> runtimeEnv
+</span>    61    <span class="xdoc">     */</span>
+    62        <span class=key>config</span> IOsal.Module os;
+    63    
+    64        <span class="xdoc">/*!
+</span>    65    <span class="xdoc">     *  ======== RuntimeOS ========
+</span>    66    <span class="xdoc">     *  All runtime OSs that are abstracted by this package.
+</span>    67    <span class="xdoc">     *
+</span>    68    <span class="xdoc">     *  <b>@see</b> runtimeEnv
+</span>    69    <span class="xdoc">     */</span>
+    70        <span class=key>enum</span> RuntimeEnv {
+    71            NONE          = 0,   <span class="xdoc">/*! no OS; threads are not truly supported */</span>
+    72            DSPBIOS       = 1,   <span class="xdoc">/*! DSP/BIOS  */</span>
+    73            LINUX         = 2,   <span class="xdoc">/*! Linux */</span>
+    74            DSPLINK_BIOS  = 3,   <span class="xdoc">/*! DSPLINK + BIOS (DSP) */</span>
+    75            DSPLINK_LINUX = 4,   <span class="xdoc">/*! DSPLINK + Linux (ARM) */</span>
+    76            WINCE         = 5,   <span class="xdoc">/*! Windows CE */</span>
+    77            DSPLINK_WINCE = 6    <span class="xdoc">/*! DSPLINK + Windows CE (ARM) */</span>
+    78        };
+    79    
+    80        <span class="xdoc">/*!
+</span>    81    <span class="xdoc">     *  ======== runtimeEnv ========
+</span>    82    <span class="xdoc">     *  The runtime OS used to implement the abstractions provided by
+</span>    83    <span class="xdoc">     *  this package.
+</span>    84    <span class="xdoc">     *
+</span>    85    <span class="xdoc">     *  <b>@see</b> RuntimeEnv
+</span>    86    <span class="xdoc">     */</span>
+    87        <span class=key>config</span> RuntimeEnv runtimeEnv;
+    88    
+    89        <span class="xdoc">/*!
+</span>    90    <span class="xdoc">     *  ======== skipVirtualAddressTranslation ========
+</span>    91    <span class="xdoc">     *  If set to true, will make Memory_getBufferPhysicalAddress()
+</span>    92    <span class="xdoc">     *  skip address translation and return the given address as the
+</span>    93    <span class="xdoc">     *  physical address. Needed when the VISA calls are made with
+</span>    94    <span class="xdoc">     *  physical buffer addresses instead of virtual ones, specifically
+</span>    95    <span class="xdoc">     *  in the multi-process-via-kernel-driver case.
+</span>    96    <span class="xdoc">     *
+</span>    97    <span class="xdoc">     *  Applies only to environments where virtual memory is used (e.g. Linux)
+</span>    98    <span class="xdoc">     *  <b>@_nodoc</b>
+</span>    99    <span class="xdoc">     */</span>
+   100        <span class=key>config</span> <span class=key>bool</span> skipVirtualAddressTranslation = <span class=key>false</span>;
+   101    
+   102        <span class="xdoc">/*!
+</span>   103    <span class="xdoc">     *  ======== embedBuildInfo ========
+</span>   104    <span class="xdoc">     *  Indication whether to embed build info (packages and their directories)
+</span>   105    <span class="xdoc">     *  into the generated executable for debugging/diagnostic purposes.
+</span>   106    <span class="xdoc">     *  Setting this to 'false' may reduce the static data size by around 1K.
+</span>   107    <span class="xdoc">     *  Applies to all configurations.
+</span>   108    <span class="xdoc">     */</span>
+   109        <span class=key>config</span> Bool embedBuildInfo = <span class=key>true</span>;
+   110    
+   111        <span class="xdoc">/*!
+</span>   112    <span class="xdoc">     *  ======== addObjectToProgramInfoFile ========
+</span>   113    <span class="xdoc">     *  Internal method for adding an object to an XML-like program info file
+</span>   114    <span class="xdoc">     *  created alongside the executable
+</span>   115    <span class="xdoc">     * <b>@_nodoc</b>
+</span>   116    <span class="xdoc">     */</span>
+   117        <span class=key>function</span> addObjectToProgramInfoFile( objName, obj );
+   118    
+   119        <span class="xdoc">/*!
+</span>   120    <span class="xdoc">     *  ======== parseInfoFile ========
+</span>   121    <span class="xdoc">     *  Internal method for parsing an XML-like server program file
+</span>   122    <span class="xdoc">     *  that lies alongside the executable
+</span>   123    <span class="xdoc">     * <b>@_nodoc</b>
+</span>   124    <span class="xdoc">     */</span>
+   125        <span class=key>function</span> parseInfoFile( infoFile );
+   126    
+   127        <span class="xdoc">/*!
+</span>   128    <span class="xdoc">     *  ======== validate ========
+</span>   129    <span class="xdoc">     *  Internal validate method (see package.xs)
+</span>   130    <span class="xdoc">     * <b>@_nodoc</b>
+</span>   131    <span class="xdoc">     */</span>
+   132        <span class=key>function</span> validate();
+   133    
+   134    }
+   135    <span class="comment">/*
+</span>   136    <span class="comment"> *  @(#) ti.sdo.ce.osal; 2, 0, 2,1; 2-24-2012 19:30:12; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+</span>   137    <span class="comment">
+</span>   138    <span class="comment"> */</span>
+   139    
+</pre>
+</body></html>

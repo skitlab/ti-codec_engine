@@ -1,0 +1,158 @@
+/* 
+ * Copyright (c) 2012, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+
+/*
+ *  ======== package.bld ========
+ */
+
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+var serverBaseName = "audio_copy";
+
+/* when constructing a release, release everything */
+//Pkg.attrs.exportExe = true;
+Pkg.otherFiles = [
+    "main.c", "audio_copy.cfg", "heaps.cfg",
+    "link.cmd", "package.bld", "_config.bld", "makefile",
+    "ti_platforms_evm3530.cfg",
+    "ti_platforms_evmTI814X.cfg", "ti_platforms_evmTI816X.cfg",
+    "ti_platforms_evmTI813X.cfg",
+    "serverplatforms.xs", "package/info"
+    ];
+
+// set 'theProf' to 'debug' for faster builds (with lower performance)
+var theProf = 'debug';//'whole_program_debug';
+
+/* bin/ is a generated directory that 'xdc clean' should remove */
+Pkg.generatedFiles.$add("bin/");
+
+/*
+ * When using this package with the CE examples build, xdcpaths.mak can be
+ * used to determine which PROGRAMS to build for (e.g. APP_LOCAL or APP_CLIENT).
+ *
+ * If PROGRAMS is set via the XDCARGS, we respect that, and only build what's
+ * requested.  Else, we build everything we can.
+ */
+var programs = undefined;
+for (x = 0; x < arguments.length; x++) {
+    if (arguments[x].match(/^PROGRAMS=/)) {
+        programs = arguments[x].split("=")[1];
+//        print("programs:  " + programs);
+    }
+}
+
+for (var i = 0; i < Build.targets.length; i++) {
+
+    if ((programs != undefined) && (!programs.match(/DSP_SERVER/))) {
+        break;
+    }
+
+    var targ = Build.targets[i];
+
+    /* only build for BIOS-based targets */
+    if (targ.os == undefined) {
+
+        /* No A8 Server yet */
+        if (targ.isa == "v7A") {
+            continue;
+        }
+
+//        print("building for target " + targ + " ...");
+
+        /* Platforms were added to targ.platforms[] in config.bld */
+        for (var j = 0; j < targ.platforms.length; j++) {
+            var platform = targ.platforms[j];
+
+//            print("  platform:  " + platform);
+
+            var platInst = Build.usePlatform(platform);
+            var platMod = platInst.$module;
+
+            if (platform.match(/simTesla/) || platform.match(/sdp4430/)) {
+//                print("   skipping unsupported platform");
+                continue;
+            }
+
+            if (platform.match(/evm6472|evm6474|6608|6616|6670|6678/)) {
+                /* homogeneous multicore, IPC-based Server */
+                continue;
+            }
+            else {
+                /* heterogeneous multicore, syslink-based Server */
+                addExe(targ, platform, "audio_copy");
+            }
+        }
+    }
+}
+
+/*
+ *  ======== addExe ========
+ */
+function addExe(targ, platform, cfg)
+{
+    /* if on a C64, cache is enabled, and buffer alignment is 128 */
+    var compileOpts = targ.suffix.match("64") ?
+        "-DBUFALIGN=128 -DCACHE_ENABLED" : "";
+
+    /* Create the list of source files to build. */
+    var srcs = ["main.c"];
+
+    // name = bin/platform/name.x+suffix
+    var serverCoreSuffix = platform.match(/:.*$/);
+    if (serverCoreSuffix != null) {
+        serverCoreSuffix = serverCoreSuffix[0].replace(/\:/g, "_");
+    }
+    else {
+        serverCoreSuffix = "";
+    }
+
+    var platformBaseName = platform.replace(/(\w+)\:.*$/, "$1").replace(/\./g, "_");
+    var name = "bin/" +
+        platformBaseName + '/' + serverBaseName + serverCoreSuffix;
+print("exe name = '" + name + "'");
+
+    Pkg.addExecutable(name, targ, platform, {
+        copts: compileOpts,
+        profile: theProf,
+        cfgScript: cfg + ".cfg",
+        cfgArgs: "{ platform: \"" + platform + "\" }",
+        lopts: "-l link.cmd"
+    }).addObjects(srcs);
+}
+
+/*
+ *  @(#) ti.sdo.ce.examples.servers.server_api_example; 1, 0, 0,1; 2-24-2012 19:29:46; /db/atree/library/trees/ce/ce-t06/src/ xlibrary
+
+ */
+

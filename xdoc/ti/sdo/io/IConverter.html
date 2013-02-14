@@ -1,0 +1,413 @@
+<html>
+<head>
+<title>interface ti.sdo.io.IConverter</title>
+<meta name="description" content="Interface defining an IConverter">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">interface</span> <span class="xdoc-id">ti.sdo.io.</span><span class="xdoc-id">IConverter</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/package.html" title="package ti.sdo.io"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IDriver.html" title="interface IDriver"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html">index URL</a></div>
+<p class="xdocHdrSummary">Interface defining an IConverter</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#targ-synop">C synopsis</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+This interfaces allows applications to "stack" functionality on top
+  of a driver. Modules that implement this interface can manipulate data
+  coming to and from a driver. Simple scaling, fixed to float or float to
+  fixed transformations can be done using IConverters without major changes
+  in the application.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id">XDCspec</span></tt> summary</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynX">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">interface</span> <go><span class="xdoc-id">IConverter</span></go> {<b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt>//&nbsp;inherits <a class="xdoc-link" href="../../../xdc/runtime/IModule.html" title="xdc.runtime.IModule">xdc.runtime.IModule</a></div>
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">instance</span>:<b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynX">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">package</span> <a class="xdoc-link" href="../../../ti/sdo/io/package.html" title="ti.sdo.io">ti.sdo.io</a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">interface</span> <go><span class="xdoc-id">IConverter</span></go> {
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">const</span> <span class="xdoc-kw2">Int</span>&nbsp;<a class="xdocSynGo" href="#.Q_.T.E.R.M.I.N.A.T.I.N.G"><span class="xdoc-id">Q_TERMINATING</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Terminating quality</span></span></a> = 1;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw2">Void</span>&nbsp;(*<a class="xdocSynGo" href="#.Done.Fxn"><span class="xdoc-id">DoneFxn</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Typedef for callback function</span></span></a>)(<span class="xdoc-kw2">UArg</span>);
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a>&nbsp;<a class="xdocSynGo" href="#common$"><span class="xdoc-id">common$</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Common module configuration parameters</span></span></a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">instance</span>:
+</div>
+<div class='xdocSynHdr'>per-instance functions</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#close"><span class="xdoc-id">close</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Close an IConverter Instance</span></span></a>(<a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#control"><span class="xdoc-id">control</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Send a control command</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes.ControlCmd</a>&nbsp;<go><span class="xdoc-id">cmd</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">cmdArg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#issue"><span class="xdoc-id">issue</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Issue a packet for IO</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes.Packet</a>&nbsp;*<go><span class="xdoc-id">packet</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#open"><span class="xdoc-id">open</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Opens the IConverter Instance</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">mode</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">chanParams</span></go>, <a class="xdoc-link" href="../../../ti/sdo/io/IConverter.html#.Done.Fxn" title="ti.sdo.io.IConverter.DoneFxn">IConverter.DoneFxn</a>&nbsp;<go><span class="xdoc-id">cbFxn</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">cbArg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Bool</span>&nbsp;<a class="xdocSynGo" href="#query"><span class="xdoc-id">query</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Query for qualities supported</span></span></a>(<span class="xdoc-kw2">Int</span>&nbsp;<go><span class="xdoc-id">qual</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#reclaim"><span class="xdoc-id">reclaim</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Reclaim a previously issued packet</span></span></a>(<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes.Packet</a>&nbsp;**<go><span class="xdoc-id">packetp</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt></tt>}
+</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This interfaces allows applications to "stack" functionality on top
+  of a driver. Modules that implement this interface can manipulate data
+  coming to and from a driver. Simple scaling, fixed to float or float to
+  fixed transformations can be done using IConverters without major changes
+  in the application.</div>
+<div class="xdocText">IConverters can only be used along with the <a class="xdoc-link" href="Stream.html" title="Stream">Stream</a> module.</div>
+<div class="xdocText">Stream maintains a name table of <a class="xdoc-link" href="IConverter.html" title="IConverter">IConverter</a> handles. 
+  This table is used by Stream to create an IO stack. The name passed to
+  <a class="xdoc-link" href="Stream.html#per-instance_creation" title="Stream.create">Stream.create</a> is usually of the form "/scale/uart". This name may
+  correspond to the following IO stack.</div>
+<div class="xdocText">Stream Instance</div>
+<div class="xdocText">|</div>
+<div class="xdocText">V</div>
+<div class="xdocText">IConverter Instance (/scale)</div>
+<div class="xdocText">|</div>
+<div class="xdocText">V</div>
+<div class="xdocText">IDriver Instance (/uart)</div>
+<div class="xdocText">In this case the Stream requires "/scale" to be in its IConverter table 
+  and "/uart" to be in <a class="xdoc-link" href="DriverTable.html" title="DriverTable">DriverTable</a>. The IConverter table associates
+  a name with an IConverter Handle. Note that these names have to be of the
+  form "/name1".</div>
+<div class="xdocText">There may be several other IConverters such as a 
+  <a class="xdoc-link" href="../../../ti/sdo/io/converters/Transformer.html" title="ti.sdo.io.converters.Transformer">ti.sdo.io.converters.Transformer</a> instance in the stack.</div>
+<div class="xdocText">IConverter implementation follows a simple asynchronous issue/reclaim
+  model. Once an instance of an IConverter is created it accepts IO
+  packets through the <a class="xdoc-link" href="IConverter.html#issue" title="issue">issue</a> function. Issue ALWAYS results in a 
+  callback when IO completes or an error occurs.</div>
+<div class="xdocText">The IConverter device above it in the stack or the <a class="xdoc-link" href="Stream.html" title="Stream">Stream</a> 
+  module will call <a class="xdoc-link" href="IConverter.html#reclaim" title="reclaim">reclaim</a> to get the packet back.</div>
+<div class="xdocText"><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">ti.sdo.io.DriverTypes.ControlCmd</a> are sent to the IConverters or the 
+  underlying drivers using <a class="xdoc-link" href="IConverter.html#control" title="control">control</a> function.</div>
+<div class="xdocText">Only  packets with <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.R.E.A.D" title="ti.sdo.io.DriverTypes.READ">ti.sdo.io.DriverTypes.READ</a> and 
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.W.R.I.T.E" title="ti.sdo.io.DriverTypes.WRITE">ti.sdo.io.DriverTypes.WRITE</a> are operated on by IConverter. Other 
+  commands are passed down.</div>
+<div id="xdocSep">
+</div>
+<div id="xdocElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Q_.T.E.R.M.I.N.A.T.I.N.G"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">const</span> <span class="xdoc-id">IConverter.</span><span class="xdoc-id">Q_TERMINATING</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#.Q_.T.E.R.M.I.N.A.T.I.N.G">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Terminating quality</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">const</span> <span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id">Q_TERMINATING</span> = 1;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Implementations with this "quality" can be at the bottom of the IO
+  stack</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Done.Fxn"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">typedef</span> <span class="xdoc-id">IConverter.</span><span class="xdoc-id">DoneFxn</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#.Done.Fxn">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Typedef for callback function</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">typedef</span> <span class="xdoc-kw2">Void</span>&nbsp;(*<span class="xdoc-id">DoneFxn</span>)(<span class="xdoc-kw2">UArg</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The IConverter instance lower in the stack will invoke this callback 
+  whenever an I/O operation completes.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="common$"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">IConverter.</span><span class="xdoc-id">common$</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#common$">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Common module configuration parameters</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a>&nbsp;<span class="xdoc-id">common$</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">All modules have this configuration parameter.  Its name
+  contains the '$' character to ensure it does not conflict with
+  configuration parameters declared by the module.  This allows
+  new configuration parameters to be added in the future without
+  any chance of breaking existing modules.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="close"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IConverter.</span><span class="xdoc-id">close</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#close">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Close an IConverter Instance</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">close</span>(<a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="control"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IConverter.</span><span class="xdoc-id">control</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#control">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Send a control command</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">control</span>(<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes.ControlCmd</a>&nbsp;<span class="xdoc-id">cmd</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">cmdArg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">cmd</span>
+<span class="xdocChildSum">&#151;&nbsp;control cmd</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmdArg</span>
+<span class="xdocChildSum">&#151;&nbsp;control cmd arg</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The IConverter will respond to command meant for it and pass down all
+  others.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="issue"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IConverter.</span><span class="xdoc-id">issue</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#issue">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Issue a packet for IO</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">issue</span>(<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes.Packet</a>&nbsp;*<span class="xdoc-id">packet</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">packet</span>
+<span class="xdocChildSum">&#151;&nbsp;IO packet</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;Error Block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The IConverter might work on the buffer of data if the mode is
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.O.U.T.P.U.T" title="ti.sdo.io.DriverTypes.OUTPUT">ti.sdo.io.DriverTypes.OUTPUT</a> and call the issue function for the
+  IConverter lower in the stack. Some IConverters may be the last in
+  the IO stack. issue() always results in a callback.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="open"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IConverter.</span><span class="xdoc-id">open</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#open">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Opens the IConverter Instance</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">open</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">mode</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">chanParams</span>, <a class="xdoc-link" href="../../../ti/sdo/io/IConverter.html#.Done.Fxn" title="ti.sdo.io.IConverter.DoneFxn">IConverter.DoneFxn</a>&nbsp;<span class="xdoc-id">cbFxn</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">cbArg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;remaining name</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">mode</span>
+<span class="xdocChildSum">&#151;&nbsp;DriverTypes_INPUT/OUTPUT</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">chanParams</span>
+<span class="xdocChildSum">&#151;&nbsp;channel params for driver at the bottom of stack</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cbFxn</span>
+<span class="xdocChildSum">&#151;&nbsp;callback function</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cbArg</span>
+<span class="xdocChildSum">&#151;&nbsp;callback function arg</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This is called at runtime after the IConverter instance has been
+  created. This function opens the IConverter instance lower in the
+  stack and gives its callback function and arg.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="query"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IConverter.</span><span class="xdoc-id">query</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#query">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Query for qualities supported</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Bool</span>&nbsp;<span class="xdoc-id">query</span>(<span class="xdoc-kw2">Int</span>&nbsp;<span class="xdoc-id">qual</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">qual</span>
+<span class="xdocChildSum">&#151;&nbsp;quality to be tested</span>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="reclaim"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IConverter.</span><span class="xdoc-id">reclaim</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IConverter.html#reclaim">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Reclaim a previously issued packet</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IConverter-src.html"><span class="xdocLabelFile">ti/sdo/io/IConverter.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">reclaim</span>(<a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes.Packet</a>&nbsp;**<span class="xdoc-id">packetp</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">packetp</span>
+<span class="xdocChildSum">&#151;&nbsp;pointer to returned packet</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;Error Block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The IConverter will call the reclaim function for the
+  IConverter lower in the stack. It may work on the buffer of data 
+  returned if the mode is <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.I.N.P.U.T" title="ti.sdo.io.DriverTypes.INPUT">ti.sdo.io.DriverTypes.INPUT</a>.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:15 GMT</div>
+</div></div></body>
+</html>

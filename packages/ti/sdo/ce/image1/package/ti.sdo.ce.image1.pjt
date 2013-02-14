@@ -1,0 +1,15 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.sdo.ce.image1"
+ProjectType=External
+CPUFamily=TMS470R4X
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../package/package_ti.sdo.ce.image1.c"
+Source="../imgdec1.c"
+Source="../imgdec1_skel.c"
+Source="../imgdec1_stubs.c"
+Source="../imgenc1.c"
+Source="../imgenc1_skel.c"
+Source="../imgenc1_stubs.c"

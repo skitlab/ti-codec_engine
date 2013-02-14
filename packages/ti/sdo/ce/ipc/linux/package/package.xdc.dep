@@ -1,0 +1,57 @@
+clean::
+	$(RM) package/ti.sdo.ce.ipc.linux.sch
+	$(RM) package/.vers_g180
+	$(RM) package/.vers_r170
+	$(RM) package/.vers_b150
+	$(RM) package/.xdc-y25
+	$(RM) package/ti_sdo_ce_ipc_linux.java
+	$(RM) package/ti_sdo_ce_ipc_linux.class
+	$(RM) package/package_ti.sdo.ce.ipc.linux.c
+	$(RM) package/package.defs.h
+	$(RM) package/ti.sdo.ce.ipc.linux.ccs
+
+.interfaces: package/ti.sdo.ce.ipc.linux.sch package/.vers_g180 package/.vers_r170 package/.vers_b150 package/.xdc-y25 package/ti_sdo_ce_ipc_linux.java package/package_ti.sdo.ce.ipc.linux.c package/package.defs.h package/ti.sdo.ce.ipc.linux.ccs 
+package/package.xdc.inc: package/.vers_g180
+package/.vers_g180:
+package/package.xdc.inc: package/.vers_r170
+package/.vers_r170:
+package/package.xdc.inc: package/.vers_b150
+package/.vers_b150:
+
+.interfaces: Ipc.xdc 
+
+# schema include file dependencies
+package.xs:
+package/package.xdc.inc: package.xs
+
+# schema update dependencies
+package/package.xdc.inc: Ipc.xdc
+package/package.xdc.inc: xdc/IPackage.xdc
+xdc/IPackage.xdc:
+vpath xdc/IPackage.xdc $(XPKGVPATH)
+package/package.xdc.inc: ti/sdo/ce/ipc/IIpc.xdc
+ti/sdo/ce/ipc/IIpc.xdc:
+vpath ti/sdo/ce/ipc/IIpc.xdc $(XPKGVPATH)
+
+ifneq (clean,$(MAKECMDGOALS))
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/global/java/package.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/global/java/package.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/ecj.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/ecj.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/intern/gen/java/package.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/intern/gen/java/package.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/antlr.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/antlr.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/intern/xsr/java/package.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/intern/xsr/java/package.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/tar.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/tar.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/spec/java/package.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/spec/java/package.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/intern/cmd/java/package.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/services/intern/cmd/java/package.jar
+/swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/js.jar:
+package/package.xdc.inc: /swcoe/sdk/cm/netra/ti-ezsdk_dm816x-evm_5_05_01_04/component-sources/xdctools_3_23_03_53/packages/xdc/shelf/java/js.jar
+endif
+# goals for files generated during schema generation but unspecified by schema's pattern rule
+

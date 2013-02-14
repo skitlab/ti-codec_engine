@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='khronos.opencl' nodoc='0' root='../../' summary='OpenCL+-+Open+Compute+Language'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ekhronos.opencl%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <docSect name='details'>
+        <docPara content='The+open+standard+for+parallel+programming+of+heterogeneous+systems.'/>
+        <docPara content='OpenCL%28TM%29+is+the+first+open%2C+royalty-free+standard+for+cross-platform%2C%0A++parallel+programming+of+modern+processors+found+in+personal+computers%2C%0A++servers+and+handheld%2Fembedded+devices.+OpenCL+%28Open+Computing+Language%29%0A++greatly+improves+speed+and+responsiveness+for+a+wide+spectrum+of%0A++applications+in+numerous+market+categories+from+gaming+and+entertainment%0A++to+scientific+and+medical+software.'/>
+    </docSect>
+    <docSect name='See Also'>
+        <docPara content=''/>
+        <docPara content='%3CDL%3E%3CDT%3E+%3Ca+class%3D%22xdoc-linkExt%22+href%3D%22http%3A%2F%2Fwww.khronos.org%2F%22+title%3D%22http%3A%2F%2Fwww.khronos.org%2F%22%3EKhronos+Web+Site%3C%2Fa%3E%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+    </docSect>
+</package>

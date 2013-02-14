@@ -1,0 +1,293 @@
+<html>
+<head>
+<title>module ti.sdo.tiler.Settings</title>
+<meta name="description" content="Global configuration settings for the ti.sdo.tiler package">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">module</span> <span class="xdoc-id">ti.sdo.tiler.</span><span class="xdoc-id">Settings</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/package.html" title="package ti.sdo.tiler"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html">index URL</a></div>
+<p class="xdocHdrSummary">Global configuration settings for the ti.sdo.tiler package</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#meta-synop">XDCscript usage</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocMetaElems">Individual elements</a></li>
+</ul>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2">XDCscript</span></tt> usage</td>
+<td class="xdocLabelCenter">meta-domain</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/tiler/Settings-src.html"><span class="xdocLabelFile">ti/sdo/tiler/Settings.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynM">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">var</span> Settings = <span class="xdoc-kw3">xdc.useModule</span>(<span class="xdoc-id">'ti.sdo.tiler.Settings'</span>);
+</div>
+<div class='xdocSynHdr'>module-wide constants & types</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><i>values of type <a class="xdocSynGo" href="#.Oper.Sys">Settings.<span class="xdoc-id">OperSys</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Operating systems used for hosting the tiler manager</span></span></a></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Oper.Sys" title="ti.sdo.tiler.Settings.OperSys">Settings.<span class="xdoc-id">OperSys_Linux</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Oper.Sys" title="ti.sdo.tiler.Settings.OperSys">Settings.<span class="xdoc-id">OperSys_WinCE</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Oper.Sys" title="ti.sdo.tiler.Settings.OperSys">Settings.<span class="xdoc-id">OperSys_RTOS</span></a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><i>values of type <a class="xdocSynGo" href="#.Tiler.Lib">Settings.<span class="xdoc-id">TilerLib</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Available tiler library implementations</span></span></a></i>
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Tiler.Lib" title="ti.sdo.tiler.Settings.TilerLib">Settings.<span class="xdoc-id">TilerLib_Stub</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Tiler.Lib" title="ti.sdo.tiler.Settings.TilerLib">Settings.<span class="xdoc-id">TilerLib_Skel</span></a>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> <a class="xdocSynGo" href="#.Tiler.Lib" title="ti.sdo.tiler.Settings.TilerLib">Settings.<span class="xdoc-id">TilerLib_Direct</span></a>;
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#heap.Id">Settings.<span class="xdoc-id">heapId</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Heap id to use for allocating messages</span></span></a> = <i><span class="xdoc-kw2">UInt16</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#tiler.Daemon.Name">Settings.<span class="xdoc-id">tilerDaemonName</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Specifies the name of the tiler daemon</span></span></a> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#tiler.Lib">Settings.<span class="xdoc-id">tilerLib</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Specify which tiler library implementation to use</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/tiler/Settings.html#.Tiler.Lib" title="ti.sdo.tiler.Settings.TilerLib">Settings.TilerLib</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><a class="xdocSynGo" href="#tiler.Manager.O.S">Settings.<span class="xdoc-id">tilerManagerOS</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Specifies operating system on which the tiler manager is running</span></span></a> = <i><a class="xdoc-link" href="../../../ti/sdo/tiler/Settings.html#.Oper.Sys" title="ti.sdo.tiler.Settings.OperSys">Settings.OperSys</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+</div>
+<div id="xdocSep">
+</div>
+<div id="xdocMetaElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Oper.Sys"></a>
+<a class="xdocAnchor" id=".Oper.Sys_.Linux"></a>
+<a class="xdocAnchor" id=".Oper.Sys_.Win.C.E"></a>
+<a class="xdocAnchor" id=".Oper.Sys_.R.T.O.S"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">OperSys</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html#.Oper.Sys">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Operating systems used for hosting the tiler manager</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i>values of type Settings.<span class="xdoc-id">OperSys</span></i>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Settings.<span class="xdoc-id">OperSys_Linux</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Settings.<span class="xdoc-id">OperSys_WinCE</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Settings.<span class="xdoc-id">OperSys_RTOS</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">VALUES</div>
+<div class="xdocChild"><span class="xdocChildId">OperSys_Linux</span>
+<span class="xdocChildSum">&#151;&nbsp;The tiler manager is running on Linux.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">OperSys_WinCE</span>
+<span class="xdocChildSum">&#151;&nbsp;The tiler manager is running on WindowsCE.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">OperSys_RTOS</span>
+<span class="xdocChildSum">&#151;&nbsp;The tiler manager is running on a real-time
+  operating system which does not make a distinction between
+  user and kernel modes.</span>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id=".Tiler.Lib"></a>
+<a class="xdocAnchor" id=".Tiler.Lib_.Stub"></a>
+<a class="xdocAnchor" id=".Tiler.Lib_.Skel"></a>
+<a class="xdocAnchor" id=".Tiler.Lib_.Direct"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">enum</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">TilerLib</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html#.Tiler.Lib">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Available tiler library implementations</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><i>values of type Settings.<span class="xdoc-id">TilerLib</span></i>
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Settings.<span class="xdoc-id">TilerLib_Stub</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Settings.<span class="xdoc-id">TilerLib_Skel</span>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">const</span> Settings.<span class="xdoc-id">TilerLib_Direct</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">VALUES</div>
+<div class="xdocChild"><span class="xdocChildId">TilerLib_Stub</span>
+<span class="xdocChildSum">&#151;&nbsp;This library implements stub functions
+  which make remote function calls to a tiler manager on another
+  core. When using this value, you must also specify the
+  <a class="xdoc-link" href="Settings.html#tiler.Daemon" title="tilerDaemon">tilerDaemon</a> config param.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">TilerLib_Skel</span>
+<span class="xdocChildSum">&#151;&nbsp;This library implements the skel
+  functions which are the remote parts of the stub functions.
+  Use this value when configuring the tiler daemon. When using
+  this value, you must also specify the <a class="xdoc-link" href="Settings.html#tiler.Manager.O.S" title="tilerManagerOS">tilerManagerOS</a>
+  config param.</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">TilerLib_Direct</span>
+<span class="xdocChildSum">&#151;&nbsp;This library links in direct calls to
+  the tiler manager. Use this value when configuring a program
+  which is running on the same core as the tiler manager. When
+  using this value, you must also specify the <a class="xdoc-link" href="Settings.html#tiler.Manager.O.S" title="tilerManagerOS">tilerManagerOS</a>
+  config param.</span>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="heap.Id"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">heapId</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html#heap.Id">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Heap id to use for allocating messages</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Settings.<span class="xdoc-id">heapId</span> = <i><span class="xdoc-kw2">UInt16</span></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">When using a remote tiler manager, the client application must
+  send messages to execute the tiler manager functions. This config
+  param is used by the underlying IPC layers to identify which heap
+  should be used for allocating these messages.</div>
+<div class="xdocText">If the executable is making direct (local) calls to the tiler
+  manager, then leave this config param undefined.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="tiler.Daemon.Name"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">tilerDaemonName</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html#tiler.Daemon.Name">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Specifies the name of the tiler daemon</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Settings.<span class="xdoc-id">tilerDaemonName</span> = <i><span class="xdoc-kw2">String</span></i> <span class="xdoc-kw2">null</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">When configuring an executable which is using a tiler manager
+  that is running on another core, this config param must be set
+  to the name of the tiler daemon.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="tiler.Lib"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">tilerLib</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html#tiler.Lib">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Specify which tiler library implementation to use</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Settings.<span class="xdoc-id">tilerLib</span> = <i><a class="xdoc-link" href="../../../ti/sdo/tiler/Settings.html#.Tiler.Lib" title="ti.sdo.tiler.Settings.TilerLib">Settings.TilerLib</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This config param specifies which tiler library implementation to
+  link into the program. There are several different versions:</div>
+<div class="xdocText"><UL><LI> A tiler client program where the tiler manager is running
+  on another core. Use <a class="xdoc-link" href="Settings.html#.Tiler.Lib_.Stub" title="TilerLib_Stub">TilerLib_Stub</a>.
+</LI><LI> A tiler daemon program which is used to service remote
+  tiler client programs. The daemon must be running on the same core
+  as the tiler manager. Use <a class="xdoc-link" href="Settings.html#.Tiler.Lib_.Skel" title="TilerLib_Skel">TilerLib_Skel</a>.
+</LI><LI> A tiler client program running on the same core as the
+  tiler manager. Use <a class="xdoc-link" href="Settings.html#.Tiler.Lib_.Direct" title="TilerLib_Direct">TilerLib_Direct</a>.
+</LI></UL></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="tiler.Manager.O.S"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">config</span> <span class="xdoc-id">Settings.</span><span class="xdoc-id">tilerManagerOS</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/tiler/Settings.html" title="module Settings"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/tiler/Settings.html#tiler.Manager.O.S">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Specifies operating system on which the tiler manager is running</p>
+<span id='meta-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id-meta2dcl">XDCscript</span></tt> usage</td>
+<td class="xdocLabelRight">meta-domain</td>
+</tr></table>
+<div class="xdocSynMdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt>Settings.<span class="xdoc-id">tilerManagerOS</span> = <i><a class="xdoc-link" href="../../../ti/sdo/tiler/Settings.html#.Oper.Sys" title="ti.sdo.tiler.Settings.OperSys">Settings.OperSys</a></i> <span class="xdoc-kw2">undefined</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">When configuring a program which is running on the same core
+  as the tiler manager, set this config param to the host operating
+  system. If the tiler manager is not part of the executable, then
+  leave it undefined.</div>
+<div class="xdocText">For example, if building an executable which is running on the same
+  core as the tiler manager, (e.g. a local tiler client or the tiler
+  daemon) then set this config param to the OS type. If building an
+  executable which is making tiler calls to another core (e.g. a
+  remote tiler client), then leave this config param undefined.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:10 GMT</div>
+</div></div></body>
+</html>

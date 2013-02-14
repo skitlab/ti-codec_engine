@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.sdo.opencl.platforms.c6472' nodoc='0' root='../../../../../' summary='TI+OMAP3530+OpenCL+Platform+Implementation'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.sdo.opencl.platforms.c6472%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <docSect name='See Also'>
+        <docPara content=''/>
+        <docPara content='%3CDL%3E%3CDT%3E+%3Ca+class%3D%22xdoc-linkExt%22+href%3D%22http%3A%2F%2Fwww.khronos.org%2F%22+title%3D%22http%3A%2F%2Fwww.khronos.org%2F%22%3EKhronos+Web+Site%3C%2Fa%3E%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+    </docSect>
+</package>

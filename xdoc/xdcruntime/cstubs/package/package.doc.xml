@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='xdcruntime.cstubs' nodoc='0' root='../../' summary='XDC+Runtime+delegates+for+calling+out+to+C+functions'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Erequires%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2Fknl%2Fpackage.html%22+title%3D%22xdc.runtime.knl%22%3Exdc.runtime.knl%3C%2Fa%3E%3B'/>
+    <line blank='1' always='0'/>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Exdcruntime.cstubs%3C%2Fspan%3E%3C%2Fgo%3E+%5B1%2C+0%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='LoggerFlex' kind='module' nodoc='0' metaonly='0' summary='' inherits='xdc.runtime.ILogger'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2Fpackage.html%22+title%3D%22xdcruntime.cstubs%22%3Exdcruntime.cstubs%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw3%22%3E%40ModuleStartup+%3C%2Fspan%3E'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex%3C%2Fspan%3E%3C%2Fgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3E+inherits+%3C%2Fspan%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%22+title%3D%22xdc.runtime.ILogger%22%3EILogger%3C%2Fa%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw3%22%3E%40ModuleStartup+%3C%2Fspan%3E'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+            <line tab='0' comment='inherits+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%22+title%3D%22xdc.runtime.ILogger%22%3Exdc.runtime.ILogger%3C%2Fa%3E'/>
+            <line tab='1' comment='inherits+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIModule.html%22+title%3D%22xdc.runtime.IModule%22%3Exdc.runtime.IModule%3C%2Fa%3E'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Einstance%3C%2Fspan%3E%3A%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+LoggerFlex+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27xdcruntime.cstubs.LoggerFlex%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <synopTarg>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw3%22%3E%23include%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-id%22%3E%26lt%3Bxdcruntime%2Fcstubs%2FLoggerFlex.h%26gt%3B%3C%2Fspan%3E'/>
+        </synopTarg>
+        <group name='local proxy modules'>
+        </group>
+        <group name='module-wide constants &amp; types'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl kind='struct' name='Instance_State' anchor='.Instance_.State' altext='xdcruntime.cstubs.LoggerFlex.Instance_State' nodoc='0' external='0' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EInstance_State%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='0' content='%7D%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Etypedef%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Instance_State%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                    <line tab='0' content='%7D+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Instance_State%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopTarg>
+            </decl>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl kind='config' name='configNameMap$' anchor='config.Name.Map$' altext='xdcruntime.cstubs.LoggerFlex.configNameMap$' nodoc='1' external='1' overrides='0' readonly='1' instance='0' summary='' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIModule.html%23config.Name.Map%24%22+title%3D%22xdc.runtime.IModule.configNameMap%24%22%3EIModule%3C%2Fa%3E' metaonly='1'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Ereadonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.View.Info%22+title%3D%22xdc.runtime.Types.ViewInfo%22%3ETypes.ViewInfo%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EconfigNameMap%24%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw1%22%3Estring%3C%2Fspan%3E%5D+%3D+%255B'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FMemory%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522common%2524.instanceHeap%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.instanceSection%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.memoryPolicy%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.namedModule%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.namedInstance%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.fxntab%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.romPatchTable%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FDiagnostics%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522common%2524.logger%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_ASSERT%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_ENTRY%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_EXIT%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_INTERNAL%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_LIFECYCLE%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_STATUS%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER1%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER2%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER3%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER4%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER5%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER6%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_INFO%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_ANALYSIS%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FConcurrency%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522common%2524.gate%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.gateParams%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FLog%2BEvents%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Log.Event%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FLog%2BEvents%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522instance%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Log.Event%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FAsserts%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Assert.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FAsserts%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522instance%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Assert.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FErrors%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Error.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FErrors%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522instance%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Error.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D'/>
+                    <line tab='0' content='%255D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3ELoggerFlex.%3Cspan+class%3D%22xdoc-id%22%3EconfigNameMap%24%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.View.Info%22+title%3D%22xdc.runtime.Types.ViewInfo%22%3ETypes.ViewInfo%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw1%22%3Estring%3C%2Fspan%3E%5D%3C%2Fi%3E+%255B'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FMemory%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522common%2524.instanceHeap%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.instanceSection%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.memoryPolicy%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.namedModule%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.namedInstance%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.fxntab%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.romPatchTable%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FDiagnostics%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522common%2524.logger%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_ASSERT%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_ENTRY%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_EXIT%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_INTERNAL%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_LIFECYCLE%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_STATUS%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER1%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER2%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER3%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER4%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER5%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_USER6%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_INFO%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.diags_ANALYSIS%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FConcurrency%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522common%2524.gate%2522%252C'/>
+                    <line tab='4' content='%2522common%2524.gateParams%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FLog%2BEvents%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Log.Event%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FLog%2BEvents%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522instance%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Log.Event%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FAsserts%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Assert.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FAsserts%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522instance%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Assert.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FErrors%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522module%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Error.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D%252C'/>
+                    <line tab='1' content='%255B'/>
+                    <line tab='2' content='%2522xdc.runtime%252FErrors%2522%252C'/>
+                    <line tab='2' content='%257B'/>
+                    <line tab='3' content='viewType%253A%2B%2522instance%2522%252C'/>
+                    <line tab='3' content='fields%253A%2B%255B'/>
+                    <line tab='4' content='%2522Error.Id%2522'/>
+                    <line tab='3' content='%255D'/>
+                    <line tab='2' content='%257D'/>
+                    <line tab='1' content='%255D'/>
+                    <line tab='0' content='%255D%3B'/>
+                </synopMeta>
+            </decl>
+            <decl spacer='1'/>
+            <decl kind='config' name='E_atexit' anchor='.E_atexit' altext='xdcruntime.cstubs.LoggerFlex.E_atexit' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FError.html%23.Id%22+title%3D%22xdc.runtime.Error.Id%22%3EError.Id%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EE_atexit%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%257B'/>
+                    <line tab='1' content='msg%253A%2B%2522E_atexit%253A%2BCould%2Bnot%2Bplug%2Bin%2Batexit%2Bfunction%2Bfor%2Bshutdown%2522'/>
+                    <line tab='0' content='%257D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ELoggerFlex.%3Cspan+class%3D%22xdoc-id%22%3EE_atexit%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FError.html%23.Desc%22+title%3D%22xdc.runtime.Error.Desc%22%3EError.Desc%3C%2Fa%3E%3C%2Fi%3E+%257B'/>
+                    <line tab='1' content='msg%253A%2B%2522E_atexit%253A%2BCould%2Bnot%2Bplug%2Bin%2Batexit%2Bfunction%2Bfor%2Bshutdown%2522'/>
+                    <line tab='0' content='%257D%3B'/>
+                </synopMeta>
+                <synopTarg>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eextern+const%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FError.html%23.Id%22+title%3D%22xdc.runtime.Error.Id%22%3EError_Id%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_E_atexit%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopTarg>
+            </decl>
+            <decl spacer='1'/>
+            <decl kind='config' name='common$' anchor='common$' altext='xdcruntime.cstubs.LoggerFlex.common$' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Common+module+configuration+parameters' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIModule.html%23common%24%22+title%3D%22xdc.runtime.IModule.common%24%22%3EIModule%3C%2Fa%3E' metaonly='1'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Common%24%22+title%3D%22xdc.runtime.Types.Common%24%22%3ETypes.Common%24%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ecommon%24%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ELoggerFlex.%3Cspan+class%3D%22xdoc-id%22%3Ecommon%24%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Common%24%22+title%3D%22xdc.runtime.Types.Common%24%22%3ETypes.Common%24%3C%2Fa%3E%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='All+modules+have+this+configuration+parameter.++Its+name%0A++contains+the+%27%24%27+character+to+ensure+it+does+not+conflict+with%0A++configuration+parameters+declared+by+the+module.++This+allows%0A++new+configuration+parameters+to+be+added+in+the+future+without%0A++any+chance+of+breaking+existing+modules.'/>
+                </docSect>
+            </decl>
+            <decl kind='config' name='rovShowRawTab$' anchor='rov.Show.Raw.Tab$' altext='xdcruntime.cstubs.LoggerFlex.rovShowRawTab$' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIModule.html%23rov.Show.Raw.Tab%24%22+title%3D%22xdc.runtime.IModule.rovShowRawTab%24%22%3EIModule%3C%2Fa%3E' metaonly='1'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ErovShowRawTab%24%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Etrue%253C%252Fspan%253E%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ELoggerFlex.%3Cspan+class%3D%22xdoc-id%22%3ErovShowRawTab%24%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%3C%2Fi%3E+%253Cspan%2Bclass%253D%2522xdoc-kw2%2522%253Etrue%253C%252Fspan%253E%3B'/>
+                </synopMeta>
+            </decl>
+            <decl kind='config' name='viewNameMap$' anchor='view.Name.Map$' altext='xdcruntime.cstubs.LoggerFlex.viewNameMap$' nodoc='1' external='1' overrides='0' readonly='0' instance='0' summary='Specifies+the+ROV+views+for+the+module' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIModule.html%23view.Name.Map%24%22+title%3D%22xdc.runtime.IModule.viewNameMap%24%22%3EIModule%3C%2Fa%3E' metaonly='1'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econfig%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.View.Info%22+title%3D%22xdc.runtime.Types.ViewInfo%22%3ETypes.ViewInfo%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EviewNameMap%24%3C%2Fspan%3E%3C%2Fgo%3E%5B%3Cspan+class%3D%22xdoc-kw1%22%3Estring%3C%2Fspan%3E%5D%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ELoggerFlex.%3Cspan+class%3D%22xdoc-id%22%3EviewNameMap%24%3C%2Fspan%3E%3C%2Fgo%3E+%3D+%3Ci%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.View.Info%22+title%3D%22xdc.runtime.Types.ViewInfo%22%3ETypes.ViewInfo%3C%2Fa%3E%5B%3Cspan+class%3D%22xdoc-kw1%22%3Estring%3C%2Fspan%3E%5D%3C%2Fi%3E+%3Cspan+class%3D%22xdoc-kw2%22%3Eundefined%3C%2Fspan%3E%3B'/>
+                </synopMeta>
+            </decl>
+        </group>
+        <group name='module-wide functions'>
+            <decl kind='fxn' name='shutdown' anchor='shutdown' altext='xdcruntime.cstubs.LoggerFlex.shutdown' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Shut+down+LoggerFlex+module+and+free+any+resources+used'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eshutdown%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cspan+class%3D%22xdoc-kw2%22%3EInt%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Estatus%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_shutdown%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cspan+class%3D%22xdoc-kw2%22%3EInt%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Estatus%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopTarg>
+                <docSect name='details'>
+                    <docPara content='This+function+will+call+ILoggerFlex_exit%28%29'/>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+            <decl kind='fxn' name='getMetaArgs' anchor='get.Meta.Args' altext='xdcruntime.cstubs.LoggerFlex.getMetaArgs' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Returns+any+meta+data+needed+to+support+RTA' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23get.Meta.Args%22+title%3D%22xdc.runtime.ILogger.getMetaArgs%22%3EILogger%3C%2Fa%3E' metaonly='1'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3Efunction+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-id%22%3EgetMetaArgs%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Einst%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EinstNum%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3ELoggerFlex.%3Cspan+class%3D%22xdoc-id%22%3EgetMetaArgs%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Einst%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EinstNum%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+meta+data+should+be+returned+in+the+form+of+a+structure+which%0A++can+be+converted+into+XML.+This+data+is+added+to+the+RTA+XML+file%0A++during+the+application%27s+configuration%2C+and+can+be+accessed+later%0A++through+the+xdc.rta.MetaData+module.'/>
+                    <docPara content='The+MetaData+is+returned+per+instance+of+the+ILogger+module.+The%0A++instance+object+is+passed+to+the+function+as+the+first+argument.'/>
+                    <docPara content='The+second+argument+is+the+index+of+the+instance+in+the+list+of+%0A++the+ILogger%27s+static+instances.'/>
+                </docSect>
+            </decl>
+        </group>
+        <group name='module-wide built-ins'>
+            <synopTarg>
+                <line tab='0' comment='Get+this+module%27s+unique+id' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes_ModuleId%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Module_id%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Test+if+this+module+has+completed+startup' content='%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Module_startupDone%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+heap+from+which+this+module+allocates+memory' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIHeap.html%23per-instance_object_types%22+title%3D%22xdc.runtime.IHeap.Handle%22%3EIHeap_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Module_heap%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Test+whether+this+module+has+a+diagnostics+mask' content='%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Module_hasMask%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Returns+the+diagnostics+mask+for+this+module' content='%3Cspan+class%3D%22xdoc-kw2%22%3EBits16%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Module_getMask%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Set+the+diagnostics+mask+for+this+module' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Module_setMask%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cspan+class%3D%22xdoc-kw2%22%3EBits16%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-id%22%3Emask%3C%2Fspan%3E+%29%3B'/>
+            </synopTarg>
+        </group>
+        <group name='$instance'>
+            <synopSpec>
+                <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Einstance%3C%2Fspan%3E%3A'/>
+                <line blank='1' always='0'/>
+            </synopSpec>
+        </group>
+        <group name='per-instance object types'>
+            <synopTarg>
+                <line tab='0' comment='Opaque+internal+representation+of+an+instance+object' content='%3Cspan+class%3D%22xdoc-kw1%22%3Etypedef%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object%3C%2Fspan%3E%3C%2Fgo%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Client+reference+to+an+instance+object' content='%3Cspan+class%3D%22xdoc-kw1%22%3Etypedef%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Object%22%3ELoggerFlex_Object%3C%2Fa%3E+*%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Handle%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Opaque+client+structure+large+enough+to+hold+an+instance+object' content='%3Cspan+class%3D%22xdoc-kw1%22%3Etypedef%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Struct%3C%2Fspan%3E%3C%2Fgo%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Struct%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                <line blank='1' always='1'/>
+                <line tab='0' comment='Convert+this+instance+structure+pointer+into+an+instance+handle' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_handle%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Struct%22%3ELoggerFlex_Struct%3C%2Fa%3E+*structP+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='Convert+this+instance+handle+into+an+instance+structure+pointer' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Struct%22%3ELoggerFlex_Struct%3C%2Fa%3E+*%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_struct%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle+%29%3B'/>
+            </synopTarg>
+        </group>
+        <group name='per-instance config parameters'>
+            <synopMeta>
+                <line tab='0' comment='Instance+config-params+object' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+params+%3D+%3Cspan+class%3D%22xdoc-kw1%22%3Enew%3C%2Fspan%3E+LoggerFlex.%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EParams%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+            </synopMeta>
+            <synopTarg>
+                <line tab='0' comment='Instance+config-params+structure' content='%3Cspan+class%3D%22xdoc-kw1%22%3Etypedef%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw1%22%3Estruct%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Params%3C%2Fspan%3E%3C%2Fgo%3E+%7B'/>
+                <line tab='1' comment='Common+per-instance+configs' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIInstance.html%23per-instance_config_parameters%22+title%3D%22xdc.runtime.IInstance.Params%22%3EIInstance_Params%3C%2Fa%3E+*instance%3B'/>
+                <line tab='0' content='%7D+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Params%3C%2Fspan%3E%3C%2Fgo%3E%3B'/>
+                <line blank='1' always='1'/>
+                <line tab='0' comment='Initialize+this+config-params+structure+with+supplier-specified+defaults+before+instance+creation' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Params_init%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_config_parameters%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Params%22%3ELoggerFlex_Params%3C%2Fa%3E+*params+%29%3B'/>
+            </synopTarg>
+            <decl spacer='1'/>
+        </group>
+        <group name='per-instance creation'/>
+        <group name='per-instance deletion'/>
+        <group name='per-instance functions'>
+            <decl kind='fxn' name='disable' anchor='disable' altext='xdcruntime.cstubs.LoggerFlex.disable' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Disable+a+log' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23disable%22+title%3D%22xdc.runtime.ILogger.disable%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Edisable%3C%2Fspan%3E%3C%2Fgo%3E%28++%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_disable%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='Events+written+to+a+disabled+log+are+silently+discarded.'/>
+                </docSect>
+                <docSect name='returns'>
+                    <docPara content='The+function+returns+the+state+of+the+log+%28%3Ctt%3ETRUE%3C%2Ftt%3E+if+enabled%2C%0A++%3Ctt%3EFALSE%3C%2Ftt%3E+if+disabled%29+before+the+call.+This+return+value+allows+%0A++clients+to+restore+the+previous+state.%0A++Note%3A+not+thread+safe.'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='enable' anchor='enable' altext='xdcruntime.cstubs.LoggerFlex.enable' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Enable+a+log' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23enable%22+title%3D%22xdc.runtime.ILogger.enable%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eenable%3C%2Fspan%3E%3C%2Fgo%3E%28++%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EBool%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_enable%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                </docSect>
+                <docSect name='returns'>
+                    <docPara content='The+function+returns+the+state+of+the+log+%28%3Ctt%3ETRUE%3C%2Ftt%3E+if+enabled%2C%0A++%3Ctt%3EFALSE%3C%2Ftt%3E+if+disabled%29+before+the+call.+This+return+value+allows+%0A++clients+to+restore+the+previous+state.++%0A++Note%3A+not+thread+safe.'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='write0' anchor='write0' altext='xdcruntime.cstubs.LoggerFlex.write0' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Process+a+log+event+with+0+arguments' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23write0%22+title%3D%22xdc.runtime.ILogger.write0%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ewrite0%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog.Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes.ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_write0%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog_Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes_ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='Same+as+%3Ctt%3Ewrite4%3C%2Ftt%3E+except+with+0+arguments+rather+than+4.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22ILogger.html%23write4%22+title%3D%22ILogger.write4%22%3EILogger.write4%28%29%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='write1' anchor='write1' altext='xdcruntime.cstubs.LoggerFlex.write1' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Process+a+log+event+with+1+arguments' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23write1%22+title%3D%22xdc.runtime.ILogger.write1%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ewrite1%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog.Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes.ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_write1%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog_Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes_ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='Same+as+%3Ctt%3Ewrite4%3C%2Ftt%3E+except+with+1+arguments+rather+than+4.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22ILogger.html%23write4%22+title%3D%22ILogger.write4%22%3EILogger.write4%28%29%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='write2' anchor='write2' altext='xdcruntime.cstubs.LoggerFlex.write2' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Process+a+log+event+with+2+arguments' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23write2%22+title%3D%22xdc.runtime.ILogger.write2%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ewrite2%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog.Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes.ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea2%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_write2%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog_Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes_ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea2%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='Same+as+%3Ctt%3Ewrite4%3C%2Ftt%3E+except+with+2+arguments+rather+than+4.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22ILogger.html%23write4%22+title%3D%22ILogger.write4%22%3EILogger.write4%28%29%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='write4' anchor='write4' altext='xdcruntime.cstubs.LoggerFlex.write4' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Process+a+log+event+with+up+to+4+arguments' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23write4%22+title%3D%22xdc.runtime.ILogger.write4%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ewrite4%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog.Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes.ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea2%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea3%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea4%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_write4%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog_Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes_ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea2%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea3%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea4%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                    <docChild name='evt' summary='event+to+be+logged'>
+                    </docChild>
+                    <docChild name='mid' summary='module+ID+of+the+module+which+logged+the+event'>
+                    </docChild>
+                    <docChild name='a1' summary='arbitrary+argument+passed+by+caller'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='The+%3Ctt%3Eevt%3C%2Ftt%3E+argument+is+of+type+Log.Event%2C+which+encodes+the+%0A++%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23.Event.Id%22+title%3D%22Log.EventId%22%3ELog.EventId%3C%2Fa%3E%3C%2Ftt%3E%2C+the+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Diags.html%23.Mask%22+title%3D%22Diags.Mask%22%3EDiags.Mask%3C%2Fa%3E%3C%2Ftt%3E%2C+and+the+%0A++%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Diags.html%23.Event.Level%22+title%3D%22Diags.EventLevel%22%3EDiags.EventLevel%3C%2Fa%3E%3C%2Ftt%3E+of+the+event.+The+event+ID+can+be+obtained%0A++via+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Types.html%23get.Event.Id%22+title%3D%22Types.getEventId%22%3ETypes.getEventId%3C%2Fa%3E%28evt%29%3C%2Ftt%3E%2C+the+Diags+mask+can+be+obtained+via%0A++%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Diags.html%23get.Mask%22+title%3D%22Diags.getMask%22%3EDiags.getMask%3C%2Fa%3E%28evt%29%3C%2Ftt%3E%2C+and+the+event+level+can+be+obtained+via%0A++%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Diags.html%23get.Level%22+title%3D%22Diags.getLevel%22%3EDiags.getLevel%3C%2Fa%3E%28evt%29%3C%2Ftt%3E.'/>
+                    <docPara content='The+%3Ctt%3EmodId%3C%2Ftt%3E+argument+is+the+module+ID+of+the+module+that+logged+the%0A++event.'/>
+                    <docPara content='The+event+information+can+be+used+by+the+logger+to+handle+different+%0A++events+specially.+For+example%2C+the+event+ID+can+be+used+to+compare+%0A++against+other+known+%3Ctt%3ELog.Event%3C%2Ftt%3Es.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++++++if+%28Log_getEventId%28MY_EVENT%29+%3D%3D+Log_getEventId%28evt%29%29+%7B%0A++++++++++%3A%0A++++++%7D%0A%3C%2FPRE%3E'/>
+                    <docPara content='The+Diags+mask+and+event+level+can+be+used+for+filtering+of+events+%0A++based+on+event+level+%28see+%3Ca+class%3D%22xdoc-link%22+href%3D%22IFilterLogger.html%22+title%3D%22IFilterLogger%22%3EIFilterLogger%3C%2Fa%3E%29%2C+or+even+routing+%0A++events+to+separate+loggers+based+on+diags+category+%28see%2C+for+example%2C+%0A++%3Ca+class%3D%22xdoc-link%22+href%3D%22LoggerBuf.html%23status.Logger%22+title%3D%22LoggerBuf.statusLogger%22%3ELoggerBuf.statusLogger%3C%2Fa%3E%29.'/>
+                    <docPara content='The+Diags+mask+and+event+level+are+useful+for+handling+the+event%2C+but+%0A++are+generally+not+recorded+by+the+logger+because+they+are+not+needed+in%0A++decoding+and+displaying+the+event.+A+more+suitable+value+to+record+is+a%0A++%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Types.html%23.Event%22+title%3D%22Types.Event%22%3ETypes.Event%3C%2Fa%3E%3C%2Ftt%3E%2C+which+encodes+the+event+ID+and+module+ID.+For%0A++example%2C+the+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23.Event.Rec%22+title%3D%22Log.EventRec%22%3ELog.EventRec%3C%2Fa%3E%3C%2Ftt%3E+type+stores+a+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Types.html%23.Event%22+title%3D%22Types.Event%22%3ETypes.Event%3C%2Fa%3E%3C%2Ftt%3E%0A++in+its+record+definition.+A+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Types.html%23.Event%22+title%3D%22Types.Event%22%3ETypes.Event%3C%2Fa%3E%3C%2Ftt%3E+can+be+created+using%0A++the+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Types.html%23make.Event%22+title%3D%22Types.makeEvent%22%3ETypes.makeEvent%3C%2Fa%3E%3C%2Ftt%3E+API+given+the+event+ID+and+module+ID.'/>
+                    <docPara content='The+event+ID+value+of+%3Ctt%3E0%3C%2Ftt%3E+is+used+to+indicate+an+event+triggered+by+a%0A++call+to+one+of+the+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23print0%22+title%3D%22Log.print0%22%3ELog_print%5B0-6%5D%3C%2Fa%3E%3C%2Ftt%3E+methods.+These%0A++methods+take+a+format+string+rather+than+a+%3Ctt%3ELog_Event%3C%2Ftt%3E+argument+and%2C%0A++as+a+result%2C+the+event+ID+encoded+in+%3Ctt%3Eevt%3C%2Ftt%3E+is+%3Ctt%3E0%3C%2Ftt%3E+and+the+parameter+%0A++%3Ctt%3Ea1%3C%2Ftt%3E+is+the+format+string.'/>
+                    <docPara content='Non-zero+event+IDs+can+also+be+used+to+access+the+%3Ctt%3Emsg%3C%2Ftt%3E+string%0A++associated+with+the+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23.Event.Desc%22+title%3D%22Log.EventDesc%22%3ELog.EventDesc%3C%2Fa%3E%3C%2Ftt%3E+that+originally%0A++defined+the+%3Ctt%3ELog%3C%2Ftt%3E+event.'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++++++Log_EventId+id+%3D+Log_getEventId%28evt%29%29%3B%0A++++++if+%28id+%21%3D+0%29+%7B%0A++++++++++String+msg+%3D+Text_ropeText%28id%29%3B%0A++++++++++System_aprintf%28msg%2C+a1%2C+a2%2C+a3%2C+a4%29%3B%0A++++++%7D%0A%3C%2FPRE%3E'/>
+                    <docPara content='This+works+because+an+event%27s+ID+is+simply+an+offset+into+a+table%0A++of+characters+%28maintained+by+the+%3Ctt%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22Text.html%22+title%3D%22Text%22%3EText%3C%2Fa%3E%3C%2Ftt%3E+module%29%0A++containing+the+event%27s+msg+string.'/>
+                    <docPara content='The+arguments+a1%2C+a2%2C+etc.+are+parameters+that+are+to+be+interpreted%0A++according+to+the+message+format+string+associated+with+%3Ctt%3Eevt%3C%2Ftt%3E.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23.Event%22+title%3D%22Log.Event%22%3ELog.Event%3C%2Fa%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23.Event.Desc%22+title%3D%22Log.EventDesc%22%3ELog.EventDesc%3C%2Fa%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22Text.html%23rope.Text%22+title%3D%22Text.ropeText%22%3EText.ropeText%3C%2Fa%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22Log.html%23get.Event.Id%22+title%3D%22Log.getEventId%22%3ELog.getEventId%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl kind='fxn' name='write8' anchor='write8' altext='xdcruntime.cstubs.LoggerFlex.write8' nodoc='0' external='1' overrides='0' readonly='0' instance='1' summary='Process+a+log+event+with+up+to+8+arguments' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23write8%22+title%3D%22xdc.runtime.ILogger.write8%22%3EILogger%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ewrite8%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog.Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes.ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea2%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea3%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea4%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea5%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea6%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea7%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea8%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopTarg>
+                    <line tab='0' content='%3Ci%3E%3C%2Fi%3E%3Cspan+class%3D%22xdoc-kw2%22%3EVoid%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_write8%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FLog.html%23.Event%22+title%3D%22xdc.runtime.Log.Event%22%3ELog_Event%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eevt%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Module.Id%22+title%3D%22xdc.runtime.Types.ModuleId%22%3ETypes_ModuleId%3C%2Fa%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Emid%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea1%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea2%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea3%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea4%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea5%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea6%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea7%3C%2Fspan%3E%3C%2Fgo%3E%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EIArg%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Ea8%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopTarg>
+                <docSect name='ARGUMENTS'>
+                    <docChild name='handle' summary='handle+of+a+previously-created+%3Ctt%3ELoggerFlex%3C%2Ftt%3E+instance+object'>
+                    </docChild>
+                </docSect>
+                <docSect name='details'>
+                    <docPara content='Same+as+%3Ctt%3Ewrite4%3C%2Ftt%3E+except+with+8+arguments+rather+than+4.'/>
+                </docSect>
+                <docSect name='see'>
+                    <docPara content='%3Ca+class%3D%22xdoc-link%22+href%3D%22ILogger.html%23write4%22+title%3D%22ILogger.write4%22%3EILogger.write4%28%29%3C%2Fa%3E'/>
+                </docSect>
+            </decl>
+            <decl spacer='1'/>
+        </group>
+        <group name='per-instance convertors'>
+            <synopTarg>
+                <line tab='0' comment='unconditionally+move+one+level+up+the+inheritance+hierarchy' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23per-instance_object_types%22+title%3D%22xdc.runtime.ILogger.Handle%22%3EILogger_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Handle_upCast%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='conditionally+move+one+level+down+the+inheritance+hierarchy%3B+NULL+upon+failure' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Handle_downCast%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FILogger.html%23per-instance_object_types%22+title%3D%22xdc.runtime.ILogger.Handle%22%3EILogger_Handle%3C%2Fa%3E+handle+%29%3B'/>
+            </synopTarg>
+        </group>
+        <group name='per-instance built-ins'>
+            <synopTarg>
+                <line tab='0' comment='The+number+of+statically-created+instance+objects' content='%3Cspan+class%3D%22xdoc-kw2%22%3EInt%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object_count%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+handle+of+the+i-th+statically-created+instance+object+%28array+%3D%3D+NULL%29' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object_get%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Object%22%3ELoggerFlex_Object%3C%2Fa%3E+*array%2C+%3Cspan+class%3D%22xdoc-kw2%22%3EInt%3C%2Fspan%3E+i+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+handle+of+the+first+dynamically-created+instance+object%2C+or+NULL' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object_first%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+handle+of+the+next+dynamically-created+instance+object%2C+or+NULL' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object_next%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+heap+used+to+allocate+dynamically-created+instance+objects' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FIHeap.html%23per-instance_object_types%22+title%3D%22xdc.runtime.IHeap.Handle%22%3EIHeap_Handle%3C%2Fa%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Object_heap%3C%2Fspan%3E%3C%2Fgo%3E%28+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+label+associated+with+this+instance+object' content='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Label%22+title%3D%22xdc.runtime.Types.Label%22%3ETypes_Label%3C%2Fa%3E+*%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Handle_label%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle%2C+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdc%2Fruntime%2FTypes.html%23.Label%22+title%3D%22xdc.runtime.Types.Label%22%3ETypes_Label%3C%2Fa%3E+*buf+%29%3B'/>
+                <line blank='1' always='0'/>
+                <line tab='0' comment='The+name+of+this+instance+object' content='%3Cspan+class%3D%22xdoc-kw2%22%3EString%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3ELoggerFlex_Handle_name%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2Fxdcruntime%2Fcstubs%2FLoggerFlex.html%23per-instance_object_types%22+title%3D%22xdcruntime.cstubs.LoggerFlex.Handle%22%3ELoggerFlex_Handle%3C%2Fa%3E+handle+%29%3B'/>
+            </synopTarg>
+        </group>
+    </unit>
+    <docSect name='details'>
+        <docPara content='This+is+useful+for+environments+that+may+want+to+change+delegate%0A++implementations+in+classic+C+without+requiring+configuration+or%0A++creation+of+XDC+Modules.'/>
+    </docSect>
+</package>

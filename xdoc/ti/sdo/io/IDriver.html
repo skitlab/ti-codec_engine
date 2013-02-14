@@ -1,0 +1,342 @@
+<html>
+<head>
+<title>interface ti.sdo.io.IDriver</title>
+<meta name="description" content="Interface for IO drivers">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">interface</span> <span class="xdoc-id">ti.sdo.io.</span><span class="xdoc-id">IDriver</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IConverter.html" title="interface IConverter"><img class="xdocHdrArrow" src="../../../Arrow_left.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/package.html" title="package ti.sdo.io"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/Build.html" title="module Build"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IDriver.html">index URL</a></div>
+<p class="xdocHdrSummary">Interface for IO drivers</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#targ-synop">C synopsis</a></li>
+<li class="xdocToc2"><a class="xdocToc" href="#xdocElems">Individual elements</a></li>
+</ul>
+<div class="xdocBrief">
+An IO Driver manages a peripheral(s) that provide channels for input and
+  output. All peripherals of the same type are ideally managed by a single 
+  driver. For example all uarts on a platform are managed by a single uart 
+  driver.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id">XDCspec</span></tt> summary</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynX">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">interface</span> <go><span class="xdoc-id">IDriver</span></go> {<b>&nbsp;&nbsp;...</b>
+</div>
+<div class='xdocSynSum'><tt></tt>//&nbsp;inherits <a class="xdoc-link" href="../../../xdc/runtime/IModule.html" title="xdc.runtime.IModule">xdc.runtime.IModule</a></div>
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">instance</span>:<b>&nbsp;&nbsp;...</b>
+</div>
+</div>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynX">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">package</span> <a class="xdoc-link" href="../../../ti/sdo/io/package.html" title="ti.sdo.io">ti.sdo.io</a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">interface</span> <go><span class="xdoc-id">IDriver</span></go> {
+</div>
+<div class='xdocSynHdr'>module-wide config parameters</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a>&nbsp;<a class="xdocSynGo" href="#common$"><span class="xdoc-id">common$</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Common module configuration parameters</span></span></a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">instance</span>:
+</div>
+<div class='xdocSynHdr'>per-instance functions</div>
+
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#close"><span class="xdoc-id">close</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Close a channel. Raises an error upon failure</span></span></a>(<span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">chanHandle</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<a class="xdocSynGo" href="#control"><span class="xdoc-id">control</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Send driver specific command to channel or associated device</span></span></a>(<span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">chanHandle</span></go>, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes.ControlCmd</a>&nbsp;<go><span class="xdoc-id">cmd</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">cmdArgs</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">Ptr</span>&nbsp;<a class="xdocSynGo" href="#open"><span class="xdoc-id">open</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Open a channel</span></span></a>(<span class="xdoc-kw2">String</span>&nbsp;<go><span class="xdoc-id">name</span></go>, <span class="xdoc-kw2">UInt</span>&nbsp;<go><span class="xdoc-id">mode</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">chanParams</span></go>, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Done.Fxn" title="ti.sdo.io.DriverTypes.DoneFxn">DriverTypes.DoneFxn</a>&nbsp;<go><span class="xdoc-id">cbFxn</span></go>, <span class="xdoc-kw2">UArg</span>&nbsp;<go><span class="xdoc-id">cbArg</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><tt></tt><span class="xdoc-kw2">UInt</span>&nbsp;<a class="xdocSynGo" href="#submit"><span class="xdoc-id">submit</span><span class="xdocSynHoverShadow"><span class="xdocSynHover">//&nbsp;Submit io packet to a channel. This may result in a callback</span></span></a>(<span class="xdoc-kw2">Ptr</span>&nbsp;<go><span class="xdoc-id">chanHandle</span></go>, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes.Packet</a>&nbsp;*<go><span class="xdoc-id">packet</span></go>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<go><span class="xdoc-id">eb</span></go>);
+</div>
+<div class="xdocSynCode">
+<tt></tt>}
+</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">An IO Driver manages a peripheral(s) that provide channels for input and
+  output. All peripherals of the same type are ideally managed by a single 
+  driver. For example all uarts on a platform are managed by a single uart 
+  driver.</div>
+<div class="xdocText">The user will call the driver specific create function to instantiate a
+  driver (e.g. a uart instance). The driver specific create function will 
+  take device specific parameters. The create function will also take a 
+  device ID to allow the client to specify a particular device.
+  This allows users to select devices to be managed by the driver. It also
+  allows the driver to manage resources and mark devices in use.</div>
+<div class="xdocText">The user calls <a class="xdoc-link" href="IDriver.html#open" title="open">open</a> at runtime using the handle returned by create
+  to open a channel for use. The user passes a name, mode, chanParams,
+  callback function and callback arg and an <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">xdc.runtime.Error.Block</a>. 
+  open() could fail (e.g. channel is in use). When successful, the driver 
+  returns an opaque channel handle, usually a pointer to the channel object.</div>
+<div class="xdocText">The user uses <a class="xdoc-link" href="IDriver.html#close" title="close">close</a> to close the channel. <a class="xdoc-link" href="IDriver.html#close" title="close">close</a> raises an 
+  error in case of failure. e.g. Trying to close a channel not is use.</div>
+<div class="xdocText">The user calls <a class="xdoc-link" href="IDriver.html#submit" title="submit">submit</a> with the channel handle and an 
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">ti.sdo.io.DriverTypes.Packet</a> to initiate IO. 
+  It may be possible for the driver to complete the IO 
+  without the use of an asynchronous interrupt. e.g enough room in peripheral
+  buffer, polling mode used, etc. In such cases the driver will return
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.C.O.M.P.L.E.T.E.D" title="ti.sdo.io.DriverTypes.COMPLETED">ti.sdo.io.DriverTypes.COMPLETED</a> status and there is no callback.</div>
+<div class="xdocText"><a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.E.R.R.O.R" title="ti.sdo.io.DriverTypes.ERROR">ti.sdo.io.DriverTypes.ERROR</a> is returned by submit() if there is an error.</div>
+<div class="xdocText">When the driver requires an asynchronous event like an interrupt to 
+  complete the IO submit() will return <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.P.E.N.D.I.N.G" title="ti.sdo.io.DriverTypes.PENDING">ti.sdo.io.DriverTypes.PENDING</a> status. 
+  In such cases the asynchronous event will result in a callback. In the 
+  callback the user should check for errors in the IO packet. The error in
+  the packet could be driver specific. In case of success the 
+  <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">xdc.runtime.Error.Id</a> in the packet will be null.
+  The driver needs to update the size field to reflect the actual size of IO.</div>
+<div class="xdocText">In all cases the driver is responsible for raising errors except in the
+  case when submit returns <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.P.E.N.D.I.N.G" title="ti.sdo.io.DriverTypes.PENDING">ti.sdo.io.DriverTypes.PENDING</a>. In this case the 
+  driver fills the <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Id" title="xdc.runtime.Error.Id">xdc.runtime.Error.Id</a> in the IO Packet.</div>
+<div class="xdocText">The driver is expected to queue up IO packets for transfer if necessary and
+  must not error when given more than one packet.</div>
+<div class="xdocText">The driver is non-blocking. e.g cannot call APIs that block as it is 
+  expected that the higher layer will wait for IO to be completed and take 
+  action in case of timeout.</div>
+<div class="xdocText">The user will use <a class="xdoc-link" href="IDriver.html#control" title="control">control</a> with channel handle, command and argument
+  to change channel parameters (e.g baud rate of uart). An error status is
+  returned in case of failure. The control commands are used to specify
+  channel parameters. Drivers can define their own control commands. See
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html" title="ti.sdo.io.DriverTypes">ti.sdo.io.DriverTypes</a></div>
+<div class="xdocText">The command and command argument within the IO packet is used to control 
+  the IO operation. Drivers can also define their own packet commands.
+  See <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html" title="ti.sdo.io.DriverTypes">ti.sdo.io.DriverTypes</a>.</div>
+<div class="xdocText">A control command <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.C.H.A.N_.A.B.O.R.T" title="ti.sdo.io.DriverTypes.CHAN_ABORT">ti.sdo.io.DriverTypes.CHAN_ABORT</a> is used to 
+  abort/discard all packets queued up for a channel. Note that when the driver
+  receives the abort control cmd, it must abort ALL packets and call the 
+  callback for very packet. If a packet is currently in progress, the driver
+  must attempt to shut down dma etc and return the packet. Aborted packets
+  need to be updated with error filed set to <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.E_.Aborted" title="ti.sdo.io.DriverTypes.E_Aborted">ti.sdo.io.DriverTypes.E_Aborted</a>.</div>
+<div id="xdocSep">
+</div>
+<div id="xdocElems">
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="common$"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <span class="xdoc-id">IDriver.</span><span class="xdoc-id">common$</span>&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;module-wide</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IDriver.html" title="interface IDriver"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IDriver.html#common$">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Common module configuration parameters</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw1">metaonly </span><span class="xdoc-kw1">config</span> <a class="xdoc-link" href="../../../xdc/runtime/Types.html#.Common$" title="xdc.runtime.Types.Common$">Types.Common$</a>&nbsp;<span class="xdoc-id">common$</span>;
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">All modules have this configuration parameter.  Its name
+  contains the '$' character to ensure it does not conflict with
+  configuration parameters declared by the module.  This allows
+  new configuration parameters to be added in the future without
+  any chance of breaking existing modules.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="close"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IDriver.</span><span class="xdoc-id">close</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IDriver.html" title="interface IDriver"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IDriver.html#close">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Close a channel. Raises an error upon failure</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">close</span>(<span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">chanHandle</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">chanHandle</span>
+<span class="xdocChildSum">&#151;&nbsp;opaque channel handle</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">For example, trying to close a channel which is NOT in use could raise 
+  an error. The error could be driver specific or generic errors defined
+  by <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html" title="ti.sdo.io.DriverTypes">ti.sdo.io.DriverTypes</a></div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="control"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IDriver.</span><span class="xdoc-id">control</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IDriver.html" title="interface IDriver"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IDriver.html#control">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Send driver specific command to channel or associated device</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Void</span>&nbsp;<span class="xdoc-id">control</span>(<span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">chanHandle</span>, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Control.Cmd" title="ti.sdo.io.DriverTypes.ControlCmd">DriverTypes.ControlCmd</a>&nbsp;<span class="xdoc-id">cmd</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">cmdArgs</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">chanHandle</span>
+<span class="xdocChildSum">&#151;&nbsp;opaque channel handle</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmd</span>
+<span class="xdocChildSum">&#151;&nbsp;control command</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cmdArgs</span>
+<span class="xdocChildSum">&#151;&nbsp;command argument</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="open"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IDriver.</span><span class="xdoc-id">open</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IDriver.html" title="interface IDriver"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IDriver.html#open">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Open a channel</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">open</span>(<span class="xdoc-kw2">String</span>&nbsp;<span class="xdoc-id">name</span>, <span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">mode</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">chanParams</span>, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Done.Fxn" title="ti.sdo.io.DriverTypes.DoneFxn">DriverTypes.DoneFxn</a>&nbsp;<span class="xdoc-id">cbFxn</span>, <span class="xdoc-kw2">UArg</span>&nbsp;<span class="xdoc-id">cbArg</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">name</span>
+<span class="xdocChildSum">&#151;&nbsp;name string</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">mode</span>
+<span class="xdocChildSum">&#151;&nbsp;open mode for channel</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">chanParams</span>
+<span class="xdocChildSum">&#151;&nbsp;driver specific channel parameters</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cbFxn</span>
+<span class="xdocChildSum">&#151;&nbsp;callback function</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">cbArg</span>
+<span class="xdocChildSum">&#151;&nbsp;callback function arg</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">RETURNS</div>
+<div class="xdocText">opaque channel handle</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">Use this function to open a channel. The name parameter allows for
+  driver specific configuration. e.g when a channel id is required. The
+  name will be null for most drivers. The mode is either 
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.I.N.P.U.T" title="ti.sdo.io.DriverTypes.INPUT">ti.sdo.io.DriverTypes.INPUT</a> or <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.O.U.T.P.U.T" title="ti.sdo.io.DriverTypes.OUTPUT">ti.sdo.io.DriverTypes.OUTPUT</a>.
+  chanParams are driver specific. When chanparams is null driver will use
+  default params which were statically configured. The callback function
+  and arg are used to indicate completion of IO after an async 
+  <a class="xdoc-link" href="IDriver.html#submit" title="submit">submit</a> call. The driver will raise an error when open fails and
+  the error block will contain a driver specific error or a generic error
+  defined by <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html" title="ti.sdo.io.DriverTypes">ti.sdo.io.DriverTypes</a>.
+  open returns a driver specific opaque channel handle.
+  Note that open() can be called at Startup time and the driver
+  has to ensure that open() returns the channel pointer even though the
+  driver startup has not been called.</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<a class="xdocAnchor" id="submit"></a>
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-id">IDriver.</span><span class="xdoc-id">submit</span>()&nbsp;&nbsp;<small><span class="xdocSynSum">//&nbsp;instance</span></small></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../ti/sdo/io/IDriver.html" title="interface IDriver"><img class="xdocHdrArrow" src="../../../Arrow_up.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#ti/sdo/io/IDriver.html#submit">index URL</a></div>
+<p class="xdocHdrSummaryDcl">Submit io packet to a channel. This may result in a callback</p>
+<span id='spec-synop'></span>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-iddcl">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../ti/sdo/io/IDriver-src.html"><span class="xdocLabelFile">ti/sdo/io/IDriver.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynXdcl">
+<div class="xdocSynCode">
+<tt></tt><tt></tt><span class="xdoc-kw2">UInt</span>&nbsp;<span class="xdoc-id">submit</span>(<span class="xdoc-kw2">Ptr</span>&nbsp;<span class="xdoc-id">chanHandle</span>, <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.Packet" title="ti.sdo.io.DriverTypes.Packet">DriverTypes.Packet</a>&nbsp;*<span class="xdoc-id">packet</span>, <a class="xdoc-link" href="../../../xdc/runtime/Error.html#.Block" title="xdc.runtime.Error.Block">Error.Block</a>&nbsp;*<span class="xdoc-id">eb</span>);
+</div>
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">ARGUMENTS</div>
+<div class="xdocChild"><span class="xdocChildId">chanHandle</span>
+<span class="xdocChildSum">&#151;&nbsp;opaque channel handle</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">packet</span>
+<span class="xdocChildSum">&#151;&nbsp;io packet</span>
+</div>
+<div class="xdocChild"><span class="xdocChildId">eb</span>
+<span class="xdocChildSum">&#151;&nbsp;error block</span>
+</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">RETURNS</div>
+<div class="xdocText">status (DriverTypes_COMPLETED/PENDING/ERROR)</div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">The driver may be able to complete the IO immediately and will return
+  <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.C.O.M.P.L.E.T.E.D" title="ti.sdo.io.DriverTypes.COMPLETED">ti.sdo.io.DriverTypes.COMPLETED</a> status. If the driver requires an async
+  callback then, it will return <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.P.E.N.D.I.N.G" title="ti.sdo.io.DriverTypes.PENDING">ti.sdo.io.DriverTypes.PENDING</a>. When the
+  driver raises an error, it will return <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.E.R.R.O.R" title="ti.sdo.io.DriverTypes.ERROR">ti.sdo.io.DriverTypes.ERROR</a> and the
+  caller need to check the error block.
+  In case the return value is <a class="xdoc-link" href="../../../ti/sdo/io/DriverTypes.html#.P.E.N.D.I.N.G" title="ti.sdo.io.DriverTypes.PENDING">ti.sdo.io.DriverTypes.PENDING</a>, the driver will
+  call the function specified during <a class="xdoc-link" href="IDriver.html#open" title="open">open</a> with the IO packet.</div>
+</div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:15 GMT</div>
+</div></div></body>
+</html>

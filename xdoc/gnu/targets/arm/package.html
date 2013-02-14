@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>package gnu.targets.arm</title>
+<meta name="description" content="GCC-based code generation targets for Arm">
+<link rel="stylesheet" type="text/css" href="../../../xdoc.css" />
+</head>
+<body><div id="xdocWrapper"><div id="xdocContent">
+<table class="xdocHdr"><tr>
+<td class="xdocHdrTitle"><span class="xdoc-kw1">package</span> <span class="xdoc-id">gnu.targets.arm</span></td>
+<td class="xdocHdrArrow">
+<a class="xdocHdrLink" href="../../../gnu/targets/arm/GCArmv5T.html" title="module GCArmv5T"><img class="xdocHdrArrow" src="../../../Arrow_right.png"/></a></td>
+</table>
+<div class=xdocHdrIndex><a class=xdocHdrIndex title="right-click to capture" href="../../../index.html#gnu/targets/arm/package.html">index URL</a></div>
+<p class="xdocHdrSummary">GCC-based code generation targets for Arm</p>
+<ul class="xdocToc">
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-1">DETAILS</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-2">EXAMPLE</a></li>
+<li class="xdocToc"><a class="xdocToc" href="#xdoc-sect-3">SEE</a></li>
+</ul>
+<div class="xdocBrief">
+This package offers a generic support for different GNU Arm compilers.
+  For the targets in this package, a user must set configuration parameter
+  <tt>LONGNAME</tt> in <tt>config.bld</tt>. That parameter specifies the relative path to
+  the compiler executable from the directory specified in <tt>rootDir</tt>.
+[&nbsp;<a class="xdocBrief" href="#xdoc-desc">more</a>&nbsp;...&nbsp;]
+</div>
+<table class="xdocLabel"><tr>
+<td class="xdocLabelLeft"><tt><span class="xdoc-id">XDCspec</span></tt> declarations</td>
+<td class="xdocLabelRight">sourced in <a class="xdocLink" href="../../../gnu/targets/arm/package-src.html"><span class="xdocLabelFile">gnu/targets/arm/package.xdc</span></a></td>
+</tr></table>
+<div class="xdocSynX">
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">requires</span> <a class="xdoc-link" href="../../../xdc/bld/package.html" title="xdc.bld">xdc.bld</a>;
+</div>
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">requires</span> <a class="xdoc-link" href="../../../gnu/targets/package.html" title="gnu.targets">gnu.targets</a>;
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt></tt><span class="xdoc-kw1">package</span> <go><span class="xdoc-id">gnu.targets.arm</span></go> [1, 0, 0, 0] {
+</div>
+<div class="xdocSynSpacer">&nbsp;</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/GCArmv5T.html' title='gnu.targets.arm.GCArmv5T'><span class="xdoc-id">GCArmv5T</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Embedded little endian Arm v5TE Linux target</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/GCArmv6.html' title='gnu.targets.arm.GCArmv6'><span class="xdoc-id">GCArmv6</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Embedded little endian Arm v6 Linux target</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/GCArmv7A.html' title='gnu.targets.arm.GCArmv7A'><span class="xdoc-id">GCArmv7A</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Embedded little endian Arm v7A Linux target</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/M3.html' title='gnu.targets.arm.M3'><span class="xdoc-id">M3</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Embedded little endian Cortex M3 bare metal target</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/M4.html' title='gnu.targets.arm.M4'><span class="xdoc-id">M4</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;Embedded Cortex M4, little endian, bare metal target</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/MVArm9.html' title='gnu.targets.arm.MVArm9'><span class="xdoc-id">MVArm9</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;MonteVista Arm9 little endian embedded Linux target</div>
+<div class="xdocSynCode">
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt><span class="xdoc-kw1">module</span> <a class='xdocSynGo' href='../../../gnu/targets/arm/UCArm9.html' title='gnu.targets.arm.UCArm9'><span class="xdoc-id">UCArm9</span>;</a>
+</div>
+<div class='xdocSynSum'><tt>&nbsp;&nbsp;&nbsp;&nbsp;</tt>//&nbsp;uClibc Arm9 little endian embedded Linux target</div>
+<div class="xdocSynCode">
+<tt></tt>}
+</div>
+</div>
+<span id="xdoc-desc"></span>
+<span id="xdoc-sect-1"></span>
+<div class="xdocSect">DETAILS</div>
+<div class="xdocText">This package offers a generic support for different GNU Arm compilers.
+  For the targets in this package, a user must set configuration parameter
+  <tt>LONGNAME</tt> in <tt>config.bld</tt>. That parameter specifies the relative path to
+  the compiler executable from the directory specified in <tt>rootDir</tt>.</div>
+<span id="xdoc-sect-2"></span>
+<div class="xdocSect">EXAMPLE</div>
+<div class="xdocText">If a version 2007q3 of the CodeSourcery GNU toolchain for Arm is installed
+  in C:/CodeSourcery/arm-2007q3, the following settings in <tt>config.bld</tt>
+  configure <tt>gnu.targets.arm.GCArmv6</tt> target to use that toolchain:</div>
+<div class="xdocText"><PRE class="Example">  var GCArmv6 = xdc.module("gnu.targets.arm.GCArmv6");
+  GCArmv6.rootDir = "C:/CodeSourcery/arm-2007q3";
+  GCArmv6.LONGNAME = "bin/arm-none-linux-gnueabi-gcc";
+</PRE></div>
+<span id="xdoc-sect-3"></span>
+<div class="xdocSect">SEE</div>
+<div class="xdocText"><a class="xdoc-link" href="../../../gnu/targets/ITarget.html#.L.O.N.G.N.A.M.E" title="gnu.targets.ITarget.LONGNAME">gnu.targets.ITarget.LONGNAME</a></div>
+<div id="xdocDate">generated on Fri, 24 Feb 2012 03:46:45 GMT</div>
+</div></div></body>
+</html>
